@@ -128,7 +128,15 @@ def game():
             text_exit = small_font.render("X - Exit", True, "white")
             text_exit_hitbox = text_exit.get_rect(center=(120, 40))
 
+            text_nitro = small_font.render("E - Nitro", True, "white")
+            text_nitro_hitbox = text_nitro.get_rect(center=(120, 70))
+
+            text_drift = small_font.render("Q - Drift", True, "white")
+            text_drift_hitbox = text_drift.get_rect(center=(120, 100))
+
             game_screen.blit(text_exit, text_exit_hitbox)
+            game_screen.blit(text_nitro, text_nitro_hitbox)
+            game_screen.blit(text_drift, text_drift_hitbox)
 
             car.render_position(game_screen)
             enemy_car.render_position(game_screen)
