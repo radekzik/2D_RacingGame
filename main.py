@@ -41,14 +41,14 @@ class Car:
         self.car_acceleration = 0.25
         self.max_speed = 3
         self.min_speed = -1
-        self.speed_rotation = 2
+        self.movement_speed = 2
         self.car_angle = self.car_angle
 
     def rotate_left(self):
-        self.car_angle += self.speed_rotation
+        self.car_angle += self.movement_speed
 
     def rotate_right(self):
-        self.car_angle -= self.speed_rotation
+        self.car_angle -= self.movement_speed
 
     def render_position(self, game_window):
         image_angle_rotating(game_window, self.car_image, (self.x, self.y), self.car_angle)
