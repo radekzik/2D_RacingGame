@@ -1,4 +1,5 @@
 import pygame
+import keyboard as kb
 import math
 
 pygame.init()
@@ -21,6 +22,8 @@ transparent_formula = res(pygame.image.load("imgs/pixel_formula.png"), 2)
 menu_background = res(pygame.image.load("imgs/blue_backscreen.jpg"), 1)
 
 font = pygame.font.SysFont("impact", 60)
+small_font = pygame.font.SysFont("impact", 20)
+second_font = pygame.font.SysFont("impact", 100)
 
 
 def image_angle_rotating(game_window, car_image, car_left_corner, car_angle):
@@ -38,11 +41,13 @@ class Car:
         self.x = self.x_position
         self.y = self.y_position
         self.car_speed = 0
-        self.car_acceleration = 0.25
+        self.car_acceleration = 0.3
         self.max_speed = 3
         self.min_speed = -1
-        self.movement_speed = 2
+        self.movement_speed = 3.2
+        self.max_movement_speed = 6
         self.car_angle = self.car_angle
+        self.car_nitro = 1.8
 
     def rotate_left(self):
         self.car_angle += self.movement_speed
@@ -53,6 +58,12 @@ class Car:
     def render_position(self, game_window):
         image_angle_rotating(game_window, self.car_image, (self.x, self.y), self.car_angle)
 
+    def movement(self):
+
+        plane_angle = self.car_angle * math.pi / 180
+        self.x += -self.car_speed * math.sin(plane_angle)
+        self.y += -self.car_speed * math.cos(plane_angle)
+
     def forward_control(self):
         while self.car_speed <= self.max_speed:
             self.car_speed = self.car_speed + self.car_acceleration
@@ -60,7 +71,7 @@ class Car:
         else:
             self.car_speed = self.max_speed
 
-        self.x += self.car_speed
+        self.movement()
 
     def backward_control(self):
 
@@ -70,7 +81,19 @@ class Car:
         else:
             self.car_speed = self.min_speed
 
-        self.x += self.car_speed
+        self.movement()
+
+    def nitro(self):
+        self.car_speed = self.car_speed + self.car_nitro
+        self.movement()
+
+    def drift(self):
+
+        while self.movement_speed <= self.max_movement_speed:
+            self.movement_speed = self.movement_speed + (self.movement_speed / 8)
+
+        else:
+            self.movement_speed = self.movement_speed
 
 
 class Player(Car):
@@ -78,7 +101,6 @@ class Player(Car):
     x_position = 180
     y_position = 200
     car_angle = 270
-    car_rotation = 2
 
 
 class EnemyPlayer(Car):
@@ -103,12 +125,18 @@ def game():
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (-350, -80))
 
+            text_exit = small_font.render("X - Exit", True, "white")
+            text_exit_hitbox = text_exit.get_rect(center=(120, 40))
+
+            game_screen.blit(text_exit, text_exit_hitbox)
+
             car.render_position(game_screen)
             enemy_car.render_position(game_screen)
 
             pygame.display.update()
 
             for event in pygame.event.get():
+
                 if event.type == pygame.QUIT:
                     pygame.quit()
 
@@ -126,28 +154,46 @@ def game():
             if pressed_key[pygame.K_a]:
                 car.rotate_left()
 
+            if pressed_key[pygame.K_e]:
+                car.nitro()
+
+            if pressed_key[pygame.K_q]:
+                car.drift()
+            else:
+                car.movement_speed = 3.2
+
+            if pressed_key[pygame.K_x]:
+                menu()
+
             pygame.display.update()
 
 
-game()
+def menu():
+    pygame.display.set_caption("2D Racing Game - Menu")
 
-# def menu():
-# pygame.display.set_caption("2D Racing Game - Menu")
+    while True:
 
-# while True:
+        game_screen.blit(menu_background, (0, 0))
 
-# game_screen.blit(menu_background, (0, 0))
+        menu_font = font.render("Main Menu", True, "white")
+        menu_hitbox = menu_font.get_rect(center=(620, 100))
 
-# menu_font = font.render("Main Menu", True, "white")
-# menu_hitbox = menu_font.get_rect(center=(620, 100))
+        text = second_font.render("Press SPACE to play", True, "white")
+        text_hitbox = text.get_rect(center=(620, 400))
 
-# game_screen.blit(menu_font, menu_hitbox)
+        game_screen.blit(menu_font, menu_hitbox)
+        game_screen.blit(text, text_hitbox)
 
-# for event in pygame.event.get():
-# if event.type == pygame.QUIT:
-# pygame.quit()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
 
-# pygame.display.update()
+            pressed_key = pygame.key.get_pressed()
+
+            if pressed_key[pygame.K_SPACE]:
+                game()
+
+            pygame.display.update()
 
 
-# menu()
+menu()
