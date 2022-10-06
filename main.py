@@ -1,5 +1,4 @@
 import pygame
-import keyboard as kb
 import math
 
 pygame.init()
@@ -11,13 +10,15 @@ def res(image, amount):
     return pygame.transform.scale(image, new_res)
 
 
-game_screen = pygame.display.set_mode((1300, 900))
+game_screen = pygame.display.set_mode((1100, 500))
 
 first_map = res(pygame.image.load("imgs/FirstTrack.png"), 0.75)
 
 blue_formula = res(pygame.image.load("imgs/pixel_formula_blue.png"), 2)
 
-transparent_formula = res(pygame.image.load("imgs/pixel_formula.png"), 2)
+red_formula = res(pygame.image.load("imgs/pixel_formula_red.png"), 2)
+
+purple_formula = res(pygame.image.load("imgs/pixel_formula_purple.png"), 2)
 
 menu_background = res(pygame.image.load("imgs/blue_backscreen.jpg"), 1)
 
@@ -104,7 +105,7 @@ class Player(Car):
 
 
 class EnemyPlayer(Car):
-    car_image = transparent_formula
+    car_image = purple_formula
     x_position = 100
     y_position = 520
     car_angle = 0
