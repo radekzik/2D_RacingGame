@@ -62,7 +62,9 @@ class Car:
     def movement(self):
         #převedení na radiany
         plane_angle = self.car_angle * math.pi / 180
+        #vypocet x souradnic - sinus
         self.x += -self.car_speed * math.sin(plane_angle)
+        #vypocet y souradnic - cosinus
         self.y += -self.car_speed * math.cos(plane_angle)
 
     def forward_control(self):
