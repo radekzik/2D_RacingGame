@@ -60,7 +60,7 @@ class Car:
         image_angle_rotating(game_window, self.car_image, (self.x, self.y), self.car_angle)
 
     def movement(self):
-
+        #převedení na radiany
         plane_angle = self.car_angle * math.pi / 180
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)
