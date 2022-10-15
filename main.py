@@ -177,8 +177,9 @@ def game():
             if pressed_key[pygame.K_a]:
                 car.rotate_left()
 
-            if pressed_key[pygame.K_e]:
-                car.nitro()
+            if pressed_key[pygame.K_w]:
+                if pressed_key[pygame.K_e]:
+                    car.nitro()
 
             if pressed_key[pygame.K_q]:
                 car.drift()
