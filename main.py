@@ -10,29 +10,31 @@ def res(image, amount):
     return pygame.transform.scale(image, new_res)
 
 
-game_screen = pygame.display.set_mode((1100, 500))
+width = 1792
+height = 1008
+game_screen = pygame.display.set_mode((width, height))
 
-first_map = res(pygame.image.load("imgs/FirstTrack.png"), 0.75)
+first_map = res(pygame.image.load("images/first_map.png"), 0.7).convert_alpha()
 
-blue_formula = res(pygame.image.load("imgs/pixel_formula_blue.png"), 2)
+blue_formula = res(pygame.image.load("images/pixel_formula_blue.png"), 1.2).convert_alpha()
 
-red_formula = res(pygame.image.load("imgs/pixel_formula_red.png"), 2)
+red_formula = res(pygame.image.load("images/pixel_formula_red.png"), 1.7).convert_alpha()
 
-purple_formula = res(pygame.image.load("imgs/pixel_formula_purple.png"), 2)
+purple_formula = res(pygame.image.load("images/pixel_formula_purple.png"), 2).convert_alpha()
 
-menu_background = res(pygame.image.load("imgs/blue_backscreen.jpg"), 1)
+menu_background = res(pygame.image.load("images/blue_backscreen.jpg"), 1).convert_alpha()
 
 font = pygame.font.SysFont("impact", 60)
 small_font = pygame.font.SysFont("impact", 20)
 second_font = pygame.font.SysFont("impact", 100)
 
 
-def image_angle_rotating(game_window, car_image, car_left_corner, car_angle):
-    image_rotating = pygame.transform.rotate(car_image, car_angle)
+def image_position(game_window, car_image, car_left_corner, car_angle):
+    angle_position = pygame.transform.rotate(car_image, car_angle)
 
-    hitbox_rotating = image_rotating.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
+    car_hitbox = angle_position.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
 
-    game_window.blit(image_rotating, hitbox_rotating.topleft)
+    game_window.blit(angle_position, car_hitbox.topleft)
 
 
 class Car:
@@ -43,12 +45,12 @@ class Car:
         self.y = self.y_position
         self.car_speed = 0
         self.car_acceleration = 0.3
-        self.max_speed = 3
+        self.max_speed = 2.5
         self.min_speed = -1
-        self.movement_speed = 3.2
-        self.max_movement_speed = 6
+        self.movement_speed = 1.8
+        self.max_movement_speed = 3
         self.car_angle = self.car_angle
-        self.car_nitro = 1.8
+        self.car_nitro = 0.5
 
     def rotate_left(self):
         self.car_angle += self.movement_speed
@@ -57,14 +59,11 @@ class Car:
         self.car_angle -= self.movement_speed
 
     def render_position(self, game_window):
-        image_angle_rotating(game_window, self.car_image, (self.x, self.y), self.car_angle)
+        image_position(game_window, self.car_image, (self.x, self.y), self.car_angle)
 
     def movement(self):
-        #převedení na radiany
         plane_angle = self.car_angle * math.pi / 180
-        #vypocet x souradnic - sinus
         self.x += -self.car_speed * math.sin(plane_angle)
-        #vypocet y souradnic - cosinus
         self.y += -self.car_speed * math.cos(plane_angle)
 
     def forward_control(self):
@@ -75,6 +74,10 @@ class Car:
             self.car_speed = self.max_speed
 
         self.movement()
+
+    def slowdown(self):
+
+        self.car_speed = self.car_speed - self.car_acceleration / 3
 
     def backward_control(self):
 
@@ -88,6 +91,7 @@ class Car:
 
     def nitro(self):
         self.car_speed = self.car_speed + self.car_nitro
+
         self.movement()
 
     def drift(self):
@@ -101,8 +105,8 @@ class Car:
 
 class Player(Car):
     car_image = blue_formula
-    x_position = 180
-    y_position = 200
+    x_position = 480
+    y_position = 700
     car_angle = 270
 
 
@@ -120,13 +124,17 @@ def game():
 
     while True:
 
+        clock = pygame.time.Clock()
+
         car = Player()
         enemy_car = EnemyPlayer()
 
         while game_loop:
 
+            clock.tick(240)
+
             game_screen.blit(menu_background, (0, 0))
-            game_screen.blit(first_map, (-350, -80))
+            game_screen.blit(first_map, (0, 0))
 
             text_exit = small_font.render("X - Exit", True, "white")
             text_exit_hitbox = text_exit.get_rect(center=(120, 40))
@@ -155,9 +163,13 @@ def game():
 
             if pressed_key[pygame.K_w]:
                 car.forward_control()
+            else:
+                car.slowdown()
 
             if pressed_key[pygame.K_s]:
                 car.backward_control()
+            else:
+                car.slowdown()
 
             if pressed_key[pygame.K_d]:
                 car.rotate_right()
@@ -171,7 +183,7 @@ def game():
             if pressed_key[pygame.K_q]:
                 car.drift()
             else:
-                car.movement_speed = 3.2
+                car.movement_speed = 1.8
 
             if pressed_key[pygame.K_x]:
                 menu()
@@ -187,10 +199,10 @@ def menu():
         game_screen.blit(menu_background, (0, 0))
 
         menu_font = font.render("Main Menu", True, "white")
-        menu_hitbox = menu_font.get_rect(center=(620, 100))
+        menu_hitbox = menu_font.get_rect(center=(890, 100))
 
         text = second_font.render("Press SPACE to play", True, "white")
-        text_hitbox = text.get_rect(center=(620, 400))
+        text_hitbox = text.get_rect(center=(890, 400))
 
         game_screen.blit(menu_font, menu_hitbox)
         game_screen.blit(text, text_hitbox)
