@@ -28,7 +28,6 @@ purple_formula = res(pygame.image.load("images/pixel_formula_purple.png"), 1.05)
 
 menu_background = res(pygame.image.load("images/blue_background.jpg"), 1).convert_alpha()
 
-
 font = pygame.font.SysFont("impact", 60)
 small_font = pygame.font.SysFont("impact", 20)
 second_font = pygame.font.SysFont("impact", 100)
