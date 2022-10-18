@@ -49,7 +49,7 @@ class Car:
         self.y = self.y_position
         self.car_speed = 0
         self.car_acceleration = 0.3
-        self.max_speed = 3
+        self.max_speed = 2.5
         self.min_speed = -1
         self.movement_speed = 3.2
         self.max_movement_speed = 6
