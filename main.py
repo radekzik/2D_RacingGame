@@ -159,6 +159,7 @@ class EnemyPlayer(Car):
 
 
 def game_keybind():
+
     text_forward = small_font.render("W - Forward", True, "white")
     text_forward_hitbox = text_forward.get_rect(topleft=(100, 40))
 
