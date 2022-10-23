@@ -8,7 +8,7 @@ pygame.init()
 def res(image, amount):
     new_res = (image.get_width() * amount), (image.get_height() * amount)
 
-    return pygame.transform.scale(image, new_res)
+    return pygame.transform.scale(image, new_res).convert_alpha()
 
 
 width = 1792
@@ -39,7 +39,7 @@ second_font = pygame.font.SysFont("impact", 100)
 
 
 def image_position(game_window, car_image, car_left_corner, car_angle):
-    angle_position = pygame.transform.rotate(car_image, car_angle)
+    angle_position = pygame.transform.rotate(car_image, car_angle).convert_alpha()
 
     car_hitbox = angle_position.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
 
@@ -122,7 +122,7 @@ class Car:
 
 
 class Player(Car):
-    car_image = blue_formula
+    car_image = blue_formula.convert_alpha()
     x_position = 620
     y_position = 850
     car_angle = 270
@@ -147,16 +147,16 @@ class Player(Car):
         return out_of_track
 
     def game_info(self):
-        text_y = small_font.render(f"Y - ( {round(self.y)} )", True, "white")
+        text_y = small_font.render(f"Y - ( {round(self.y)} )", True, "white").convert_alpha()
         text_y_hitbox = text_y.get_rect(topleft=(1680, 970))
 
-        text_x = small_font.render(f"X - ( {round(self.x)} )", True, "white")
+        text_x = small_font.render(f"X - ( {round(self.x)} )", True, "white").convert_alpha()
         text_x_hitbox = text_x.get_rect(topleft=(1680, 940))
 
-        text_movement = small_font.render(f"MOVEMENT - ( {round(self.movement_speed)} )", True, "white")
+        text_movement = small_font.render(f"MOVEMENT - ( {round(self.movement_speed)} )", True, "white").convert_alpha()
         text_movement_hitbox = text_movement.get_rect(topleft=(1530, 970))
 
-        text_speed = small_font.render(f"SPEED - ( {round(self.car_speed)} )", True, "white")
+        text_speed = small_font.render(f"SPEED - ( {round(self.car_speed)} )", True, "white").convert_alpha()
         text_speed_hitbox = text_speed.get_rect(topleft=(1560, 940))
 
         game_screen.blit(text_x, text_x_hitbox)
@@ -166,7 +166,7 @@ class Player(Car):
 
 
 class EnemyPlayer(Car):
-    car_image = purple_formula
+    car_image = purple_formula.convert_alpha()
     x_position = 100
     y_position = 520
     car_angle = 0
@@ -201,25 +201,25 @@ def keys(car):
 
 
 def game_keybind():
-    text_forward = small_font.render("W - Forward", True, "white")
+    text_forward = small_font.render("W - Forward", True, "white").convert_alpha()
     text_forward_hitbox = text_forward.get_rect(topleft=(100, 40))
 
-    text_backward = small_font.render("S - Backward", True, "white")
+    text_backward = small_font.render("S - Backward", True, "white").convert_alpha()
     text_backward_hitbox = text_backward.get_rect(topleft=(100, 70))
 
-    text_left = small_font.render("A - Left", True, "white")
+    text_left = small_font.render("A - Left", True, "white").convert_alpha()
     text_left_hitbox = text_backward.get_rect(topleft=(100, 100))
 
-    text_right = small_font.render("D - Right", True, "white")
+    text_right = small_font.render("D - Right", True, "white").convert_alpha()
     text_right_hitbox = text_right.get_rect(topleft=(100, 130))
 
-    text_exit = small_font.render("X - Exit", True, "white")
+    text_exit = small_font.render("X - Exit", True, "white").convert_alpha()
     text_exit_hitbox = text_exit.get_rect(topleft=(220, 40))
 
-    text_nitro = small_font.render("E - Nitro", True, "white")
+    text_nitro = small_font.render("E - Nitro", True, "white").convert_alpha()
     text_nitro_hitbox = text_nitro.get_rect(topleft=(220, 70))
 
-    text_drift = small_font.render("Q - Drift", True, "white")
+    text_drift = small_font.render("Q - Drift", True, "white").convert_alpha()
     text_drift_hitbox = text_drift.get_rect(topleft=(220, 100))
 
     game_screen.blit(text_exit, text_exit_hitbox)
@@ -250,8 +250,11 @@ def game_first_map():
 
             stopwatch = pygame.time.get_ticks() - start_time
             stopwatch = stopwatch // 100 / 10
-            text_time = small_font.render(f"TIMER - {stopwatch}", True, "white")
+            text_time = small_font.render(f"TIMER - {stopwatch}", True, "white").convert_alpha()
             text_timer = text_time.get_rect(topleft=(1620, 900))
+
+            text_fps = small_font.render(f"FPS - {round(clock.get_fps())}", True, "white").convert_alpha()
+            text_fps_hitbox = text_fps.get_rect(topleft=(1690, 40))
 
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
@@ -259,7 +262,9 @@ def game_first_map():
 
             game_keybind()
             car.game_info()
+
             game_screen.blit(text_time, text_timer)
+            game_screen.blit(text_fps, text_fps_hitbox)
 
             car.render_position(game_screen)
             enemy_car.render_position(game_screen)
@@ -285,7 +290,7 @@ def game_first_map():
 
             if 600 < car.x < 620:
                 if 650 < car.y < 950:
-                    round_time = font.render(f"Lap Time - {stopwatch}", True, "white")
+                    round_time = font.render(f"Lap Time - {stopwatch}", True, "white").convert_alpha()
                     round_time_hitbox = round_time.get_rect(topleft=(800, 450))
 
                     game_screen.blit(round_time, round_time_hitbox)
@@ -317,7 +322,7 @@ def game_second_map():
 
             stopwatch = pygame.time.get_ticks() - start_time
             stopwatch = stopwatch // 100 / 10
-            text_time = small_font.render(f"TIMER - {stopwatch}", True, "white")
+            text_time = small_font.render(f"TIMER - {stopwatch}", True, "white").convert_alpha()
             text_timer = text_time.get_rect(topleft=(1620, 900))
 
             game_screen.blit(menu_background, (0, 0))
@@ -359,13 +364,13 @@ def menu():
 
         game_screen.blit(menu_background, (0, 0))
 
-        menu_font = font.render("Main Menu", True, "white")
+        menu_font = font.render("Main Menu", True, "white").convert_alpha()
         menu_hitbox = menu_font.get_rect(center=(890, 100))
 
-        text = second_font.render("Press SPACE to play - First Map", True, "white")
+        text = second_font.render("Press SPACE to play - First Map", True, "white").convert_alpha()
         text_hitbox = text.get_rect(center=(890, 400))
 
-        second_text = second_font.render("Press R_ALT to play - Second Map", True, "white")
+        second_text = second_font.render("Press R_ALT to play - Second Map", True, "white").convert_alpha()
         second_text_hitbox = text.get_rect(center=(890, 650))
 
         game_screen.blit(menu_font, menu_hitbox)
