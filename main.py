@@ -1,5 +1,6 @@
 import pygame
 import math
+import time
 
 pygame.init()
 
@@ -29,6 +30,8 @@ red_formula = res(pygame.image.load("images/pixel_formula_red.png"), 1.05).conve
 purple_formula = res(pygame.image.load("images/pixel_formula_purple.png"), 1.05).convert_alpha()
 
 menu_background = res(pygame.image.load("images/blue_background.jpg"), 1).convert_alpha()
+
+finish_line = res(pygame.image.load("images/finish_line.png"), 1.04).convert_alpha()
 
 font = pygame.font.SysFont("impact", 60)
 small_font = pygame.font.SysFont("impact", 20)
@@ -75,6 +78,7 @@ class Car:
         self.y += -self.car_speed * math.cos(plane_angle)
 
     def forward_control(self):
+
         while self.car_speed <= self.max_speed:
             self.car_speed = self.car_speed + self.car_acceleration
 
@@ -84,6 +88,7 @@ class Car:
         self.movement()
 
     def forward_slowdown(self):
+
         if self.car_speed > 0:
             self.car_speed = self.car_speed - self.car_acceleration / 6
 
@@ -93,6 +98,7 @@ class Car:
         self.movement()
 
     def backward_control(self):
+
         while self.car_speed <= self.min_speed:
             self.car_speed = -self.car_acceleration
 
@@ -107,6 +113,7 @@ class Car:
         self.movement()
 
     def drift(self):
+
         while self.movement_speed <= self.max_movement_speed:
             self.movement_speed = self.movement_speed + (self.movement_speed / 8)
 
@@ -116,7 +123,7 @@ class Car:
 
 class Player(Car):
     car_image = blue_formula
-    x_position = 630
+    x_position = 620
     y_position = 850
     car_angle = 270
 
@@ -125,10 +132,17 @@ class Player(Car):
         self.y = self.y_position
         self.car_angle = 270
 
-    def border_collide(self, map_hitbox):
+    def out_of_track(self):
+        self.car_speed = 0
+        self.min_speed = 0
+        self.car_speed = self.car_speed - 5.6
+
+        self.movement()
+
+    def border_collide(self, car_hitbox):
         image_hitbox = pygame.mask.from_surface(self.car_image)
         car_position = self.x, self.y
-        out_of_track = map_hitbox.overlap(image_hitbox, car_position)
+        out_of_track = car_hitbox.overlap(image_hitbox, car_position)
 
         return out_of_track
 
@@ -158,8 +172,35 @@ class EnemyPlayer(Car):
     car_angle = 0
 
 
-def game_keybind():
+def keys(car):
+    pressed_key = pygame.key.get_pressed()
 
+    if pressed_key[pygame.K_w]:
+        car.forward_control()
+    else:
+        car.forward_slowdown()
+
+    if pressed_key[pygame.K_s]:
+        car.backward_control()
+    else:
+        car.forward_slowdown()
+
+    if pressed_key[pygame.K_d]:
+        car.rotate_right()
+
+    if pressed_key[pygame.K_a]:
+        car.rotate_left()
+
+    if pressed_key[pygame.K_q]:
+        car.drift()
+    else:
+        car.movement_speed = 3.2
+
+    if pressed_key[pygame.K_x]:
+        menu()
+
+
+def game_keybind():
     text_forward = small_font.render("W - Forward", True, "white")
     text_forward_hitbox = text_forward.get_rect(topleft=(100, 40))
 
@@ -214,6 +255,7 @@ def game_first_map():
 
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
+            game_screen.blit(finish_line, (550, 792))
 
             game_keybind()
             car.game_info()
@@ -231,21 +273,7 @@ def game_first_map():
 
             pressed_key = pygame.key.get_pressed()
 
-            if pressed_key[pygame.K_w]:
-                car.forward_control()
-            else:
-                car.forward_slowdown()
-
-            if pressed_key[pygame.K_s]:
-                car.backward_control()
-            else:
-                car.forward_slowdown()
-
-            if pressed_key[pygame.K_d]:
-                car.rotate_right()
-
-            if pressed_key[pygame.K_a]:
-                car.rotate_left()
+            keys(car)
 
             if car.border_collide(pygame.mask.from_surface(first_map_border)):
                 car.respawn()
@@ -255,13 +283,17 @@ def game_first_map():
                 if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(first_map_border)):
                     car.nitro()
 
-            if pressed_key[pygame.K_q]:
-                car.drift()
-            else:
-                car.movement_speed = 3.2
+            if 600 < car.x < 620:
+                if 650 < car.y < 950:
+                    round_time = font.render(f"Lap Time - {stopwatch}", True, "white")
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 450))
 
-            if pressed_key[pygame.K_x]:
-                menu()
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(1000)
+
+                    car.respawn()
+                    start_time = pygame.time.get_ticks()
 
             pygame.display.update()
 
@@ -307,21 +339,7 @@ def game_second_map():
 
             pressed_key = pygame.key.get_pressed()
 
-            if pressed_key[pygame.K_w]:
-                car.forward_control()
-            else:
-                car.forward_slowdown()
-
-            if pressed_key[pygame.K_s]:
-                car.backward_control()
-            else:
-                car.forward_slowdown()
-
-            if pressed_key[pygame.K_d]:
-                car.rotate_right()
-
-            if pressed_key[pygame.K_a]:
-                car.rotate_left()
+            keys(car)
 
             if car.border_collide(pygame.mask.from_surface(second_map_border)):
                 car.respawn()
@@ -330,14 +348,6 @@ def game_second_map():
             if pressed_key[pygame.K_w]:
                 if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(second_map_border)):
                     car.nitro()
-
-            if pressed_key[pygame.K_q]:
-                car.drift()
-            else:
-                car.movement_speed = 3.2
-
-            if pressed_key[pygame.K_x]:
-                menu()
 
             pygame.display.update()
 
