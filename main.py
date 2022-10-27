@@ -60,6 +60,8 @@ class Car:
         self.max_movement_speed = 6
         self.car_angle = self.car_angle
         self.car_nitro = 5
+        self.car_width = 21
+        self.car_height = 56
 
     def rotate_left(self):
         self.car_angle += self.movement_speed
@@ -123,10 +125,8 @@ class Car:
 
 class Player(Car):
     car_image = blue_formula.convert_alpha()
-    # x_position = 620
-    # y_position = 850
-    x_position = 200
-    y_position = 700
+    x_position = 665
+    y_position = 872
     car_angle = 270
 
     def respawn(self):
@@ -142,9 +142,8 @@ class Player(Car):
         self.movement()
 
     def car_collide(self):
-        self.car_speed = 0
-        self.min_speed = 0
-        self.car_speed = self.car_speed - 5.6
+        self.max_speed = 0.1
+        self.car_image = red_formula.convert_alpha()
 
         self.movement()
 
@@ -215,6 +214,19 @@ def keys(car):
 
     if pressed_key[pygame.K_x]:
         menu()
+
+
+def get_car_rect(car_image, car_angle, car_x, car_y):
+    rect_angle = pygame.transform.rotate(car_image, car_angle)
+    car_rect = rect_angle.get_rect(topleft=(car_x, car_y), center=(car_x + 10.5, car_y + 28))
+    return car_rect
+
+
+def get_enemy_rect(enemy_car_image, enemy_car_angle, enemy_car_x, enemy_car_y):
+    enemy_rect_angle = pygame.transform.rotate(enemy_car_image, enemy_car_angle)
+    enemy_rect = enemy_rect_angle.get_rect(topleft=(enemy_car_x, enemy_car_y))
+
+    return enemy_rect
 
 
 def game_keybind():
@@ -297,21 +309,12 @@ def game_first_map():
 
             keys(car)
 
-            rect_angle = pygame.transform.rotate(car.car_image, car.car_angle)
-            car_rect = rect_angle.get_rect(topleft=(car.x, car.y), center=(car.x + 10, car.y + 27))
-
-            enemy_rect_angle = pygame.transform.rotate(enemy_car.car_image, enemy_car.car_angle)
-            enemy_rect = enemy_rect_angle.get_rect(topleft=(enemy_car.x_position, enemy_car.y_position))
-
-            # angle_position = pygame.transform.rotate(car_image, car_angle).convert_alpha()
-
-            # car_hitbox = angle_position.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
+            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
+            enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle,
+                                        enemy_car.x_position, enemy_car.y_position)
 
             if car_rect.colliderect(enemy_rect):
-                # print("collision")
-                # car.car_collide()
-                car.car_image = red_formula.convert_alpha()
-                car.max_speed = 0
+                car.car_collide()
                 pygame.draw.rect(game_screen, (255, 0, 0), enemy_rect)
                 pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
             else:
@@ -319,24 +322,44 @@ def game_first_map():
                 car.max_speed = 3
 
             if car.border_collide(pygame.mask.from_surface(first_map_border)):
+                #border_alert = font.render(f"You Went Off The Track", True, "white").convert_alpha()
+                #border_alert_hitbox = border_alert.get_rect(topleft=(700, 450))
+                #game_screen.blit(border_alert, border_alert_hitbox)
+
+                #pygame.display.update()
+                #pygame.time.wait(1000)
+
                 car.respawn()
                 start_time = pygame.time.get_ticks()
 
             if pressed_key[pygame.K_w]:
-                if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(first_map_border)):
+                if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(first_map_border)) \
+                        and not car_rect.colliderect(enemy_rect):
                     car.nitro()
 
-            if 600 < car.x < 620:
+            if 640 < car.x < 660:
                 if 650 < car.y < 950:
-                    round_time = font.render(f"Lap Time - {stopwatch}", True, "white").convert_alpha()
-                    round_time_hitbox = round_time.get_rect(topleft=(800, 450))
 
-                    game_screen.blit(round_time, round_time_hitbox)
-                    pygame.display.update()
-                    pygame.time.wait(1000)
+                    if stopwatch > 5:
+                        round_time = font.render(f"Lap Time - {stopwatch}", True, "white").convert_alpha()
+                        round_time_hitbox = round_time.get_rect(topleft=(800, 450))
 
-                    car.respawn()
-                    start_time = pygame.time.get_ticks()
+                        game_screen.blit(round_time, round_time_hitbox)
+                        pygame.display.update()
+                        pygame.time.wait(1000)
+
+                        car.respawn()
+                        start_time = pygame.time.get_ticks()
+                    else:
+                        round_time = font.render(f"Wrong Way", True, "white").convert_alpha()
+                        round_time_hitbox = round_time.get_rect(topleft=(800, 450))
+
+                        game_screen.blit(round_time, round_time_hitbox)
+                        pygame.display.update()
+                        pygame.time.wait(1000)
+
+                        car.respawn()
+                        start_time = pygame.time.get_ticks()
 
             pygame.display.update()
 
