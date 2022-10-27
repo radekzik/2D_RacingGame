@@ -23,11 +23,11 @@ second_map = res(pygame.image.load("images/first_map_v2.png"), 0.7).convert_alph
 
 second_map_border = res(pygame.image.load("images/first_map_border_v2.png"), 0.7).convert_alpha()
 
-blue_formula = res(pygame.image.load("images/pixel_formula_blue.png"), 1.05).convert_alpha()
+blue_formula = res(pygame.image.load("images/pixel_formula_blue_new.png"), 1.05).convert_alpha()
 
-red_formula = res(pygame.image.load("images/pixel_formula_red.png"), 1.05).convert_alpha()
+red_formula = res(pygame.image.load("images/pixel_formula_red_new.png"), 1.05).convert_alpha()
 
-purple_formula = res(pygame.image.load("images/pixel_formula_purple.png"), 1.05).convert_alpha()
+purple_formula = res(pygame.image.load("images/pixel_formula_purple_new.png"), 1.05).convert_alpha()
 
 menu_background = res(pygame.image.load("images/blue_background.jpg"), 1).convert_alpha()
 
@@ -123,8 +123,10 @@ class Car:
 
 class Player(Car):
     car_image = blue_formula.convert_alpha()
-    x_position = 620
-    y_position = 850
+    # x_position = 620
+    # y_position = 850
+    x_position = 200
+    y_position = 700
     car_angle = 270
 
     def respawn(self):
@@ -133,6 +135,13 @@ class Player(Car):
         self.car_angle = 270
 
     def out_of_track(self):
+        self.car_speed = 0
+        self.min_speed = 0
+        self.car_speed = self.car_speed - 5.6
+
+        self.movement()
+
+    def car_collide(self):
         self.car_speed = 0
         self.min_speed = 0
         self.car_speed = self.car_speed - 5.6
@@ -167,9 +176,17 @@ class Player(Car):
 
 class EnemyPlayer(Car):
     car_image = purple_formula.convert_alpha()
-    x_position = 100
+    x_position = 200
     y_position = 520
     car_angle = 0
+
+    # def move(self):
+    # self.x += 1
+
+    # if self.x == 1200:
+    # self.x -= 1
+    # self.y -= 1
+    # self.movement()
 
 
 def keys(car):
@@ -279,6 +296,27 @@ def game_first_map():
             pressed_key = pygame.key.get_pressed()
 
             keys(car)
+
+            rect_angle = pygame.transform.rotate(car.car_image, car.car_angle)
+            car_rect = rect_angle.get_rect(topleft=(car.x, car.y), center=(car.x + 10, car.y + 27))
+
+            enemy_rect_angle = pygame.transform.rotate(enemy_car.car_image, enemy_car.car_angle)
+            enemy_rect = enemy_rect_angle.get_rect(topleft=(enemy_car.x_position, enemy_car.y_position))
+
+            # angle_position = pygame.transform.rotate(car_image, car_angle).convert_alpha()
+
+            # car_hitbox = angle_position.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
+
+            if car_rect.colliderect(enemy_rect):
+                # print("collision")
+                # car.car_collide()
+                car.car_image = red_formula.convert_alpha()
+                car.max_speed = 0
+                pygame.draw.rect(game_screen, (255, 0, 0), enemy_rect)
+                pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
+            else:
+                car.car_image = blue_formula.convert_alpha()
+                car.max_speed = 3
 
             if car.border_collide(pygame.mask.from_surface(first_map_border)):
                 car.respawn()
