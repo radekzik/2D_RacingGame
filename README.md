@@ -1,10 +1,17 @@
 # 2D_RacingGame
 TODO:
-- time
+
 - druha mapa
-- finish line
 - pohyb enemy auta
-- kolize s enemy autem
-- hlavni menu
 - typy aut, barvy
+
+
+- time - done
+- finish line - done
+- hlavni menu - 
+- kolize s enemy autem - done
+
+- druhy typ auta, barvy
+
+
 - shop
