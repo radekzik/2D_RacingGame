@@ -1,3 +1,6 @@
+import operator
+import random
+
 import pygame
 import math
 import time
@@ -11,28 +14,21 @@ width = 1792
 height = 1008
 game_screen = pygame.display.set_mode((width, height))
 
-first_map = res(pygame.image.load("images/first_map_v4.png"), 0.7).convert_alpha()
+first_map = res(pygame.image.load("images/first_map.png"), 0.7).convert_alpha()
+first_map_border = res(pygame.image.load("images/first_map_border.png"), 0.7).convert_alpha()
 
-first_map_border = res(pygame.image.load("images/first_map_border_v2.png"), 0.7).convert_alpha()
+second_map = res(pygame.image.load("images/second_map.png"), 0.7).convert_alpha()
+second_map_border = res(pygame.image.load("images/second_map_border.png"), 0.7).convert_alpha()
 
-second_map = res(pygame.image.load("images/first_map_v2.png"), 0.7).convert_alpha()
+blue_formula = res(pygame.image.load("images/formula_blue.png"), 1.05).convert_alpha()
+red_formula = res(pygame.image.load("images/formula_red.png"), 1.05).convert_alpha()
+purple_formula = res(pygame.image.load("images/formula_purple.png"), 1.05).convert_alpha()
 
-second_map_border = res(pygame.image.load("images/first_map_border_v2.png"), 0.7).convert_alpha()
-
-blue_formula = res(pygame.image.load("images/pixel_formula_blue_new.png"), 1.05).convert_alpha()
-
-red_formula = res(pygame.image.load("images/pixel_formula_red_new.png"), 1.05).convert_alpha()
-
-purple_formula = res(pygame.image.load("images/pixel_formula_purple_new.png"), 1.05).convert_alpha()
-
-blue_lambo = res(pygame.image.load("images/blue_lambo_new.png"), 0.85).convert_alpha()
-
-pink_lambo = res(pygame.image.load("images/pink_lambo_new.png"), 0.85).convert_alpha()
+blue_lambo = res(pygame.image.load("images/blue_lambo.png"), 0.85).convert_alpha()
+pink_lambo = res(pygame.image.load("images/pink_lambo.png"), 0.85).convert_alpha()
 
 menu_background = res(pygame.image.load("images/blue_background.jpg"), 1).convert_alpha()
-
 finish_line = res(pygame.image.load("images/finish_line.png"), 1.04).convert_alpha()
-
 button_image = res(pygame.image.load("images/button.png"), 1).convert_alpha()
 
 font = pygame.font.SysFont("impact", 60)
@@ -118,9 +114,9 @@ class Car:
 
 
 class Player(Car):
-    car_image = blue_formula.convert_alpha()
     x_position = 665
     y_position = 872
+    car_image = blue_formula.convert_alpha()
     car_angle = 270
 
     def first_map_car(self):
@@ -130,8 +126,13 @@ class Player(Car):
         self.car_image = blue_lambo.convert_alpha()
 
     def respawn(self):
-        self.x = self.x_position
-        self.y = self.y_position
+        self.x = 665
+        self.y = 872
+        self.car_angle = 270
+
+    def respawn_second_map(self):
+        self.x = 1000
+        self.y = 850
         self.car_angle = 270
 
     def out_of_map(self):
@@ -179,10 +180,49 @@ class Player(Car):
 
 
 class EnemyPlayer(Car):
-    car_image = purple_formula.convert_alpha()
     x_position = 665
     y_position = 840
     car_angle = 270
+    car_image = purple_formula.convert_alpha()
+
+    def movement(self):
+
+        plane_angle = self.car_angle * math.pi / 180
+
+        self.x += -self.car_speed * math.sin(plane_angle)
+        self.y += -self.car_speed * math.cos(plane_angle)
+
+    def forward_control(self):
+
+        self.car_acceleration = random.random() / 2
+        self.max_speed = 3
+
+        while self.car_speed <= self.max_speed:
+            self.car_speed = self.car_speed + self.car_acceleration
+
+        else:
+            self.car_speed = self.max_speed
+
+        self.movement()
+
+    def out_of_track(self):
+        self.car_speed = 0
+        self.car_speed = self.car_speed - 5.6
+
+        self.movement()
+
+    def car_collide(self):
+        self.max_speed = 0.1
+        # self.car_image = pink_lambo.convert_alpha()
+
+        self.movement()
+
+    def border_collide(self, car_hitbox):
+        image_hitbox = pygame.mask.from_surface(self.car_image)
+        car_position = self.x, self.y
+        out_of_track = car_hitbox.overlap(image_hitbox, car_position)
+
+        return out_of_track
 
     def first_map_car(self):
         self.car_image = purple_formula.convert_alpha()
@@ -190,12 +230,15 @@ class EnemyPlayer(Car):
     def second_map_car(self):
         self.car_image = pink_lambo.convert_alpha()
 
-    def move(self):
-        self.forward_control()
-
     def respawn(self):
         self.x = self.x_position
         self.y = self.y_position
+
+        self.car_angle = 270
+
+    def second_map_respawn(self):
+        self.x = 1050
+        self.y = 840
         self.car_angle = 270
 
     def out_of_map(self):
@@ -236,6 +279,8 @@ def keys(car):
 def get_car_rect(car_image, car_angle, car_x, car_y):
     rect_angle = pygame.transform.rotate(car_image, car_angle)
     car_rect = rect_angle.get_rect(topleft=(car_x, car_y), center=(car_x + 10.5, car_y + 28))
+    # bottomleft=(car_x, car_y + 56), topright=(car_x + 21, car_y),
+    # bottomright=(car_x + 21, car_y + 56))
     return car_rect
 
 
@@ -247,10 +292,12 @@ def get_enemy_rect(enemy_car_image, enemy_car_angle, enemy_car_x, enemy_car_y):
     return enemy_rect
 
 
-def get_finish_line_rect(car_image, car_angle, car_x, car_y):
-    rect_angle = pygame.transform.rotate(car_image, car_angle)
-    car_rect = rect_angle.get_rect(topleft=(car_x, car_y), center=(car_x + 10.5, car_y + 28))
-    return car_rect
+def get_enemy_center_rect(enemy_car_image, enemy_car_angle, enemy_car_x, enemy_car_y):
+    enemy_rect_angle = pygame.transform.rotate(enemy_car_image, enemy_car_angle)
+    enemy_rect = enemy_rect_angle.get_rect(center=(enemy_car_x, enemy_car_y))
+    # center=(enemy_car_x + 10.5, enemy_car_y + 28))
+
+    return enemy_rect
 
 
 def game_keybind():
@@ -303,28 +350,28 @@ def game_first_map(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
             stopwatch = pygame.time.get_ticks() - start_time
             stopwatch = stopwatch // 100 / 10
             text_time = small_font.render(f"LAP TIME - {stopwatch}", True, "white").convert_alpha()
-            text_timer = text_time.get_rect(topleft=(1620, 900))
+            text_timer = text_time.get_rect(topleft=(1610, 900))
 
             textt_time = small_font.render(f"RACE TIME - {match_time}", True, "white").convert_alpha()
-            textt_timer = textt_time.get_rect(topleft=(1620, 850))
+            textt_timer = textt_time.get_rect(topleft=(1610, 850))
 
             text_fps = small_font.render(f"FPS - {round(clock.get_fps())}", True, "white").convert_alpha()
             text_fps_hitbox = text_fps.get_rect(topleft=(1690, 40))
 
             current_lap = small_font.render(f"LAP - {lap} / 3", True, "white").convert_alpha()
-            current_lap_hitbox = current_lap.get_rect(topleft=(1560, 500))
+            current_lap_hitbox = current_lap.get_rect(topleft=(1610, 800))
 
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
+            # game_screen.blit(first_map_border, (0, 0))
             game_screen.blit(finish_line, (550, 792))
 
             game_keybind()
             car.game_info()
 
             car.first_map_car()
-            enemy_car.first_map_car()
 
-            enemy_car.move()
+            enemy_car.first_map_car()
 
             game_screen.blit(text_time, text_timer)
             game_screen.blit(text_fps, text_fps_hitbox)
@@ -345,9 +392,10 @@ def game_first_map(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
 
             keys(car)
 
-            car_rect = get_finish_line_rect(car.car_image, car.car_angle, car.x, car.y)
+            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle,
                                         enemy_car.x, enemy_car.y)
+            finish_line_rect = finish_line.get_rect(topleft=(550, 792))
 
             if car_rect.colliderect(enemy_rect):
                 car.car_collide()
@@ -366,7 +414,6 @@ def game_first_map(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
                     car.nitro()
 
             car.out_of_map()
-            enemy_car.out_of_map()
 
             if 640 < car.x < 660:
                 if 650 < car.y < 950:
@@ -397,9 +444,11 @@ def game_first_map(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
                         lap = 0
                         match_time = 0
                         car.respawn()
+
                         start_time = pygame.time.get_ticks()
 
                     if lap == 3:
+                        # match_time = match_time // 100 / 10
                         round_time = font.render(f"Match Time - {match_time}", True, "white").convert_alpha()
                         round_time_hitbox = round_time.get_rect(topleft=(800, 350))
 
@@ -409,23 +458,22 @@ def game_first_map(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
                         lap = 0
                         match_time = 0
                         car.respawn()
+
                         start_time = pygame.time.get_ticks()
 
             pygame.display.update()
 
 
-def game_second_map(lap=0, match_time=0):
+def game_first_map_solo(lap=0, match_time=0):
     game_loop = True
 
-    pygame.display.set_caption("2D Racing Game - SecondMap")
+    pygame.display.set_caption("2D Racing Game - FirstMap - Solo")
 
     while True:
 
         clock = pygame.time.Clock()
         start_time = pygame.time.get_ticks()
-
         car = Player()
-        enemy_car = EnemyPlayer()
 
         while game_loop:
 
@@ -446,14 +494,13 @@ def game_second_map(lap=0, match_time=0):
             current_lap_hitbox = current_lap.get_rect(topleft=(1560, 500))
 
             game_screen.blit(menu_background, (0, 0))
-            game_screen.blit(second_map, (0, 0))
+            game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (550, 792))
 
             game_keybind()
             car.game_info()
 
             car.second_map_car()
-            enemy_car.second_map_car()
 
             game_screen.blit(text_time, text_timer)
             game_screen.blit(text_fps, text_fps_hitbox)
@@ -461,7 +508,6 @@ def game_second_map(lap=0, match_time=0):
             game_screen.blit(textt_time, textt_timer)
 
             car.render_position(game_screen)
-            enemy_car.render_position(game_screen)
 
             pygame.display.update()
 
@@ -474,19 +520,9 @@ def game_second_map(lap=0, match_time=0):
 
             keys(car)
 
-            car_rect = get_finish_line_rect(car.car_image, car.car_angle, car.x, car.y)
-            enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle,
-                                        enemy_car.x_position, enemy_car.y_position)
+            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
 
-            if car_rect.colliderect(enemy_rect):
-                car.car_collide()
-                pygame.draw.rect(game_screen, (255, 0, 0), enemy_rect)
-                pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
-            else:
-                car.car_image = blue_formula.convert_alpha()
-                car.max_speed = 3
-
-            if car.border_collide(pygame.mask.from_surface(second_map_border)):
+            if car.border_collide(pygame.mask.from_surface(first_map_border)):
                 border_alert = font.render(f"You Went Off The Track", True, "white").convert_alpha()
                 border_alert_hitbox = border_alert.get_rect(topleft=(700, 450))
                 game_screen.blit(border_alert, border_alert_hitbox)
@@ -499,8 +535,7 @@ def game_second_map(lap=0, match_time=0):
                 start_time = pygame.time.get_ticks()
 
             if pressed_key[pygame.K_w]:
-                if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(second_map_border)) \
-                        and not car_rect.colliderect(enemy_rect):
+                if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(first_map_border)):
                     car.nitro()
 
             if 640 < car.x < 660:
@@ -549,7 +584,356 @@ def game_second_map(lap=0, match_time=0):
             pygame.display.update()
 
 
-def map_selection():
+def game_second_map(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
+    game_loop = True
+
+    pygame.display.set_caption("2D Racing Game - FirstMap")
+
+    while True:
+
+        clock = pygame.time.Clock()
+
+        car = Player()
+        enemy_car = EnemyPlayer()
+
+        while game_loop:
+
+            clock.tick(240)
+
+            stopwatch = pygame.time.get_ticks() - start_time
+            stopwatch = stopwatch // 100 / 10
+            text_time = small_font.render(f"LAP TIME - {stopwatch}", True, "white").convert_alpha()
+            text_timer = text_time.get_rect(topleft=(1610, 900))
+
+            textt_time = small_font.render(f"RACE TIME - {match_time}", True, "white").convert_alpha()
+            textt_timer = textt_time.get_rect(topleft=(1610, 850))
+
+            text_fps = small_font.render(f"FPS - {round(clock.get_fps())}", True, "white").convert_alpha()
+            text_fps_hitbox = text_fps.get_rect(topleft=(1690, 40))
+
+            current_lap = small_font.render(f"LAP - {lap} / 3", True, "white").convert_alpha()
+            current_lap_hitbox = current_lap.get_rect(topleft=(1610, 800))
+
+            game_screen.blit(menu_background, (0, 0))
+            game_screen.blit(second_map, (0, 0))
+            game_screen.blit(finish_line, (850, 785))
+            game_screen.blit(second_map_border, (0, 0))
+
+            game_keybind()
+            car.game_info()
+
+            car.first_map_car()
+
+            enemy_car.first_map_car()
+
+            game_screen.blit(text_time, text_timer)
+            game_screen.blit(text_fps, text_fps_hitbox)
+            game_screen.blit(current_lap, current_lap_hitbox)
+            game_screen.blit(textt_time, textt_timer)
+
+            car.render_position(game_screen)
+            enemy_car.render_position(game_screen)
+
+            pygame.display.update()
+
+            for event in pygame.event.get():
+
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+
+            pressed_key = pygame.key.get_pressed()
+
+            keys(car)
+
+            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
+            enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle,
+                                        enemy_car.x, enemy_car.y)
+            finish_line_rect = finish_line.get_rect(topleft=(850, 785))
+
+            if car_rect.colliderect(enemy_rect):
+                car.car_collide()
+                pygame.draw.rect(game_screen, (255, 0, 0), enemy_rect)
+                pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
+            else:
+                car.car_image = car.car_image
+                car.max_speed = 3
+
+            if car.border_collide(pygame.mask.from_surface(second_map_border)):
+                car.out_of_track()
+
+            if pressed_key[pygame.K_w]:
+                if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(second_map_border)) \
+                        and not car_rect.colliderect(enemy_rect):
+                    car.nitro()
+
+            car.out_of_map()
+
+            if car_rect.colliderect(finish_line_rect):
+
+                if stopwatch > 5:
+
+                    lap += 1
+                    round_time = font.render(f"Lap Time - {stopwatch}", True, "white").convert_alpha()
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 450))
+
+                    match_time = match_time + stopwatch
+
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(100)
+
+                    car.respawn_second_map()
+                    start_time = pygame.time.get_ticks()
+
+                else:
+                    round_time = font.render(f"Wrong Way", True, "white").convert_alpha()
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 450))
+
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(1000)
+
+                    lap = 0
+                    match_time = 0
+                    car.respawn_second_map()
+
+                    start_time = pygame.time.get_ticks()
+
+                if lap == 3:
+                    # match_time = match_time // 100 / 10
+                    round_time = font.render(f"Match Time - {match_time}", True, "white").convert_alpha()
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 350))
+
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(2000)
+                    lap = 0
+                    match_time = 0
+                    car.respawn_second_map()
+
+                    start_time = pygame.time.get_ticks()
+
+            pygame.display.update()
+
+
+def game_second_map_solo(lap=0, start_time=pygame.time.get_ticks(), match_time=0):
+    game_loop = True
+
+    pygame.display.set_caption("2D Racing Game - SecondMap - Solo")
+
+    while True:
+
+        clock = pygame.time.Clock()
+        car = Player()
+
+        while game_loop:
+
+            clock.tick(240)
+
+            stopwatch = pygame.time.get_ticks() - start_time
+            stopwatch = stopwatch // 100 / 10
+            text_time = small_font.render(f"LAP TIME - {stopwatch}", True, "white").convert_alpha()
+            text_timer = text_time.get_rect(topleft=(1610, 900))
+
+            textt_time = small_font.render(f"RACE TIME - {match_time}", True, "white").convert_alpha()
+            textt_timer = textt_time.get_rect(topleft=(1610, 850))
+
+            text_fps = small_font.render(f"FPS - {round(clock.get_fps())}", True, "white").convert_alpha()
+            text_fps_hitbox = text_fps.get_rect(topleft=(1690, 40))
+
+            current_lap = small_font.render(f"LAP - {lap} / 3", True, "white").convert_alpha()
+            current_lap_hitbox = current_lap.get_rect(topleft=(1610, 800))
+
+            game_screen.blit(menu_background, (0, 0))
+            game_screen.blit(second_map, (0, 0))
+            game_screen.blit(finish_line, (850, 785))
+            game_screen.blit(second_map_border, (0, 0))
+
+            game_keybind()
+            car.game_info()
+
+            car.first_map_car()
+
+            game_screen.blit(text_time, text_timer)
+            game_screen.blit(text_fps, text_fps_hitbox)
+            game_screen.blit(current_lap, current_lap_hitbox)
+            game_screen.blit(textt_time, textt_timer)
+
+            car.render_position(game_screen)
+
+            pygame.display.update()
+
+            for event in pygame.event.get():
+
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+
+            pressed_key = pygame.key.get_pressed()
+
+            keys(car)
+
+            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
+
+            finish_line_rect = finish_line.get_rect(topleft=(850, 785))
+
+            if car.border_collide(pygame.mask.from_surface(second_map_border)):
+                border_alert = font.render(f"You Went Off The Track", True, "white").convert_alpha()
+                border_alert_hitbox = border_alert.get_rect(topleft=(700, 450))
+                game_screen.blit(border_alert, border_alert_hitbox)
+
+                lap = 0
+                pygame.display.update()
+                pygame.time.wait(1000)
+
+                car.x = 1000
+                car.y = 850
+                car.car_angle = 270
+                start_time = pygame.time.get_ticks()
+
+            if pressed_key[pygame.K_w]:
+                if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(second_map_border)):
+                    car.nitro()
+
+            if car_rect.colliderect(finish_line_rect):
+
+                if stopwatch > 5:
+
+                    lap += 1
+                    round_time = font.render(f"Lap Time - {stopwatch}", True, "white").convert_alpha()
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 450))
+
+                    match_time = match_time + stopwatch
+
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(100)
+
+                    car.x = 1000
+                    car.y = 850
+                    car.car_angle = 270
+                    start_time = pygame.time.get_ticks()
+
+                else:
+                    round_time = font.render(f"Wrong Way", True, "white").convert_alpha()
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 450))
+
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(1000)
+
+                    lap = 0
+                    match_time = 0
+                    car.x = 1000
+                    car.y = 850
+                    car.car_angle = 270
+                    start_time = pygame.time.get_ticks()
+
+                if lap == 3:
+                    # match_time = match_time // 100 / 10
+                    round_time = font.render(f"Match Time - {match_time}", True, "white").convert_alpha()
+                    round_time_hitbox = round_time.get_rect(topleft=(800, 350))
+
+                    game_screen.blit(round_time, round_time_hitbox)
+                    pygame.display.update()
+                    pygame.time.wait(2000)
+                    lap = 0
+                    match_time = 0
+                    car.x = 1000
+                    car.y = 850
+                    car.car_angle = 270
+                    start_time = pygame.time.get_ticks()
+
+            car.out_of_map()
+            pygame.display.update()
+
+
+def mode_selection():
+    pygame.display.set_caption("2D Racing Game - Mode Selection")
+
+    while True:
+
+        game_screen.blit(menu_background, (0, 0))
+        mouse_coordinates = pygame.mouse.get_pos()
+
+        menu_font = second_font.render("Mode Selection", True, "white").convert_alpha()
+        menu_hitbox = menu_font.get_rect(center=(890, 100))
+
+        solo = Button(button_image=button_image, x_y=(890, 300),
+                      button_text="Solo", font=font, font_color="white")
+
+        you_vs_pc = Button(button_image=button_image, x_y=(890, 450),
+                           button_text="Versus PC", font=font, font_color="white")
+
+        back_button = Button(button_image=button_image, x_y=(890, 600),
+                             button_text="Back", font=font, font_color="white")
+
+        game_screen.blit(menu_font, menu_hitbox)
+
+        solo.button_render(game_screen)
+        you_vs_pc.button_render(game_screen)
+        back_button.button_render(game_screen)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if solo.on_click(mouse_coordinates):
+                    solo_map_selection()
+
+                if you_vs_pc.on_click(mouse_coordinates):
+                    vs_map_selection()
+
+                if back_button.on_click(mouse_coordinates):
+                    menu()
+
+            pygame.display.update()
+
+
+def solo_map_selection():
+    pygame.display.set_caption("2D Racing Game - Map Selection")
+
+    while True:
+
+        game_screen.blit(menu_background, (0, 0))
+        mouse_coordinates = pygame.mouse.get_pos()
+
+        menu_font = second_font.render("Map Selection", True, "white").convert_alpha()
+        menu_hitbox = menu_font.get_rect(center=(890, 100))
+
+        first_map_button = Button(button_image=button_image, x_y=(890, 300),
+                                  button_text="First Map", font=font, font_color="white")
+
+        second_map_button = Button(button_image=button_image, x_y=(890, 450),
+                                   button_text="Second Map", font=font, font_color="white")
+
+        back_button = Button(button_image=button_image, x_y=(890, 600),
+                             button_text="Back", font=font, font_color="white")
+
+        game_screen.blit(menu_font, menu_hitbox)
+
+        first_map_button.button_render(game_screen)
+        second_map_button.button_render(game_screen)
+        back_button.button_render(game_screen)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if first_map_button.on_click(mouse_coordinates):
+                    game_first_map_solo()
+
+                if second_map_button.on_click(mouse_coordinates):
+                    game_second_map_solo()
+
+                if back_button.on_click(mouse_coordinates):
+                    menu()
+
+            pygame.display.update()
+
+
+def vs_map_selection():
     pygame.display.set_caption("2D Racing Game - Map Selection")
 
     while True:
@@ -621,7 +1005,7 @@ def menu():
             if event.type == pygame.MOUSEBUTTONDOWN:
 
                 if play_button.on_click(mouse_coordinates):
-                    map_selection()
+                    mode_selection()
 
                 if quit_button.on_click(mouse_coordinates):
                     pygame.quit()
