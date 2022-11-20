@@ -1,6 +1,8 @@
 import pygame
 
 
+
+
 def res(image, amount):
     new_res = (image.get_width() * amount), (image.get_height() * amount)
 
@@ -25,3 +27,6 @@ def image_position(game_window, car_image, car_left_corner, car_angle):
     car_hitbox = angle_position.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
 
     game_window.blit(angle_position, car_hitbox.topleft)
+
+
+
