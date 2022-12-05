@@ -34,23 +34,6 @@ def enemy_time_table(fastest_time, slowest_time, match_time):
     draw_text(f"MATCH TIME : {round(match_time)}", font, "white", 1150, 450, game_screen)
 
 
-def check_new_game():
-    settings.started = False
-
-    while not settings.started:
-        game_screen.blit(time_menu, (700, 200))
-        draw_text("PLAY AGAIN - SPACE", font, "white", 740, 250, game_screen)
-        draw_text("EXIT TO MENU - X", font, "white", 740, 350, game_screen)
-        pygame.display.update()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-            if event.type == pygame.KEYDOWN:
-                settings.started = True
-                settings.car_start_time = pygame.time.get_ticks()
-
-
 def car_animation(stopwatch, car):
     if settings.car_type == 1:
         if stopwatch % 2 == 0:

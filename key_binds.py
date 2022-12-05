@@ -1,7 +1,7 @@
 import pygame
 
 import draw
-import game
+import menu
 import settings
 
 
@@ -34,7 +34,7 @@ def player_key_binds(car, car_rect, enemy_rect, map_border):
         car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
-        game.mode_selection()
+        menu.mode_selection()
 
     if pressed_key[pygame.K_w]:
         if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
@@ -67,7 +67,7 @@ def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):
         enemy_car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
-        game.mode_selection()
+        menu.mode_selection()
 
     if pressed_key[pygame.K_i]:
         if pressed_key[pygame.K_o] and not enemy_car.border_collide(pygame.mask.from_surface(map_border)) \
