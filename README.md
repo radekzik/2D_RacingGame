@@ -13,5 +13,3 @@ TODO:
 
 - druhy typ auta, barvy
 
-
-- shop
