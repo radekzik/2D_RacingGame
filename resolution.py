@@ -30,6 +30,3 @@ def image_position(game_window, car_image, car_left_corner, car_angle):
 def draw_text(text, font, color, x, y, game_window):
     set_font = font.render(text, True, color)
     game_window.blit(set_font, (x, y))
-
-
-

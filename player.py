@@ -40,4 +40,3 @@ class Player(Car):
         draw_text(f"X - ( {round(self.x)} )", small_font, "white", 1740, 940, game_screen)
         draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "white", 1590, 970, game_screen)
         draw_text(f"SPEED - ( {round(self.car_speed)} )", small_font, "white", 1620, 940, game_screen)
-

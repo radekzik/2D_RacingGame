@@ -1,35 +1,19 @@
-global car_type
-global enemy_car_type
-global started
+car_type = 0
+enemy_car_type = 0
+started = False
 
-global countdown
-global last_count
+countdown = 5
+last_count = 0
 
-global car_start_time
-global enemy_start_time
-global car_match_time
-global enemy_match_time
+car_start_time = 0
+enemy_start_time = 0
+car_match_time = 0
+enemy_match_time = 0
 
-global animation_value
-global max_laps
-global car_lap
-global enemy_lap
+animation_value = 0
+max_laps = 3
+car_lap = 0
+enemy_lap = 0
 
-
-def init():
-    global car_type
-    global enemy_car_type
-    global started
-
-    global countdown
-    global last_count
-
-    global car_start_time
-    global enemy_start_time
-    global car_match_time
-    global enemy_match_time
-
-    global animation_value
-    global max_laps
-    global car_lap
-    global enemy_lap
+car_time_list = []
+enemy_time_list = []
