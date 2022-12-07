@@ -4,7 +4,7 @@ import settings
 from button import Button
 from game_first_map import first_map_1v1, game_first_map_solo, game_first_map
 from game_second_map import game_second_map_solo, game_second_map
-from load_image import game_screen, menu_background, second_font, button_image, font, small_font, first_map_image, \
+from load_image import game_screen, menu_background, big_font, button_image, normal_font, small_font, first_map_image, \
     second_map_image, lambo_selection, formula_selection
 from resolution import draw_text
 
@@ -17,19 +17,19 @@ def mode_selection():
         game_screen.blit(menu_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MODE SELECTION", second_font, "white", 640, 100, game_screen)
+        draw_text("MODE SELECTION", big_font, "white", 640, 100, game_screen)
 
         against_pc = Button(button_image=button_image, x_y=(760, 420),
-                            button_text="VERSUS PC", font=font, font_color="white")
+                            button_text="VERSUS PC", font=normal_font, font_color="white")
 
         one_vs_one = Button(button_image=button_image, x_y=(1160, 420),
-                            button_text="1 VS 1", font=font, font_color="white")
+                            button_text="1 VS 1", font=normal_font, font_color="white")
 
         solo = Button(button_image=button_image, x_y=(960, 580),
-                      button_text="SOLO", font=font, font_color="white")
+                      button_text="SOLO", font=normal_font, font_color="white")
 
         back_button = Button(button_image=button_image, x_y=(960, 950),
-                             button_text="BACK", font=font, font_color="white")
+                             button_text="BACK", font=normal_font, font_color="white")
 
         solo.button_render(game_screen)
         against_pc.button_render(game_screen)
@@ -64,18 +64,18 @@ def solo_map_selection():
         game_screen.blit(menu_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MAP SELECTION", second_font, "white", 680, 100, game_screen)
+        draw_text("MAP SELECTION", big_font, "white", 680, 100, game_screen)
         draw_text("FIRST MAP", small_font, "grey", 430, 450, game_screen)
         draw_text("SECOND MAP", small_font, "grey", 1300, 350, game_screen)
 
         first_map_button = Button(button_image=first_map_image, x_y=(600, 550),
-                                  button_text="", font=font, font_color="white")
+                                  button_text="", font=normal_font, font_color="white")
 
         second_map_button = Button(button_image=second_map_image, x_y=(1350, 550),
-                                   button_text="", font=font, font_color="white")
+                                   button_text="", font=normal_font, font_color="white")
 
         back_button = Button(button_image=button_image, x_y=(960, 950),
-                             button_text="BACK", font=font, font_color="white")
+                             button_text="BACK", font=normal_font, font_color="white")
 
         first_map_button.button_render(game_screen)
         second_map_button.button_render(game_screen)
@@ -104,18 +104,18 @@ def vs_map_selection():
         game_screen.blit(menu_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MAP SELECTION", second_font, "white", 680, 100, game_screen)
+        draw_text("MAP SELECTION", big_font, "white", 680, 100, game_screen)
         draw_text("FIRST MAP", small_font, "grey", 430, 450, game_screen)
         draw_text("SECOND MAP", small_font, "grey", 1300, 350, game_screen)
 
         first_map_button = Button(button_image=first_map_image, x_y=(600, 550),
-                                  button_text="", font=font, font_color="white")
+                                  button_text="", font=normal_font, font_color="white")
 
         second_map_button = Button(button_image=second_map_image, x_y=(1350, 550),
-                                   button_text="", font=font, font_color="white")
+                                   button_text="", font=normal_font, font_color="white")
 
         back_button = Button(button_image=button_image, x_y=(960, 950),
-                             button_text="BACK", font=font, font_color="white")
+                             button_text="BACK", font=normal_font, font_color="white")
 
         first_map_button.button_render(game_screen)
         second_map_button.button_render(game_screen)
@@ -143,7 +143,7 @@ def car_selection():
         game_screen.blit(menu_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("CAR SELECTION", second_font, "white", 720, 100, game_screen)
+        draw_text("CAR SELECTION", big_font, "white", 720, 100, game_screen)
         draw_text("FORMULA", small_font, "white", 770, 330, game_screen)
         draw_text("LAMBORGHINI", small_font, "white", 1150, 330, game_screen)
 
@@ -153,7 +153,7 @@ def car_selection():
                               font_color="white")
 
         back_button = Button(button_image=button_image, x_y=(1000, 900),
-                             button_text="BACK", font=font, font_color="white")
+                             button_text="BACK", font=normal_font, font_color="white")
 
         formula_button.button_render(game_screen)
         lambo_button.button_render(game_screen)
@@ -168,7 +168,7 @@ def car_selection():
                 if formula_button.on_click(mouse_coordinates):
                     settings.car_type = 0
                     settings.car_type = 1
-                    draw_text("Car Choosen!", font, "green", 830, 230, game_screen)
+                    draw_text("Car Choosen!", normal_font, "green", 830, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
                     mode_selection()
@@ -176,7 +176,7 @@ def car_selection():
                 if lambo_button.on_click(mouse_coordinates):
                     settings.car_type = 0
                     settings.car_type = 2
-                    draw_text("Car Choosen!", font, "green", 830, 230, game_screen)
+                    draw_text("Car Choosen!", normal_font, "green", 830, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
                     mode_selection()
@@ -197,15 +197,15 @@ def main_menu():
         game_screen.blit(menu_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MAIN MENU", second_font, "white", 750, 100, game_screen)
+        draw_text("MAIN MENU", big_font, "white", 750, 100, game_screen)
 
-        play_button = Button(button_image=button_image, x_y=(960, 350), button_text="PLAY", font=font,
+        play_button = Button(button_image=button_image, x_y=(960, 350), button_text="PLAY", font=normal_font,
                              font_color="white")
 
-        car_selection_button = Button(button_image=button_image, x_y=(960, 500), button_text="CHOOSE CAR", font=font,
+        car_selection_button = Button(button_image=button_image, x_y=(960, 500), button_text="CHOOSE CAR", font=normal_font,
                                       font_color="white")
 
-        quit_button = Button(button_image=button_image, x_y=(960, 950), button_text="QUIT", font=font,
+        quit_button = Button(button_image=button_image, x_y=(960, 950), button_text="QUIT", font=normal_font,
                              font_color="white")
 
         play_button.button_render(game_screen)

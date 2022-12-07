@@ -48,6 +48,7 @@ icon_formula = pygame.image.load("images/icons/streaming.png").convert_alpha()
 pygame.display.set_icon(icon_formula)
 
 
-font = pygame.font.SysFont("impact", 60)
+normal_font = pygame.font.SysFont("impact", 60)
 small_font = pygame.font.SysFont("impact", 20)
-second_font = pygame.font.SysFont("impact", 100)
+big_font = pygame.font.SysFont("impact", 100)
+medium_font = pygame.font.SysFont("impact", 35)

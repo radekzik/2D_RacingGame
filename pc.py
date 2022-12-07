@@ -14,13 +14,6 @@ full_degrees = 360
 half_degrees = 180
 
 
-def next_pc_angle():
-    global difference_x, difference_y
-    global angle
-
-    return angle
-
-
 class PCPlayer(Car):
     x_position = 700
     y_position = 900
@@ -39,8 +32,9 @@ class PCPlayer(Car):
         self.next_route_position = 0
 
     def movement(self):
+        half_degree = 180
 
-        plane_angle = self.car_angle * math.pi / 180
+        plane_angle = self.car_angle * (math.pi / half_degree)
 
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)

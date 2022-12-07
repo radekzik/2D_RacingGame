@@ -35,12 +35,12 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
     if settings.enemy_lap == settings.max_laps:
         print(settings.enemy_lap)
         if settings.car_lap < settings.enemy_lap:
-            draw_text(f"YOU LOST THE RACE!", font, "red", 800, 600, game_screen)
+            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, game_screen)
 
             pygame.display.update()
             pygame.time.wait(1000)
         if settings.car_lap > settings.enemy_lap:
-            draw_text(f"YOU WON THE RACE!", font, "gold", 800, 600, game_screen)
+            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
 
             pygame.display.update()
             pygame.time.wait(1000)
@@ -75,8 +75,8 @@ def check_new_game():
 
     while not settings.started:
         game_screen.blit(time_menu, (700, 200))
-        draw_text("PLAY AGAIN - SPACE", font, "white", 740, 250, game_screen)
-        draw_text("EXIT TO MENU - X", font, "white", 740, 350, game_screen)
+        draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, game_screen)
+        draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, game_screen)
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -96,7 +96,7 @@ def check_car_type(car):
 
 def start_game():
     while not settings.started:
-        draw_text(f"Press Any Key To Start", font, "white", 70, 220, game_screen)
+        draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, game_screen)
 
         pygame.display.update()
 
@@ -128,15 +128,15 @@ def start_countdown(car, enemy_car):
         game_screen.blit(semaphor_all_red, (880, 500))
 
     if settings.countdown == 3:
-        draw_text(f"{str(settings.countdown)} - READY", font, "red", 850, 570, game_screen)
+        draw_text(f"{str(settings.countdown)} - READY", normal_font, "red", 850, 570, game_screen)
         game_screen.blit(semaphor_red, (880, 500))
 
     if settings.countdown == 2:
-        draw_text(f"{str(settings.countdown)} - STEADY", font, "orange", 850, 570, game_screen)
+        draw_text(f"{str(settings.countdown)} - STEADY", normal_font, "orange", 850, 570, game_screen)
         game_screen.blit(semaphor_orange, (880, 500))
 
     if settings.countdown == 1:
-        draw_text(f"{str(settings.countdown)} - GO!", font, "green", 880, 570, game_screen)
+        draw_text(f"{str(settings.countdown)} - GO!", normal_font, "green", 880, 570, game_screen)
         game_screen.blit(semaphor_green, (880, 500))
 
     if settings.countdown == 0:

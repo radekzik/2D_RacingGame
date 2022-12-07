@@ -28,8 +28,9 @@ class Car:
         image_position(game_window, self.car_image, (self.x, self.y), self.car_angle)
 
     def movement(self):
+        half_degree = 180
 
-        plane_angle = self.car_angle * math.pi / 180
+        plane_angle = self.car_angle * (math.pi / half_degree)
 
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)

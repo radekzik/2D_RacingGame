@@ -5,7 +5,7 @@ import game
 import settings
 from enemy import EnemyPlayer
 from key_binds import player_key_binds
-from load_image import game_screen, menu_background, finish_line, font, second_map_border, \
+from load_image import game_screen, menu_background, finish_line, normal_font, second_map_border, \
     second_map
 from pc import PCPlayer
 from player import Player
@@ -103,7 +103,7 @@ def game_second_map():
                             time_position += 1
                             settings.car_time_list.insert(time_position, stopwatch)
                         settings.car_match_time = settings.car_match_time + stopwatch
-                        draw_text(f"Lap Time - {stopwatch}", font, "white", 800, 450, game_screen)
+                        draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(200)
@@ -112,7 +112,7 @@ def game_second_map():
                         settings.car_start_time = pygame.time.get_ticks()
 
                     else:
-                        draw_text(f"Wrong Way", font, "white", 800, 450, game_screen)
+                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(1000)
@@ -125,13 +125,13 @@ def game_second_map():
                     if settings.car_lap == settings.max_laps:
 
                         if settings.car_lap > settings.enemy_lap:
-                            draw_text(f"YOU WON THE RACE!", font, "gold", 800, 600, game_screen)
+                            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
 
                             pygame.display.update()
                             pygame.time.wait(1000)
 
                         if settings.car_lap < settings.enemy_lap:
-                            draw_text(f"YOU LOST THE RACE!", font, "red", 800, 600, game_screen)
+                            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, game_screen)
 
                             pygame.display.update()
                             pygame.time.wait(1000)
@@ -220,7 +220,7 @@ def game_second_map_solo(lap=0, match_time=0):
                             settings.car_time_list.insert(time_position, stopwatch)
 
                         match_time = match_time + stopwatch
-                        draw_text(f"Lap Time - {stopwatch}", font, "white", 800, 450, game_screen)
+                        draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(200)
@@ -229,7 +229,7 @@ def game_second_map_solo(lap=0, match_time=0):
                         settings.car_start_time = pygame.time.get_ticks()
 
                     else:
-                        draw_text(f"Wrong Way", font, "white", 800, 450, game_screen)
+                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(1000)

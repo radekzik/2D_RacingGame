@@ -5,7 +5,7 @@ import game
 import settings
 from enemy import EnemyPlayer
 from key_binds import player_key_binds, enemy_key_binds
-from load_image import game_screen, first_map, menu_background, finish_line, first_map_border, font
+from load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font
 from pc import PCPlayer
 from player import Player
 from rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
@@ -99,7 +99,7 @@ def game_first_map():
                             time_position += 1
                             settings.car_time_list.insert(time_position, car_stopwatch)
                         settings.car_match_time = settings.car_match_time + car_stopwatch
-                        draw_text(f"Lap Time - {car_stopwatch}", font, "white", 800, 450, game_screen)
+                        draw_text(f"Lap Time - {car_stopwatch}", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(200)
@@ -108,7 +108,7 @@ def game_first_map():
                         settings.car_start_time = pygame.time.get_ticks()
 
                     else:
-                        draw_text(f"Wrong Way", font, "white", 800, 450, game_screen)
+                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(1000)
@@ -125,13 +125,13 @@ def game_first_map():
                         print(settings.max_laps)
 
                         if settings.car_lap > settings.enemy_lap:
-                            draw_text(f"YOU WON THE RACE!", font, "gold", 800, 600, game_screen)
+                            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
 
                             pygame.display.update()
                             pygame.time.wait(1000)
 
                         if settings.car_lap < settings.enemy_lap:
-                            draw_text(f"YOU LOST THE RACE!", font, "red", 800, 600, game_screen)
+                            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, game_screen)
 
                             pygame.display.update()
                             pygame.time.wait(1000)
@@ -217,7 +217,7 @@ def game_first_map_solo(lap=0, match_time=0):
                             settings.car_time_list.insert(time_position, stopwatch)
 
                         match_time = match_time + stopwatch
-                        draw_text(f"Lap Time - {stopwatch}", font, "white", 800, 450, game_screen)
+                        draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(200)
@@ -226,7 +226,7 @@ def game_first_map_solo(lap=0, match_time=0):
                         settings.car_start_time = pygame.time.get_ticks()
 
                     else:
-                        draw_text(f"Wrong Way", font, "white", 800, 450, game_screen)
+                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(1000)
@@ -330,7 +330,7 @@ def first_map_1v1(lap=0, match_time=0):
                             settings.car_time_list.insert(time_position, stopwatch)
 
                         match_time = match_time + stopwatch
-                        draw_text(f"Lap Time - {stopwatch}", font, "white", 800, 450, game_screen)
+                        draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(200)
@@ -339,7 +339,7 @@ def first_map_1v1(lap=0, match_time=0):
                         settings.car_start_time = pygame.time.get_ticks()
 
                     else:
-                        draw_text(f"Wrong Way", font, "white", 800, 450, game_screen)
+                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
                         pygame.time.wait(1000)
