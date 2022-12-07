@@ -1,12 +1,12 @@
 import pygame
 
-import settings
-from button import Button
-from game_first_map import first_map_1v1, game_first_map_solo, game_first_map
-from game_second_map import game_second_map_solo, game_second_map
-from load_image import game_screen, menu_background, big_font, button_image, normal_font, small_font, first_map_image, \
+from game.config import settings
+from game.ui.button import Button
+from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
+from game.maps.game_second_map import game_second_map_solo, game_second_map
+from game.ui.load_image import game_screen, menu_background, big_font, button_image, normal_font, small_font, first_map_image, \
     second_map_image, lambo_selection, formula_selection
-from resolution import draw_text
+from game.ui.resolution import draw_text
 
 
 def mode_selection():

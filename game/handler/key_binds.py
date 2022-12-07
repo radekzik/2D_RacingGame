@@ -1,8 +1,7 @@
 import pygame
 
-import draw
-import menu
-import settings
+from game.ui import draw, menu
+from game.config import settings
 
 
 def player_key_binds(car, car_rect, enemy_rect, map_border):

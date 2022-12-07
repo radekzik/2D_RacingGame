@@ -1,10 +1,9 @@
-import pygame
 import math
 import random
 
-from car import Car
-from load_image import purple_formula, pink_lambo, width, height, game_screen
-from rects import get_enemy_rect
+from game.cars.car import Car
+from game.ui.load_image import purple_formula, pink_lambo, width, height
+from game.handler.rects import get_enemy_rect
 
 global difference_x, difference_y
 global angle

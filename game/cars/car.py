@@ -1,6 +1,6 @@
 import pygame
 import math
-from resolution import image_position
+from game.ui.resolution import image_position
 
 
 class Car:

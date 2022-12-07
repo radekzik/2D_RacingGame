@@ -1,16 +1,16 @@
 import pygame
 
-import draw
-import game
-import settings
-from enemy import EnemyPlayer
-from key_binds import player_key_binds, enemy_key_binds
-from load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font
-from pc import PCPlayer
-from player import Player
-from rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
+from game.ui import draw
+from game.handler import game_methods
+from game.config import settings
+from game.cars.enemy import EnemyPlayer
+from game.handler.key_binds import player_key_binds, enemy_key_binds
+from game.ui.load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font
+from game.cars.pc import PCPlayer
+from game.cars.player import Player
+from game.handler.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
     SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE
-from resolution import draw_text
+from game.ui.resolution import draw_text
 
 
 def game_first_map():
@@ -57,7 +57,7 @@ def game_first_map():
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (580, 840))
 
-            game.start_countdown(car, pc_car)
+            game_methods.start_countdown(car, pc_car)
             pc_car.start_drive()
             pc_car.first_map_route()
 
@@ -68,13 +68,13 @@ def game_first_map():
             pc_car.first_map_car()
             draw.enemy_animation(car_stopwatch, pc_car)
 
-            game.check_car_type(car)
+            game_methods.check_car_type(car)
 
             car.render_position(game_screen)
             pc_car.render_position(game_screen)
 
             pygame.display.update()
-            game.start_game()
+            game_methods.start_game()
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -86,9 +86,9 @@ def game_first_map():
             enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
 
             player_key_binds(car, car_rect, enemy_rect, first_map_border)
-            game.collision_vs_pc(car, pc_car, car_rect, enemy_rect, first_map_border, enemy_stopwatch,
-                                 settings.car_time_list,
-                                 settings.enemy_time_list)
+            game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, first_map_border, enemy_stopwatch,
+                                         settings.car_time_list,
+                                         settings.enemy_time_list)
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
@@ -113,9 +113,9 @@ def game_first_map():
                         pygame.display.update()
                         pygame.time.wait(1000)
 
-                        game.stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+                        game_methods.stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
 
-                        game.check_new_game()
+                        game_methods.check_new_game()
                         game_first_map()
 
                     if settings.car_lap == settings.max_laps:
@@ -143,8 +143,8 @@ def game_first_map():
                         # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
                         pygame.display.update()
                         pygame.time.wait(5000)
-                        game.stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
-                        game.check_new_game()
+                        game_methods.stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+                        game_methods.check_new_game()
                         game_first_map()
 
         settings.animation_value += 1
@@ -184,16 +184,16 @@ def game_first_map_solo(lap=0, match_time=0):
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (580, 849))
 
-            game.start_countdown(car, enemy_car)
+            game_methods.start_countdown(car, enemy_car)
 
             draw.game_info(match_time, clock, lap, stopwatch)
             car.car_info()
-            game.check_car_type(car)
+            game_methods.check_car_type(car)
 
             car.render_position(game_screen)
 
             pygame.display.update()
-            game.start_game()
+            game_methods.start_game()
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -205,7 +205,7 @@ def game_first_map_solo(lap=0, match_time=0):
 
             player_key_binds(car, car_rect, enemy_rect, first_map_border)
 
-            game.collision_solo(car, first_map_border)
+            game_methods.collision_solo(car, first_map_border)
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
@@ -238,7 +238,7 @@ def game_first_map_solo(lap=0, match_time=0):
                         car.respawn_first_map()
                         settings.car_start_time = pygame.time.get_ticks()
 
-                        game.check_new_game()
+                        game_methods.check_new_game()
                         game_first_map_solo()
 
                     if lap == settings.max_laps:
@@ -253,7 +253,7 @@ def game_first_map_solo(lap=0, match_time=0):
                         match_time = 0
                         car.respawn_first_map()
                         settings.car_start_time = pygame.time.get_ticks()
-                        game.check_new_game()
+                        game_methods.check_new_game()
                         game_first_map_solo()
 
             pygame.display.update()
@@ -293,19 +293,19 @@ def first_map_1v1(lap=0, match_time=0):
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (580, 849))
 
-            game.start_countdown(car, enemy_car)
+            game_methods.start_countdown(car, enemy_car)
 
             draw.game_info(match_time, clock, lap, stopwatch)
 
             car.car_info()
 
-            game.check_car_type(car)
+            game_methods.check_car_type(car)
 
             car.render_position(game_screen)
             enemy_car.render_position(game_screen)
 
             pygame.display.update()
-            game.start_game()
+            game_methods.start_game()
             pygame.display.update()
 
             for event in pygame.event.get():
@@ -318,7 +318,7 @@ def first_map_1v1(lap=0, match_time=0):
             player_key_binds(car, car_rect, enemy_rect, first_map_border)
             enemy_key_binds(enemy_car, car_rect, enemy_rect, first_map_border)
 
-            game.collision_vs_player(car, enemy_car, car_rect, enemy_rect, first_map_border)
+            game_methods.collision_vs_player(car, enemy_car, car_rect, enemy_rect, first_map_border)
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
@@ -356,7 +356,7 @@ def first_map_1v1(lap=0, match_time=0):
 
                         settings.car_start_time = pygame.time.get_ticks()
 
-                        game.check_new_game()
+                        game_methods.check_new_game()
                         game_first_map()
 
                     if lap == settings.max_laps:
@@ -379,7 +379,7 @@ def first_map_1v1(lap=0, match_time=0):
 
                         settings.car_start_time = pygame.time.get_ticks()
 
-                        game.check_new_game()
+                        game_methods.check_new_game()
                         game_first_map()
 
             pygame.display.update()

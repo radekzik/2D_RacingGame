@@ -1,6 +1,6 @@
-from car import Car
-from resolution import draw_text
-from load_image import blue_formula, blue_lambo, width, height, game_screen, small_font
+from game.cars.car import Car
+from game.ui.resolution import draw_text
+from game.ui.load_image import blue_formula, blue_lambo, width, height, game_screen, small_font
 
 
 class Player(Car):

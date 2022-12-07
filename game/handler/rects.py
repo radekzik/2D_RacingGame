@@ -1,5 +1,5 @@
 import pygame
-from load_image import finish_line
+from game.ui.load_image import finish_line
 
 FINISH_LINE_X = 580
 FINISH_LINE_Y = 849

@@ -1,9 +1,9 @@
-import game_first_map
-from resolution import draw_text
-from load_image import *
-from rects import *
+from game.maps import game_first_map
+from game.ui.resolution import draw_text
+from game.ui.load_image import *
+from game.handler.rects import *
 
-import settings
+from game.config import settings
 
 pygame.init()
 

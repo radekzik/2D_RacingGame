@@ -1,6 +1,6 @@
-from car import Car
+from game.cars.car import Car
 
-from load_image import red_formula
+from game.ui.load_image import red_formula
 
 
 class EnemyPlayer(Car):

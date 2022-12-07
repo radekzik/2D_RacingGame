@@ -1,9 +1,9 @@
 import pygame
 
-import settings
-from load_image import game_screen, time_menu, normal_font, small_font, purple_formula_2, purple_formula, pink_lambo, \
+from game.config import settings
+from game.ui.load_image import game_screen, time_menu, normal_font, small_font, purple_formula_2, purple_formula, pink_lambo, \
     blue_formula_2, blue_lambo, blue_formula
-from resolution import draw_text
+from game.ui.resolution import draw_text
 
 
 def game_info(match_time, clock, lap, stopwatch):
