@@ -1,15 +1,13 @@
 # 2D_RacingGame
 TODO:
 
-- druha mapa
-- pohyb enemy auta
+- random vyber cest pro pc car
 - typy aut, barvy
-
-
-- time - done
-- finish line - done
-- hlavni menu - 
-- kolize s enemy autem - done
-
-- druhy typ auta, barvy
+- mapy
+- predelat kompletne ui
+---
+- time - fix 
+- car rect - fix
+- border prvni mapy - fix
+- finish line - fix - done
 

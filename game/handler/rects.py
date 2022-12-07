@@ -1,8 +1,11 @@
 import pygame
 from game.ui.load_image import finish_line
 
-FINISH_LINE_X = 580
-FINISH_LINE_Y = 849
+FIRST_MAP_FINISH_LINE_X = 580
+FIRST_MAP_FINISH_LINE_Y = 840
+
+SECOND_MAP_FINISH_LINE_X = 580
+SECOND_MAP_FINISH_LINE_Y = 795
 
 FIRST_FINISH_LINE_X_RANGE = 650
 SECOND_FINISH_LINE_X_RANGE = 680
@@ -26,6 +29,6 @@ def get_enemy_rect(enemy_car_image, enemy_car_angle, enemy_car_x, enemy_car_y):
 
 
 def get_finish_line_rect():
-    finish_line_rect = finish_line.get_rect(topleft=(FINISH_LINE_X, FINISH_LINE_Y))
+    finish_line_rect = finish_line.get_rect(topleft=(FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
 
     return finish_line_rect

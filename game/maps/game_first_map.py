@@ -9,7 +9,7 @@ from game.ui.load_image import game_screen, first_map, menu_background, finish_l
 from game.cars.pc import PCPlayer
 from game.cars.player import Player
 from game.handler.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
-    SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE
+    SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y
 from game.ui.resolution import draw_text
 
 
@@ -55,7 +55,7 @@ def game_first_map():
 
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
-            game_screen.blit(finish_line, (580, 840))
+            game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
 
             game_methods.start_countdown(car, pc_car)
             pc_car.start_drive()
@@ -182,7 +182,7 @@ def game_first_map_solo(lap=0, match_time=0):
 
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
-            game_screen.blit(finish_line, (580, 849))
+            game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
 
             game_methods.start_countdown(car, enemy_car)
 
@@ -291,7 +291,7 @@ def first_map_1v1(lap=0, match_time=0):
 
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
-            game_screen.blit(finish_line, (580, 849))
+            game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
 
             game_methods.start_countdown(car, enemy_car)
 
