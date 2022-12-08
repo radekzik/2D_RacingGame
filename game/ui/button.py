@@ -1,9 +1,19 @@
+def button_hover_render(button_name, mouse_coordinates, game_screen):
+    button_name.on_hover(mouse_coordinates)
+    button_name.button_render(game_screen)
+
+
+def buttons_render(game_screen, *name):
+    name.button_render(game_screen)
+
+
 class Button:
-    def __init__(self, x_y, button_image, button_text, font, font_color):
+    def __init__(self, x_y, button_image, button_text, font, font_color, font_hover_color):
         self.x = x_y[0]
         self.y = x_y[1]
         self.font = font
         self.font_color = font_color
+        self.font_hover_color = font_hover_color
         self.button_text = button_text
         self.button_image = button_image
 
@@ -18,6 +28,19 @@ class Button:
         if self.button_rect.left <= mouse_coordinates[0] <= self.button_rect.right:
             if self.button_rect.top <= mouse_coordinates[1] <= self.button_rect.bottom:
                 return in_rect
+
+    def on_hover(self, mouse_coordinates):
+
+        if self.button_rect.left <= mouse_coordinates[0] <= self.button_rect.right:
+            if self.button_rect.top <= mouse_coordinates[1] <= self.button_rect.bottom:
+                self.text_render = self.font.render(self.button_text, True, self.font_hover_color)
+
+                print("cyan")
+
+        else:
+            self.text_render = self.font.render(self.button_text, True, self.font_color)
+
+            print("white")
 
     def button_render(self, game_screen):
         game_screen.blit(self.button_image, self.button_rect)
