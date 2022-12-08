@@ -199,6 +199,36 @@ def car_selection():
             pygame.display.update()
 
 
+def stats():
+    pygame.display.set_caption("2D Racing Game - Stats")
+
+    while True:
+        game_screen.blit(menu_background, (0, 0))
+        mouse_coordinates = pygame.mouse.get_pos()
+
+        draw_text("STATS", big_font, "white", 865, 100, game_screen)
+        draw_text("LAP TIMES", small_font, "white", 770, 330, game_screen)
+        draw_text("RACE TIMES", small_font, "white", 1150, 330, game_screen)
+
+        back_button = Button(button_image=button_image, x_y=(1000, 900),
+                             button_text="BACK", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        back_button.button_render(game_screen)
+
+        button_hover_render(back_button, mouse_coordinates, game_screen)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+
+                if back_button.on_click(mouse_coordinates):
+                    main_menu()
+
+            pygame.display.update()
+
+
 def main_menu():
     settings.car_type = 1
 
@@ -218,15 +248,21 @@ def main_menu():
                                       font=normal_font,
                                       font_color="white", font_hover_color="cyan")
 
+        stats_button = Button(button_image=button_image, x_y=(960, 650), button_text="STATS",
+                              font=normal_font,
+                              font_color="white", font_hover_color="cyan")
+
         quit_button = Button(button_image=button_image, x_y=(960, 950), button_text="QUIT", font=normal_font,
                              font_color="white", font_hover_color="cyan")
 
         play_button.button_render(game_screen)
         car_selection_button.button_render(game_screen)
+        stats_button.button_render(game_screen)
         quit_button.button_render(game_screen)
 
         button_hover_render(play_button, mouse_coordinates, game_screen)
         button_hover_render(car_selection_button, mouse_coordinates, game_screen)
+        button_hover_render(stats_button, mouse_coordinates, game_screen)
         button_hover_render(quit_button, mouse_coordinates, game_screen)
 
         for event in pygame.event.get():
@@ -238,6 +274,8 @@ def main_menu():
                     mode_selection()
                 if car_selection_button.on_click(mouse_coordinates):
                     car_selection()
+                if stats_button.on_click(mouse_coordinates):
+                    stats()
                 if quit_button.on_click(mouse_coordinates):
                     pygame.quit()
 

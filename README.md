@@ -5,6 +5,7 @@ TODO:
 - typy aut, barvy
 - mapy
 - predelat kompletne ui
+- database - ukladani casu
 ---
 - time - fix 
 - car rect - fix
