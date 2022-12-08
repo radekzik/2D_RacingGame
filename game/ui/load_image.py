@@ -12,7 +12,7 @@ first_map = res(pygame.image.load("../images/maps/first_map2.png"), 0.75).conver
 first_map_border = res(pygame.image.load("../images/borders/first_map_border3.png"), 0.75).convert_alpha()
 
 second_map = res(pygame.image.load("../images/maps/second_map.png"), 0.75).convert_alpha()
-second_map_border = res(pygame.image.load("../images/borders/second_map_border.png"), 0.75).convert_alpha()
+second_map_border = res(pygame.image.load("../images/borders/second_map_border2.png"), 0.75).convert_alpha()
 
 third_map = res(pygame.image.load("../images/maps/third_map.png"), 0.75).convert_alpha()
 third_map_border = res(pygame.image.load("../images/borders/third_map_border.png"), 0.75).convert_alpha()

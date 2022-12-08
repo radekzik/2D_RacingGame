@@ -11,4 +11,5 @@ TODO:
 - car rect - fix
 - border prvni mapy - fix
 - finish line - fix - done
+- third map - fix
 
