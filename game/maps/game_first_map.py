@@ -56,6 +56,7 @@ def game_first_map():
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
+            game_screen.blit(first_map_border, (0, 0))
 
             game_methods.start_countdown(car, pc_car)
             pc_car.start_drive()
@@ -183,6 +184,7 @@ def game_first_map_solo(lap=0, match_time=0):
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
+            game_screen.blit(first_map_border, (0, 0))
 
             game_methods.start_countdown(car, enemy_car)
 
@@ -292,6 +294,7 @@ def first_map_1v1(lap=0, match_time=0):
             game_screen.blit(menu_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
+            game_screen.blit(first_map_border, (0, 0))
 
             game_methods.start_countdown(car, enemy_car)
 

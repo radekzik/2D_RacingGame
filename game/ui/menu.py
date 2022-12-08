@@ -1,6 +1,7 @@
 import pygame
 
 from game.config import settings
+from game.maps.game_third_map import game_third_map
 from game.ui.button import Button, button_hover_render
 from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
 from game.maps.game_second_map import game_second_map_solo, game_second_map
@@ -115,6 +116,7 @@ def vs_map_selection():
         draw_text("MAP SELECTION", big_font, "white", 680, 100, game_screen)
         draw_text("FIRST MAP", small_font, "grey", 430, 450, game_screen)
         draw_text("SECOND MAP", small_font, "grey", 1300, 350, game_screen)
+        #draw_text("THIRD MAP", small_font, "grey", 680, 800, game_screen)
 
         first_map_button = Button(button_image=first_map_image, x_y=(600, 550),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
@@ -122,13 +124,19 @@ def vs_map_selection():
         second_map_button = Button(button_image=second_map_image, x_y=(1350, 550),
                                    button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
 
+        third_map_button = Button(button_image=button_image, x_y=(1350, 850),
+                                  button_text="THIRD MAP", font=normal_font, font_color="white",
+                                  font_hover_color="cyan")
+
         back_button = Button(button_image=button_image, x_y=(960, 950),
                              button_text="BACK", font=normal_font, font_color="white", font_hover_color="cyan")
 
         first_map_button.button_render(game_screen)
         second_map_button.button_render(game_screen)
+        third_map_button.button_render(game_screen)
         back_button.button_render(game_screen)
 
+        button_hover_render(third_map_button, mouse_coordinates, game_screen)
         button_hover_render(back_button, mouse_coordinates, game_screen)
 
         for event in pygame.event.get():
@@ -140,6 +148,8 @@ def vs_map_selection():
                     game_first_map()
                 if second_map_button.on_click(mouse_coordinates):
                     game_second_map()
+                if third_map_button.on_click(mouse_coordinates):
+                    game_third_map()
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 

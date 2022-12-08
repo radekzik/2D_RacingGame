@@ -9,10 +9,13 @@ flags = pygame.HWSURFACE | pygame.FULLSCREEN
 game_screen = pygame.display.set_mode((width, height), flags, vsync=1)
 
 first_map = res(pygame.image.load("../images/maps/first_map2.png"), 0.75).convert_alpha()
-first_map_border = res(pygame.image.load("../images/borders/first_map_border2.png"), 0.75).convert_alpha()
+first_map_border = res(pygame.image.load("../images/borders/first_map_border3.png"), 0.75).convert_alpha()
 
 second_map = res(pygame.image.load("../images/maps/second_map.png"), 0.75).convert_alpha()
 second_map_border = res(pygame.image.load("../images/borders/second_map_border.png"), 0.75).convert_alpha()
+
+third_map = res(pygame.image.load("../images/maps/third_map.png"), 0.75).convert_alpha()
+third_map_border = res(pygame.image.load("../images/borders/third_map_border.png"), 0.75).convert_alpha()
 
 blue_formula = res(pygame.image.load("../images/cars/formula_blue.png"), 1.1).convert_alpha()
 blue_formula_2 = res(pygame.image.load("../images/cars/formula_blue2.png"), 1.1).convert_alpha()
