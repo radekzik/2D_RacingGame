@@ -7,6 +7,5 @@ TODO:
 - dokoncit stats v menu
 ---
 - time - fix 
-- car rect - fix
 - third map - fix
 
