@@ -5,11 +5,10 @@ TODO:
 - typy aut, barvy
 - mapy
 - predelat kompletne ui
-- database - ukladani casu
+- soubor - ukladani casu - done
+- dokoncit stats v menu
 ---
 - time - fix 
 - car rect - fix
-- border prvni mapy - fix
-- finish line - fix - done
 - third map - fix
 
