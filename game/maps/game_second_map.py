@@ -47,7 +47,7 @@ def game_second_map():
 
         while game_loop:
 
-            clock.tick(240)
+            clock.tick(settings.game_tick)
 
             stopwatch = pygame.time.get_ticks() - settings.car_start_time
             stopwatch = stopwatch // 100 / 10
@@ -154,7 +154,7 @@ def game_second_map():
             pygame.display.update()
 
 
-def game_second_map_solo(lap=0, match_time=0):
+def game_second_map_solo():
     settings.max_laps = 3
     settings.car_start_time = 0
 
@@ -178,7 +178,7 @@ def game_second_map_solo(lap=0, match_time=0):
 
         while game_loop:
 
-            clock.tick(240)
+            clock.tick(settings.game_tick)
 
             stopwatch = pygame.time.get_ticks() - settings.car_start_time
             stopwatch = stopwatch // 100 / 10
@@ -190,7 +190,7 @@ def game_second_map_solo(lap=0, match_time=0):
 
             game_methods.start_countdown(car, enemy_car)
 
-            draw.game_info(match_time, clock, lap, stopwatch)
+            draw.game_info(settings.car_match_time, clock, settings.car_lap, stopwatch)
 
             car.car_info()
 
@@ -217,12 +217,12 @@ def game_second_map_solo(lap=0, match_time=0):
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     if stopwatch > 5:
 
-                        lap += 1
+                        settings.car_lap += 1
                         for time_position in range(0, 1):
                             time_position += 1
                             settings.car_time_list.insert(time_position, stopwatch)
 
-                        match_time = match_time + stopwatch
+                        settings.car_match_time = settings.car_match_time + stopwatch
                         draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
 
                         pygame.display.update()
@@ -238,19 +238,20 @@ def game_second_map_solo(lap=0, match_time=0):
                         pygame.time.wait(1000)
                         settings.car_time_list.clear()
 
-                        lap = 0
+                        settings.car_lap = 0
                         pygame.display.update()
-                        match_time = 0
+                        settings.car_match_time = 0
                         car.respawn_first_map()
                         settings.car_start_time = pygame.time.get_ticks()
 
                         game_methods.check_new_game()
                         game_second_map_solo()
 
-                    if lap == settings.max_laps:
+                    if settings.car_lap == settings.max_laps:
                         settings.car_time_list.sort()
 
-                        draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2], match_time)
+                        draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
+                                               settings.car_match_time)
 
                         save_lap_time(settings.car_time_list[0])
                         save_match_time(settings.car_match_time)
@@ -258,9 +259,9 @@ def game_second_map_solo(lap=0, match_time=0):
                         pygame.display.update()
                         pygame.time.wait(5000)
                         settings.car_time_list.clear()
-                        lap = 0
+                        settings.car_lap = 0
                         pygame.display.update()
-                        match_time = 0
+                        settings.car_match_time = 0
                         car.respawn_first_map()
                         settings.car_start_time = pygame.time.get_ticks()
                         game_methods.check_new_game()

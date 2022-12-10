@@ -46,7 +46,7 @@ def game_third_map():
 
         while game_loop:
 
-            clock.tick(60)
+            clock.tick(settings.game_tick)
 
             car_stopwatch = pygame.time.get_ticks() - settings.car_start_time
             car_stopwatch = car_stopwatch // 100 / 10
@@ -67,7 +67,7 @@ def game_third_map():
 
             car.car_info()
 
-            pc_car.first_map_car()
+            #pc_car.first_map_car()
             draw.enemy_animation(car_stopwatch, pc_car)
 
             game_methods.check_car_type(car)

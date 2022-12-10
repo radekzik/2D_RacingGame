@@ -2,6 +2,8 @@ car_type = 0
 enemy_car_type = 0
 started = False
 
+game_tick = 60
+
 countdown = 5
 last_count = 0
 
