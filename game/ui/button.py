@@ -35,12 +35,12 @@ class Button:
             if self.button_rect.top <= mouse_coordinates[1] <= self.button_rect.bottom:
                 self.text_render = self.font.render(self.button_text, True, self.font_hover_color)
 
-                print("cyan")
+                #print("cyan")
 
         else:
             self.text_render = self.font.render(self.button_text, True, self.font_color)
 
-            print("white")
+            #print("white")
 
     def button_render(self, game_screen):
         game_screen.blit(self.button_image, self.button_rect)

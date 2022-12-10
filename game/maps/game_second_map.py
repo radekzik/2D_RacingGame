@@ -1,7 +1,8 @@
 import pygame
 
+from game.storage.storing_data import save_lap_time, save_match_time
 from game.ui import draw
-from game.handler import game_methods
+from game.loop_methods import game_methods
 from game.config import settings
 from game.cars.enemy import EnemyPlayer
 from game.handler.key_binds import player_key_binds
@@ -9,7 +10,7 @@ from game.ui.load_image import game_screen, menu_background, finish_line, normal
     second_map
 from game.cars.pc import PCPlayer
 from game.cars.player import Player
-from game.handler.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
+from game.cars.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
     SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, SECOND_MAP_FINISH_LINE_X, SECOND_MAP_FINISH_LINE_Y
 from game.ui.resolution import draw_text
 
@@ -83,14 +84,12 @@ def game_second_map():
                 if event.type == pygame.QUIT:
                     pygame.quit()
 
-            # finish_line_rect = finish_line.get_rect(topleft=(580, 795))
-
             car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
 
             player_key_binds(car, car_rect, enemy_rect, second_map_border)
 
-            game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, second_map_border, enemy_stopwatch,
+            game_methods.collision_vs_pc(car, pc_car,  car_rect, enemy_rect, second_map_border, enemy_stopwatch,
                                          settings.car_time_list,
                                          settings.enemy_time_list)
 
@@ -140,6 +139,10 @@ def game_second_map():
                         settings.enemy_time_list.sort()
                         draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
                                                settings.car_match_time)
+
+                        save_lap_time(settings.car_time_list[0])
+                        save_match_time(settings.car_match_time)
+
                         # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
                         pygame.display.update()
                         pygame.time.wait(5000)
@@ -248,6 +251,10 @@ def game_second_map_solo(lap=0, match_time=0):
                         settings.car_time_list.sort()
 
                         draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2], match_time)
+
+                        save_lap_time(settings.car_time_list[0])
+                        save_match_time(settings.car_match_time)
+
                         pygame.display.update()
                         pygame.time.wait(5000)
                         settings.car_time_list.clear()

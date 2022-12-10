@@ -3,7 +3,7 @@ import random
 
 from game.cars.car import Car
 from game.ui.load_image import purple_formula, pink_lambo, width, height
-from game.handler.rects import get_enemy_rect
+from game.cars.rects import get_enemy_rect
 
 global difference_x, difference_y
 global angle
@@ -64,12 +64,12 @@ class PCPlayer(Car):
 
             angle = math.atan(xy_division)
 
-        print(angle)
+        #print(angle)
 
         if route_y > self.y:
             angle += math.pi
 
-        print(angle)
+        #print(angle)
 
         self.set_new_angle()
 

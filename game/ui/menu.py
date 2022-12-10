@@ -1,6 +1,7 @@
 import pygame
 
 from game.config import settings
+from game.storage.storing_data import load_lap_times, load_match_times
 from game.maps.game_third_map import game_third_map
 from game.ui.button import Button, button_hover_render
 from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
@@ -116,7 +117,7 @@ def vs_map_selection():
         draw_text("MAP SELECTION", big_font, "white", 680, 100, game_screen)
         draw_text("FIRST MAP", small_font, "grey", 430, 450, game_screen)
         draw_text("SECOND MAP", small_font, "grey", 1300, 350, game_screen)
-        #draw_text("THIRD MAP", small_font, "grey", 680, 800, game_screen)
+        # draw_text("THIRD MAP", small_font, "grey", 680, 800, game_screen)
 
         first_map_button = Button(button_image=first_map_image, x_y=(600, 550),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
@@ -172,7 +173,7 @@ def car_selection():
         lambo_button = Button(x_y=(1200, 550), button_image=lambo_selection, button_text="", font=small_font,
                               font_color="white", font_hover_color="cyan")
 
-        back_button = Button(button_image=button_image, x_y=(1000, 900),
+        back_button = Button(button_image=button_image, x_y=(960, 950),
                              button_text="BACK", font=normal_font, font_color="white", font_hover_color="cyan")
 
         formula_button.button_render(game_screen)
@@ -217,10 +218,19 @@ def stats():
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("STATS", big_font, "white", 865, 100, game_screen)
-        draw_text("LAP TIMES", small_font, "white", 770, 330, game_screen)
-        draw_text("RACE TIMES", small_font, "white", 1150, 330, game_screen)
+        draw_text("FASTEST LAP TIMES", small_font, "white", 770, 330, game_screen)
+        draw_text("FASTEST RACE TIMES", small_font, "white", 1150, 330, game_screen)
 
-        back_button = Button(button_image=button_image, x_y=(1000, 900),
+        lap_times = load_lap_times()
+        match_times = load_match_times()
+
+        draw_text("1." + str(lap_times), small_font, "white", 770, 400, game_screen)
+
+        draw_text("1." + str(match_times), small_font, "white", 1150, 400, game_screen)
+
+        # split_times()
+
+        back_button = Button(button_image=button_image, x_y=(960, 950),
                              button_text="BACK", font=normal_font, font_color="white", font_hover_color="cyan")
 
         back_button.button_render(game_screen)

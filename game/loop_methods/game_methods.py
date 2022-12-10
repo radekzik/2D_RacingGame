@@ -1,7 +1,7 @@
 from game.maps import game_first_map
 from game.ui.resolution import draw_text
 from game.ui.load_image import *
-from game.handler.rects import *
+from game.cars.rects import *
 
 from game.config import settings
 
@@ -15,13 +15,17 @@ def collision_solo(car, map_border):
 
 def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch, car_time_list, enemy_time_list):
     if car_rect.colliderect(enemy_rect):
+        #pygame.draw.rect(game_screen, "green", enemy_rect)
+        #pygame.draw.rect(game_screen, "red", car_rect)
         car.car_collide()
+
     else:
         car.car_image = car.car_image
         car.max_speed = 3
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
+        #pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
     if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
         if FIRST_FINISH_LINE_Y_RANGE < enemy_car.y < SECOND_FINISH_LINE_Y_RANGE:

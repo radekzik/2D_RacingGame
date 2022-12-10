@@ -1,17 +1,16 @@
 import pygame
 
+from game.storage.storing_data import save_lap_time, save_match_time
 from game.ui import draw
-from game.handler import game_methods
+from game.loop_methods import game_methods
 from game.config import settings
-from game.cars.enemy import EnemyPlayer
-from game.handler.key_binds import player_key_binds, enemy_key_binds
-from game.ui.load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font, \
+from game.handler.key_binds import player_key_binds
+from game.ui.load_image import game_screen, menu_background, finish_line, normal_font, \
     third_map, third_map_border
 from game.cars.pc import PCPlayer
 from game.cars.player import Player
-from game.handler.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
-    SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y, \
-    THIRD_MAP_FINISH_LINE_X, THIRD_MAP_FINISH_LINE_Y
+from game.cars.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
+    SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, THIRD_MAP_FINISH_LINE_X, THIRD_MAP_FINISH_LINE_Y
 from game.ui.resolution import draw_text
 
 
@@ -143,6 +142,10 @@ def game_third_map():
                         settings.enemy_time_list.sort()
                         draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
                                                settings.car_match_time)
+
+                        save_lap_time(settings.car_time_list[0])
+                        save_match_time(settings.car_match_time)
+
                         # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
                         pygame.display.update()
                         pygame.time.wait(5000)
