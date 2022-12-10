@@ -1,19 +1,14 @@
 import pygame
 
 from game.config import settings
-from game.ui.load_image import game_screen, time_menu, normal_font, small_font, purple_formula_2, purple_formula, pink_lambo, \
+from game.ui.load_image import game_screen, time_menu, normal_font, small_font, purple_formula_2, purple_formula, \
+    pink_lambo, \
     blue_formula_2, blue_lambo, blue_formula
 from game.ui.resolution import draw_text
 
 
 def game_info(match_time, clock, lap, stopwatch):
-    draw_text("W - Forward", small_font, "white", 70, 40, game_screen)
-    draw_text("S - Backward", small_font, "cyan", 70, 70, game_screen)
-    draw_text("A - Left", small_font, "white", 70, 100, game_screen)
-    draw_text("D - Right", small_font, "cyan", 70, 130, game_screen)
-    draw_text("X - Exit", small_font, "cyan", 190, 40, game_screen)
-    draw_text("E - Nitro", small_font, "white", 190, 70, game_screen)
-    draw_text("Q - Drift", small_font, "cyan", 190, 100, game_screen)
+
     draw_text(f"LAP TIME - {stopwatch}", small_font, "cyan", 1670, 900, game_screen)
     draw_text(f"RACE TIME - {round(match_time)}", small_font, "white", 1670, 850, game_screen)
     draw_text(f"FPS - {round(clock.get_fps())}", small_font, "cyan", 1780, 40, game_screen)

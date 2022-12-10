@@ -47,6 +47,8 @@ semaphor_green = res(pygame.image.load("../images/ui/semaphor_green.png"), 1)
 formula_selection = res(pygame.image.load("../images/ui/blue_formula_selection.png"), 2).convert_alpha()
 lambo_selection = res(pygame.image.load("../images/ui/blue_lambo_selection.png"), 2).convert_alpha()
 
+f_background = res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()
+
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()
 pygame.display.set_icon(icon_formula)
 
