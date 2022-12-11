@@ -2,13 +2,10 @@
 TODO:
 
 - random vyber cest pro pc car
-- typy aut, barvy
-- mapy
+- typy aut, barvy, mapy
 - predelat kompletne ui
-- soubor - ukladani casu - done
 - dokoncit stats v menu
 ---
 - time - fix 
-- car rect - fix
 - third map - fix
 
