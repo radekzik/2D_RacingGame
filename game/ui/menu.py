@@ -309,11 +309,11 @@ def main_menu():
         play_button = Button(button_image=button_image, x_y=(960, 300), button_text="PLAY", font=normal_font,
                              font_color="white", font_hover_color="cyan")
 
-        car_selection_button = Button(button_image=button_image, x_y=(590, 330), button_text="CHOOSE CAR",
+        car_selection_button = Button(button_image=button_image, x_y=(590, 390), button_text="CHOOSE CAR",
                                       font=normal_font,
                                       font_color="white", font_hover_color="cyan")
 
-        stats_button = Button(button_image=button_image, x_y=(1330, 330), button_text="STATS",
+        stats_button = Button(button_image=button_image, x_y=(1330, 390), button_text="STATS",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
