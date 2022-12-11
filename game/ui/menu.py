@@ -225,15 +225,15 @@ def stats():
 
         draw_text("STATS", big_font, title_color, 865, title_y, game_screen)
 
-        draw_text("FASTEST LAP TIMES", small_font, "white", 770, 330, game_screen)
-        draw_text("FASTEST RACE TIMES", small_font, "white", 1150, 330, game_screen)
+        draw_text("FASTEST LAP TIMES", small_font, "white", 670, 330, game_screen)
+        draw_text("FASTEST RACE TIMES", small_font, "white", 1170, 330, game_screen)
 
         lap_times = load_lap_times()
         match_times = load_match_times()
 
-        draw_text("1." + str(lap_times), small_font, "white", 770, 400, game_screen)
+        draw_text("1." + str(lap_times), small_font, "white", 670, 400, game_screen)
 
-        draw_text("1." + str(match_times), small_font, "white", 1150, 400, game_screen)
+        draw_text("1." + str(match_times), small_font, "white", 1170, 400, game_screen)
 
         # split_times()
 
