@@ -87,11 +87,13 @@ def game_second_map():
             car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
 
+            pygame.draw.rect(game_screen, "red", car_rect)
+
             player_key_binds(car, car_rect, enemy_rect, second_map_border)
 
-            game_methods.collision_vs_pc(car, pc_car,  car_rect, enemy_rect, second_map_border, enemy_stopwatch,
+            game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, second_map_border, enemy_stopwatch,
                                          settings.car_time_list,
-                                         settings.enemy_time_list)
+                                         settings.enemy_time_list, game_second_map)
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:

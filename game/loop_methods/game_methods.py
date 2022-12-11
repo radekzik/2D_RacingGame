@@ -13,19 +13,20 @@ def collision_solo(car, map_border):
         car.out_of_track()
 
 
-def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch, car_time_list, enemy_time_list):
+def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch, car_time_list, enemy_time_list
+                    , restart_map):
     if car_rect.colliderect(enemy_rect):
-        #pygame.draw.rect(game_screen, "green", enemy_rect)
-        #pygame.draw.rect(game_screen, "red", car_rect)
+        # pygame.draw.rect(game_screen, "green", enemy_rect)
+        # pygame.draw.rect(game_screen, "red", car_rect)
         car.car_collide()
 
     else:
         car.car_image = car.car_image
-        car.max_speed = 3
+        car.max_speed = 3.3
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
-        #pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
+        # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
     if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
         if FIRST_FINISH_LINE_Y_RANGE < enemy_car.y < SECOND_FINISH_LINE_Y_RANGE:
@@ -43,15 +44,20 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 
             pygame.display.update()
             pygame.time.wait(1000)
+
+            stats_reset(car, enemy_car, car_time_list, enemy_time_list)
+            check_new_game()
+            restart_map()
+
         if settings.car_lap > settings.enemy_lap:
             draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
 
             pygame.display.update()
             pygame.time.wait(1000)
-        stats_reset(car, enemy_car, car_time_list, enemy_time_list)
 
-        check_new_game()
-        game_first_map.game_first_map()
+            stats_reset(car, enemy_car, car_time_list, enemy_time_list)
+            check_new_game()
+            restart_map()
 
 
 def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
@@ -59,13 +65,13 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
         car.car_collide()
     else:
         car.car_image = car.car_image
-        car.max_speed = 3
+        car.max_speed = 3.3
 
     if enemy_rect.colliderect(car_rect):
         enemy_car.car_collide()
     else:
         enemy_car.car_image = enemy_car.car_image
-        enemy_car.max_speed = 3
+        enemy_car.max_speed = 3.3
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
@@ -146,11 +152,11 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
 
-        car.max_speed = 3
+        car.max_speed = 3.3
         car.car_nitro = 5
         car.max_movement_speed = 2.5
 
-        enemy_car.max_speed = 3
+        enemy_car.max_speed = 3.3
         enemy_car.car_nitro = 5
         enemy_car.max_movement_speed = 2.5
 

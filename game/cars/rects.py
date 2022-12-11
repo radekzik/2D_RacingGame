@@ -21,7 +21,7 @@ SECOND_FINISH_LINE_Y_RANGE = 1080
 
 def get_car_rect(car_image, car_angle, car_x, car_y):
     rect_angle = pygame.transform.rotate(car_image, car_angle)
-    car_rect = rect_angle.get_rect(topleft=(car_x, car_y), center=(car_x + 7.5, car_y + 25))
+    car_rect = rect_angle.get_rect(topleft=(car_x, car_y), center=(car_x + 10.5, car_y + 28))
 
     return car_rect
 

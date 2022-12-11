@@ -89,7 +89,7 @@ def game_first_map():
             player_key_binds(car, car_rect, enemy_rect, first_map_border)
             game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, first_map_border, enemy_stopwatch,
                                          settings.car_time_list,
-                                         settings.enemy_time_list)
+                                         settings.enemy_time_list, game_first_map)
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
