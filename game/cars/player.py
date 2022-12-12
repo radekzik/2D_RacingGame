@@ -1,6 +1,7 @@
 from game.cars.car import Car
 from game.ui.resolution import draw_text
-from game.ui.load_image import blue_formula, blue_lambo, width, height, game_screen, small_font
+from game.ui.load_image import blue_formula, blue_lambo, width, height, game_screen, small_font, green_formula, \
+    yellow_formula, orange_formula
 
 
 class Player(Car):
@@ -12,11 +13,31 @@ class Player(Car):
     car_width = car_image.get_width()
     car_height = car_image.get_height()
 
-    def first_map_car(self):
+    # formula
+    def car_blue_formula(self):
         self.car_image = blue_formula
 
-    def second_map_car(self):
+    def car_orange_formula(self):
+        self.car_image = orange_formula
+
+    def car_yellow_formula(self):
+        self.car_image = yellow_formula
+
+    def car_green_formula(self):
+        self.car_image = green_formula
+
+    # lambo
+    def car_blue_lambo(self):
         self.car_image = blue_lambo
+
+    #def car_orange_lambo(self):
+        #self.car_image = orange_lambo
+
+    #def car_yellow_lambo(self):
+        #self.car_image = yellow_lambo
+
+    #def car_green_lambo(self):
+        #self.car_image = green_lambo
 
     def respawn_first_map(self):
         self.x = 700

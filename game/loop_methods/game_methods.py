@@ -98,10 +98,27 @@ def check_new_game():
 
 
 def check_car_type(car):
+    #formula
     if settings.car_type == 1:
-        car.first_map_car()
+        car.car_blue_formula()
     if settings.car_type == 2:
-        car.second_map_car()
+        car.car_orange_formula()
+    if settings.car_type == 3:
+        car.car_yellow_formula()
+    if settings.car_type == 4:
+        car.car_green_formula()
+
+    #lambo
+    if settings.car_type == 5:
+        car.car_blue_lambo()
+    if settings.car_type == 6:
+        car.car_orange_lambo()
+    if settings.car_type == 7:
+        car.car_yellow_lambo()
+    if settings.car_type == 8:
+        car.car_green_lambo()
+
+
 
 
 def start_game():
