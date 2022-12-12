@@ -6,7 +6,8 @@ from game.loop_methods import game_methods
 from game.config import settings
 from game.cars.enemy import EnemyPlayer
 from game.handler.key_binds import player_key_binds, enemy_key_binds
-from game.ui.load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font
+from game.ui.load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font, \
+    green_background
 from game.cars.pc import PCPlayer
 from game.cars.player import Player
 from game.cars.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
@@ -54,7 +55,7 @@ def game_first_map():
             enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
             enemy_stopwatch = enemy_stopwatch // 100 / 10
 
-            game_screen.blit(menu_background, (0, 0))
+            game_screen.blit(green_background, (0, 0))
             game_screen.blit(first_map, (0, 0))
             game_screen.blit(finish_line, (FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y))
             game_screen.blit(first_map_border, (0, 0))

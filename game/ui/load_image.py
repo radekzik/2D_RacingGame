@@ -49,6 +49,8 @@ lambo_selection = res(pygame.image.load("../images/ui/blue_lambo_selection.png")
 
 f_background = res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()
 
+green_background = res(pygame.image.load("../images/backgrounds/green_bg.png"), 0.75).convert_alpha()
+
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()
 pygame.display.set_icon(icon_formula)
 
