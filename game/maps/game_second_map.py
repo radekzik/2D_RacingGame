@@ -185,7 +185,7 @@ def game_second_map_solo():
             stopwatch = pygame.time.get_ticks() - settings.car_start_time
             stopwatch = stopwatch // 100 / 10
 
-            game_screen.blit(menu_background, (0, 0))
+            game_screen.blit(green_background, (0, 0))
             game_screen.blit(second_map, (0, 0))
             game_screen.blit(finish_line, (SECOND_MAP_FINISH_LINE_X, SECOND_MAP_FINISH_LINE_Y))
             game_screen.blit(second_map_border, (0, 0))
