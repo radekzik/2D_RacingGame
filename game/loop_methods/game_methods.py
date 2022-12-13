@@ -22,7 +22,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 
     else:
         car.car_image = car.car_image
-        car.max_speed = 3.3
+        car.max_speed = 3
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
@@ -65,13 +65,13 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
         car.car_collide()
     else:
         car.car_image = car.car_image
-        car.max_speed = 3.3
+        car.max_speed = 3
 
     if enemy_rect.colliderect(car_rect):
         enemy_car.car_collide()
     else:
         enemy_car.car_image = enemy_car.car_image
-        enemy_car.max_speed = 3.3
+        enemy_car.max_speed = 3
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
@@ -112,11 +112,11 @@ def check_car_type(car):
     if settings.car_type == 5:
         car.car_blue_lambo()
     if settings.car_type == 6:
-        car.car_orange_lambo()
+        car.car_cyan_lambo()
     if settings.car_type == 7:
-        car.car_yellow_lambo()
+        car.car_red_lambo()
     if settings.car_type == 8:
-        car.car_green_lambo()
+        car.car_pink_lambo()
 
 
 def start_game():
@@ -167,11 +167,11 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
 
-        car.max_speed = 3.3
+        car.max_speed = 3
         car.car_nitro = 5
         car.max_movement_speed = 2.5
 
-        enemy_car.max_speed = 3.3
+        enemy_car.max_speed = 3
         enemy_car.car_nitro = 5
         enemy_car.max_movement_speed = 2.5
 

@@ -13,9 +13,6 @@ full_degrees = 360
 half_degrees = 180
 
 
-
-
-
 class PCPlayer(Car):
     x_position = 700
     y_position = 900
@@ -67,12 +64,12 @@ class PCPlayer(Car):
 
             angle = math.atan(xy_division)
 
-        #print(angle)
+        # print(angle)
 
         if route_y > self.y:
             angle += math.pi
 
-        #print(angle)
+        # print(angle)
 
         self.set_new_angle()
 
@@ -140,12 +137,12 @@ class PCPlayer(Car):
         self.car_route()
         self.movement()
         self.forward_control()
-        #self.increase_speed()
+        # self.increase_speed()
 
     def increase_speed(self):
-        #if difference_x > 30 or difference_y > 30:
-            #self.max_speed = 10
-            #self.car_speed = 10
+        # if difference_x > 30 or difference_y > 30:
+        # self.max_speed = 10
+        # self.car_speed = 10
 
         if difference_x < 20 or difference_y < 20:
             self.max_speed = 0.5
