@@ -214,7 +214,12 @@ def car_selection_formula():
         game_screen.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("FORMULA", big_font, title_color, 660, title_y, game_screen)
+        draw_text("FORMULA", big_font, title_color, 770, title_y, game_screen)
+
+        draw_text("BLUE", small_font, "cyan", 330, 340, game_screen)
+        draw_text("ORANGE", small_font, "orange", 720, 340, game_screen)
+        draw_text("YELLOW", small_font, "yellow", 1115, 340, game_screen)
+        draw_text("GREEN", small_font, "green", 1530, 340, game_screen)
 
         blue_formula_button = Button(x_y=(350, 550), button_image=blue_formula_selection, button_text="",
                                      font=small_font,
@@ -251,28 +256,28 @@ def car_selection_formula():
 
                 if blue_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 1
-                    draw_text("Car Choosen!", normal_font, "blue", 780, 230, game_screen)
+                    draw_text("Car Choosen!", normal_font, "blue", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
                     mode_selection()
 
                 if orange_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 2
-                    draw_text("Car Choosen!", normal_font, "orange", 780, 230, game_screen)
+                    draw_text("Car Choosen!", normal_font, "orange", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
                     mode_selection()
 
                 if yellow_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 3
-                    draw_text("Car Choosen!", normal_font, "yellow", 780, 230, game_screen)
+                    draw_text("Car Choosen!", normal_font, "yellow", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
                     mode_selection()
 
                 if green_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 4
-                    draw_text("Car Choosen!", normal_font, "green", 780, 230, game_screen)
+                    draw_text("Car Choosen!", normal_font, "green", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
                     mode_selection()
@@ -356,7 +361,7 @@ def stats():
         game_screen.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("STATS", big_font, title_color, 865, title_y, game_screen)
+        draw_text("STATS", big_font, title_color, 830, title_y, game_screen)
 
         draw_text("FASTEST LAP TIMES", small_font, "white", 670, 330, game_screen)
         draw_text("FASTEST RACE TIMES", small_font, "white", 1170, 330, game_screen)
