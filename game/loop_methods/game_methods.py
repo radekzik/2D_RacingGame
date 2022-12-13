@@ -98,7 +98,7 @@ def check_new_game():
 
 
 def check_car_type(car):
-    #formula
+    # formula
     if settings.car_type == 1:
         car.car_blue_formula()
     if settings.car_type == 2:
@@ -108,7 +108,7 @@ def check_car_type(car):
     if settings.car_type == 4:
         car.car_green_formula()
 
-    #lambo
+    # lambo
     if settings.car_type == 5:
         car.car_blue_lambo()
     if settings.car_type == 6:
@@ -117,8 +117,6 @@ def check_car_type(car):
         car.car_yellow_lambo()
     if settings.car_type == 8:
         car.car_green_lambo()
-
-
 
 
 def start_game():

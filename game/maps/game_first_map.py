@@ -6,7 +6,7 @@ from game.loop_methods import game_methods
 from game.config import settings
 from game.cars.enemy import EnemyPlayer
 from game.handler.key_binds import player_key_binds, enemy_key_binds
-from game.ui.load_image import game_screen, first_map, menu_background, finish_line, first_map_border, normal_font, \
+from game.ui.load_image import game_screen, first_map, finish_line, first_map_border, normal_font, \
     green_background
 from game.cars.pc import PCPlayer
 from game.cars.player import Player
@@ -153,7 +153,6 @@ def game_first_map():
                         game_methods.check_new_game()
                         game_first_map()
 
-        settings.animation_value += 1
         pygame.display.update()
 
 
