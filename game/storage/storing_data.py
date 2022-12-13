@@ -1,27 +1,28 @@
-
 def save_lap_time(data):
     file = open("lap_times.txt", "a")
-    file.write(str(data) + ", ")
+    file.write(str(data) + "\n")
     file.close()
 
 
 def load_lap_times():
-    file = open("lap_times.txt", "r")
-    data = file.read()
-    split_data = data.split()
+    with open("lap_times.txt", "r") as file:
+        lap_list = [x.rstrip() for x in file]
 
-    return split_data
+    lap_list.sort()
+
+    return lap_list
 
 
 def save_match_time(data):
     file = open("match_times.txt", "a")
-    file.write(str(data) + ", ")
+    file.write(str(data) + "\n")
     file.close()
 
 
 def load_match_times():
-    file = open("match_times.txt", "r")
-    data = file.read()
-    split_data = data.split()
+    with open("match_times.txt", "r") as file:
+        match_list = [x.rstrip() for x in file]
 
-    return split_data
+    match_list.sort()
+
+    return match_list

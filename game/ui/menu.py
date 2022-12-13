@@ -216,18 +216,20 @@ def car_selection_formula():
 
         draw_text("FORMULA", big_font, title_color, 660, title_y, game_screen)
 
-        blue_formula_button = Button(x_y=(350, 550), button_image=blue_formula_selection, button_text="", font=small_font,
-                                 font_color="white", font_hover_color="cyan")
-        orange_formula_button = Button(x_y=(750, 550), button_image=orange_formula_selection, button_text="", font=small_font,
-                                 font_color="white", font_hover_color="cyan")
+        blue_formula_button = Button(x_y=(350, 550), button_image=blue_formula_selection, button_text="",
+                                     font=small_font,
+                                     font_color="white", font_hover_color="cyan")
+        orange_formula_button = Button(x_y=(750, 550), button_image=orange_formula_selection, button_text="",
+                                       font=small_font,
+                                       font_color="white", font_hover_color="cyan")
 
         yellow_formula_button = Button(x_y=(1150, 550), button_image=yellow_formula_selection, button_text="",
                                        font=small_font,
                                        font_color="white", font_hover_color="cyan")
 
         green_formula_button = Button(x_y=(1550, 550), button_image=green_formula_selection, button_text="",
-                                       font=small_font,
-                                       font_color="white", font_hover_color="cyan")
+                                      font=small_font,
+                                      font_color="white", font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
@@ -351,11 +353,17 @@ def stats():
         lap_times = load_lap_times()
         match_times = load_match_times()
 
-        draw_text("1." + str(lap_times), small_font, "white", 670, 400, game_screen)
+        draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, game_screen)
+        draw_text(f"2. - {lap_times[1]}" + "s", small_font, "orange", 670, 450, game_screen)
+        draw_text(f"3. - {lap_times[2]}" + "s", small_font, "orange", 670, 500, game_screen)
+        draw_text(f"4. - {lap_times[3]}" + "s", small_font, "orange", 670, 550, game_screen)
+        draw_text(f"5. - {lap_times[4]}" + "s", small_font, "red", 670, 600, game_screen)
 
-        draw_text("1." + str(match_times), small_font, "white", 1170, 400, game_screen)
-
-        # split_times()
+        draw_text(f"1. - {match_times[0]}" + "s", small_font, "green", 1170, 400, game_screen)
+        draw_text(f"2. - {match_times[1]}" + "s", small_font, "orange", 1170, 450, game_screen)
+        draw_text(f"3. - {match_times[2]}" + "s", small_font, "orange", 1170, 500, game_screen)
+        draw_text(f"4. - {match_times[3]}" + "s", small_font, "orange", 1170, 550, game_screen)
+        draw_text(f"5. - {match_times[4]}" + "s", small_font, "red", 1170, 600, game_screen)
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
