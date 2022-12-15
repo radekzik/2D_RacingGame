@@ -15,7 +15,7 @@ class EnemyPlayer(Car):
     def first_map_car(self):
         self.car_image = red_formula
 
-    def respawn(self):
+    def respawn_first_map(self):
         self.x = 700
         self.y = 920
         self.car_angle = 270

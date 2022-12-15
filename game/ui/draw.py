@@ -2,8 +2,7 @@ import pygame
 
 from game.config import settings
 from game.ui.load_image import game_screen, time_menu, normal_font, small_font, purple_formula_2, purple_formula, \
-    pink_lambo, \
-    blue_formula_2, blue_lambo, blue_formula, orange_formula, orange_formula_2, yellow_formula_2, yellow_formula, \
+    blue_formula_2, blue_formula, orange_formula, orange_formula_2, yellow_formula_2, yellow_formula, \
     green_formula, green_formula_2
 from game.ui.resolution import draw_text
 
