@@ -87,8 +87,6 @@ def game_second_map():
             car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
 
-            # pygame.draw.rect(game_screen, "red", car_rect)
-
             player_key_binds(car, car_rect, enemy_rect, second_map_border)
 
             game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, second_map_border, enemy_stopwatch,
@@ -97,62 +95,9 @@ def game_second_map():
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
-                    if stopwatch > 5:
+                    game_methods.check_laps(car, pc_car, stopwatch, game_second_map, car.respawn_first_map)
+                    game_methods.end_game(car, pc_car, game_second_map)
 
-                        settings.car_lap += 1
-                        for time_position in range(0, 1):
-                            time_position += 1
-                            settings.car_time_list.insert(time_position, stopwatch)
-                        settings.car_match_time = settings.car_match_time + stopwatch
-                        draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
-
-                        pygame.display.update()
-                        pygame.time.wait(200)
-
-                        car.respawn_first_map()
-                        settings.car_start_time = pygame.time.get_ticks()
-
-                    else:
-                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
-
-                        pygame.display.update()
-                        pygame.time.wait(1000)
-
-                        game_methods.stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
-
-                        game_methods.check_new_game()
-                        game_second_map()
-
-                    if settings.car_lap == settings.max_laps:
-
-                        if settings.car_lap > settings.enemy_lap:
-                            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
-
-                            pygame.display.update()
-                            pygame.time.wait(1000)
-
-                        if settings.car_lap < settings.enemy_lap:
-                            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, game_screen)
-
-                            pygame.display.update()
-                            pygame.time.wait(1000)
-
-                        settings.car_time_list.sort()
-                        settings.enemy_time_list.sort()
-                        draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
-                                               settings.car_match_time)
-
-                        save_lap_time(settings.car_time_list[0])
-                        save_match_time(settings.car_match_time)
-
-                        # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
-                        pygame.display.update()
-                        pygame.time.wait(5000)
-                        game_methods.stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
-                        game_methods.check_new_game()
-                        game_second_map()
-
-            settings.animation_value += 1
             pygame.display.update()
 
 
@@ -217,56 +162,7 @@ def game_second_map_solo():
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
-                    if stopwatch > 5:
-
-                        settings.car_lap += 1
-                        for time_position in range(0, 1):
-                            time_position += 1
-                            settings.car_time_list.insert(time_position, stopwatch)
-
-                        settings.car_match_time = settings.car_match_time + stopwatch
-                        draw_text(f"Lap Time - {stopwatch}", normal_font, "white", 800, 450, game_screen)
-
-                        pygame.display.update()
-                        pygame.time.wait(200)
-
-                        car.respawn_first_map()
-                        settings.car_start_time = pygame.time.get_ticks()
-
-                    else:
-                        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
-
-                        pygame.display.update()
-                        pygame.time.wait(1000)
-                        settings.car_time_list.clear()
-
-                        settings.car_lap = 0
-                        pygame.display.update()
-                        settings.car_match_time = 0
-                        car.respawn_first_map()
-                        settings.car_start_time = pygame.time.get_ticks()
-
-                        game_methods.check_new_game()
-                        game_second_map_solo()
-
-                    if settings.car_lap == settings.max_laps:
-                        settings.car_time_list.sort()
-
-                        draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
-                                               settings.car_match_time)
-
-                        save_lap_time(settings.car_time_list[0])
-                        save_match_time(settings.car_match_time)
-
-                        pygame.display.update()
-                        pygame.time.wait(5000)
-                        settings.car_time_list.clear()
-                        settings.car_lap = 0
-                        pygame.display.update()
-                        settings.car_match_time = 0
-                        car.respawn_first_map()
-                        settings.car_start_time = pygame.time.get_ticks()
-                        game_methods.check_new_game()
-                        game_second_map_solo()
+                    game_methods.check_laps(car, enemy_car, stopwatch, game_second_map_solo, car.respawn_first_map)
+                    game_methods.end_game(car, enemy_car, game_second_map_solo)
 
             pygame.display.update()
