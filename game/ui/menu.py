@@ -380,15 +380,15 @@ def stats():
         while loading:
             draw_text("Loading stats.", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(1000)
+            pygame.time.wait(750)
 
             draw_text("Loading stats..", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(1000)
+            pygame.time.wait(750)
 
             draw_text("Loading stats...", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(1000)
+            pygame.time.wait(750)
             loading = False
 
         game_screen.blit(f_background, (0, 0))
