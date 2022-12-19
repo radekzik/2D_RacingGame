@@ -1,6 +1,8 @@
 import pygame
 import math
-from game.ui.resolution import image_position
+
+from game.ui.load_image import normal_font, game_screen
+from game.ui.resolution import image_position, draw_text
 
 
 class Car:
@@ -82,10 +84,14 @@ class Car:
         self.car_speed = 0
         self.max_speed = 0
         self.movement_speed = 0
-
         self.max_movement_speed = 0
-        self.max_speed -= 10
-        self.car_speed -= 10
+
+        self.max_speed -= 90
+        self.car_speed -= 90
+
+        pygame.time.wait(100)
+        # draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 800, game_screen)
+        pygame.display.update()
 
         self.movement()
 
