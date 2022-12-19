@@ -64,10 +64,10 @@ esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha(
 time_menu = res(pygame.image.load("../images/ui/time_menu.png"), 1).convert_alpha()
 
 # semaphor
-semaphor_all_red = res(pygame.image.load("../images/ui/semaphor_all_red.png"), 1)
-semaphor_red = res(pygame.image.load("../images/ui/semaphor_red.png"), 1)
-semaphor_orange = res(pygame.image.load("../images/ui/semaphor_orange.png"), 1)
-semaphor_green = res(pygame.image.load("../images/ui/semaphor_green.png"), 1)
+semaphor_all_red = res(pygame.image.load("../images/ui/semaphor_all_red.png"), 1).convert_alpha()
+semaphor_red = res(pygame.image.load("../images/ui/semaphor_red.png"), 1).convert_alpha()
+semaphor_orange = res(pygame.image.load("../images/ui/semaphor_orange.png"), 1).convert_alpha()
+semaphor_green = res(pygame.image.load("../images/ui/semaphor_green.png"), 1).convert_alpha()
 
 car_selection_menu = res(pygame.image.load("../images/backgrounds/car_selection_background.png"), 1.5).convert_alpha()
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
