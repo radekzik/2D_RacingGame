@@ -8,6 +8,5 @@ TODO:
 
 ---
 
-- time - fix 
-- third map - fix
+- time - fix
 
