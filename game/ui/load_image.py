@@ -44,6 +44,11 @@ cyan_lambo = res(pygame.image.load("../images/cars/lamborghini/lambo_cyan.png"),
 red_lambo = res(pygame.image.load("../images/cars/lamborghini/lambo_red.png"), 0.85).convert_alpha()
 pink_lambo = res(pygame.image.load("../images/cars/lamborghini/lambo_pink.png"), 0.85).convert_alpha()
 
+# spoiler car
+dark_purple_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_dark_purple.png"), 0.85).convert_alpha()
+light_blue_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_light_blue.png"), 0.85).convert_alpha()
+orange_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_orange.png"), 0.85).convert_alpha()
+pink_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_pink.png"), 0.85).convert_alpha()
 
 # backgrounds
 menu_background = res(pygame.image.load("../images/backgrounds/blue_grey_gradient.jpg"), 1).convert_alpha()
@@ -74,6 +79,7 @@ semaphor_green = res(pygame.image.load("../images/ui/semaphor/semaphor_green.png
 car_selection_menu = res(pygame.image.load("../images/backgrounds/car_selection_background.png"), 1.5).convert_alpha()
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
 lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection.png"), 2).convert_alpha()
+spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection.png"), 2).convert_alpha()
 
 blue_formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection_blue.png"), 2).convert_alpha()
 orange_formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection_orange.png"),
@@ -87,6 +93,13 @@ blue_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_sele
 cyan_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection_cyan.png"), 2).convert_alpha()
 red_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection_red.png"), 2).convert_alpha()
 pink_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection_pink.png"), 2).convert_alpha()
+
+dark_purple_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_dark_purple"
+                                                          ".png"), 2).convert_alpha()
+light_blue_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_light_blue.png"), 2).convert_alpha()
+orange_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_orange.png"), 2).convert_alpha()
+pink_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_pink.png"), 2).convert_alpha()
+
 
 # icon
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()

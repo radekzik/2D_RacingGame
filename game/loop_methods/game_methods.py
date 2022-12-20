@@ -120,6 +120,16 @@ def check_car_type(car):
     if settings.car_type == 8:
         car.car_pink_lambo()
 
+    # spoiler car
+    if settings.car_type == 9:
+        car.spoiler_car_dark_purple()
+    if settings.car_type == 10:
+        car.spoiler_car_light_blue()
+    if settings.car_type == 11:
+        car.spoiler_car_orange()
+    if settings.car_type == 12:
+        car.spoiler_car_pink()
+
 
 def start_game():
     while not settings.started:

@@ -125,8 +125,10 @@ class PCPlayer(Car):
 
         if new_angle > 0:
             self.subtract_angle()
+            #self.car_angle -= min(self.max_movement_speed, abs(new_angle))
         else:
             self.add_angle()
+            #self.car_angle += min(self.max_movement_speed, abs(new_angle))
 
     def add_angle(self):
         global new_angle

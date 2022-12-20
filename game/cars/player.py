@@ -1,7 +1,8 @@
 from game.cars.car import Car
 from game.ui.resolution import draw_text
 from game.ui.load_image import blue_formula, blue_lambo, width, height, game_screen, small_font, green_formula, \
-    yellow_formula, orange_formula, cyan_lambo, red_lambo, pink_lambo
+    yellow_formula, orange_formula, cyan_lambo, red_lambo, pink_lambo, dark_purple_spoiler_car, light_blue_spoiler_car, \
+    orange_spoiler_car, pink_spoiler_car
 
 
 class Player(Car):
@@ -38,6 +39,18 @@ class Player(Car):
 
     def car_pink_lambo(self):
         self.car_image = pink_lambo
+
+    def spoiler_car_dark_purple(self):
+        self.car_image = dark_purple_spoiler_car
+
+    def spoiler_car_light_blue(self):
+        self.car_image = light_blue_spoiler_car
+
+    def spoiler_car_orange(self):
+        self.car_image = orange_spoiler_car
+
+    def spoiler_car_pink(self):
+        self.car_image = pink_spoiler_car
 
     def respawn_first_map(self):
         self.x = 700
