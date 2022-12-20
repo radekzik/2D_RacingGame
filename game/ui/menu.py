@@ -2,7 +2,7 @@ import pygame
 
 from game.config import settings
 from game.storage.storing_data import load_lap_times, load_match_times
-from game.maps.game_third_map import game_third_map
+from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
 from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
 from game.maps.game_second_map import game_second_map_solo, game_second_map
@@ -10,7 +10,7 @@ from game.ui.load_image import game_screen, menu_background, big_font, button_im
     first_map_image, \
     second_map_image, blue_lambo_selection, blue_formula_selection, f_background, formula_selection, lambo_selection, \
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
-    red_lambo_selection, pink_lambo_selection
+    red_lambo_selection, pink_lambo_selection, third_map_image
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -80,20 +80,26 @@ def solo_map_selection():
 
         draw_text("MAP SELECTION", big_font, title_color, 680, title_y, game_screen)
 
-        draw_text("FIRST MAP", small_font, "grey", 430, 450, game_screen)
-        draw_text("SECOND MAP", small_font, "grey", 1300, 350, game_screen)
+        draw_text("I. MAP", small_font, "cyan", 410, 480, game_screen)
+        draw_text("II. MAP", small_font, "cyan", 940, 440, game_screen)
+        draw_text("III. MAP", small_font, "cyan", 1440, 415, game_screen)
 
-        first_map_button = Button(button_image=first_map_image, x_y=(600, 550),
+        first_map_button = Button(button_image=first_map_image, x_y=(500, 550),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        second_map_button = Button(button_image=second_map_image, x_y=(1350, 550),
+        second_map_button = Button(button_image=second_map_image, x_y=(970, 550),
                                    button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        third_map_button = Button(button_image=third_map_image, x_y=(1470, 550),
+                                  button_text="", font=normal_font, font_color="white",
+                                  font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         first_map_button.button_render(game_screen)
         second_map_button.button_render(game_screen)
+        third_map_button.button_render(game_screen)
         back_button.button_render(game_screen)
 
         button_hover_render(back_button, mouse_coordinates, game_screen)
@@ -107,6 +113,8 @@ def solo_map_selection():
                     game_first_map_solo()
                 if second_map_button.on_click(mouse_coordinates):
                     game_second_map_solo()
+                if third_map_button.on_click(mouse_coordinates):
+                    game_third_map_solo()
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 
@@ -122,18 +130,19 @@ def vs_map_selection():
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("MAP SELECTION", big_font, title_color, 680, title_y, game_screen)
-        draw_text("FIRST MAP", small_font, "grey", 430, 450, game_screen)
-        draw_text("SECOND MAP", small_font, "grey", 1300, 350, game_screen)
-        # draw_text("THIRD MAP", small_font, "grey", 680, 800, game_screen)
 
-        first_map_button = Button(button_image=first_map_image, x_y=(600, 550),
+        draw_text("I. MAP", small_font, "cyan", 410, 480, game_screen)
+        draw_text("II. MAP", small_font, "cyan", 940, 440, game_screen)
+        draw_text("III. MAP", small_font, "cyan", 1440, 415, game_screen)
+
+        first_map_button = Button(button_image=first_map_image, x_y=(500, 550),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        second_map_button = Button(button_image=second_map_image, x_y=(1350, 550),
+        second_map_button = Button(button_image=second_map_image, x_y=(970, 550),
                                    button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        third_map_button = Button(button_image=button_image, x_y=(1350, 850),
-                                  button_text="THIRD MAP", font=normal_font, font_color="white",
+        third_map_button = Button(button_image=third_map_image, x_y=(1470, 550),
+                                  button_text="", font=normal_font, font_color="white",
                                   font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),

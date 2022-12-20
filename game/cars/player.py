@@ -49,6 +49,11 @@ class Player(Car):
         self.y = 850
         self.car_angle = 270
 
+    def respawn_third_map(self):
+        self.x = 620
+        self.y = 980
+        self.car_angle = 270
+
     def out_of_map(self):
         if self.x >= width or self.x <= 0:
             self.respawn_first_map()
@@ -57,7 +62,7 @@ class Player(Car):
 
     def car_info(self):
 
-        draw_text(f"Y - ( {round(self.y)} )", small_font, "white", 1740, 970, game_screen)
-        draw_text(f"X - ( {round(self.x)} )", small_font, "cyan", 1740, 940, game_screen)
-        draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "cyan", 1590, 970, game_screen)
-        draw_text(f"SPEED - ( {round(self.car_speed)} )", small_font, "white", 1620, 940, game_screen)
+        draw_text(f"Y - ( {round(self.y)} )", small_font, "white", 1810, 1020, game_screen)
+        draw_text(f"X - ( {round(self.x)} )", small_font, "cyan", 1810, 990, game_screen)
+        draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "cyan", 1660, 1020, game_screen)
+        draw_text(f"SPEED - ( {round(self.car_speed)} )", small_font, "white", 1680, 990, game_screen)

@@ -1,8 +1,12 @@
 import math
 import random
 
+import pygame
+
 from game.cars.car import Car
-from game.ui.load_image import purple_formula, pink_lambo, width, height
+from game.config import settings
+from game.ui.load_image import purple_formula, pink_lambo, width, height, red_formula, red_lambo, orange_formula, \
+    yellow_formula, green_formula, cyan_lambo
 from game.cars.rects import get_enemy_rect
 
 global difference_x, difference_y
@@ -13,11 +17,49 @@ full_degrees = 360
 half_degrees = 180
 
 
+def random_car():
+    random_number = random.randint(1, 8)
+
+    if random_number == 1:
+        settings.enemy_car_type = 1
+        car_image = purple_formula
+
+    if random_number == 2:
+        settings.enemy_car_type = 2
+        car_image = orange_formula
+
+    if random_number == 3:
+        settings.enemy_car_type = 3
+        car_image = yellow_formula
+
+    if random_number == 4:
+        settings.enemy_car_type = 4
+        car_image = green_formula
+
+    if random_number == 5:
+        settings.enemy_car_type = 5
+        car_image = red_formula
+
+    if random_number == 6:
+        settings.enemy_car_type = 6
+        car_image = cyan_lambo
+
+    if random_number == 7:
+        settings.enemy_car_type = 7
+        car_image = red_lambo
+
+    if random_number == 8:
+        settings.enemy_car_type = 8
+        car_image = pink_lambo
+
+    return car_image
+
+
 class PCPlayer(Car):
     x_position = 700
     y_position = 900
     car_angle = 270
-    car_image = purple_formula.convert_alpha()
+    car_image = random_car()
 
     car_width = car_image.get_width()
     car_height = car_image.get_height()
@@ -152,11 +194,11 @@ class PCPlayer(Car):
             self.max_speed = 3.3
             self.car_speed = 3.3
 
-    def first_map_car(self):
-        self.car_image = purple_formula
+    # def first_map_car(self):
+    # self.car_image = purple_formula
 
-    def second_map_car(self):
-        self.car_image = pink_lambo
+    # def second_map_car(self):
+    # self.car_image = pink_lambo
 
     def first_map_route(self):
 
@@ -168,6 +210,13 @@ class PCPlayer(Car):
     def second_map_route(self):
         self.pc_route = [(1390, 717), (1583, 493), (1576, 260), (1418, 123), (921, 217), (721, 233), (537, 94),
                          (274, 245), (192, 645), (409, 838), (769, 887), (910, 894)]
+
+        return self.pc_route
+
+    def third_map_route(self):
+        self.pc_route = [(789, 792), (754, 371), (1102, 272), (1320, 475), (1251, 704), (1070, 780), (1370, 980),
+                         (1635, 891), (1768, 606), (1740, 177), (1400, 85), (609, 106), (178, 99), (160, 533),
+                         (195, 800), (778, 950)]
 
         return self.pc_route
 
