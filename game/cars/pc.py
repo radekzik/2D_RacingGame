@@ -6,7 +6,8 @@ import pygame
 from game.cars.car import Car
 from game.config import settings
 from game.ui.load_image import purple_formula, pink_lambo, width, height, red_formula, red_lambo, orange_formula, \
-    yellow_formula, green_formula, cyan_lambo
+    yellow_formula, green_formula, cyan_lambo, dark_purple_spoiler_car, orange_spoiler_car, light_blue_spoiler_car, \
+    pink_spoiler_car
 from game.cars.rects import get_enemy_rect
 
 global difference_x, difference_y
@@ -18,7 +19,7 @@ half_degrees = 180
 
 
 def random_car():
-    random_number = random.randint(1, 8)
+    random_number = random.randint(1, 12)
 
     if random_number == 1:
         settings.enemy_car_type = 1
@@ -51,6 +52,22 @@ def random_car():
     if random_number == 8:
         settings.enemy_car_type = 8
         car_image = pink_lambo
+
+    if random_number == 9:
+        settings.enemy_car_type = 9
+        car_image = dark_purple_spoiler_car
+
+    if random_number == 10:
+        settings.enemy_car_type = 10
+        car_image = light_blue_spoiler_car
+
+    if random_number == 11:
+        settings.enemy_car_type = 11
+        car_image = orange_spoiler_car
+
+    if random_number == 12:
+        settings.enemy_car_type = 12
+        car_image = pink_spoiler_car
 
     return car_image
 
