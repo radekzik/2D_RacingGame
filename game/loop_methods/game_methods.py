@@ -131,11 +131,9 @@ def check_car_type(car):
 
 
 def check_audio(command):
+
     if settings.audio == 1:
         command()
-
-    elif settings.audio == 2:
-        audio_command = False
 
 
 def start_game():
@@ -187,7 +185,7 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
 
-        game.sounds.starting_sound.stop()
+        check_audio(game.sounds.starting_sound.stop)
         car.max_speed = 3
         car.car_nitro = 5
         car.max_movement_speed = 2.5

@@ -1,6 +1,7 @@
 import pygame
 
 import game.sounds
+from game.loop_methods.game_methods import check_audio
 from game.ui import draw, menu
 from game.config import settings
 
@@ -36,8 +37,8 @@ def player_key_binds(car, car_rect, enemy_rect, map_border):
         car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
-        game.sounds.engine_sound.stop()
-        game.sounds.starting_sound.stop()
+        check_audio(game.sounds.engine_sound.stop)
+        check_audio(game.sounds.starting_sound.stop)
         menu.mode_selection()
 
     if pressed_key[pygame.K_w]:

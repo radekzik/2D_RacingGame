@@ -27,7 +27,7 @@ enemy_lap = 0
 car_time_list = []
 enemy_time_list = []
 
-# on/off
+# on - 1 / off - 2
 audio = 2
 camera_focus = 0
 
