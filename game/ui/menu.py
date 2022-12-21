@@ -280,28 +280,28 @@ def car_selection_formula():
                     draw_text("Car Selected!", normal_font, "blue", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if orange_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 2
                     draw_text("Car Selected!", normal_font, "orange", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if yellow_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 3
                     draw_text("Car Selected!", normal_font, "yellow", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if green_formula_button.on_click(mouse_coordinates):
                     settings.car_type = 4
                     draw_text("Car Selected!", normal_font, "green", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if back_button.on_click(mouse_coordinates):
                     car_selection()
@@ -361,28 +361,28 @@ def car_selection_lambo():
                     draw_text("Car Selected!", normal_font, "blue", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if cyan_lambo_button.on_click(mouse_coordinates):
                     settings.car_type = 6
                     draw_text("Car Selected!", normal_font, "cyan", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if red_lambo_button.on_click(mouse_coordinates):
                     settings.car_type = 7
                     draw_text("Car Selected!", normal_font, "red", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if pink_lambo_button.on_click(mouse_coordinates):
                     settings.car_type = 8
                     draw_text("Car Selected!", normal_font, "pink", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if back_button.on_click(mouse_coordinates):
                     car_selection()
@@ -443,28 +443,28 @@ def car_selection_spoiler_car():
                     draw_text("Car Selected!", normal_font, "violet", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if light_blue_spoiler_car_button.on_click(mouse_coordinates):
                     settings.car_type = 10
                     draw_text("Car Selected!", normal_font, "cyan", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if orange_spoiler_car_button.on_click(mouse_coordinates):
                     settings.car_type = 11
                     draw_text("Car Selected!", normal_font, "orange", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if pink_spoiler_car_button.on_click(mouse_coordinates):
                     settings.car_type = 12
                     draw_text("Car Selected!", normal_font, "purple", 790, 230, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
-                    mode_selection()
+                    main_menu()
 
                 if back_button.on_click(mouse_coordinates):
                     car_selection()
@@ -789,7 +789,7 @@ def game_settings():
                     pygame.time.wait(2000)
 
                 if camera_off_button.on_click(mouse_coordinates):
-                    settings.camera_focus = 0
+                    settings.camera_focus = 2
                     draw_text("CAMERA FOCUS OFF!", normal_font, "green", 730, 210, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)

@@ -29,7 +29,7 @@ enemy_time_list = []
 
 # on - 1 / off - 2
 audio = 2
-camera_focus = 0
+camera_focus = 2
 
 # file paths
 f_map_lap_times = "first_map_lap_times.txt"
