@@ -93,7 +93,8 @@ def game_first_map():
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, pc_car, car_stopwatch, game_first_map, car.respawn_first_map)
-                    game_methods.end_game(car, pc_car, game_first_map)
+                    game_methods.end_game(car, pc_car, game_first_map, "first_map_lap_times.txt",
+                                          "first_map_match_times.txt")
 
         pygame.display.update()
 
@@ -158,7 +159,8 @@ def game_first_map_solo():
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, enemy_car, stopwatch, game_first_map_solo, car.respawn_first_map)
-                    game_methods.end_game(car, enemy_car, game_first_map_solo)
+                    game_methods.end_game(car, enemy_car, game_first_map_solo, "first_map_lap_times.txt",
+                                          "first_map_match_times.txt")
 
             pygame.display.update()
 
@@ -228,6 +230,7 @@ def first_map_1v1():
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, enemy_car, stopwatch, first_map_1v1, car.respawn_first_map)
-                    game_methods.end_game(car, enemy_car, first_map_1v1)
+                    game_methods.end_game(car, enemy_car, first_map_1v1, "first_map_lap_times.txt",
+                                          "first_map_match_times.txt")
 
             pygame.display.update()

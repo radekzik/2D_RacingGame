@@ -233,7 +233,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         reset_map()
 
 
-def end_game(car, pc_car, reset_map):
+def end_game(car, pc_car, reset_map, lap_filename, match_filename):
     if settings.car_lap == settings.max_laps:
         print(settings.car_match_time)
         print(settings.enemy_match_time)
@@ -257,8 +257,8 @@ def end_game(car, pc_car, reset_map):
         draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
                                settings.car_match_time)
 
-        storing_data.save_lap_time(settings.car_time_list[0])
-        storing_data.save_match_time(settings.car_match_time)
+        storing_data.save_lap_time(settings.car_time_list[0], lap_filename)
+        storing_data.save_match_time(settings.car_match_time, match_filename)
 
         # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
         pygame.display.update()

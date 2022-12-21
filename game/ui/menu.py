@@ -501,8 +501,8 @@ def stats_first_map():
         draw_text("FASTEST LAP TIMES", small_font, "white", 670, 330, game_screen)
         draw_text("FASTEST RACE TIMES", small_font, "white", 1170, 330, game_screen)
 
-        lap_times = load_lap_times()
-        match_times = load_match_times()
+        lap_times = load_lap_times("first_map_lap_times.txt")
+        match_times = load_match_times("first_map_match_times.txt")
 
         draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, game_screen)
         draw_text(f"2. - {lap_times[1]}" + "s", small_font, "orange", 670, 450, game_screen)
@@ -571,8 +571,8 @@ def stats_second_map():
         draw_text("FASTEST LAP TIMES", small_font, "white", 670, 330, game_screen)
         draw_text("FASTEST RACE TIMES", small_font, "white", 1170, 330, game_screen)
 
-        lap_times = load_lap_times()
-        match_times = load_match_times()
+        lap_times = load_lap_times("second_map_lap_times.txt")
+        match_times = load_match_times("second_map_match_times.txt")
 
         draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, game_screen)
         draw_text(f"2. - {lap_times[1]}" + "s", small_font, "orange", 670, 450, game_screen)
@@ -648,8 +648,8 @@ def stats_third_map():
         draw_text("FASTEST LAP TIMES", small_font, "white", 670, 330, game_screen)
         draw_text("FASTEST RACE TIMES", small_font, "white", 1170, 330, game_screen)
 
-        lap_times = load_lap_times()
-        match_times = load_match_times()
+        lap_times = load_lap_times("third_map_lap_times.txt")
+        match_times = load_match_times("third_map_match_times.txt")
 
         draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, game_screen)
         draw_text(f"2. - {lap_times[1]}" + "s", small_font, "orange", 670, 450, game_screen)
