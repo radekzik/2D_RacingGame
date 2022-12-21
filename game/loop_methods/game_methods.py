@@ -1,4 +1,4 @@
-import game.sounds
+import game.sounds.sounds
 from game.storage import storing_data
 from game.ui import draw
 from game.ui.load_image import *
@@ -131,9 +131,22 @@ def check_car_type(car):
 
 
 def check_audio(command):
-
     if settings.audio == 1:
         command()
+
+
+def car_stopwatch(ticks):
+    stopwatch = ticks - settings.car_start_time
+    stopwatch = stopwatch // 100 / 10
+
+    return stopwatch
+
+
+def enemy_stopwatch(ticks):
+    stopwatch = ticks - settings.enemy_start_time
+    stopwatch = stopwatch // 100 / 10
+
+    return stopwatch
 
 
 def start_game():
@@ -147,7 +160,7 @@ def start_game():
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 settings.started = True
-                check_audio(game.sounds.starting_sound.play)
+                check_audio(game.sounds.sounds.starting_sound.play)
                 settings.car_start_time = pygame.time.get_ticks()
 
 
@@ -185,7 +198,7 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
 
-        check_audio(game.sounds.starting_sound.stop)
+        check_audio(game.sounds.sounds.starting_sound.stop)
         car.max_speed = 3
         car.car_nitro = 5
         car.max_movement_speed = 2.5
