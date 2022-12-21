@@ -482,15 +482,15 @@ def stats_first_map():
         while loading:
             draw_text("Loading stats.", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
 
             draw_text("Loading stats..", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
 
             draw_text("Loading stats...", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
             loading = False
 
         game_screen.blit(f_background, (0, 0))
@@ -552,15 +552,15 @@ def stats_second_map():
         while loading:
             draw_text("Loading stats.", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
 
             draw_text("Loading stats..", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
 
             draw_text("Loading stats...", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
             loading = False
 
         game_screen.blit(f_background, (0, 0))
@@ -629,15 +629,15 @@ def stats_third_map():
         while loading:
             draw_text("Loading stats.", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
 
             draw_text("Loading stats..", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
 
             draw_text("Loading stats...", normal_font, "white", 780, 230, game_screen)
             pygame.display.update()
-            pygame.time.wait(500)
+            pygame.time.wait(300)
             loading = False
 
         game_screen.blit(f_background, (0, 0))
