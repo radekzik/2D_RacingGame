@@ -1,4 +1,4 @@
-
+import game.sounds
 from game.storage import storing_data
 from game.ui import draw
 from game.ui.load_image import *
@@ -146,6 +146,7 @@ def start_game():
 
 
 def start_countdown(car, enemy_car):
+    game.sounds.starting_sound.play(-1)
     if settings.countdown > 0:
 
         count_timer = pygame.time.get_ticks()
@@ -179,6 +180,7 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
 
+        game.sounds.starting_sound.stop()
         car.max_speed = 3
         car.car_nitro = 5
         car.max_movement_speed = 2.5
