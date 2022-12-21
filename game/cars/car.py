@@ -39,11 +39,13 @@ class Car:
 
     def forward_control(self):
 
-        while self.car_speed <= self.max_speed:
-            self.car_speed = self.car_speed + self.car_acceleration
+        # while self.car_speed <= self.max_speed:
+        # self.car_speed = self.car_speed + self.car_acceleration
 
-        else:
-            self.car_speed = self.max_speed
+        # else:
+        # self.car_speed = self.max_speed
+
+        self.car_speed = min(self.car_speed + self.car_acceleration, self.max_speed)
 
         self.movement()
 
@@ -59,11 +61,13 @@ class Car:
 
     def backward_control(self):
 
-        while self.car_speed <= self.min_speed:
-            self.car_speed = -self.car_acceleration
+        # while self.car_speed <= self.min_speed:
+        # self.car_speed = -self.car_acceleration
 
-        else:
-            self.car_speed = self.min_speed
+        # else:
+        # self.car_speed = self.min_speed
+
+        self.car_speed = max(self.car_speed - self.car_acceleration, -6)
 
         self.movement()
 

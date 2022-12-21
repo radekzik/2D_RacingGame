@@ -99,11 +99,13 @@ class PCPlayer(Car):
 
     def forward_control(self):
 
-        while self.car_speed <= self.max_speed:
-            self.car_speed = self.car_speed + self.car_acceleration
+        # while self.car_speed <= self.max_speed:
+        # self.car_speed = self.car_speed + self.car_acceleration
 
-        else:
-            self.car_speed = self.max_speed
+        # else:
+        # self.car_speed = self.max_speed
+
+        self.car_speed = min(self.car_speed + self.car_acceleration, self.max_speed)
 
         self.movement()
 
@@ -141,10 +143,12 @@ class PCPlayer(Car):
             new_angle = new_angle - full_degrees
 
         if new_angle > 0:
-            self.subtract_angle()
+            # self.subtract_angle()
+            self.car_angle -= min(self.max_movement_speed, abs(new_angle))
 
         else:
-            self.add_angle()
+            # self.add_angle()
+            self.car_angle += min(self.max_movement_speed, abs(new_angle))
 
     def add_angle(self):
         global new_angle
