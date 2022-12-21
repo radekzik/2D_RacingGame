@@ -142,11 +142,12 @@ def start_game():
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 settings.started = True
+                game.sounds.starting_sound.play(-1)
                 settings.car_start_time = pygame.time.get_ticks()
 
 
 def start_countdown(car, enemy_car):
-    game.sounds.starting_sound.play(-1)
+
     if settings.countdown > 0:
 
         count_timer = pygame.time.get_ticks()

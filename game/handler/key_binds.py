@@ -36,7 +36,10 @@ def player_key_binds(car, car_rect, enemy_rect, map_border):
         car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
+        game.sounds.engine_sound.stop()
+        game.sounds.starting_sound.stop()
         menu.mode_selection()
+
 
     if pressed_key[pygame.K_w]:
         if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
