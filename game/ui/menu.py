@@ -12,7 +12,7 @@ from game.ui.load_image import game_screen, big_font, button_image, normal_font,
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left
+    pointer_right, pointer_left, on_off_button
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -736,14 +736,28 @@ def game_settings():
 
         draw_text("SETTINGS", big_font, title_color, 765, title_y, game_screen)
 
-        draw_text("AUDIO", small_font, "cyan", 620, 300, game_screen)
-        draw_text("ON/OFF", small_font, "purple", 920, 300, game_screen)
-        draw_text("CAMERA FOCUS", small_font, "cyan", 620, 450, game_screen)
-        draw_text("ON/OFF", small_font, "purple", 920, 450, game_screen)
+        draw_text("AUDIO", normal_font, "cyan", 620, 300, game_screen)
+        draw_text("CAMERA FOCUS", normal_font, "cyan", 1110, 300, game_screen)
+
+        audio_on_button = Button(button_image=on_off_button, x_y=(650, 400),
+                                 button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+
+        audio_off_button = Button(button_image=on_off_button, x_y=(730, 400),
+                                  button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+
+        camera_on_button = Button(button_image=on_off_button, x_y=(1250, 400),
+                                  button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+
+        camera_off_button = Button(button_image=on_off_button, x_y=(1330, 400),
+                                   button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
+        audio_on_button.button_render(game_screen)
+        audio_off_button.button_render(game_screen)
+        camera_on_button.button_render(game_screen)
+        camera_off_button.button_render(game_screen)
         back_button.button_render(game_screen)
 
         button_hover_render(back_button, mouse_coordinates, game_screen)
@@ -753,6 +767,30 @@ def game_settings():
                 pygame.quit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
+
+                if audio_on_button.on_click(mouse_coordinates):
+                    settings.audio = 1
+                    draw_text("AUDIO ON!", normal_font, "green", 830, 210, game_screen)
+                    pygame.display.update()
+                    pygame.time.wait(2000)
+
+                if audio_off_button.on_click(mouse_coordinates):
+                    settings.audio = 0
+                    draw_text("AUDIO OFF!", normal_font, "green", 830, 210, game_screen)
+                    pygame.display.update()
+                    pygame.time.wait(2000)
+
+                if camera_on_button.on_click(mouse_coordinates):
+                    settings.camera_focus = 1
+                    draw_text("CAMERA FOCUS ON!", normal_font, "green", 730, 210, game_screen)
+                    pygame.display.update()
+                    pygame.time.wait(2000)
+
+                if camera_off_button.on_click(mouse_coordinates):
+                    settings.camera_focus = 0
+                    draw_text("CAMERA FOCUS OFF!", normal_font, "green", 730, 210, game_screen)
+                    pygame.display.update()
+                    pygame.time.wait(2000)
 
                 if back_button.on_click(mouse_coordinates):
                     main_menu()
