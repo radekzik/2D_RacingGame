@@ -6,7 +6,7 @@ from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
 from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
 from game.maps.game_second_map import game_second_map_solo, game_second_map
-from game.ui.load_image import game_screen, menu_background, big_font, button_image, normal_font, small_font, \
+from game.ui.load_image import game_screen, big_font, button_image, normal_font, small_font, \
     first_map_image, \
     second_map_image, blue_lambo_selection, blue_formula_selection, f_background, formula_selection, lambo_selection, \
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \

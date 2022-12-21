@@ -1,18 +1,16 @@
 import pygame
 
-from game.storage.storing_data import save_lap_time, save_match_time
 from game.ui import draw
 from game.loop_methods import game_methods
 from game.config import settings
 from game.cars.enemy import EnemyPlayer
 from game.handler.key_binds import player_key_binds
-from game.ui.load_image import game_screen, menu_background, finish_line, normal_font, second_map_border, \
+from game.ui.load_image import game_screen, finish_line, second_map_border, \
     second_map, green_background
 from game.cars.pc import PCPlayer, random_car
 from game.cars.player import Player
 from game.cars.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
     SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, SECOND_MAP_FINISH_LINE_X, SECOND_MAP_FINISH_LINE_Y
-from game.ui.resolution import draw_text
 
 
 def game_second_map():
@@ -97,8 +95,8 @@ def game_second_map():
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, pc_car, stopwatch, game_second_map, car.respawn_first_map)
-                    game_methods.end_game(car, pc_car, game_second_map, "second_map_lap_times.txt",
-                                          "second_map_match_times.txt")
+                    game_methods.end_game(car, pc_car, game_second_map, settings.s_map_lap_times,
+                                          settings.s_map_match_times)
 
             pygame.display.update()
 
@@ -165,7 +163,7 @@ def game_second_map_solo():
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, enemy_car, stopwatch, game_second_map_solo, car.respawn_first_map)
-                    game_methods.end_game(car, enemy_car, game_second_map_solo, "second_map_lap_times.txt",
-                                          "second_map_match_times.txt")
+                    game_methods.end_game(car, enemy_car, game_second_map_solo, settings.s_map_lap_times,
+                                          settings.s_map_match_times)
 
             pygame.display.update()
