@@ -770,12 +770,14 @@ def game_settings():
 
                 if audio_on_button.on_click(mouse_coordinates):
                     settings.audio = 1
+                    print(settings.audio)
                     draw_text("AUDIO ON!", normal_font, "green", 830, 210, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)
 
                 if audio_off_button.on_click(mouse_coordinates):
-                    settings.audio = 0
+                    settings.audio = 2
+                    print(settings.audio)
                     draw_text("AUDIO OFF!", normal_font, "green", 830, 210, game_screen)
                     pygame.display.update()
                     pygame.time.wait(2000)

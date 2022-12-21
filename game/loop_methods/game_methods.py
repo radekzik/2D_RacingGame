@@ -6,7 +6,6 @@ from game.cars.rects import *
 from game.ui.draw import *
 from game.config import settings
 
-
 pygame.init()
 
 
@@ -131,6 +130,14 @@ def check_car_type(car):
         car.spoiler_car_pink()
 
 
+def check_audio(command):
+    if settings.audio == 1:
+        command()
+
+    elif settings.audio == 2:
+        audio_command = False
+
+
 def start_game():
     while not settings.started:
         draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, game_screen)
@@ -142,12 +149,11 @@ def start_game():
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 settings.started = True
-                game.sounds.starting_sound.play(-1)
+                check_audio(game.sounds.starting_sound.play)
                 settings.car_start_time = pygame.time.get_ticks()
 
 
 def start_countdown(car, enemy_car):
-
     if settings.countdown > 0:
 
         count_timer = pygame.time.get_ticks()

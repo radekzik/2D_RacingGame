@@ -28,7 +28,7 @@ car_time_list = []
 enemy_time_list = []
 
 # on/off
-audio = 0
+audio = 2
 camera_focus = 0
 
 # file paths
