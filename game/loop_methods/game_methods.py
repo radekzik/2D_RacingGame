@@ -149,6 +149,17 @@ def enemy_stopwatch(ticks):
     return stopwatch
 
 
+def speedometer(car):
+    if car.car_speed == 0:
+        game_screen.blit(on_off_button, (800, 800))
+    if 0 < car.car_speed <= 1:
+        game_screen.blit(on_off_button, (900, 800))
+    if 1 < car.car_speed <= 2:
+        game_screen.blit(on_off_button, (1000, 800))
+    if 2 < car.car_speed <= 3:
+        game_screen.blit(on_off_button, (1100, 800))
+
+
 def start_game():
     while not settings.started:
         draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, game_screen)

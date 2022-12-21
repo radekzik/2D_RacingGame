@@ -71,6 +71,8 @@ def game_first_map():
 
             game_methods.check_car_type(car)
 
+            #game_methods.speedometer(car)
+
             car.render_position(game_screen)
             pc_car.render_position(game_screen)
             pygame.display.update()
