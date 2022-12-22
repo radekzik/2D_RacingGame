@@ -80,12 +80,12 @@ semaphor_orange = res(pygame.image.load("../images/ui/semaphor/semaphor_orange.p
 semaphor_green = res(pygame.image.load("../images/ui/semaphor/semaphor_green.png"), 1).convert_alpha()
 
 # speedometr
-speedometr = res(pygame.image.load("../images/ui/speedometr_default.png"), 0.5).convert_alpha()
-speedometr_0 = res(pygame.image.load("../images/ui/speedometr_0.png"), 0.5).convert_alpha()
-speedometr_1 = res(pygame.image.load("../images/ui/speedometr_1.png"), 0.5).convert_alpha()
-speedometr_2 = res(pygame.image.load("../images/ui/speedometr_2.png"), 0.5).convert_alpha()
-speedometr_3 = res(pygame.image.load("../images/ui/speedometr_3.png"), 0.5).convert_alpha()
-speedometr_nitro = res(pygame.image.load("../images/ui/speedometr_nitro.png"), 0.5).convert_alpha()
+speedometr = res(pygame.image.load("../images/ui/speedometr/speedometr_default.png"), 0.5).convert_alpha()
+speedometr_0 = res(pygame.image.load("../images/ui/speedometr/speedometr_0.png"), 0.5).convert_alpha()
+speedometr_1 = res(pygame.image.load("../images/ui/speedometr/speedometr_1.png"), 0.5).convert_alpha()
+speedometr_2 = res(pygame.image.load("../images/ui/speedometr/speedometr_2.png"), 0.5).convert_alpha()
+speedometr_3 = res(pygame.image.load("../images/ui/speedometr/speedometr_3.png"), 0.5).convert_alpha()
+speedometr_nitro = res(pygame.image.load("../images/ui/speedometr/speedometr_nitro.png"), 0.5).convert_alpha()
 
 car_selection_menu = res(pygame.image.load("../images/backgrounds/car_selection_background.png"), 1.5).convert_alpha()
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
