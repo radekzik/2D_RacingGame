@@ -64,13 +64,11 @@ def game_first_map():
             pc_car.first_map_route()
 
             draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
-
             car.car_info()
 
             draw.enemy_animation(car_stopwatch, pc_car)
 
             game_methods.check_car_type(car)
-
             game_methods.speedometer(car)
 
             car.render_position(game_screen)
@@ -140,6 +138,7 @@ def game_first_map_solo():
             draw.game_info(settings.car_match_time, clock, settings.car_lap, stopwatch)
             car.car_info()
             game_methods.check_car_type(car)
+            game_methods.speedometer(car)
 
             car.render_position(game_screen)
 
@@ -209,6 +208,7 @@ def first_map_1v1():
             car.car_info()
 
             game_methods.check_car_type(car)
+            game_methods.speedometer(car)
 
             car.render_position(game_screen)
             enemy_car.render_position(game_screen)

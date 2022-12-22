@@ -14,7 +14,7 @@ def game_info(match_time, clock, lap, stopwatch):
     draw_text(f"LAP TIME - {stopwatch}", small_font, "white", 1790, 20, game_screen)
     draw_text(f"RACE TIME - {round(match_time)}", small_font, "cyan", 1790, 60, game_screen)
 
-    draw_text(f"LAP - {lap} / {settings.max_laps}", small_font, "cyan", 1750, 960, game_screen)
+    draw_text(f"LAP - {lap} / {settings.max_laps}", small_font, "cyan", 1777, 1040, game_screen)
 
 
 def player_time_table(fastest_time, slowest_time, match_time):

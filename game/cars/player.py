@@ -2,7 +2,7 @@ from game.cars.car import Car
 from game.ui.resolution import draw_text
 from game.ui.load_image import blue_formula, blue_lambo, width, height, game_screen, small_font, green_formula, \
     yellow_formula, orange_formula, cyan_lambo, red_lambo, pink_lambo, dark_purple_spoiler_car, light_blue_spoiler_car, \
-    orange_spoiler_car, pink_spoiler_car
+    orange_spoiler_car, pink_spoiler_car, normal_font
 
 
 class Player(Car):
@@ -75,7 +75,7 @@ class Player(Car):
 
     def car_info(self):
 
-        draw_text(f"Y - ( {round(self.y)} )", small_font, "white", 1810, 1020, game_screen)
-        draw_text(f"X - ( {round(self.x)} )", small_font, "cyan", 1810, 990, game_screen)
-        draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "cyan", 1660, 1020, game_screen)
-        draw_text(f"SPEED - ( {round(self.car_speed)} )", small_font, "white", 1680, 990, game_screen)
+        draw_text(f"Y - ( {round(self.y)} )", small_font, "white", 120, 1030, game_screen)
+        draw_text(f"X - ( {round(self.x)} )", small_font, "cyan", 30, 1030, game_screen)
+        #draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "cyan", 1660, 1020, game_screen)
+        draw_text(f"{round(self.car_speed)}", normal_font, "white", 1800, 940, game_screen)

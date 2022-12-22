@@ -71,6 +71,7 @@ def game_third_map():
             draw.enemy_animation(car_stopwatch, pc_car)
 
             game_methods.check_car_type(car)
+            game_methods.speedometer(car)
 
             car.render_position(game_screen)
             pc_car.render_position(game_screen)
@@ -141,6 +142,7 @@ def game_third_map_solo():
             car.car_info()
 
             game_methods.check_car_type(car)
+            game_methods.speedometer(car)
 
             car.render_position(game_screen)
             pygame.display.update()

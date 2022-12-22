@@ -150,14 +150,18 @@ def enemy_stopwatch(ticks):
 
 
 def speedometer(car):
+    if car.car_speed < 0:
+        game_screen.blit(speedometr, (1730, 900))
     if car.car_speed == 0:
-        game_screen.blit(on_off_button, (800, 800))
+        game_screen.blit(speedometr_0, (1730, 900))
     if 0 < car.car_speed <= 1:
-        game_screen.blit(on_off_button, (900, 800))
+        game_screen.blit(speedometr_1, (1730, 900))
     if 1 < car.car_speed <= 2:
-        game_screen.blit(on_off_button, (1000, 800))
+        game_screen.blit(speedometr_2, (1730, 900))
     if 2 < car.car_speed <= 3:
-        game_screen.blit(on_off_button, (1100, 800))
+        game_screen.blit(speedometr_3, (1730, 900))
+    if 3 < car.car_speed <= 10:
+        game_screen.blit(speedometr_nitro, (1730, 900))
 
 
 def start_game():
@@ -181,7 +185,7 @@ def start_countdown(car, enemy_car):
         count_timer = pygame.time.get_ticks()
         car.max_speed = 0
         car.car_nitro = 0
-        car.movement_speed = 0
+        #car.movement_speed = 0
 
         enemy_car.max_speed = 0
         enemy_car.car_nitro = 0
