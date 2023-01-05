@@ -143,12 +143,10 @@ class PCPlayer(Car):
             new_angle = new_angle - full_degrees
 
         if new_angle > 0:
-            # self.subtract_angle()
-            self.car_angle -= min(self.max_movement_speed, abs(new_angle))
+            self.subtract_angle()
 
         else:
-            # self.add_angle()
-            self.car_angle += min(self.max_movement_speed, abs(new_angle))
+            self.add_angle()
 
     def add_angle(self):
         global new_angle
@@ -236,9 +234,9 @@ class PCPlayer(Car):
         return self.pc_route
 
     def third_map_route(self):
-        self.pc_route = [(789, 792), (754, 371), (1102, 272), (1320, 475), (1251, 704), (1070, 780), (1370, 980),
+        self.pc_route = [(830, 792), (754, 371), (1102, 272), (1320, 475), (1251, 704), (1070, 780), (1370, 980),
                          (1635, 891), (1768, 606), (1740, 177), (1400, 85), (609, 106), (178, 99), (160, 533),
-                         (195, 800), (778, 950)]
+                         (195, 850), (778, 950)]
 
         return self.pc_route
 
