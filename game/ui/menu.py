@@ -6,13 +6,13 @@ from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
 from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
 from game.maps.game_second_map import game_second_map_solo, game_second_map
-from game.ui.load_image import game_screen, big_font, button_image, normal_font, small_font, \
+from game.ui.load_image import game_screen, big_font, button_transparent_image, normal_font, small_font, \
     first_map_image, \
     second_map_image, blue_lambo_selection, blue_formula_selection, f_background, formula_selection, lambo_selection, \
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button
+    pointer_right, pointer_left, on_off_button, button_image
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -30,16 +30,16 @@ def mode_selection():
 
         draw_text("MODE SELECTION", big_font, title_color, 640, title_y, game_screen)
 
-        against_pc = Button(button_image=button_image, x_y=(760, 420),
+        against_pc = Button(button_image=button_transparent_image, x_y=(760, 420),
                             button_text="VERSUS PC", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        one_vs_one = Button(button_image=button_image, x_y=(1160, 420),
+        one_vs_one = Button(button_image=button_transparent_image, x_y=(1160, 420),
                             button_text="1 VS 1", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        solo = Button(button_image=button_image, x_y=(760, 580),
+        solo = Button(button_image=button_transparent_image, x_y=(760, 580),
                       button_text="SOLO", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        multiplayer = Button(button_image=button_image, x_y=(1160, 580),
+        multiplayer = Button(button_image=button_transparent_image, x_y=(1160, 580),
                              button_text="MULTIPLAYER", font=normal_font, font_color="white", font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
@@ -155,7 +155,7 @@ def multiplayer_selection():
         # button_text="", font=normal_font, font_color="white",
         # font_hover_color="cyan")
 
-        game_connect = Button(button_image=button_image, x_y=(960, 500),
+        game_connect = Button(button_image=button_transparent_image, x_y=(960, 500),
                               button_text="CONNECT", font=normal_font, font_color="white", font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
@@ -874,22 +874,22 @@ def main_menu():
 
         draw_text("MAIN MENU", big_font, title_color, 750, title_y, game_screen)
 
-        play_button = Button(button_image=button_image, x_y=(960, 300), button_text="PLAY", font=normal_font,
+        play_button = Button(button_image=button_transparent_image, x_y=(960, 300), button_text="PLAY", font=normal_font,
                              font_color="white", font_hover_color="cyan")
 
-        car_selection_button = Button(button_image=button_image, x_y=(590, 390), button_text="SELECT CAR",
+        car_selection_button = Button(button_image=button_transparent_image, x_y=(590, 390), button_text="SELECT CAR",
                                       font=normal_font,
                                       font_color="white", font_hover_color="cyan")
 
-        stats_button = Button(button_image=button_image, x_y=(1330, 390), button_text="STATS",
+        stats_button = Button(button_image=button_transparent_image, x_y=(1330, 390), button_text="STATS",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
-        binds_button = Button(button_image=button_image, x_y=(960, 430), button_text="BINDS",
+        binds_button = Button(button_image=button_transparent_image, x_y=(960, 430), button_text="BINDS",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
-        settings_button = Button(button_image=button_image, x_y=(960, 550), button_text="SETTINGS",
+        settings_button = Button(button_image=button_transparent_image, x_y=(960, 550), button_text="SETTINGS",
                                  font=normal_font,
                                  font_color="white", font_hover_color="cyan")
 
