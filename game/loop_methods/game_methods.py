@@ -20,6 +20,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
         # pygame.draw.rect(game_screen, "green", enemy_rect)
         # pygame.draw.rect(game_screen, "red", car_rect)
         car.car_collide()
+        check_audio(game.sounds.sounds.crash_sound.play)
 
     else:
         car.car_image = car.car_image
@@ -64,12 +65,14 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
     if car_rect.colliderect(enemy_rect):
         car.car_collide()
+        check_audio(game.sounds.sounds.crash_sound.play)
     else:
         car.car_image = car.car_image
         car.max_speed = 3
 
     if enemy_rect.colliderect(car_rect):
         enemy_car.car_collide()
+        #check_audio(game.sounds.sounds.crash_sound.play)
     else:
         enemy_car.car_image = enemy_car.car_image
         enemy_car.max_speed = 3
@@ -185,7 +188,7 @@ def start_countdown(car, enemy_car):
         count_timer = pygame.time.get_ticks()
         car.max_speed = 0
         car.car_nitro = 0
-        #car.movement_speed = 0
+        # car.movement_speed = 0
 
         enemy_car.max_speed = 0
         enemy_car.car_nitro = 0
