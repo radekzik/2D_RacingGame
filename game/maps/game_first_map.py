@@ -153,7 +153,7 @@ def game_first_map_solo():
             car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle, enemy_car.x, enemy_car.y)
 
-            player_key_binds(car, car_rect, enemy_rect, first_map_border)
+            player_key_binds(car, car_rect, enemy_rect, first_map_border, game_first_map_solo)
 
             game_methods.collision_solo(car, first_map_border)
 
@@ -224,7 +224,7 @@ def first_map_1v1():
             car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle, enemy_car.x, enemy_car.y)
 
-            player_key_binds(car, car_rect, enemy_rect, first_map_border)
+            player_key_binds(car, car_rect, enemy_rect, first_map_border, first_map_1v1)
             enemy_key_binds(enemy_car, car_rect, enemy_rect, first_map_border)
 
             game_methods.collision_vs_player(car, enemy_car, car_rect, enemy_rect, first_map_border)
