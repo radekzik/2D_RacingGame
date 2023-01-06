@@ -12,6 +12,7 @@ pygame.init()
 def collision_solo(car, map_border):
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
+        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
 
 
 def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch, car_time_list, enemy_time_list
@@ -28,6 +29,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
+        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
         # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
     if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
@@ -79,6 +81,7 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
+        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
 
     if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
         enemy_car.out_of_track()
