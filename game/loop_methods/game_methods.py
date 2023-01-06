@@ -198,6 +198,9 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 5 or settings.countdown == 4:
         game_screen.blit(semaphor_all_red, (880, 500))
 
+    if settings.countdown == 4:
+        check_audio(game.sounds.sounds.countdown_sound.play)
+
     if settings.countdown == 3:
         draw_text(f"{str(settings.countdown)} - READY", normal_font, "red", 850, 570, game_screen)
         game_screen.blit(semaphor_red, (880, 500))
@@ -214,6 +217,7 @@ def start_countdown(car, enemy_car):
         # draw_text(f"", font, "white", 900, 500)
 
         check_audio(game.sounds.sounds.starting_sound.stop)
+        check_audio(game.sounds.sounds.countdown_sound.stop)
         car.max_speed = 3
         car.car_nitro = 5
         car.max_movement_speed = 2.5

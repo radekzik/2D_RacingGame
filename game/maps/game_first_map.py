@@ -85,7 +85,7 @@ def game_first_map():
             car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
             enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
 
-            player_key_binds(car, car_rect, enemy_rect, first_map_border)
+            player_key_binds(car, car_rect, enemy_rect, first_map_border, game_first_map)
             game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, first_map_border, enemy_stopwatch,
                                          settings.car_time_list,
                                          settings.enemy_time_list, game_first_map)
