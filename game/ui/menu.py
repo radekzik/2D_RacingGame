@@ -770,8 +770,8 @@ def binds():
         draw_text("E - Nitro", normal_font, "white", 680, 600, game_screen)
         draw_text("Q - Drift", normal_font, "cyan", 1010, 600, game_screen)
 
-        draw_text("R - Restart", normal_font, "yellow", 980, 750, game_screen)
-        draw_text("X - Exit", normal_font, "orange", 880, 750, game_screen)
+        draw_text("R - Restart", normal_font, "orange", 990, 750, game_screen)
+        draw_text("X - Exit", normal_font, "red", 690, 750, game_screen)
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
