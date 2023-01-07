@@ -132,6 +132,7 @@ class FirstMap(Map):
     finish_line_y = FIRST_MAP_FINISH_LINE_Y
 
 
+
 class SecondMap(Map):
     def __init__(self):
         super().__init__()
