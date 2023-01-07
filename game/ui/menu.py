@@ -1,6 +1,8 @@
 import pygame
 
+from game.cars.pc import PCPlayer
 from game.config import settings
+from game.maps.map import FirstMap, Map
 from game.storage.storing_data import load_lap_times, load_match_times
 from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
@@ -229,6 +231,8 @@ def vs_map_selection():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
                     game_first_map()
+                    #FirstMap()
+                    #Map.map_loop(FirstMap, FirstMap, PCPlayer)
                 if second_map_button.on_click(mouse_coordinates):
                     game_second_map()
                 if third_map_button.on_click(mouse_coordinates):

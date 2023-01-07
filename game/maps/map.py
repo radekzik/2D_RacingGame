@@ -3,85 +3,97 @@ import pygame.display
 from game.cars.pc import PCPlayer, random_car
 from game.cars.rects import get_car_rect, get_enemy_rect
 from game.config import settings
-from game.config.settings import Settings
+
 from game.handler.key_binds import player_key_binds
 from game.loop_methods import game_methods
 from game.ui import draw
 from game.cars.player import Player
 
-game_settings = Settings()
+from game.cars.rects import FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y
+from game.ui.load_image import first_map, green_background, first_map_border, finish_line, game_screen, second_map, \
+    second_map_border, third_map, third_map_border
 
 
 class Map:
 
     def __init__(self):
-        self.title = self.title
-        self.tick = game_settings.GAME_TICK
-        self.map_type = self.map_type
+
+        self.game_screen = game_screen
+        self.tick = settings.game_tick
+
         self.background_image = self.background_image
         self.map_image = self.map_image
         self.map_border_image = self.map_border_image
+
         self.finish_line_image = self.finish_line_image
         self.finish_line_x = self.finish_line_x
         self.finish_line_y = self.finish_line_y
-        self.first_finish_line_x_range = self.first_finish_line_x_range
-        self.first_finish_line_y_range = self.first_finish_line_y_range
-        self.second_finish_line_x_range = self.second_finish_line_x_range
-        self.second_finish_line_y_range = self.second_finish_line_y_range
-        self.game_screen = self.game_screen
 
-    def draw_map_images(self, game_screen, background, map, finish_line, x, y, border):
-        game_screen.blit(background, (0, 0))
-        game_screen.blit(map, (0, 0))
-        game_screen.blit(finish_line, (x, y))
-        game_screen.blit(border, (0, 0))
+        self.map_loop(FirstMap, PCPlayer)
 
-    def map_loop(self):
+        # self.map_type = self.map_type
+        # self.title = self.title
+        # self.first_finish_line_x_range = self.first_finish_line_x_range
+        # self.first_finish_line_y_range = self.first_finish_line_y_range
+        # self.second_finish_line_x_range = self.second_finish_line_x_range
+        # self.second_finish_line_y_range = self.second_finish_line_y_range
+
+    def draw_map_images(self, screen, background, map_img, finish_line, x, y, border):
+        screen.blit(background, (0, 0))
+        screen.blit(map_img, (0, 0))
+        screen.blit(finish_line, (x, y))
+        screen.blit(border, (0, 0))
+
+    # def loop_methods(self, car, pc_car, car_stopwatch, enemy_stopwatch):
+
+    def map_loop(self, map_type, enemy_type):
 
         game_loop = True
 
         # pygame.display.set_caption("2D Racing Game - FirstMap - VS PC")
 
-        game_settings.last_count = pygame.time.get_ticks()
+        settings.last_count = pygame.time.get_ticks()
 
         while True:
 
+            map_type()
+
             clock = pygame.time.Clock()
 
-            car = Player()
-            pc_car = PCPlayer()
+            player = Player()
+            enemy = enemy_type()
 
-            pc_car.car_image = random_car()
+            enemy.car_image = random_car()
 
-            game_settings.STARTED = False
+            settings.started = False
 
             while game_loop:
 
-                clock.tick(game_settings.game_tick)
+                clock.tick(settings.game_tick)
 
-                car_stopwatch = pygame.time.get_ticks() - game_settings.car_start_time
+                car_stopwatch = pygame.time.get_ticks() - settings.car_start_time
                 car_stopwatch = car_stopwatch // 100 / 10
 
-                enemy_stopwatch = pygame.time.get_ticks() - game_settings.enemy_start_time
+                enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
                 self.draw_map_images(self.game_screen, self.background_image, self.map_image, self.finish_line_image,
                                      self.finish_line_x, self.finish_line_y, self.map_border_image)
 
-                game_methods.start_countdown(car, pc_car)
-                pc_car.start_drive()
-                pc_car.first_map_route()
+                game_methods.start_countdown(player, enemy)
+                enemy.start_drive()
+                enemy.first_map_route()
 
-                draw.game_info(game_settings.car_match_time, clock, game_settings.car_lap, car_stopwatch)
-                car.car_info()
+                draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
+                player.car_info()
 
-                draw.enemy_animation(car_stopwatch, pc_car)
+                draw.enemy_animation(car_stopwatch, enemy)
 
-                game_methods.check_car_type(car)
-                game_methods.speedometer(car)
+                game_methods.check_car_type(player)
+                game_methods.speedometer(player)
 
-                car.render_position(self.game_screen)
-                pc_car.render_position(self.game_screen)
+                player.render_position(self.game_screen)
+                enemy.render_position(self.game_screen)
                 pygame.display.update()
 
                 game_methods.start_game()
@@ -91,18 +103,56 @@ class Map:
                     if event.type == pygame.QUIT:
                         pygame.quit()
 
-                car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
-                enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
+                car_rect = get_car_rect(player.car_image, player.car_angle, player.x, player.y)
+                enemy_rect = get_enemy_rect(enemy.car_image, enemy.car_angle, enemy.x, enemy.y)
 
-                player_key_binds(car, car_rect, enemy_rect, self.map_border_image, self.map_type)
-                game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, self.map_border_image, enemy_stopwatch,
-                                             game_settings.car_time_list,
-                                             game_settings.enemy_time_list, self.map_type)
+                player_key_binds(player, car_rect, enemy_rect, self.map_border_image, self.map_type)
+                game_methods.collision_vs_pc(player, enemy, car_rect, enemy_rect, self.map_border_image,
+                                             enemy_stopwatch,
+                                             settings.car_time_list,
+                                             settings.enemy_time_list, self.map_type)
 
-                if self.first_finish_line_x_range < car.x < self.second_finish_line_x_range:
-                    if self.first_finish_line_y_range < car.y < self.second_finish_line_y_range:
-                        game_methods.check_laps(car, pc_car, car_stopwatch, self.map_type, car.respawn_first_map)
-                        game_methods.end_game(car, pc_car, self.map_type, game_settings.f_map_lap_times,
-                                              game_settings.f_map_match_times)
+                if self.first_finish_line_x_range < player.x < self.second_finish_line_x_range:
+                    if self.first_finish_line_y_range < player.y < self.second_finish_line_y_range:
+                        game_methods.check_laps(player, enemy, car_stopwatch, self.map_type, player.respawn_first_map)
+                        game_methods.end_game(player, enemy, self.map_type, settings.f_map_lap_times,
+                                              settings.f_map_match_times)
 
             pygame.display.update()
+
+
+class FirstMap(Map):
+    background_image = green_background
+
+    map_image = first_map
+    map_border_image = first_map_border
+
+    finish_line_image = finish_line
+    finish_line_x = FIRST_MAP_FINISH_LINE_X
+    finish_line_y = FIRST_MAP_FINISH_LINE_Y
+
+
+class SecondMap(Map):
+    def __init__(self):
+        super().__init__()
+        self.background_image = green_background
+
+        self.map_image = second_map
+        self.map_border_image = second_map_border
+
+        self.finish_line_image = finish_line
+        self.finish_line_x = FIRST_MAP_FINISH_LINE_X
+        self.finish_line_y = FIRST_MAP_FINISH_LINE_Y
+
+
+class ThirdMap(Map):
+    def __init__(self):
+        super().__init__()
+        self.background_image = green_background
+
+        self.map_image = third_map
+        self.map_border_image = third_map_border
+
+        self.finish_line_image = finish_line
+        self.finish_line_x = FIRST_MAP_FINISH_LINE_X
+        self.finish_line_y = FIRST_MAP_FINISH_LINE_Y

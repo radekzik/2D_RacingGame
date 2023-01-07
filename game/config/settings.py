@@ -4,6 +4,9 @@ started = False
 # tick
 game_tick = 60
 
+map_type = 0
+mode_type = 0
+
 # car types
 car_type = 1
 enemy_car_type = 0
