@@ -16,3 +16,6 @@ crash_sound.set_volume(0.1)
 
 out_off_the_track_sound = pygame.mixer.Sound("./../sound_effects/off_track_sound.wav")
 out_off_the_track_sound.set_volume(0.1)
+
+car_engine_sound = pygame.mixer.Sound("./../sound_effects/car_engine.wav")
+car_engine_sound.set_volume(0.1)
