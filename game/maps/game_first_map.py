@@ -219,7 +219,8 @@ def first_map_1v1():
             player_key_binds(car, car.get_car_rect(), enemy_car.get_car_rect(), first_map_border, first_map_1v1)
             enemy_key_binds(enemy_car, car.get_car_rect(), enemy_car.get_car_rect(), first_map_border)
 
-            game_methods.collision_vs_player(car, enemy_car, car.get_car_rect(), enemy_car.get_car_rect(), first_map_border)
+            game_methods.collision_vs_player(car, enemy_car, car.get_car_rect(), enemy_car.get_car_rect(),
+                                             first_map_border)
 
             if FIRST_FINISH_LINE_X_RANGE < car.x < SECOND_FINISH_LINE_X_RANGE:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:

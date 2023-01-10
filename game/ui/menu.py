@@ -5,6 +5,7 @@ from game.cars.player import Player
 from game.config import settings
 from game.maps.map import FirstMap, Map
 from game.maps.map_loop import MapLoop
+from game.maps.maps import AllMaps
 from game.storage.storing_data import load_lap_times, load_match_times
 from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
@@ -125,7 +126,8 @@ def solo_map_selection():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
-                    game_first_map_solo()
+                    #game_first_map_solo()
+                    AllMaps.first_map_vs_pc()
                     # MapLoop.loop(Player, PCPlayer, green_background, first_map,
                     # first_map_border, finish_line,
                     # (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
