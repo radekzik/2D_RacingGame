@@ -18,6 +18,9 @@ second_map_border = res(pygame.image.load("../images/borders/second_map_border2.
 third_map = res(pygame.image.load("../images/maps/third_map2.png"), 0.75).convert_alpha()
 third_map_border = res(pygame.image.load("../images/borders/third_map_border.png"), 0.75).convert_alpha()
 
+fourth_map = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.75).convert_alpha()
+fourth_map_border = res(pygame.image.load("../images/borders/fourth_map_border3.png"), 0.75).convert_alpha()
+
 # cars
 
 # formula

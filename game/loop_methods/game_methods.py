@@ -1,8 +1,9 @@
 import game.sounds.sounds
+from game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, \
+    FIRST_FINISH_LINE_Y_RANGE
 from game.storage import storing_data
 from game.ui import draw
 from game.ui.load_image import *
-from game.cars.rects import *
 from game.ui.draw import *
 from game.config import settings
 

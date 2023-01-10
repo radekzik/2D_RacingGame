@@ -1,3 +1,21 @@
+MAPS = {
+    1: {'FINISH_LINE': (580, 840), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
+    2: {
+        'FINISH_LINE': (580, 788),
+        'FINISH_LINE_RANGES': [
+            (650, 860),
+            (680, 1080)
+        ]
+    },
+    3: {
+        'FINISH_LINE': (480, 855),
+        'FINISH_LINE_RANGES': [
+            (650, 860),
+            (680, 1080)
+        ]
+    },
+}
+
 # check start game
 started = False
 
@@ -43,3 +61,20 @@ s_map_match_times = "second_map_match_times.txt"
 
 t_map_lap_times = "third_map_lap_times.txt"
 t_map_match_times = "third_map_match_times.txt"
+
+# finish line x-y
+FIRST_MAP_FINISH_LINE_X = 580
+FIRST_MAP_FINISH_LINE_Y = 840
+
+SECOND_MAP_FINISH_LINE_X = 580
+SECOND_MAP_FINISH_LINE_Y = 788
+
+THIRD_MAP_FINISH_LINE_X = 480
+THIRD_MAP_FINISH_LINE_Y = 855
+
+# finish line x-y range
+FIRST_FINISH_LINE_X_RANGE = 650
+SECOND_FINISH_LINE_X_RANGE = 680
+
+FIRST_FINISH_LINE_Y_RANGE = 860
+SECOND_FINISH_LINE_Y_RANGE = 1080

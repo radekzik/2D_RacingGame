@@ -1,8 +1,10 @@
 import pygame
 
 from game.cars.pc import PCPlayer
+from game.cars.player import Player
 from game.config import settings
 from game.maps.map import FirstMap, Map
+from game.maps.map_loop import MapLoop
 from game.storage.storing_data import load_lap_times, load_match_times
 from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
@@ -14,7 +16,8 @@ from game.ui.load_image import game_screen, big_font, button_transparent_image, 
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image
+    pointer_right, pointer_left, on_off_button, button_image, second_map_border, finish_line, second_map, \
+    green_background, first_map, first_map_border
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -123,6 +126,11 @@ def solo_map_selection():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
                     game_first_map_solo()
+                    # MapLoop.loop(Player, PCPlayer, green_background, first_map,
+                    # first_map_border, finish_line,
+                    # (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
+                    # settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
+                    # settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE)
                 if second_map_button.on_click(mouse_coordinates):
                     game_second_map_solo()
                 if third_map_button.on_click(mouse_coordinates):
@@ -231,8 +239,8 @@ def vs_map_selection():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
                     game_first_map()
-                    #FirstMap()
-                    #Map.map_loop(FirstMap, FirstMap, PCPlayer)
+                    # FirstMap()
+                    # Map.map_loop(FirstMap, FirstMap, PCPlayer)
                 if second_map_button.on_click(mouse_coordinates):
                     game_second_map()
                 if third_map_button.on_click(mouse_coordinates):
@@ -879,7 +887,8 @@ def main_menu():
 
         draw_text("MAIN MENU", big_font, title_color, 750, title_y, game_screen)
 
-        play_button = Button(button_image=button_transparent_image, x_y=(960, 300), button_text="PLAY", font=normal_font,
+        play_button = Button(button_image=button_transparent_image, x_y=(960, 300), button_text="PLAY",
+                             font=normal_font,
                              font_color="white", font_hover_color="cyan")
 
         car_selection_button = Button(button_image=button_transparent_image, x_y=(590, 390), button_text="SELECT CAR",

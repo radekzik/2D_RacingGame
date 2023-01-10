@@ -1,14 +1,13 @@
 import math
 import random
 
-import pygame
 
 from game.cars.car import Car
 from game.config import settings
 from game.ui.load_image import purple_formula, pink_lambo, width, height, red_formula, red_lambo, orange_formula, \
     yellow_formula, green_formula, cyan_lambo, dark_purple_spoiler_car, orange_spoiler_car, light_blue_spoiler_car, \
     pink_spoiler_car
-from game.cars.rects import get_enemy_rect
+
 
 global difference_x, difference_y
 global angle
@@ -170,7 +169,7 @@ class PCPlayer(Car):
 
         new_position = 1
 
-        if get_enemy_rect(self.car_image, self.car_angle, self.x, self.y).collidepoint(self.new_pc_route):
+        if self.get_car_rect().collidepoint(self.new_pc_route):
             self.next_route_position = self.next_route_position + new_position
 
     def route_random(self):

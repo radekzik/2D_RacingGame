@@ -115,3 +115,8 @@ class Car:
         out_of_track = car_hitbox.overlap(image_hitbox, car_position)
 
         return out_of_track
+
+    def get_car_rect(self):
+        rect_angle = pygame.transform.rotate(self.car_image, self.car_angle)
+        car_rect = rect_angle.get_rect(topleft=(self.x, self.y), center=(self.x + 10.5, self.y + 28))
+        return car_rect

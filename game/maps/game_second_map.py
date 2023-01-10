@@ -9,7 +9,7 @@ from game.ui.load_image import game_screen, finish_line, second_map_border, \
     second_map, green_background
 from game.cars.pc import PCPlayer, random_car
 from game.cars.player import Player
-from game.cars.rects import get_car_rect, get_enemy_rect, FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
+from game.config.settings import FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
     SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, SECOND_MAP_FINISH_LINE_X, SECOND_MAP_FINISH_LINE_Y
 
 
@@ -84,12 +84,10 @@ def game_second_map():
                 if event.type == pygame.QUIT:
                     pygame.quit()
 
-            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
-            enemy_rect = get_enemy_rect(pc_car.car_image, pc_car.car_angle, pc_car.x, pc_car.y)
+            player_key_binds(car, car.get_car_rect(), pc_car.get_car_rect(), second_map_border, game_second_map)
 
-            player_key_binds(car, car_rect, enemy_rect, second_map_border, game_second_map)
-
-            game_methods.collision_vs_pc(car, pc_car, car_rect, enemy_rect, second_map_border, enemy_stopwatch,
+            game_methods.collision_vs_pc(car, pc_car, car.get_car_rect(), pc_car.get_car_rect(), second_map_border,
+                                         enemy_stopwatch,
                                          settings.car_time_list,
                                          settings.enemy_time_list, game_second_map)
 
@@ -155,10 +153,7 @@ def game_second_map_solo():
                 if event.type == pygame.QUIT:
                     pygame.quit()
 
-            car_rect = get_car_rect(car.car_image, car.car_angle, car.x, car.y)
-            enemy_rect = get_enemy_rect(enemy_car.car_image, enemy_car.car_angle, enemy_car.x, enemy_car.y)
-
-            player_key_binds(car, car_rect, enemy_rect, second_map_border, game_second_map_solo)
+            player_key_binds(car, car.get_car_rect(), enemy_car.get_car_rect(), second_map_border, game_second_map_solo)
 
             game_methods.collision_solo(car, second_map_border)
 

@@ -1,7 +1,6 @@
 import pygame.display
 
 from game.cars.pc import PCPlayer, random_car
-from game.cars.rects import get_car_rect, get_enemy_rect
 from game.config import settings
 
 from game.handler.key_binds import player_key_binds
@@ -9,7 +8,7 @@ from game.loop_methods import game_methods
 from game.ui import draw
 from game.cars.player import Player
 
-from game.cars.rects import FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y
+from game.config.settings import FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y
 from game.ui.load_image import first_map, green_background, first_map_border, finish_line, game_screen, second_map, \
     second_map_border, third_map, third_map_border
 
@@ -103,11 +102,10 @@ class Map:
                     if event.type == pygame.QUIT:
                         pygame.quit()
 
-                car_rect = get_car_rect(player.car_image, player.car_angle, player.x, player.y)
-                enemy_rect = get_enemy_rect(enemy.car_image, enemy.car_angle, enemy.x, enemy.y)
-
-                player_key_binds(player, car_rect, enemy_rect, self.map_border_image, self.map_type)
-                game_methods.collision_vs_pc(player, enemy, car_rect, enemy_rect, self.map_border_image,
+                player_key_binds(player, player.get_car_rect(), enemy.get_car_rect(), self.map_border_image,
+                                 self.map_type)
+                game_methods.collision_vs_pc(player, enemy, player.get_car_rect(), enemy.get_car_rect(),
+                                             self.map_border_image,
                                              enemy_stopwatch,
                                              settings.car_time_list,
                                              settings.enemy_time_list, self.map_type)
