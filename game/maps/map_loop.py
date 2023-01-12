@@ -104,7 +104,7 @@ class MapLoop:
                         if y_range1 < car.y < y_range2:  # map_respawn
                             game_methods.check_laps(car, pc_car, car_stopwatch, map_restart, car.respawn_first_map)
                             game_methods.end_game(car, pc_car, lap_times_file,
-                                                  match_times_file, map_restart)
+                                                  settings.fo_map_match_times, map_restart)
                 else:
                     player_key_binds(car, car.get_car_rect(), None, map_border, map_restart)
                     game_methods.collision_solo(car, map_border)

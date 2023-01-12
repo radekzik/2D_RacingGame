@@ -62,6 +62,9 @@ s_map_match_times = "second_map_match_times.txt"
 t_map_lap_times = "third_map_lap_times.txt"
 t_map_match_times = "third_map_match_times.txt"
 
+fo_map_lap_times = "fourth_map_lap_times.txt"
+fo_map_match_times = "fourth_map_match_times.txt"
+
 # finish line x-y
 FIRST_MAP_FINISH_LINE_X = 580
 FIRST_MAP_FINISH_LINE_Y = 840

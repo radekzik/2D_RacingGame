@@ -4,7 +4,7 @@ from game.cars.player import Player
 from game.config import settings
 from game.maps.map_loop import MapLoop
 from game.ui.load_image import green_background, first_map, finish_line, first_map_border, second_map, \
-    second_map_border, third_map, third_map_border
+    second_map_border, third_map, third_map_border, fourth_map, fourth_map_border
 
 
 class AllMaps:
@@ -41,7 +41,7 @@ class AllMaps:
                      finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
                      settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
                      settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.s_map_lap_times, settings.s_map_match_times)
 
     @staticmethod
     def second_map_solo():
@@ -49,7 +49,7 @@ class AllMaps:
                      finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
                      settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
                      settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.s_map_lap_times, settings.s_map_match_times)
 
     @staticmethod
     def second_map_1v1():
@@ -57,7 +57,7 @@ class AllMaps:
                      finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
                      settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
                      settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.s_map_lap_times, settings.s_map_match_times)
 
     # THIRD MAP --------------------------------------------------------------------------------------------------
     @staticmethod
@@ -66,7 +66,7 @@ class AllMaps:
                      finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
                      settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
                      settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.t_map_lap_times, settings.t_map_match_times)
 
     @staticmethod
     def third_map_solo():
@@ -74,7 +74,7 @@ class AllMaps:
                      finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
                      settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
                      settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.t_map_lap_times, settings.t_map_match_times)
 
     @staticmethod
     def third_map_1v1():
@@ -82,4 +82,29 @@ class AllMaps:
                      finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
                      settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
                      settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.t_map_lap_times, settings.t_map_match_times)
+
+    # FOURTH MAP --------------------------------------------------------------------------------------------------
+    @staticmethod
+    def fourth_map_vs_pc():
+        MapLoop.loop(Player, PCPlayer, green_background, fourth_map, fourth_map_border, AllMaps.fourth_map_vs_pc,
+                     finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
+                     settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
+                     settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
+                     settings.fo_map_lap_times, settings.fo_map_match_times)
+
+    @staticmethod
+    def fourth_map_solo():
+        MapLoop.loop(Player, None, green_background, fourth_map, fourth_map_border, AllMaps.fourth_map_solo,
+                     finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
+                     settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
+                     settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
+                     settings.fo_map_lap_times, settings.fo_map_match_times)
+
+    @staticmethod
+    def fourth_map_1v1():
+        MapLoop.loop(Player, EnemyPlayer, green_background, fourth_map, fourth_map_border, AllMaps.fourth_map_1v1,
+                     finish_line, (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),
+                     settings.FIRST_FINISH_LINE_X_RANGE, settings.SECOND_FINISH_LINE_X_RANGE,
+                     settings.FIRST_FINISH_LINE_Y_RANGE, settings.SECOND_FINISH_LINE_Y_RANGE,
+                     settings.fo_map_lap_times, settings.fo_map_match_times)
