@@ -1,6 +1,7 @@
 import pygame
 
-from game.cars.pc import random_car
+from game.cars import pc
+from game.cars.pc import random_car, PCPlayer
 from game.config import settings
 from game.handler.key_binds import player_key_binds
 from game.loop_methods import game_methods
@@ -70,8 +71,8 @@ class MapLoop:
                     game_methods.start_countdown(car, pc_car)
 
                     pc_car.start_drive()
-                    # enemy_route()
                     pc_car.first_map_route()
+                    # pc_car.first_map_route()
 
                 draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
                 car.car_info()
