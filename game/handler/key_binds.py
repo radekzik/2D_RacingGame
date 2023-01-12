@@ -53,9 +53,14 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
         map_restart()
 
     if pressed_key[pygame.K_w]:
-        if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
-                and not car_rect.colliderect(enemy_rect):
-            car.nitro()
+        if enemy_rect is None:
+            if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)):
+                car.nitro()
+
+        else:
+            if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
+                    and not car_rect.colliderect(enemy_rect):
+                car.nitro()
 
 
 def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):

@@ -127,7 +127,7 @@ def solo_map_selection():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
                     #game_first_map_solo()
-                    AllMaps.first_map_vs_pc()
+                    AllMaps.first_map_solo()
                     # MapLoop.loop(Player, PCPlayer, green_background, first_map,
                     # first_map_border, finish_line,
                     # (settings.FIRST_MAP_FINISH_LINE_X, settings.FIRST_MAP_FINISH_LINE_Y),

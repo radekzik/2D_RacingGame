@@ -50,7 +50,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
             pygame.display.update()
             pygame.time.wait(1000)
 
-            stats_reset(car, enemy_car, car_time_list, enemy_time_list)
+            stats_reset_vs_pc(car, enemy_car, car_time_list, enemy_time_list)
             check_new_game()
             restart_map()
 
@@ -60,7 +60,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
             pygame.display.update()
             pygame.time.wait(1000)
 
-            stats_reset(car, enemy_car, car_time_list, enemy_time_list)
+            stats_reset_vs_pc(car, enemy_car, car_time_list, enemy_time_list)
             check_new_game()
             restart_map()
 
@@ -75,7 +75,7 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
 
     if enemy_rect.colliderect(car_rect):
         enemy_car.car_collide()
-        #check_audio(game.sounds.sounds.crash_sound.play)
+        # check_audio(game.sounds.sounds.crash_sound.play)
     else:
         enemy_car.car_image = enemy_car.car_image
         enemy_car.max_speed = 3
@@ -234,7 +234,7 @@ def start_countdown(car, enemy_car):
         enemy_car.max_movement_speed = 2.5
 
 
-def stats_reset(car, enemy, car_time_list, enemy_time_list):
+def stats_reset_vs_pc(car, enemy, car_time_list, enemy_time_list):
     car_time_list.clear()
     enemy_time_list.clear()
 
@@ -246,6 +246,19 @@ def stats_reset(car, enemy, car_time_list, enemy_time_list):
     car.respawn_first_map()
     enemy.respawn_first_map()
     enemy.next_route_position = 0
+    settings.car_start_time = pygame.time.get_ticks()
+    settings.enemy_start_time = pygame.time.get_ticks()
+
+
+def stats_reset_solo(car, car_time_list):
+    car_time_list.clear()
+
+    settings.car_lap = 0
+    settings.enemy_lap = 0
+    settings.car_match_time = 0
+    settings.enemy_match_time = 0
+
+    car.respawn_first_map()
     settings.car_start_time = pygame.time.get_ticks()
     settings.enemy_start_time = pygame.time.get_ticks()
 
@@ -273,7 +286,10 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         pygame.display.update()
         pygame.time.wait(1000)
 
-        stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+        if pc_car is not None:
+            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+        else:
+            stats_reset_solo(car, settings.car_time_list)
 
         check_new_game()
         reset_map()
@@ -309,6 +325,11 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
         # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
         pygame.display.update()
         pygame.time.wait(5000)
-        stats_reset(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+
+        if pc_car is not None:
+            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+        else:
+            stats_reset_solo(car, settings.car_time_list)
+
         check_new_game()
         reset_map()

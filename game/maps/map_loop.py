@@ -12,8 +12,10 @@ from game.ui.load_image import game_screen
 # if settings.MAPS[1]['FINISH_LINE_RANGES'][0][1] < car.y < settings.MAPS[1]['FINISH_LINE_RANGES'][1][1]:
 class MapLoop:
     @staticmethod
-    def loop(player, enemy, background, map_image, map_border, map_restart, map_respawn, finish_line, finish_line_xy, x_range1,
-             x_range2, y_range1, y_range2):
+    def loop(player, enemy, background, map_image, map_border, map_restart,
+             finish_line, finish_line_xy, x_range1, x_range2, y_range1, y_range2,
+             lap_times_file, match_times_file):
+        global pc_car
         settings.max_laps = 3
         settings.car_lap = 0
         settings.enemy_lap = 0
@@ -36,10 +38,13 @@ class MapLoop:
 
             clock = pygame.time.Clock()
 
-            car = player()
-            pc_car = enemy()
+            if enemy is None:
+                car = player()
 
-            pc_car.car_image = random_car()
+            else:
+                car = player()
+                pc_car = enemy()
+                pc_car.car_image = random_car()
 
             settings.started = False
 
@@ -58,23 +63,29 @@ class MapLoop:
                 game_screen.blit(finish_line, finish_line_xy)
                 game_screen.blit(map_border, (0, 0))
 
-                game_methods.start_countdown(car, pc_car)
-                if not None:
+                if enemy is None:
+                    game_methods.start_countdown(car, car)
+
+                else:
+                    game_methods.start_countdown(car, pc_car)
+
                     pc_car.start_drive()
-                    #enemy_route()
+                    # enemy_route()
                     pc_car.first_map_route()
 
                 draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
                 car.car_info()
 
-                draw.enemy_animation(car_stopwatch, pc_car)
+                if enemy is not None:
+                    draw.enemy_animation(car_stopwatch, pc_car)
 
                 game_methods.check_car_type(car)
                 game_methods.speedometer(car)
 
                 car.render_position(game_screen)
-                pc_car.render_position(game_screen)
-                pygame.display.update()
+                if enemy is not None:
+                    pc_car.render_position(game_screen)
+                    pygame.display.update()
 
                 game_methods.start_game()
                 pygame.display.update()
@@ -83,15 +94,25 @@ class MapLoop:
                     if event.type == pygame.QUIT:
                         pygame.quit()
 
-                player_key_binds(car, car.get_car_rect(), pc_car.get_car_rect(), map_border, map_restart)
-                game_methods.collision_vs_pc(car, pc_car, car.get_car_rect(), pc_car.get_car_rect(),
-                                             map_border, enemy_stopwatch, settings.car_time_list,
-                                             settings.enemy_time_list, map_restart)
+                if enemy is not None:
+                    player_key_binds(car, car.get_car_rect(), pc_car.get_car_rect(), map_border, map_restart)
+                    game_methods.collision_vs_pc(car, pc_car, car.get_car_rect(), pc_car.get_car_rect(),
+                                                 map_border, enemy_stopwatch, settings.car_time_list,
+                                                 settings.enemy_time_list, map_restart)
 
-                if x_range1 < car.x < x_range2:
-                    if y_range1 < car.y < y_range2:                                     # map_respawn
-                        game_methods.check_laps(car, pc_car, car_stopwatch, map_restart, car.respawn_first_map)
-                        game_methods.end_game(car, pc_car, settings.f_map_lap_times,
-                                              settings.f_map_match_times, map_restart)
+                    if x_range1 < car.x < x_range2:
+                        if y_range1 < car.y < y_range2:  # map_respawn
+                            game_methods.check_laps(car, pc_car, car_stopwatch, map_restart, car.respawn_first_map)
+                            game_methods.end_game(car, pc_car, lap_times_file,
+                                                  match_times_file, map_restart)
+                else:
+                    player_key_binds(car, car.get_car_rect(), None, map_border, map_restart)
+                    game_methods.collision_solo(car, map_border)
+
+                    if x_range1 < car.x < x_range2:
+                        if y_range1 < car.y < y_range2:  # map_respawn
+                            game_methods.check_laps(car, None, car_stopwatch, map_restart, car.respawn_first_map)
+                            game_methods.end_game(car, None, lap_times_file,
+                                                  match_times_file, map_restart)
 
             pygame.display.update()
