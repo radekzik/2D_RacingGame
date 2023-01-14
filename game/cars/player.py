@@ -58,13 +58,18 @@ class Player(Car):
         self.car_angle = 270
 
     def respawn_second_map(self):
-        self.x = 1000
-        self.y = 850
+        self.x = 700
+        self.y = 900
         self.car_angle = 270
 
     def respawn_third_map(self):
-        self.x = 620
-        self.y = 980
+        self.x = 600
+        self.y = 950
+        self.car_angle = 270
+
+    def respawn_fourth_map(self):
+        self.x = 700
+        self.y = 900
         self.car_angle = 270
 
     def out_of_map(self):

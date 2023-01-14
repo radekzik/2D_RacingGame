@@ -10,7 +10,7 @@ from game.ui.load_image import game_screen
 
 class MapLoop:
     @staticmethod
-    def loop(player, enemy, enemy_route, background, map_image, map_border, map_restart,
+    def loop(player, enemy, enemy_route, background, map_image, map_border, map_restart, map_respawn,
              finish_line, finish_line_xy, x_range1, x_range2, y_range1, y_range2,
              lap_times_file, match_times_file):
         global pc_car
@@ -69,7 +69,6 @@ class MapLoop:
 
                     pc_car.start_drive()
                     enemy_route(pc_car)
-                    # pc_car.first_map_route()
 
                 draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
                 car.car_info()
@@ -99,8 +98,8 @@ class MapLoop:
                                                  settings.enemy_time_list, map_restart)
 
                     if x_range1 < car.x < x_range2:
-                        if y_range1 < car.y < y_range2:  # map_respawn
-                            game_methods.check_laps(car, pc_car, car_stopwatch, map_restart, car.respawn_first_map)
+                        if y_range1 < car.y < y_range2:
+                            game_methods.check_laps(car, pc_car, car_stopwatch, map_restart, map_respawn)
                             game_methods.end_game(car, pc_car, lap_times_file,
                                                   settings.fourth_map_match_times_file, map_restart)
                 else:
@@ -108,8 +107,8 @@ class MapLoop:
                     game_methods.collision_solo(car, map_border)
 
                     if x_range1 < car.x < x_range2:
-                        if y_range1 < car.y < y_range2:  # map_respawn
-                            game_methods.check_laps(car, None, car_stopwatch, map_restart, car.respawn_first_map)
+                        if y_range1 < car.y < y_range2:
+                            game_methods.check_laps(car, None, car_stopwatch, map_restart, map_respawn)
                             game_methods.end_game(car, None, lap_times_file,
                                                   match_times_file, map_restart)
 

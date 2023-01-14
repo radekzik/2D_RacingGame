@@ -277,7 +277,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         pygame.display.update()
         pygame.time.wait(200)
 
-        map_respawn()
+        map_respawn(car)
         settings.car_start_time = pygame.time.get_ticks()
 
     else:

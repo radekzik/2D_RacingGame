@@ -13,7 +13,7 @@ class AllMaps:
     @staticmethod
     def first_map_vs_pc():
         MapLoop.loop(Player, PCPlayer, PCPlayer.first_map_route, green_forest, first_map, first_map_border,
-                     AllMaps.first_map_vs_pc,
+                     AllMaps.first_map_vs_pc, Player.respawn_first_map,
                      finish_line, settings.FINISH_LINES[1]["FINISH_LINE"],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][0],
@@ -23,7 +23,8 @@ class AllMaps:
 
     @staticmethod
     def first_map_solo():
-        MapLoop.loop(Player, None, None, green_forest, first_map, first_map_border, AllMaps.first_map_solo,
+        MapLoop.loop(Player, None, None, green_forest, first_map, first_map_border,
+                     AllMaps.first_map_solo, Player.respawn_first_map,
                      finish_line, settings.FINISH_LINES[1]["FINISH_LINE"],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][0],
@@ -33,7 +34,8 @@ class AllMaps:
 
     @staticmethod
     def first_map_1v1():
-        MapLoop.loop(Player, EnemyPlayer, None, green_forest, first_map, first_map_border, AllMaps.first_map_1v1,
+        MapLoop.loop(Player, EnemyPlayer, None, green_forest, first_map, first_map_border,
+                     AllMaps.first_map_1v1, Player.respawn_first_map,
                      finish_line, settings.FINISH_LINES[1]["FINISH_LINE"],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][0],
@@ -44,7 +46,8 @@ class AllMaps:
     # SECOND MAP --------------------------------------------------------------------------------------------------
     @staticmethod
     def second_map_vs_pc():
-        MapLoop.loop(Player, PCPlayer, PCPlayer.second_map_route, dark_green_forest, second_map, second_map_border, AllMaps.second_map_vs_pc,
+        MapLoop.loop(Player, PCPlayer, PCPlayer.second_map_route, dark_green_forest, second_map, second_map_border,
+                     AllMaps.second_map_vs_pc, Player.respawn_second_map,
                      finish_line, settings.FINISH_LINES[2]["FINISH_LINE"],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][0],
@@ -54,7 +57,8 @@ class AllMaps:
 
     @staticmethod
     def second_map_solo():
-        MapLoop.loop(Player, None, None, dark_green_forest, second_map, second_map_border, AllMaps.second_map_solo,
+        MapLoop.loop(Player, None, None, dark_green_forest, second_map, second_map_border,
+                     AllMaps.second_map_solo, Player.respawn_second_map,
                      finish_line, settings.FINISH_LINES[2]["FINISH_LINE"],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][0],
@@ -64,7 +68,8 @@ class AllMaps:
 
     @staticmethod
     def second_map_1v1():
-        MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, second_map, second_map_border, AllMaps.second_map_1v1,
+        MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, second_map, second_map_border,
+                     AllMaps.second_map_1v1, Player.respawn_second_map,
                      finish_line, settings.FINISH_LINES[2]["FINISH_LINE"],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][0],
@@ -75,7 +80,8 @@ class AllMaps:
     # THIRD MAP --------------------------------------------------------------------------------------------------
     @staticmethod
     def third_map_vs_pc():
-        MapLoop.loop(Player, PCPlayer, PCPlayer.third_map_route, green_forest, third_map, third_map_border, AllMaps.third_map_vs_pc,
+        MapLoop.loop(Player, PCPlayer, PCPlayer.third_map_route, green_forest, third_map, third_map_border,
+                     AllMaps.third_map_vs_pc, Player.respawn_third_map,
                      finish_line, settings.FINISH_LINES[3]["FINISH_LINE"],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][0],
@@ -85,7 +91,8 @@ class AllMaps:
 
     @staticmethod
     def third_map_solo():
-        MapLoop.loop(Player, None, None, green_forest, third_map, third_map_border, AllMaps.third_map_solo,
+        MapLoop.loop(Player, None, None, green_forest, third_map, third_map_border,
+                     AllMaps.third_map_solo, Player.respawn_third_map,
                      finish_line, settings.FINISH_LINES[3]["FINISH_LINE"],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][0],
@@ -95,7 +102,8 @@ class AllMaps:
 
     @staticmethod
     def third_map_1v1():
-        MapLoop.loop(Player, EnemyPlayer, None, green_forest, third_map, third_map_border, AllMaps.third_map_1v1,
+        MapLoop.loop(Player, EnemyPlayer, None, green_forest, third_map, third_map_border,
+                     AllMaps.third_map_1v1, Player.respawn_third_map,
                      finish_line, settings.FINISH_LINES[3]["FINISH_LINE"],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][0],
@@ -106,7 +114,8 @@ class AllMaps:
     # FOURTH MAP --------------------------------------------------------------------------------------------------
     @staticmethod
     def fourth_map_vs_pc():
-        MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, dark_green_forest, fourth_map, fourth_map_border, AllMaps.fourth_map_vs_pc,
+        MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, dark_green_forest, fourth_map, fourth_map_border,
+                     AllMaps.fourth_map_vs_pc, Player.respawn_fourth_map,
                      finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
@@ -116,7 +125,8 @@ class AllMaps:
 
     @staticmethod
     def fourth_map_solo():
-        MapLoop.loop(Player, None, None, dark_green_forest, fourth_map, fourth_map_border, AllMaps.fourth_map_solo,
+        MapLoop.loop(Player, None, None, dark_green_forest, fourth_map, fourth_map_border,
+                     AllMaps.fourth_map_solo, Player.respawn_fourth_map,
                      finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
@@ -126,7 +136,8 @@ class AllMaps:
 
     @staticmethod
     def fourth_map_1v1():
-        MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, fourth_map, fourth_map_border, AllMaps.fourth_map_1v1,
+        MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, fourth_map, fourth_map_border,
+                     AllMaps.fourth_map_1v1, Player.respawn_fourth_map,
                      finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],

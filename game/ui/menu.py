@@ -127,7 +127,7 @@ def solo_map_selection():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
                     # game_first_map_solo()
-                    AllMaps.fourth_map_vs_pc()
+                    AllMaps.fourth_map_solo()
 
                 if second_map_button.on_click(mouse_coordinates):
                     game_second_map_solo()
