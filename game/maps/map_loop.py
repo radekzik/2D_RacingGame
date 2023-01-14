@@ -71,7 +71,7 @@ class MapLoop:
                     game_methods.start_countdown(car, pc_car)
 
                     pc_car.start_drive()
-                    pc_car.first_map_route()
+                    pc_car.fourth_map_route()
                     # pc_car.first_map_route()
 
                 draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)

@@ -239,6 +239,12 @@ class PCPlayer(Car):
 
         return self.pc_route
 
+    def fourth_map_route(self):
+        self.pc_route = [(1121, 915), (1567, 823), (1756, 544), (1505, 186), (843, 130),
+                         (337, 197), (140, 496), (282, 774), (630, 930), (887, 887)]
+
+        return self.pc_route
+
     def respawn_first_map(self):
         self.x = self.x_position
         self.y = self.y_position
