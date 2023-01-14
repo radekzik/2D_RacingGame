@@ -1,6 +1,6 @@
 # Requirements
-- 💻 Display : FULL HD (1920x1080) 
-- 🎮 FPS : Stable 60 FPS
+💻 Display : FULL HD (1920x1080) 
+🎮 FPS : Stable 60 FPS
 
 # TODO
 - zjednodusit code
