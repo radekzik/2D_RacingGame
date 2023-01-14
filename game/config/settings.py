@@ -38,21 +38,21 @@ car_time_list = []
 enemy_time_list = []
 
 # on - 1 / off - 2
-audio = 2
+audio = 1
 camera_focus = 2
 
 # file paths
-f_map_lap_times = "first_map_lap_times.txt"
-f_map_match_times = "first_map_match_times.txt"
+first_map_lap_times_file = "first_map_lap_times.txt"
+first_map_match_times_file = "first_map_match_times.txt"
 
-s_map_lap_times = "second_map_lap_times.txt"
-s_map_match_times = "second_map_match_times.txt"
+second_map_lap_times_file = "second_map_lap_times.txt"
+second_map_match_times_file = "second_map_match_times.txt"
 
-t_map_lap_times = "third_map_lap_times.txt"
-t_map_match_times = "third_map_match_times.txt"
+third_map_lap_times_file = "third_map_lap_times.txt"
+third_map_match_times_file = "third_map_match_times.txt"
 
-fo_map_lap_times = "fourth_map_lap_times.txt"
-fo_map_match_times = "fourth_map_match_times.txt"
+fourth_map_lap_times_file = "fourth_map_lap_times.txt"
+fourth_map_match_times_file = "fourth_map_match_times.txt"
 
 # finish line x-y
 FIRST_MAP_FINISH_LINE_X = 580

@@ -113,8 +113,8 @@ class Map:
                 if self.first_finish_line_x_range < player.x < self.second_finish_line_x_range:
                     if self.first_finish_line_y_range < player.y < self.second_finish_line_y_range:
                         game_methods.check_laps(player, enemy, car_stopwatch, self.map_type, player.respawn_first_map)
-                        game_methods.end_game(player, enemy, self.map_type, settings.f_map_lap_times,
-                                              settings.f_map_match_times)
+                        game_methods.end_game(player, enemy, self.map_type, settings.first_map_lap_times_file,
+                                              settings.first_map_match_times_file)
 
             pygame.display.update()
 

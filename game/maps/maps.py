@@ -23,7 +23,7 @@ class AllMaps:
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][1],
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.first_map_lap_times_file, settings.first_map_match_times_file)
 
     @staticmethod
     def first_map_solo():
@@ -33,7 +33,7 @@ class AllMaps:
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][1],
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.first_map_lap_times_file, settings.first_map_match_times_file)
 
     @staticmethod
     def first_map_1v1():
@@ -43,7 +43,7 @@ class AllMaps:
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[1]["FINISH_LINE_RANGES"][1][1],
-                     settings.f_map_lap_times, settings.f_map_match_times)
+                     settings.first_map_lap_times_file, settings.first_map_match_times_file)
 
     # SECOND MAP --------------------------------------------------------------------------------------------------
     @staticmethod
@@ -54,7 +54,7 @@ class AllMaps:
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][1],
-                     settings.s_map_lap_times, settings.s_map_match_times)
+                     settings.second_map_lap_times_file, settings.second_map_match_times_file)
 
     @staticmethod
     def second_map_solo():
@@ -64,7 +64,7 @@ class AllMaps:
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][1],
-                     settings.s_map_lap_times, settings.s_map_match_times)
+                     settings.second_map_lap_times_file, settings.second_map_match_times_file)
 
     @staticmethod
     def second_map_1v1():
@@ -74,7 +74,7 @@ class AllMaps:
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[2]["FINISH_LINE_RANGES"][1][1],
-                     settings.s_map_lap_times, settings.s_map_match_times)
+                     settings.second_map_lap_times_file, settings.second_map_match_times_file)
 
     # THIRD MAP --------------------------------------------------------------------------------------------------
     @staticmethod
@@ -85,7 +85,7 @@ class AllMaps:
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][1],
-                     settings.t_map_lap_times, settings.t_map_match_times)
+                     settings.third_map_lap_times_file, settings.third_map_match_times_file)
 
     @staticmethod
     def third_map_solo():
@@ -95,7 +95,7 @@ class AllMaps:
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][1],
-                     settings.t_map_lap_times, settings.t_map_match_times)
+                     settings.third_map_lap_times_file, settings.third_map_match_times_file)
 
     @staticmethod
     def third_map_1v1():
@@ -105,7 +105,7 @@ class AllMaps:
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[3]["FINISH_LINE_RANGES"][1][1],
-                     settings.t_map_lap_times, settings.t_map_match_times)
+                     settings.third_map_lap_times_file, settings.third_map_match_times_file)
 
     # FOURTH MAP --------------------------------------------------------------------------------------------------
     @staticmethod
@@ -116,7 +116,7 @@ class AllMaps:
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][1],
-                     settings.fo_map_lap_times, settings.fo_map_match_times)
+                     settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file)
 
     @staticmethod
     def fourth_map_solo():
@@ -126,7 +126,7 @@ class AllMaps:
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][1],
-                     settings.fo_map_lap_times, settings.fo_map_match_times)
+                     settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file)
 
     @staticmethod
     def fourth_map_1v1():
@@ -136,4 +136,4 @@ class AllMaps:
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][1],
-                     settings.fo_map_lap_times, settings.fo_map_match_times)
+                     settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file)

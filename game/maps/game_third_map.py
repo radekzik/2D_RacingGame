@@ -93,8 +93,8 @@ def game_third_map():
             if FIRST_FINISH_LINE_X_RANGE - 100 < car.x < SECOND_FINISH_LINE_X_RANGE - 100:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, pc_car, car_stopwatch, game_third_map, car.respawn_third_map)
-                    game_methods.end_game(car, pc_car, game_third_map, settings.t_map_lap_times,
-                                          settings.t_map_match_times)
+                    game_methods.end_game(car, pc_car, game_third_map, settings.third_map_lap_times_file,
+                                          settings.third_map_match_times_file)
 
         pygame.display.update()
 
@@ -159,7 +159,7 @@ def game_third_map_solo():
             if FIRST_FINISH_LINE_X_RANGE - 100 < car.x < SECOND_FINISH_LINE_X_RANGE - 100:
                 if FIRST_FINISH_LINE_Y_RANGE < car.y < SECOND_FINISH_LINE_Y_RANGE:
                     game_methods.check_laps(car, enemy_car, stopwatch, game_third_map_solo, car.respawn_first_map)
-                    game_methods.end_game(car, enemy_car, game_third_map_solo, settings.t_map_lap_times,
-                                          settings.t_map_match_times)
+                    game_methods.end_game(car, enemy_car, game_third_map_solo, settings.third_map_lap_times_file,
+                                          settings.third_map_match_times_file)
 
             pygame.display.update()
