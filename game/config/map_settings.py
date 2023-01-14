@@ -1,7 +1,7 @@
 from game.cars.enemy import EnemyPlayer
 from game.cars.pc import PCPlayer
 from game.cars.player import Player
-from game.ui.load_image import first_map, first_map_border, green_background, second_map_border, second_map, \
+from game.ui.load_image import first_map, first_map_border, green_forest, second_map_border, second_map, \
     finish_line, third_map, third_map_border
 
 # *FINISH_LINES = {

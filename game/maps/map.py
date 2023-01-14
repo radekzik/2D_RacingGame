@@ -9,7 +9,7 @@ from game.ui import draw
 from game.cars.player import Player
 
 from game.config.settings import FIRST_MAP_FINISH_LINE_X, FIRST_MAP_FINISH_LINE_Y
-from game.ui.load_image import first_map, green_background, first_map_border, finish_line, game_screen, second_map, \
+from game.ui.load_image import first_map, green_forest, first_map_border, finish_line, game_screen, second_map, \
     second_map_border, third_map, third_map_border
 
 
@@ -120,7 +120,7 @@ class Map:
 
 
 class FirstMap(Map):
-    background_image = green_background
+    background_image = green_forest
 
     map_image = first_map
     map_border_image = first_map_border
@@ -133,7 +133,7 @@ class FirstMap(Map):
 class SecondMap(Map):
     def __init__(self):
         super().__init__()
-        self.background_image = green_background
+        self.background_image = green_forest
 
         self.map_image = second_map
         self.map_border_image = second_map_border
@@ -146,7 +146,7 @@ class SecondMap(Map):
 class ThirdMap(Map):
     def __init__(self):
         super().__init__()
-        self.background_image = green_background
+        self.background_image = green_forest
 
         self.map_image = third_map
         self.map_border_image = third_map_border

@@ -56,7 +56,8 @@ pink_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car
 # backgrounds
 menu_background = res(pygame.image.load("../images/backgrounds/blue_grey_gradient.jpg"), 1).convert_alpha()
 f_background = res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()
-green_background = res(pygame.image.load("../images/backgrounds/green_bg.png"), 0.75).convert_alpha()
+green_forest = res(pygame.image.load("../images/backgrounds/green_forest.png"), 0.75).convert_alpha()
+dark_green_forest = res(pygame.image.load("../images/backgrounds/dark_green_forest.png"), 0.75).convert_alpha()
 
 # finish
 finish_line = res(pygame.image.load("../images/borders/finish_line.png"), 1.2).convert_alpha()

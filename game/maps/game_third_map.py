@@ -6,7 +6,7 @@ from game.loop_methods import game_methods
 from game.config import settings
 from game.handler.key_binds import player_key_binds
 from game.ui.load_image import game_screen, finish_line, \
-    third_map, third_map_border, green_background, fourth_map, fourth_map_border
+    third_map, third_map_border, green_forest, fourth_map, fourth_map_border
 from game.cars.pc import PCPlayer, random_car
 from game.cars.player import Player
 from game.config.settings import FIRST_FINISH_LINE_X_RANGE, FIRST_FINISH_LINE_Y_RANGE, \
@@ -55,7 +55,7 @@ def game_third_map():
             enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
             enemy_stopwatch = enemy_stopwatch // 100 / 10
 
-            game_screen.blit(green_background, (0, 0))
+            game_screen.blit(green_forest, (0, 0))
             game_screen.blit(third_map, (0, 0))
             game_screen.blit(finish_line, (THIRD_MAP_FINISH_LINE_X, THIRD_MAP_FINISH_LINE_Y))
             game_screen.blit(third_map_border, (0, 0))
@@ -128,7 +128,7 @@ def game_third_map_solo():
             stopwatch = pygame.time.get_ticks() - settings.car_start_time
             stopwatch = stopwatch // 100 / 10
 
-            game_screen.blit(green_background, (0, 0))
+            game_screen.blit(green_forest, (0, 0))
             game_screen.blit(fourth_map, (0, 0))
             game_screen.blit(finish_line, (THIRD_MAP_FINISH_LINE_X, THIRD_MAP_FINISH_LINE_Y))
             game_screen.blit(fourth_map_border, (0, 0))

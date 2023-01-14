@@ -18,7 +18,7 @@ from game.ui.load_image import game_screen, big_font, button_transparent_image, 
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
     pointer_right, pointer_left, on_off_button, button_image, second_map_border, finish_line, second_map, \
-    green_background, first_map, first_map_border
+    green_forest, first_map, first_map_border
 from game.ui.resolution import draw_text
 
 title_y = 70
