@@ -1,15 +1,11 @@
 import pygame
 
-from game.cars.pc import PCPlayer
-from game.cars.player import Player
 from game.config import settings
-from game.maps.map import FirstMap, Map
-from game.maps.map_loop import MapLoop
 from game.maps.maps import AllMaps
 from game.storage.storing_data import load_lap_times, load_match_times
 from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
-from game.maps.game_first_map import first_map_1v1, game_first_map_solo, game_first_map
+from game.maps.game_first_map import first_map_1v1, game_first_map
 from game.maps.game_second_map import game_second_map_solo, game_second_map
 from game.ui.load_image import game_screen, big_font, button_transparent_image, normal_font, small_font, \
     first_map_image, \
@@ -17,8 +13,7 @@ from game.ui.load_image import game_screen, big_font, button_transparent_image, 
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image, second_map_border, finish_line, second_map, \
-    green_forest, first_map, first_map_border
+    pointer_right, pointer_left, on_off_button, button_image
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -69,16 +64,19 @@ def mode_selection():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if solo.on_click(mouse_coordinates):
-                    solo_map_selection()
+                    map_selection(AllMaps.first_map_solo, AllMaps.second_map_solo,
+                                  AllMaps.third_map_solo, AllMaps.fourth_map_solo)
 
                 if multiplayer.on_click(mouse_coordinates):
                     multiplayer_selection()
 
                 if against_pc.on_click(mouse_coordinates):
-                    vs_map_selection()
+                    map_selection(AllMaps.first_map_vs_pc, AllMaps.second_map_vs_pc,
+                                  AllMaps.third_map_vs_pc, AllMaps.fourth_map_vs_pc)
 
                 if one_vs_one.on_click(mouse_coordinates):
-                    first_map_1v1()
+                    map_selection(AllMaps.first_map_1v1, AllMaps.second_map_1v1,
+                                  AllMaps.third_map_1v1, AllMaps.fourth_map_1v1)
 
                 if back_button.on_click(mouse_coordinates):
                     main_menu()
@@ -86,7 +84,7 @@ def mode_selection():
         pygame.display.update()
 
 
-def solo_map_selection():
+def map_selection(first_button, second_button, third_button, fourth_button):
     pygame.display.set_caption("2D Racing Game - Map Selection")
 
     while True:
@@ -99,6 +97,7 @@ def solo_map_selection():
         draw_text("I. MAP", small_font, "cyan", 410, 480, game_screen)
         draw_text("II. MAP", small_font, "cyan", 940, 440, game_screen)
         draw_text("III. MAP", small_font, "cyan", 1440, 415, game_screen)
+        draw_text("IV. MAP", small_font, "cyan", 1640, 415, game_screen)
 
         first_map_button = Button(button_image=first_map_image, x_y=(500, 550),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
@@ -110,12 +109,17 @@ def solo_map_selection():
                                   button_text="", font=normal_font, font_color="white",
                                   font_hover_color="cyan")
 
+        fourth_map_button = Button(button_image=third_map_image, x_y=(1900, 550),
+                                   button_text="", font=normal_font, font_color="white",
+                                   font_hover_color="cyan")
+
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         first_map_button.button_render(game_screen)
         second_map_button.button_render(game_screen)
         third_map_button.button_render(game_screen)
+        fourth_map_button.button_render(game_screen)
         back_button.button_render(game_screen)
 
         button_hover_render(back_button, mouse_coordinates, game_screen)
@@ -126,13 +130,13 @@ def solo_map_selection():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if first_map_button.on_click(mouse_coordinates):
-                    # game_first_map_solo()
-                    AllMaps.fourth_map_solo()
-
+                    first_button()
                 if second_map_button.on_click(mouse_coordinates):
-                    game_second_map_solo()
+                    second_button()
                 if third_map_button.on_click(mouse_coordinates):
-                    game_third_map_solo()
+                    third_button()
+                if fourth_map_button.on_click(mouse_coordinates):
+                    fourth_button()
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 
@@ -149,29 +153,12 @@ def multiplayer_selection():
 
         draw_text("MAP SELECTION", big_font, title_color, 680, title_y, game_screen)
 
-        # draw_text("I. MAP", small_font, "cyan", 410, 480, game_screen)
-        # draw_text("II. MAP", small_font, "cyan", 940, 440, game_screen)
-        # draw_text("III. MAP", small_font, "cyan", 1440, 415, game_screen)
-
-        # first_map_button = Button(button_image=first_map_image, x_y=(500, 550),
-        # button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
-
-        # second_map_button = Button(button_image=second_map_image, x_y=(970, 550),
-        # button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
-
-        # third_map_button = Button(button_image=third_map_image, x_y=(1470, 550),
-        # button_text="", font=normal_font, font_color="white",
-        # font_hover_color="cyan")
-
         game_connect = Button(button_image=button_transparent_image, x_y=(960, 500),
                               button_text="CONNECT", font=normal_font, font_color="white", font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
-        # first_map_button.button_render(game_screen)
-        # second_map_button.button_render(game_screen)
-        # third_map_button.button_render(game_screen)
         game_connect.button_render(game_screen)
         back_button.button_render(game_screen)
 
@@ -189,60 +176,6 @@ def multiplayer_selection():
                 # game_second_map_solo()
                 # if third_map_button.on_click(mouse_coordinates):
                 # game_third_map_solo()
-                if back_button.on_click(mouse_coordinates):
-                    mode_selection()
-
-            pygame.display.update()
-
-
-def vs_map_selection():
-    pygame.display.set_caption("2D Racing Game - Map Selection")
-
-    while True:
-
-        game_screen.blit(f_background, (0, 0))
-        mouse_coordinates = pygame.mouse.get_pos()
-
-        draw_text("MAP SELECTION", big_font, title_color, 680, title_y, game_screen)
-
-        draw_text("I. MAP", small_font, "cyan", 410, 480, game_screen)
-        draw_text("II. MAP", small_font, "cyan", 940, 440, game_screen)
-        draw_text("III. MAP", small_font, "cyan", 1440, 415, game_screen)
-
-        first_map_button = Button(button_image=first_map_image, x_y=(500, 550),
-                                  button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
-
-        second_map_button = Button(button_image=second_map_image, x_y=(970, 550),
-                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
-
-        third_map_button = Button(button_image=third_map_image, x_y=(1470, 550),
-                                  button_text="", font=normal_font, font_color="white",
-                                  font_hover_color="cyan")
-
-        back_button = Button(button_image=button_image, x_y=(960, quit_y),
-                             button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
-
-        first_map_button.button_render(game_screen)
-        second_map_button.button_render(game_screen)
-        third_map_button.button_render(game_screen)
-        back_button.button_render(game_screen)
-
-        button_hover_render(third_map_button, mouse_coordinates, game_screen)
-        button_hover_render(back_button, mouse_coordinates, game_screen)
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if first_map_button.on_click(mouse_coordinates):
-                    game_first_map()
-                    # FirstMap()
-                    # Map.map_loop(FirstMap, FirstMap, PCPlayer)
-                if second_map_button.on_click(mouse_coordinates):
-                    game_second_map()
-                if third_map_button.on_click(mouse_coordinates):
-                    game_third_map()
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 
