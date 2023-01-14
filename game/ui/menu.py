@@ -473,6 +473,19 @@ def car_selection_spoiler_car():
             pygame.display.update()
 
 
+def pointer_right_():
+    pointer_right_button = Button(button_image=pointer_right, x_y=(1600, 500),
+                                  button_text="", font=normal_font, font_color="white", font_hover_color="white")
+
+    return pointer_right_button
+
+
+def pointer_left_():
+    pointer_left_button = Button(button_image=pointer_left, x_y=(320, 500),
+                                 button_text="", font=normal_font, font_color="white", font_hover_color="white")
+    return pointer_left_button
+
+
 def stats_first_map():
     pygame.display.set_caption("2D Racing Game - Stats")
     loading = True
