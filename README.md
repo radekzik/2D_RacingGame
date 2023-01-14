@@ -10,4 +10,5 @@
 
 
 - time - fix
+- fix ukladani casu
 

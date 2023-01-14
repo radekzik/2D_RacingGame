@@ -87,6 +87,7 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, enemy_
 
     if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
         enemy_car.out_of_track()
+        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
 
 
 def check_new_game():

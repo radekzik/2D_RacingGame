@@ -74,6 +74,7 @@ on_off_button = res(pygame.image.load("../images/ui/buttons/on_off_button.png"),
 first_map_image = res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.15).convert_alpha()
 second_map_image = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()
 third_map_image = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()
+fourth_map_image = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.15).convert_alpha()
 
 # banners
 esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()

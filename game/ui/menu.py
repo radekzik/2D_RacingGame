@@ -3,17 +3,14 @@ import pygame
 from game.config import settings
 from game.maps.maps import AllMaps
 from game.storage.storing_data import load_lap_times, load_match_times
-from game.maps.game_third_map import game_third_map, game_third_map_solo
 from game.ui.button import Button, button_hover_render
-from game.maps.game_first_map import first_map_1v1, game_first_map
-from game.maps.game_second_map import game_second_map_solo, game_second_map
 from game.ui.load_image import game_screen, big_font, button_transparent_image, normal_font, small_font, \
     first_map_image, \
     second_map_image, blue_lambo_selection, blue_formula_selection, f_background, formula_selection, lambo_selection, \
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image
+    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -37,7 +34,7 @@ def mode_selection():
         one_vs_one = Button(button_image=button_transparent_image, x_y=(1160, 420),
                             button_text="1 VS 1", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        solo = Button(button_image=button_transparent_image, x_y=(760, 580),
+        solo = Button(button_image=button_transparent_image, x_y=(960, 580),
                       button_text="SOLO", font=normal_font, font_color="white", font_hover_color="cyan")
 
         # multiplayer = Button(button_image=button_transparent_image, x_y=(1160, 580),
@@ -94,22 +91,22 @@ def map_selection(first_button, second_button, third_button, fourth_button):
 
         draw_text("MAP SELECTION", big_font, title_color, 680, title_y, game_screen)
 
-        draw_text("I. MAP", small_font, "cyan", 410, 480, game_screen)
-        draw_text("II. MAP", small_font, "cyan", 940, 440, game_screen)
-        draw_text("III. MAP", small_font, "cyan", 1440, 415, game_screen)
-        draw_text("IV. MAP", small_font, "cyan", 1640, 415, game_screen)
+        draw_text("I. MAP", small_font, "cyan", 410, 380, game_screen)
+        draw_text("II. MAP", small_font, "cyan", 940, 340, game_screen)
+        draw_text("III. MAP", small_font, "cyan", 1440, 315, game_screen)
+        draw_text("IV. MAP", small_font, "cyan", 940, 615, game_screen)
 
-        first_map_button = Button(button_image=first_map_image, x_y=(500, 550),
+        first_map_button = Button(button_image=first_map_image, x_y=(500, 450),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        second_map_button = Button(button_image=second_map_image, x_y=(970, 550),
+        second_map_button = Button(button_image=second_map_image, x_y=(970, 450),
                                    button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        third_map_button = Button(button_image=third_map_image, x_y=(1470, 550),
+        third_map_button = Button(button_image=third_map_image, x_y=(1470, 450),
                                   button_text="", font=normal_font, font_color="white",
                                   font_hover_color="cyan")
 
-        fourth_map_button = Button(button_image=third_map_image, x_y=(1900, 550),
+        fourth_map_button = Button(button_image=fourth_map_image, x_y=(970, 750),
                                    button_text="", font=normal_font, font_color="white",
                                    font_hover_color="cyan")
 
