@@ -60,6 +60,7 @@ green_background = res(pygame.image.load("../images/backgrounds/green_bg.png"), 
 
 # finish
 finish_line = res(pygame.image.load("../images/borders/finish_line.png"), 1.2).convert_alpha()
+finish_line_x2 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7).convert_alpha()
 
 # buttons
 button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()

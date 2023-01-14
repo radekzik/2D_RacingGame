@@ -1,19 +1,8 @@
-MAPS = {
+FINISH_LINES = {
     1: {'FINISH_LINE': (580, 840), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
-    2: {
-        'FINISH_LINE': (580, 788),
-        'FINISH_LINE_RANGES': [
-            (650, 860),
-            (680, 1080)
-        ]
-    },
-    3: {
-        'FINISH_LINE': (480, 855),
-        'FINISH_LINE_RANGES': [
-            (650, 860),
-            (680, 1080)
-        ]
-    },
+    2: {'FINISH_LINE': (580, 788), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
+    3: {'FINISH_LINE': (480, 855), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
+    4: {'FINISH_LINE': (550, 732), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]}
 }
 
 # check start game
