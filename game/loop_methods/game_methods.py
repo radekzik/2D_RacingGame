@@ -65,7 +65,8 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
             restart_map()
 
 
-def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
+def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
+                        car_time_list, enemy_time_list, restart_map):
     if car_rect.colliderect(enemy_rect):
         car.car_collide()
         check_audio(game.sounds.sounds.crash_sound.play)
