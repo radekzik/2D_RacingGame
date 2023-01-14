@@ -1,6 +1,5 @@
 import pygame
 
-from game.cars import pc
 from game.cars.pc import random_car, PCPlayer
 from game.config import settings
 from game.handler.key_binds import player_key_binds
@@ -9,11 +8,9 @@ from game.ui import draw
 from game.ui.load_image import game_screen
 
 
-# if settings.MAPS[1]['FINISH_LINE_RANGES'][0][0] < car.x < settings.MAPS[1]['FINISH_LINE_RANGES'][1][0]:
-# if settings.MAPS[1]['FINISH_LINE_RANGES'][0][1] < car.y < settings.MAPS[1]['FINISH_LINE_RANGES'][1][1]:
 class MapLoop:
     @staticmethod
-    def loop(player, enemy, background, map_image, map_border, map_restart,
+    def loop(player, enemy, enemy_route, background, map_image, map_border, map_restart,
              finish_line, finish_line_xy, x_range1, x_range2, y_range1, y_range2,
              lap_times_file, match_times_file):
         global pc_car
@@ -71,7 +68,7 @@ class MapLoop:
                     game_methods.start_countdown(car, pc_car)
 
                     pc_car.start_drive()
-                    pc_car.fourth_map_route()
+                    enemy_route(pc_car)
                     # pc_car.first_map_route()
 
                 draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
