@@ -40,20 +40,20 @@ def mode_selection():
         solo = Button(button_image=button_transparent_image, x_y=(760, 580),
                       button_text="SOLO", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        multiplayer = Button(button_image=button_transparent_image, x_y=(1160, 580),
-                             button_text="MULTIPLAYER", font=normal_font, font_color="white", font_hover_color="cyan")
+        # multiplayer = Button(button_image=button_transparent_image, x_y=(1160, 580),
+        #  button_text="MULTIPLAYER", font=normal_font, font_color="white", font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         solo.button_render(game_screen)
-        multiplayer.button_render(game_screen)
+        # multiplayer.button_render(game_screen)
         against_pc.button_render(game_screen)
         one_vs_one.button_render(game_screen)
         back_button.button_render(game_screen)
 
         button_hover_render(solo, mouse_coordinates, game_screen)
-        button_hover_render(multiplayer, mouse_coordinates, game_screen)
+        # button_hover_render(multiplayer, mouse_coordinates, game_screen)
         button_hover_render(against_pc, mouse_coordinates, game_screen)
         button_hover_render(one_vs_one, mouse_coordinates, game_screen)
         button_hover_render(back_button, mouse_coordinates, game_screen)
@@ -67,8 +67,8 @@ def mode_selection():
                     map_selection(AllMaps.first_map_solo, AllMaps.second_map_solo,
                                   AllMaps.third_map_solo, AllMaps.fourth_map_solo)
 
-                if multiplayer.on_click(mouse_coordinates):
-                    multiplayer_selection()
+                # if multiplayer.on_click(mouse_coordinates):
+                # multiplayer_selection()
 
                 if against_pc.on_click(mouse_coordinates):
                     map_selection(AllMaps.first_map_vs_pc, AllMaps.second_map_vs_pc,
@@ -170,12 +170,6 @@ def multiplayer_selection():
                 pygame.quit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                # if first_map_button.on_click(mouse_coordinates):
-                # game_first_map_solo()
-                #  if second_map_button.on_click(mouse_coordinates):
-                # game_second_map_solo()
-                # if third_map_button.on_click(mouse_coordinates):
-                # game_third_map_solo()
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 
