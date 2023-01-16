@@ -144,9 +144,9 @@ def check_audio(command):
         command()
 
 
-def check_show_fps(command):
+def check_show_fps(command, clock):
     if settings.show_fps == 1:
-        return command
+        command(clock)
 
 
 def check_show_ui(command):
