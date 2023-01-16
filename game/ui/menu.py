@@ -739,6 +739,14 @@ def binds():
             pygame.display.update()
 
 
+def on_off_display(button, mouse_coordinates, option, value, text, x, y, delay):
+    if button.on_click(mouse_coordinates):
+        option = value
+        draw_text(text, normal_font, "green", x, y, game_screen)
+        pygame.display.update()
+        pygame.time.wait(delay)
+
+
 def game_settings():
     pygame.display.set_caption("2D Racing Game - Settings")
 
@@ -807,6 +815,23 @@ def game_settings():
                 pygame.quit()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
+
+                #on_off_display(audio_on_button, mouse_coordinates, settings.audio, 1, "AUDIO ON!", 830, 210, 1000)
+                #on_off_display(audio_off_button, mouse_coordinates, settings.audio, 2, "AUDIO OFF!", 830, 210, 1000)
+
+                #on_off_display(camera_on_button, mouse_coordinates, settings.camera_focus, 1, "CAMERA FOCUS ON!", 730,
+                               #210, 1000)
+                #on_off_display(audio_off_button, mouse_coordinates, settings.camera_focus, 2, "CAMERA FOCUS OFF!", 730,
+                               #210, 1000)
+
+                #on_off_display(vsync_on_button, mouse_coordinates, settings.vsync, 1, "VSYNC ON!", 830, 210, 1000)
+                #on_off_display(vsync_off_button, mouse_coordinates, settings.vsync, 0, "VSYNC OFF!", 830, 210, 1000)
+
+                #on_off_display(show_fps_on_button, mouse_coordinates, settings.show_fps, 1, "FPS ON!", 850, 210, 1000)
+                #on_off_display(show_fps_off_button, mouse_coordinates, settings.show_fps, 2, "FPS OFF!", 850, 210, 1000)
+
+                #on_off_display(show_ui_on_button, mouse_coordinates, settings.show_fps, 1, "UI ON!", 850, 210, 1000)
+                #on_off_display(show_ui_off_button, mouse_coordinates, settings.show_fps, 2, "UI OFF!", 850, 210, 1000)
 
                 if audio_on_button.on_click(mouse_coordinates):
                     settings.audio = 1
