@@ -1,3 +1,5 @@
+import pygame
+
 FINISH_LINES = {
     1: {'FINISH_LINE': (580, 840), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
     2: {'FINISH_LINE': (580, 788), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
@@ -40,6 +42,14 @@ enemy_time_list = []
 # on - 1 / off - 2
 audio = 1
 camera_focus = 2
+vsync = 1
+
+fullscreen_flag = pygame.HWSURFACE | pygame.FULLSCREEN
+window_flag = pygame.HWSURFACE
+
+fullscreen = 1
+show_fps = 1
+show_ui = 1
 
 # file paths
 first_map_lap_times_file = "first_map_lap_times.txt"

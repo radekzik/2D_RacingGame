@@ -2,7 +2,7 @@ import game.sounds.sounds
 from game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, \
     FIRST_FINISH_LINE_Y_RANGE
 from game.storage import storing_data
-from game.ui import draw
+from game.ui import draw, load_image
 from game.ui.load_image import *
 from game.ui.draw import *
 from game.config import settings
@@ -141,6 +141,16 @@ def check_car_type(car):
 
 def check_audio(command):
     if settings.audio == 1:
+        command()
+
+
+def check_show_fps(command):
+    if settings.show_fps == 1:
+        return command
+
+
+def check_show_ui(command):
+    if settings.show_ui == 1:
         command()
 
 

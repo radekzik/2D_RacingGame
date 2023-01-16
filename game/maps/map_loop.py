@@ -77,14 +77,21 @@ class MapLoop:
                     enemy_car.start_drive()
                     enemy_route(enemy_car)
 
-                draw.game_info(settings.car_match_time, clock, settings.car_lap, car_stopwatch)
-                player_car.car_info()
+                if settings.show_ui == 1:
+                    draw.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)
+
+                if settings.show_fps == 1:
+                    draw.game_show_fps(clock)
+
+                if settings.show_ui == 1:
+                    player_car.car_info()
 
                 if enemy is not None:
                     draw.enemy_animation(car_stopwatch, enemy_car)
 
                 game_methods.check_car_type(player_car)
-                game_methods.speedometer(player_car)
+                if settings.show_ui == 1:
+                    game_methods.speedometer(player_car)
 
                 player_car.render_position(game_screen)
 

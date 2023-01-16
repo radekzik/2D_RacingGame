@@ -1,4 +1,6 @@
 import pygame
+
+from game.config import settings
 from game.ui.resolution import res
 
 pygame.init()
@@ -6,7 +8,7 @@ pygame.init()
 width = 1920
 height = 1080
 flags = pygame.HWSURFACE | pygame.FULLSCREEN
-game_screen = pygame.display.set_mode((width, height), flags, vsync=1)
+game_screen = pygame.display.set_mode((width, height), flags, vsync=settings.vsync)
 
 # maps
 first_map = res(pygame.image.load("../images/maps/first_map.png"), 0.75).convert_alpha()
@@ -20,6 +22,9 @@ third_map_border = res(pygame.image.load("../images/borders/third_map_border.png
 
 fourth_map = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.75).convert_alpha()
 fourth_map_border = res(pygame.image.load("../images/borders/fourth_map_border3.png"), 0.75).convert_alpha()
+
+fifth_map = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.75).convert_alpha()
+fifth_map_border = res(pygame.image.load("../images/borders/fifth_map_border.png"), 0.75).convert_alpha()
 
 # cars
 
@@ -75,6 +80,7 @@ first_map_image = res(pygame.image.load("../images/ui/buttons/first_map_button.p
 second_map_image = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()
 third_map_image = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()
 fourth_map_image = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.15).convert_alpha()
+fifth_map_image = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.15).convert_alpha()
 
 # banners
 esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()
