@@ -10,7 +10,7 @@ from game.ui.load_image import game_screen, big_font, button_transparent_image, 
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image
+    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, fifth_map_image
 from game.ui.resolution import draw_text
 
 title_y = 70
@@ -62,18 +62,18 @@ def mode_selection():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if solo.on_click(mouse_coordinates):
                     map_selection(AllMaps.first_map_solo, AllMaps.second_map_solo,
-                                  AllMaps.third_map_solo, AllMaps.fourth_map_solo)
+                                  AllMaps.third_map_solo, AllMaps.fourth_map_solo, AllMaps.fifth_map_solo)
 
                 # if multiplayer.on_click(mouse_coordinates):
                 # multiplayer_selection()
 
                 if against_pc.on_click(mouse_coordinates):
                     map_selection(AllMaps.first_map_vs_pc, AllMaps.second_map_vs_pc,
-                                  AllMaps.third_map_vs_pc, AllMaps.fourth_map_vs_pc)
+                                  AllMaps.third_map_vs_pc, AllMaps.fourth_map_vs_pc, AllMaps.fifth_map_vs_pc)
 
                 if one_vs_one.on_click(mouse_coordinates):
                     map_selection(AllMaps.first_map_1v1, AllMaps.second_map_1v1,
-                                  AllMaps.third_map_1v1, AllMaps.fourth_map_1v1)
+                                  AllMaps.third_map_1v1, AllMaps.fourth_map_1v1, AllMaps.fifth_map_1v1)
 
                 if back_button.on_click(mouse_coordinates):
                     main_menu()
@@ -81,7 +81,7 @@ def mode_selection():
         pygame.display.update()
 
 
-def map_selection(first_button, second_button, third_button, fourth_button):
+def map_selection(first_button, second_button, third_button, fourth_button, fifth_button):
     pygame.display.set_caption("2D Racing Game - Map Selection")
 
     while True:
@@ -94,7 +94,8 @@ def map_selection(first_button, second_button, third_button, fourth_button):
         draw_text("I. MAP", small_font, "cyan", 410, 380, game_screen)
         draw_text("II. MAP", small_font, "cyan", 940, 340, game_screen)
         draw_text("III. MAP", small_font, "cyan", 1440, 315, game_screen)
-        draw_text("IV. MAP", small_font, "cyan", 940, 615, game_screen)
+        draw_text("IV. MAP", small_font, "cyan", 675, 615, game_screen)
+        draw_text("V. MAP", small_font, "cyan", 1185, 615, game_screen)
 
         first_map_button = Button(button_image=first_map_image, x_y=(500, 450),
                                   button_text="", font=normal_font, font_color="white", font_hover_color="cyan")
@@ -106,9 +107,13 @@ def map_selection(first_button, second_button, third_button, fourth_button):
                                   button_text="", font=normal_font, font_color="white",
                                   font_hover_color="cyan")
 
-        fourth_map_button = Button(button_image=fourth_map_image, x_y=(970, 750),
+        fourth_map_button = Button(button_image=fourth_map_image, x_y=(700, 750),
                                    button_text="", font=normal_font, font_color="white",
                                    font_hover_color="cyan")
+
+        fifth_map_button = Button(button_image=fifth_map_image, x_y=(1220, 750),
+                                  button_text="", font=normal_font, font_color="white",
+                                  font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, quit_y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
@@ -117,6 +122,7 @@ def map_selection(first_button, second_button, third_button, fourth_button):
         second_map_button.button_render(game_screen)
         third_map_button.button_render(game_screen)
         fourth_map_button.button_render(game_screen)
+        fifth_map_button.button_render(game_screen)
         back_button.button_render(game_screen)
 
         button_hover_render(back_button, mouse_coordinates, game_screen)
@@ -134,6 +140,8 @@ def map_selection(first_button, second_button, third_button, fourth_button):
                     third_button()
                 if fourth_map_button.on_click(mouse_coordinates):
                     fourth_button()
+                if fifth_map_button.on_click(mouse_coordinates):
+                    fifth_button()
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 
@@ -816,22 +824,22 @@ def game_settings():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
 
-                #on_off_display(audio_on_button, mouse_coordinates, settings.audio, 1, "AUDIO ON!", 830, 210, 1000)
-                #on_off_display(audio_off_button, mouse_coordinates, settings.audio, 2, "AUDIO OFF!", 830, 210, 1000)
+                # on_off_display(audio_on_button, mouse_coordinates, settings.audio, 1, "AUDIO ON!", 830, 210, 1000)
+                # on_off_display(audio_off_button, mouse_coordinates, settings.audio, 2, "AUDIO OFF!", 830, 210, 1000)
 
-                #on_off_display(camera_on_button, mouse_coordinates, settings.camera_focus, 1, "CAMERA FOCUS ON!", 730,
-                               #210, 1000)
-                #on_off_display(audio_off_button, mouse_coordinates, settings.camera_focus, 2, "CAMERA FOCUS OFF!", 730,
-                               #210, 1000)
+                # on_off_display(camera_on_button, mouse_coordinates, settings.camera_focus, 1, "CAMERA FOCUS ON!", 730,
+                # 210, 1000)
+                # on_off_display(audio_off_button, mouse_coordinates, settings.camera_focus, 2, "CAMERA FOCUS OFF!", 730,
+                # 210, 1000)
 
-                #on_off_display(vsync_on_button, mouse_coordinates, settings.vsync, 1, "VSYNC ON!", 830, 210, 1000)
-                #on_off_display(vsync_off_button, mouse_coordinates, settings.vsync, 0, "VSYNC OFF!", 830, 210, 1000)
+                # on_off_display(vsync_on_button, mouse_coordinates, settings.vsync, 1, "VSYNC ON!", 830, 210, 1000)
+                # on_off_display(vsync_off_button, mouse_coordinates, settings.vsync, 0, "VSYNC OFF!", 830, 210, 1000)
 
-                #on_off_display(show_fps_on_button, mouse_coordinates, settings.show_fps, 1, "FPS ON!", 850, 210, 1000)
-                #on_off_display(show_fps_off_button, mouse_coordinates, settings.show_fps, 2, "FPS OFF!", 850, 210, 1000)
+                # on_off_display(show_fps_on_button, mouse_coordinates, settings.show_fps, 1, "FPS ON!", 850, 210, 1000)
+                # on_off_display(show_fps_off_button, mouse_coordinates, settings.show_fps, 2, "FPS OFF!", 850, 210, 1000)
 
-                #on_off_display(show_ui_on_button, mouse_coordinates, settings.show_fps, 1, "UI ON!", 850, 210, 1000)
-                #on_off_display(show_ui_off_button, mouse_coordinates, settings.show_fps, 2, "UI OFF!", 850, 210, 1000)
+                # on_off_display(show_ui_on_button, mouse_coordinates, settings.show_fps, 1, "UI ON!", 850, 210, 1000)
+                # on_off_display(show_ui_off_button, mouse_coordinates, settings.show_fps, 2, "UI OFF!", 850, 210, 1000)
 
                 if audio_on_button.on_click(mouse_coordinates):
                     settings.audio = 1

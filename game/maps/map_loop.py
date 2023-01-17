@@ -114,8 +114,8 @@ class MapLoop:
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
                             game_methods.check_laps(player_car, enemy_car, car_stopwatch, map_restart, map_respawn)
-                            game_methods.end_game(player_car, enemy_car, lap_times_file,
-                                                  settings.fourth_map_match_times_file, map_restart)
+                            game_methods.end_game(player_car, enemy_car, map_restart, lap_times_file,
+                                                  settings.fourth_map_match_times_file)
 
                 if enemy is None and enemy_route is None:
                     player_key_binds(player_car, player_car.get_car_rect(), None, map_border, map_restart)
@@ -124,8 +124,8 @@ class MapLoop:
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
                             game_methods.check_laps(player_car, None, car_stopwatch, map_restart, map_respawn)
-                            game_methods.end_game(player_car, None, lap_times_file,
-                                                  match_times_file, map_restart)
+                            game_methods.end_game(player_car, None, map_restart, lap_times_file,
+                                                  match_times_file)
 
                 if enemy is not None and enemy_route is None:
                     player_key_binds(player_car, player_car.get_car_rect(), enemy_car.get_car_rect(),
@@ -140,7 +140,7 @@ class MapLoop:
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
                             game_methods.check_laps(player_car, enemy_car, car_stopwatch, map_restart, map_respawn)
-                            game_methods.end_game(player_car, enemy_car, lap_times_file,
-                                                  settings.fourth_map_match_times_file, map_restart)
+                            game_methods.end_game(player_car, enemy_car, map_restart, lap_times_file,
+                                                  settings.fourth_map_match_times_file)
 
             pygame.display.update()
