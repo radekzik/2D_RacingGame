@@ -72,6 +72,11 @@ class Player(Car):
         self.y = 900
         self.car_angle = 270
 
+    def respawn_fifth_map(self):
+        self.x = 450
+        self.y = 850
+        self.car_angle = 270
+
     def out_of_map(self):
         if self.x >= width or self.x <= 0:
             self.respawn_first_map()
@@ -82,5 +87,5 @@ class Player(Car):
 
         draw_text(f"Y - ( {round(self.y)} )", small_font, "white", 120, 1030, game_screen)
         draw_text(f"X - ( {round(self.x)} )", small_font, "cyan", 30, 1030, game_screen)
-        #draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "cyan", 1660, 1020, game_screen)
+        # draw_text(f"MOVEMENT - ( {round(self.movement_speed)} )", small_font, "cyan", 1660, 1020, game_screen)
         draw_text(f"{round(self.car_speed)}", normal_font, "white", 1800, 940, game_screen)

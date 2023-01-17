@@ -3,7 +3,7 @@ import pygame
 from game.config import settings
 from game.ui.load_image import game_screen, time_menu, normal_font, small_font, purple_formula_2, purple_formula, \
     blue_formula_2, blue_formula, orange_formula, orange_formula_2, yellow_formula_2, yellow_formula, \
-    green_formula, green_formula_2
+    green_formula, green_formula_2, time_background, time_background2
 from game.ui.resolution import draw_text
 
 
@@ -19,14 +19,14 @@ def game_show_fps(clock):
 
 
 def player_time_table(fastest_time, slowest_time, match_time):
-    game_screen.blit(time_menu, (650, 200))
+    game_screen.blit(time_background2, (700, 200))
     draw_text(f"FASTEST LAP TIME : {fastest_time}", normal_font, "green", 740, 250, game_screen)
     draw_text(f"SLOWEST LAP TIME : {slowest_time}", normal_font, "red", 740, 350, game_screen)
     draw_text(f"MATCH TIME : {round(match_time)}", normal_font, "white", 740, 450, game_screen)
 
 
 def enemy_time_table(fastest_time, slowest_time, match_time):
-    game_screen.blit(time_menu, (1050, 200))
+    game_screen.blit(time_background2, (1050, 200))
     draw_text(f"FASTEST LAP TIME : {fastest_time}", normal_font, "green", 1150, 250, game_screen)
     draw_text(f"SLOWEST LAP TIME : {slowest_time}", normal_font, "red", 1150, 350, game_screen)
     draw_text(f"MATCH TIME : {round(match_time)}", normal_font, "white", 1150, 450, game_screen)

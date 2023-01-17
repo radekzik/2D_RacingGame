@@ -4,7 +4,8 @@ FINISH_LINES = {
     1: {'FINISH_LINE': (580, 840), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
     2: {'FINISH_LINE': (580, 788), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
     3: {'FINISH_LINE': (480, 855), 'FINISH_LINE_RANGES': [(550, 860), (580, 1080)]},
-    4: {'FINISH_LINE': (550, 732), 'FINISH_LINE_RANGES': [(600, 750), (700, 1080)]}
+    4: {'FINISH_LINE': (550, 732), 'FINISH_LINE_RANGES': [(600, 750), (700, 1080)]},
+    5: {'FINISH_LINE': (340, 800), 'FINISH_LINE_RANGES': [(400, 750), (500, 1080)]}
 }
 
 # check start game
@@ -63,6 +64,9 @@ third_map_match_times_file = "third_map_match_times.txt"
 
 fourth_map_lap_times_file = "fourth_map_lap_times.txt"
 fourth_map_match_times_file = "fourth_map_match_times.txt"
+
+fifth_map_lap_times_file = "fifth_map_lap_times.txt"
+fifth_map_match_times_file = "fifth_map_match_times.txt"
 
 # finish line x-y
 FIRST_MAP_FINISH_LINE_X = 580

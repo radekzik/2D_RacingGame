@@ -94,7 +94,7 @@ def check_new_game():
     settings.started = False
 
     while not settings.started:
-        game_screen.blit(time_menu, (700, 200))
+        game_screen.blit(time_background2, (700, 200))
         draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, game_screen)
         draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, game_screen)
         pygame.display.update()

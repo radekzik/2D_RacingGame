@@ -120,3 +120,28 @@ class Car:
         rect_angle = pygame.transform.rotate(self.car_image, self.car_angle)
         car_rect = rect_angle.get_rect(topleft=(self.x, self.y), center=(self.x + 10.5, self.y + 28))
         return car_rect
+
+    def spawn_first_map(self):
+        self.x = 700
+        self.y = 950
+        self.car_angle = 270
+
+    def spawn_second_map(self):
+        self.x = 700
+        self.y = 900
+        self.car_angle = 270
+
+    def spawn_third_map(self):
+        self.x = 600
+        self.y = 950
+        self.car_angle = 270
+
+    def spawn_fourth_map(self):
+        self.x = 700
+        self.y = 900
+        self.car_angle = 270
+
+    def spawn_fifth_map(self):
+        self.x = 450
+        self.y = 850
+        self.car_angle = 270

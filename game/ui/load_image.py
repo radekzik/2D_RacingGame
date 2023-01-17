@@ -69,7 +69,9 @@ dark_green_forest = res(pygame.image.load("../images/backgrounds/dark_green_fore
 
 # finish
 finish_line = res(pygame.image.load("../images/borders/finish_line.png"), 1.2).convert_alpha()
-finish_line_x2 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7).convert_alpha()
+finish_line_x2 = res(pygame.image.load("../images/borders/finish_line.png"), 1.35).convert_alpha()
+finish_line_x3 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7).convert_alpha()
+
 
 # buttons
 button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
@@ -89,6 +91,9 @@ fifth_map_image = res(pygame.image.load("../images/maps/test_map3.png"), 0.15).c
 # banners
 esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()
 time_menu = res(pygame.image.load("../images/ui/time_menu.png"), 1).convert_alpha()
+time_background = res(pygame.image.load("../images/backgrounds/time_background.png"), 1).convert_alpha()
+time_background2 = res(pygame.image.load("../images/backgrounds/time_background3.png"),
+                       1).convert_alpha()
 
 # semaphor
 semaphor_all_red = res(pygame.image.load("../images/ui/semaphor/semaphor_all_red.png"), 1).convert_alpha()

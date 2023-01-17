@@ -4,8 +4,8 @@ from game.cars.player import Player
 from game.config import settings
 from game.maps.map_loop import MapLoop
 from game.ui.load_image import green_forest, first_map, finish_line, first_map_border, second_map, \
-    second_map_border, third_map, third_map_border, fourth_map, fourth_map_border, finish_line_x2, dark_green_forest, \
-    fifth_map, fifth_map_border
+    second_map_border, third_map, third_map_border, fourth_map, fourth_map_border, finish_line_x3, dark_green_forest, \
+    fifth_map, fifth_map_border, finish_line_x2
 
 
 class AllMaps:
@@ -117,7 +117,7 @@ class AllMaps:
     def fourth_map_vs_pc():
         MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, dark_green_forest, fourth_map, fourth_map_border,
                      AllMaps.fourth_map_vs_pc, Player.respawn_fourth_map,
-                     finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
+                     finish_line_x3, settings.FINISH_LINES[4]["FINISH_LINE"],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
@@ -128,7 +128,7 @@ class AllMaps:
     def fourth_map_solo():
         MapLoop.loop(Player, None, None, dark_green_forest, fourth_map, fourth_map_border,
                      AllMaps.fourth_map_solo, Player.respawn_fourth_map,
-                     finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
+                     finish_line_x3, settings.FINISH_LINES[4]["FINISH_LINE"],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
@@ -139,7 +139,7 @@ class AllMaps:
     def fourth_map_1v1():
         MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, fourth_map, fourth_map_border,
                      AllMaps.fourth_map_1v1, Player.respawn_fourth_map,
-                     finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
+                     finish_line_x3, settings.FINISH_LINES[4]["FINISH_LINE"],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
                      settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
@@ -150,33 +150,32 @@ class AllMaps:
     @staticmethod
     def fifth_map_vs_pc():
         MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, dark_green_forest, fifth_map, fifth_map_border,
-                     AllMaps.fourth_map_vs_pc, Player.respawn_fourth_map,
-                     finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][1],
-                     settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file)
+                     AllMaps.fifth_map_vs_pc, Player.respawn_fifth_map,
+                     finish_line_x2, settings.FINISH_LINES[5]["FINISH_LINE"],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][0],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][1][0],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][1],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][1][1],
+                     settings.fifth_map_lap_times_file, settings.fifth_map_match_times_file)
 
     @staticmethod
     def fifth_map_solo():
         MapLoop.loop(Player, None, None, dark_green_forest, fifth_map, fifth_map_border,
-                     AllMaps.fourth_map_solo, Player.respawn_fourth_map,
-                     finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][1],
-                     settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file)
+                     AllMaps.fifth_map_solo, Player.respawn_fifth_map,
+                     finish_line_x2, settings.FINISH_LINES[5]["FINISH_LINE"],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][0],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][1][0],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][1],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][1][1],
+                     settings.fifth_map_lap_times_file, settings.fifth_map_match_times_file)
 
     @staticmethod
     def fifth_map_1v1():
         MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, fifth_map, fifth_map_border,
-                     AllMaps.fourth_map_1v1, Player.respawn_fourth_map,
-                     finish_line_x2, settings.FINISH_LINES[4]["FINISH_LINE"],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][0],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][0],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][0][1],
-                     settings.FINISH_LINES[4]["FINISH_LINE_RANGES"][1][1],
-                     settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file)
-
+                     AllMaps.fifth_map_1v1, Player.respawn_fifth_map,
+                     finish_line_x2, settings.FINISH_LINES[5]["FINISH_LINE"],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][0],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][1][0],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][1],
+                     settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][1][1],
+                     settings.fifth_map_lap_times_file, settings.fifth_map_match_times_file)
