@@ -1,8 +1,7 @@
 import pygame
 
 import game.sounds.sounds
-from game.loop_methods import game_methods
-from game.loop_methods.game_methods import check_audio
+from game.loop_methods.game_methods import check_audio, check_fadeout_audio
 from game.ui import draw, menu
 from game.config import settings
 
@@ -15,14 +14,15 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
     if pressed_key[pygame.K_w]:
         car.forward_control()
         draw.car_animation(stopwatch, car)
-        # check_audio(game.sounds.sounds.car_engine_sound.play)
+        #check_audio(game.sounds.sounds.car_engine_sound2.play)
 
-        # game.sounds.engine_sound.play(-1)
+        #game.sounds.sounds.car_engine_sound2.play(-1)
 
     else:
         car.forward_slowdown()
-        # check_audio(game.sounds.sounds.car_engine_sound.stop)
-        # game.sounds.engine_sound.stop()
+        #check_fadeout_audio(game.sounds.sounds.car_engine_sound2.fadeout, 100)
+        #game.sounds.sounds.car_engine_sound2.fadeout(5)
+       # game.sounds.sounds.car_engine_sound2.stop()
 
     if pressed_key[pygame.K_s]:
         car.backward_control()

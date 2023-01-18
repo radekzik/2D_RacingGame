@@ -10,7 +10,7 @@ from game.ui.load_image import GAME_SCREEN, big_font, button_transparent_image, 
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, fifth_map_image
+    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, fifth_map_image, medium_font
 from game.ui.resolution import draw_text
 
 TITLE_Y = 70
@@ -717,16 +717,46 @@ def binds():
 
         draw_text("BINDS", big_font, TITLE_COLOR, 820, TITLE_Y, GAME_SCREEN)
 
-        draw_text("W - Forward", normal_font, "white", 620, 300, GAME_SCREEN)
-        draw_text("S - Backward", normal_font, "cyan", 950, 300, GAME_SCREEN)
-        draw_text("A - Left", normal_font, "cyan", 680, 450, GAME_SCREEN)
-        draw_text("D - Right", normal_font, "white", 1010, 450, GAME_SCREEN)
+        #  draw_text("W - Forward", medium_font, "white", 620, 300, GAME_SCREEN)
+        # draw_text("S - Backward", normal_font, "cyan", 950, 300, GAME_SCREEN)
+        # draw_text("A - Left", normal_font, "cyan", 680, 450, GAME_SCREEN)
+        # draw_text("D - Right", normal_font, "white", 1010, 450, GAME_SCREEN)
 
-        draw_text("E - Nitro", normal_font, "white", 680, 600, GAME_SCREEN)
-        draw_text("Q - Drift", normal_font, "cyan", 1010, 600, GAME_SCREEN)
+        # draw_text("E - Nitro", normal_font, "white", 680, 600, GAME_SCREEN)
+        # draw_text("Q - Faster Movement", normal_font, "cyan", 1010, 600, GAME_SCREEN)
 
-        draw_text("R - Restart", normal_font, "orange", 990, 750, GAME_SCREEN)
-        draw_text("X - Exit", normal_font, "red", 690, 750, GAME_SCREEN)
+        # draw_text("R - Restart", normal_font, "orange", 990, 750, GAME_SCREEN)
+        # draw_text("X - Exit", normal_font, "red", 690, 750, GAME_SCREEN)
+
+        draw_text("CAR CONTROL", normal_font, "purple", 495, 200, GAME_SCREEN)
+
+        draw_text("W", medium_font, "white", 625, 280, GAME_SCREEN)
+        draw_text("Forward", medium_font, "cyan", 1220, 280, GAME_SCREEN)
+
+        draw_text("S", medium_font, "white", 630, 330, GAME_SCREEN)
+        draw_text("Backward", medium_font, "cyan", 1220, 330, GAME_SCREEN)
+
+        draw_text("A", medium_font, "white", 630, 380, GAME_SCREEN)
+        draw_text("Left", medium_font, "cyan", 1220, 380, GAME_SCREEN)
+
+        draw_text("D", medium_font, "white", 630, 430, GAME_SCREEN)
+        draw_text("Right", medium_font, "cyan", 1220, 430, GAME_SCREEN)
+
+        draw_text("CAR ABILITIES", normal_font, "purple", 495, 480, GAME_SCREEN)
+
+        draw_text("E", medium_font, "white", 632, 560, GAME_SCREEN)
+        draw_text("Nitro", medium_font, "cyan", 1220, 560, GAME_SCREEN)
+
+        draw_text("Q", medium_font, "white", 630, 610, GAME_SCREEN)
+        draw_text("Faster Movement", medium_font, "cyan", 1220, 610, GAME_SCREEN)
+
+        draw_text("IN-GAME", normal_font, "purple", 550, 660, GAME_SCREEN)
+
+        draw_text("R", medium_font, "white", 630, 740, GAME_SCREEN)
+        draw_text("Restart Game", medium_font, "cyan", 1220, 740, GAME_SCREEN)
+
+        draw_text("X", medium_font, "white", 630, 790, GAME_SCREEN)
+        draw_text("Exit", medium_font, "cyan", 1220, 790, GAME_SCREEN)
 
         back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")

@@ -124,6 +124,11 @@ def check_audio(command):
         command()
 
 
+def check_fadeout_audio(command, time):
+    if settings.audio == 1:
+        command(time)
+
+
 def check_show_fps(command, clock):
     if settings.show_fps == 1:
         command(clock)
