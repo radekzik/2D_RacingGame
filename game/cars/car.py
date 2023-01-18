@@ -15,7 +15,7 @@ class Car:
         self.max_speed = 3
         self.min_speed = -1
         self.movement_speed = 2
-        self.max_movement_speed = 2.5
+        self.max_movement_speed = 5
         self.car_angle = self.car_angle
         self.car_nitro = 5
 

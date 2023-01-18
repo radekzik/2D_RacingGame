@@ -1,6 +1,6 @@
 import pygame
 
-from game.cars.pc import random_car, PCPlayer
+from game.cars.pc import random_car
 from game.config import settings
 from game.handler.key_binds import player_key_binds, enemy_key_binds
 from game.loop_methods import game_methods
@@ -14,6 +14,9 @@ class MapLoop:
     def loop(player, enemy, enemy_route, background, map_image, map_border, map_restart, map_respawn,
              finish_line, finish_line_xy, x_range1, x_range2, y_range1, y_range2,
              lap_times_file, match_times_file):
+
+        pygame.event.set_allowed(pygame.KEYDOWN)
+
         global enemy_car, player_car
         settings.max_laps = 3
         settings.car_lap = 0

@@ -1,3 +1,5 @@
+import pygame
+
 from game.cars.enemy import EnemyPlayer
 from game.cars.pc import PCPlayer
 from game.cars.player import Player

@@ -8,7 +8,7 @@ pygame.init()
 WIDTH = 1920
 HEIGHT = 1080
 FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
-GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 24, vsync=settings.vsync)
+GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 16, vsync=settings.vsync)
 
 # maps
 first_map = res(pygame.image.load("../images/maps/first_map.png"), 0.75).convert_alpha()

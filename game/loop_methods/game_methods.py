@@ -219,11 +219,11 @@ def start_countdown(car, enemy_car):
         check_audio(game.sounds.sounds.countdown_sound.stop)
         car.max_speed = 3
         car.car_nitro = 5
-        car.max_movement_speed = 2.5
+        car.max_movement_speed = 5
 
         enemy_car.max_speed = 3
         enemy_car.car_nitro = 5
-        enemy_car.max_movement_speed = 2.5
+        enemy_car.max_movement_speed = 5
 
 
 def stats_reset_vs_pc(car, enemy, car_time_list, enemy_time_list):
