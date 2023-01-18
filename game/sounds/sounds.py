@@ -1,6 +1,7 @@
 import pygame
 
-pygame.mixer.init()
+pygame.mixer.pre_init(44100, 16, 2, 4096)
+pygame.init()
 
 engine_sound = pygame.mixer.Sound("./../sound_effects/f1_car.mp3")
 engine_sound.set_volume(0.02)

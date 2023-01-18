@@ -28,12 +28,12 @@ class MapLoop:
         settings.car_time_list = []
         settings.enemy_time_list = []
 
-        game_loop = True
+        game_loop = 1
 
         settings.countdown = 5
         settings.last_count = pygame.time.get_ticks()
 
-        while True:
+        while 1:
 
             clock = pygame.time.Clock()
 
