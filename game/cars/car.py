@@ -92,9 +92,9 @@ class Car:
         self.max_speed -= 40
         self.car_speed -= 40
 
-        pygame.time.wait(100)
+        #pygame.time.wait(100)
         # draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 800, game_screen)
-        pygame.display.update()
+        #pygame.display.update()
 
         self.movement()
 

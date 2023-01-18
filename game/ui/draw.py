@@ -1,9 +1,9 @@
 import pygame
 
 from game.config import settings
-from game.ui.load_image import GAME_SCREEN, time_menu, normal_font, small_font, purple_formula_2, purple_formula, \
+from game.ui.load_image import GAME_SCREEN, normal_font, small_font, purple_formula_2, purple_formula, \
     blue_formula_2, blue_formula, orange_formula, orange_formula_2, yellow_formula_2, yellow_formula, \
-    green_formula, green_formula_2, time_background, time_background2
+    green_formula, green_formula_2, time_background2
 from game.ui.resolution import draw_text
 
 
@@ -36,24 +36,24 @@ def animation(stopwatch, car, first_image, second_image):
     if stopwatch % 2 == 0:
         car.car_image = first_image
         car.render_position(GAME_SCREEN)
-        pygame.display.update()
 
     if stopwatch % 3 == 0:
         car.car_image = second_image
         car.render_position(GAME_SCREEN)
-        pygame.display.update()
+
+    pygame.display.update()
 
 
 def second_animation(stopwatch, enemy, first_image, second_image):
     if stopwatch % 3 == 0:
         enemy.car_image = second_image
         enemy.render_position(GAME_SCREEN)
-        pygame.display.update()
 
     if stopwatch % 2 == 0:
         enemy.car_image = first_image
         enemy.render_position(GAME_SCREEN)
-        pygame.display.update()
+
+    pygame.display.update()
 
 
 def car_animation(stopwatch, car):

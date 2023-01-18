@@ -2,7 +2,7 @@ import game.sounds.sounds
 from game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, \
     FIRST_FINISH_LINE_Y_RANGE
 from game.storage import storing_data
-from game.ui import draw, load_image
+from game.ui import draw
 from game.ui.load_image import *
 from game.ui.draw import *
 from game.config import settings
@@ -273,7 +273,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         settings.car_start_time = pygame.time.get_ticks()
 
     else:
-        draw_text(f"Wrong Way", normal_font, "white", 800, 450, GAME_SCREEN)
+        draw_text(f"Wrong Way", normal_font, "white", 830, 450, GAME_SCREEN)
 
         pygame.display.update()
         pygame.time.wait(1000)
