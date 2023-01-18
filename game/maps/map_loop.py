@@ -6,7 +6,7 @@ from game.handler.key_binds import player_key_binds, enemy_key_binds
 from game.loop_methods import game_methods
 from game.loop_methods.game_methods import check_show_fps
 from game.ui import draw
-from game.ui.load_image import game_screen
+from game.ui.load_image import GAME_SCREEN
 
 
 class MapLoop:
@@ -61,10 +61,10 @@ class MapLoop:
                 enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
-                game_screen.blit(background, (0, 0))
-                game_screen.blit(map_image, (0, 0))
-                game_screen.blit(finish_line, finish_line_xy)
-                game_screen.blit(map_border, (0, 0))
+                GAME_SCREEN.blit(background, (0, 0))
+                GAME_SCREEN.blit(map_image, (0, 0))
+                GAME_SCREEN.blit(finish_line, finish_line_xy)
+                GAME_SCREEN.blit(map_border, (0, 0))
 
                 if enemy is None and enemy_route is None:
                     game_methods.start_countdown(player_car, player_car)
@@ -90,11 +90,10 @@ class MapLoop:
 
                 game_methods.check_car_type(player_car)
 
-                player_car.render_position(game_screen)
+                player_car.render_position(GAME_SCREEN)
 
                 if enemy is not None:
-                    enemy_car.render_position(game_screen)
-                    pygame.display.update()
+                    enemy_car.render_position(GAME_SCREEN)
 
                 game_methods.start_game()
                 pygame.display.update()

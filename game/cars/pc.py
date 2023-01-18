@@ -3,7 +3,7 @@ import random
 
 from game.cars.car import Car
 from game.config import settings
-from game.ui.load_image import purple_formula, pink_lambo, width, height, red_formula, red_lambo, orange_formula, \
+from game.ui.load_image import purple_formula, pink_lambo, WIDTH, HEIGHT, red_formula, red_lambo, orange_formula, \
     yellow_formula, green_formula, cyan_lambo, dark_purple_spoiler_car, orange_spoiler_car, light_blue_spoiler_car, \
     pink_spoiler_car
 
@@ -236,7 +236,7 @@ class PCPlayer(Car):
         self.car_angle = 270
 
     def out_of_map(self):
-        if self.x >= width or self.x <= 0:
+        if self.x >= WIDTH or self.x <= 0:
             self.respawn_first_map()
-        if self.y >= height or self.y <= 0:
+        if self.y >= HEIGHT or self.y <= 0:
             self.respawn_first_map()

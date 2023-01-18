@@ -5,10 +5,10 @@ from game.ui.resolution import res
 
 pygame.init()
 
-width = 1920
-height = 1080
-flags = pygame.HWSURFACE | pygame.FULLSCREEN | pygame.DOUBLEBUF
-game_screen = pygame.display.set_mode((width, height), flags, vsync=settings.vsync)
+WIDTH = 1920
+HEIGHT = 1080
+FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
+GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 24, vsync=settings.vsync)
 
 # maps
 first_map = res(pygame.image.load("../images/maps/first_map.png"), 0.75).convert_alpha()
@@ -23,8 +23,8 @@ third_map_border = res(pygame.image.load("../images/borders/third_map_border.png
 fourth_map = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.75).convert_alpha()
 fourth_map_border = res(pygame.image.load("../images/borders/fourth_map_border3.png"), 0.75).convert_alpha()
 
-#fifth_map = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.75).convert_alpha()
-#fifth_map_border = res(pygame.image.load("../images/borders/fifth_map_border.png"), 0.75).convert_alpha()
+# fifth_map = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.75).convert_alpha()
+# fifth_map_border = res(pygame.image.load("../images/borders/fifth_map_border.png"), 0.75).convert_alpha()
 
 fifth_map = res(pygame.image.load("../images/maps/test_map3.png"), 0.75).convert_alpha()
 fifth_map_border = res(pygame.image.load("../images/borders/test_map_border.png"), 0.75).convert_alpha()
@@ -56,8 +56,10 @@ red_lambo = res(pygame.image.load("../images/cars/lamborghini/lambo_red.png"), 0
 pink_lambo = res(pygame.image.load("../images/cars/lamborghini/lambo_pink.png"), 0.85).convert_alpha()
 
 # spoiler car
-dark_purple_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_dark_purple.png"), 0.85).convert_alpha()
-light_blue_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_light_blue.png"), 0.85).convert_alpha()
+dark_purple_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_dark_purple.png"),
+                              0.85).convert_alpha()
+light_blue_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_light_blue.png"),
+                             0.85).convert_alpha()
 orange_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_orange.png"), 0.85).convert_alpha()
 pink_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_pink.png"), 0.85).convert_alpha()
 
@@ -72,7 +74,6 @@ finish_line = res(pygame.image.load("../images/borders/finish_line.png"), 1.2).c
 finish_line_x2 = res(pygame.image.load("../images/borders/finish_line.png"), 1.35).convert_alpha()
 finish_line_x3 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7).convert_alpha()
 
-
 # buttons
 button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
 button_image = res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()
@@ -85,7 +86,7 @@ first_map_image = res(pygame.image.load("../images/ui/buttons/first_map_button.p
 second_map_image = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()
 third_map_image = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()
 fourth_map_image = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.15).convert_alpha()
-#fifth_map_image = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.15).convert_alpha()
+# fifth_map_image = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.15).convert_alpha()
 fifth_map_image = res(pygame.image.load("../images/maps/test_map3.png"), 0.15).convert_alpha()
 
 # banners
@@ -129,10 +130,12 @@ pink_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_sele
 
 dark_purple_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_dark_purple"
                                                           ".png"), 2).convert_alpha()
-light_blue_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_light_blue.png"), 2).convert_alpha()
-orange_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_orange.png"), 2).convert_alpha()
-pink_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_pink.png"), 2).convert_alpha()
-
+light_blue_spoiler_car_selection = res(
+    pygame.image.load("../images/ui/selections/spoiler_car_selection_light_blue.png"), 2).convert_alpha()
+orange_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_orange.png"),
+                                   2).convert_alpha()
+pink_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_pink.png"),
+                                 2).convert_alpha()
 
 # icon
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()

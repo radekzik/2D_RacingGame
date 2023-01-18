@@ -16,8 +16,8 @@ def collision_solo(car, map_border):
         check_audio(game.sounds.sounds.out_off_the_track_sound.play)
 
 
-def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch, car_time_list, enemy_time_list
-                    , restart_map):
+def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
+                    car_time_list, enemy_time_list, restart_map):
     if car_rect.colliderect(enemy_rect):
         # pygame.draw.rect(game_screen, "green", enemy_rect)
         # pygame.draw.rect(game_screen, "red", car_rect)
@@ -50,7 +50,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
     if settings.enemy_lap == settings.max_laps:
         print(settings.enemy_lap)
         if settings.car_lap < settings.enemy_lap:
-            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, game_screen)
+            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
@@ -60,7 +60,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
             restart_map()
 
         if settings.car_lap > settings.enemy_lap:
-            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
+            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
@@ -99,16 +99,16 @@ def check_new_game():
     settings.started = False
 
     while not settings.started:
-        game_screen.blit(time_background, (700, 200))
-        draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, game_screen)
-        draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, game_screen)
+        GAME_SCREEN.blit(time_background, (700, 200))
+        draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, GAME_SCREEN)
+        draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, GAME_SCREEN)
         pygame.display.update()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
-                settings.started = True
+                settings.started = 1
                 settings.car_start_time = pygame.time.get_ticks()
 
 
@@ -150,22 +150,22 @@ def enemy_stopwatch(ticks):
 
 def speedometer(car):
     if car.car_speed < 0:
-        game_screen.blit(speedometr, (1730, 900))
+        GAME_SCREEN.blit(speedometr, (1730, 900))
     if car.car_speed == 0:
-        game_screen.blit(speedometr_0, (1730, 900))
+        GAME_SCREEN.blit(speedometr_0, (1730, 900))
     if 0 < car.car_speed <= 1:
-        game_screen.blit(speedometr_1, (1730, 900))
+        GAME_SCREEN.blit(speedometr_1, (1730, 900))
     if 1 < car.car_speed <= 2:
-        game_screen.blit(speedometr_2, (1730, 900))
+        GAME_SCREEN.blit(speedometr_2, (1730, 900))
     if 2 < car.car_speed <= 3:
-        game_screen.blit(speedometr_3, (1730, 900))
+        GAME_SCREEN.blit(speedometr_3, (1730, 900))
     if 3 < car.car_speed <= 10:
-        game_screen.blit(speedometr_nitro, (1730, 900))
+        GAME_SCREEN.blit(speedometr_nitro, (1730, 900))
 
 
 def start_game():
     while not settings.started:
-        draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, game_screen)
+        draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, GAME_SCREEN)
 
         pygame.display.update()
 
@@ -173,7 +173,7 @@ def start_game():
             if event.type == pygame.QUIT:
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
-                settings.started = True
+                settings.started = 1
                 check_audio(game.sounds.sounds.starting_sound.play)
                 settings.car_start_time = pygame.time.get_ticks()
 
@@ -195,22 +195,22 @@ def start_countdown(car, enemy_car):
             settings.last_count = count_timer
 
     if settings.countdown == 5 or settings.countdown == 4:
-        game_screen.blit(semaphor_all_red, (880, 500))
+        GAME_SCREEN.blit(semaphor_all_red, (880, 500))
 
     if settings.countdown == 4:
         check_audio(game.sounds.sounds.countdown_sound.play)
 
     if settings.countdown == 3:
-        draw_text(f"{str(settings.countdown)} - READY", normal_font, "red", 850, 570, game_screen)
-        game_screen.blit(semaphor_red, (880, 500))
+        draw_text(f"{str(settings.countdown)} - READY", normal_font, "red", 850, 570, GAME_SCREEN)
+        GAME_SCREEN.blit(semaphor_red, (880, 500))
 
     if settings.countdown == 2:
-        draw_text(f"{str(settings.countdown)} - STEADY", normal_font, "orange", 850, 570, game_screen)
-        game_screen.blit(semaphor_orange, (880, 500))
+        draw_text(f"{str(settings.countdown)} - STEADY", normal_font, "orange", 850, 570, GAME_SCREEN)
+        GAME_SCREEN.blit(semaphor_orange, (880, 500))
 
     if settings.countdown == 1:
-        draw_text(f"{str(settings.countdown)} - GO!", normal_font, "green", 880, 570, game_screen)
-        game_screen.blit(semaphor_green, (880, 500))
+        draw_text(f"{str(settings.countdown)} - GO!", normal_font, "green", 880, 570, GAME_SCREEN)
+        GAME_SCREEN.blit(semaphor_green, (880, 500))
 
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
@@ -265,7 +265,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
 
         settings.car_match_time = settings.car_match_time + car_stopwatch
 
-        draw_text(f"Lap Time - {car_stopwatch}", normal_font, "white", 800, 450, game_screen)
+        draw_text(f"Lap Time - {car_stopwatch}", normal_font, "white", 800, 450, GAME_SCREEN)
         pygame.display.update()
         pygame.time.wait(200)
 
@@ -273,7 +273,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         settings.car_start_time = pygame.time.get_ticks()
 
     else:
-        draw_text(f"Wrong Way", normal_font, "white", 800, 450, game_screen)
+        draw_text(f"Wrong Way", normal_font, "white", 800, 450, GAME_SCREEN)
 
         pygame.display.update()
         pygame.time.wait(1000)
@@ -295,13 +295,13 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
         print(settings.max_laps)
 
         if settings.car_lap > settings.enemy_lap:
-            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, game_screen)
+            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
 
         if settings.car_lap < settings.enemy_lap:
-            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, game_screen)
+            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
