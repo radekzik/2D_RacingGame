@@ -1,13 +1,11 @@
 import math
 import random
 
-
 from game.cars.car import Car
 from game.config import settings
 from game.ui.load_image import purple_formula, pink_lambo, width, height, red_formula, red_lambo, orange_formula, \
     yellow_formula, green_formula, cyan_lambo, dark_purple_spoiler_car, orange_spoiler_car, light_blue_spoiler_car, \
     pink_spoiler_car
-
 
 global difference_x, difference_y
 global angle
@@ -20,53 +18,14 @@ half_degrees = 180
 def random_car():
     random_number = random.randint(1, 12)
 
-    if random_number == 1:
-        settings.enemy_car_type = 1
-        car_image = purple_formula
+    car_list = [purple_formula, orange_formula, yellow_formula, green_formula, red_formula, cyan_lambo, red_lambo
+        , pink_lambo, dark_purple_spoiler_car, light_blue_spoiler_car, orange_spoiler_car, pink_spoiler_car]
 
-    if random_number == 2:
-        settings.enemy_car_type = 2
-        car_image = orange_formula
-
-    if random_number == 3:
-        settings.enemy_car_type = 3
-        car_image = yellow_formula
-
-    if random_number == 4:
-        settings.enemy_car_type = 4
-        car_image = green_formula
-
-    if random_number == 5:
-        settings.enemy_car_type = 5
-        car_image = red_formula
-
-    if random_number == 6:
-        settings.enemy_car_type = 6
-        car_image = cyan_lambo
-
-    if random_number == 7:
-        settings.enemy_car_type = 7
-        car_image = red_lambo
-
-    if random_number == 8:
-        settings.enemy_car_type = 8
-        car_image = pink_lambo
-
-    if random_number == 9:
-        settings.enemy_car_type = 9
-        car_image = dark_purple_spoiler_car
-
-    if random_number == 10:
-        settings.enemy_car_type = 10
-        car_image = light_blue_spoiler_car
-
-    if random_number == 11:
-        settings.enemy_car_type = 11
-        car_image = orange_spoiler_car
-
-    if random_number == 12:
-        settings.enemy_car_type = 12
-        car_image = pink_spoiler_car
+    for x in range(12):
+        x += 1
+        if random_number == x:
+            settings.enemy_car_type = x
+            car_image = car_list[x - 1]
 
     return car_image
 
@@ -142,10 +101,12 @@ class PCPlayer(Car):
             new_angle = new_angle - full_degrees
 
         if new_angle > 0:
-            self.subtract_angle()
+            # self.subtract_angle()
+            self.car_angle -= min(self.max_movement_speed, abs(new_angle))
 
         else:
-            self.add_angle()
+            # self.add_angle()
+            self.car_angle += min(self.max_movement_speed, abs(new_angle))
 
     def add_angle(self):
         global new_angle
@@ -201,9 +162,6 @@ class PCPlayer(Car):
         # self.increase_speed()
 
     def increase_speed(self):
-        # if difference_x > 30 or difference_y > 30:
-        # self.max_speed = 10
-        # self.car_speed = 10
 
         if difference_x < 20 or difference_y < 20:
             self.max_speed = 0.5
@@ -213,16 +171,37 @@ class PCPlayer(Car):
             self.max_speed = 3.3
             self.car_speed = 3.3
 
-    # def first_map_car(self):
-    # self.car_image = purple_formula
+    def border_collision(self):
+        self.car_speed = 0
+        self.max_speed = 0
 
-    # def second_map_car(self):
-    # self.car_image = pink_lambo
+        self.max_speed -= 10
+        self.car_speed -= 5
+
+        self.movement()
 
     def first_map_route(self):
 
         self.pc_route = [(1121, 915), (1379, 637), (1655, 454), (1631, 169), (1631, 169),
                          (1003, 46), (813, 379), (353, 373), (200, 632), (340, 900), (754, 1040)]
+
+        #random_number = random.randint(1, 3)
+
+        #route1 = [(1121, 915), (1379, 580), (1655, 420), (1631, 130), (1631, 130),
+                  #(1003, 30), (813, 350), (353, 350), (200, 600), (340, 900), (754, 990)]
+
+        #route2 = [(1121, 915), (1379, 630), (1655, 470), (1631, 180), (1631, 180),
+                  #(1003, 80), (813, 400), (353, 400), (200, 650), (340, 900), (754, 1020)]
+
+        #route3 = [(1121, 915), (1379, 680), (1655, 520), (1631, 230), (1631, 230),
+                  #(1003, 130), (813, 450), (353, 450), (200, 700), (340, 900), (754, 1050)]
+
+        #route_list = [route1, route2, route3]
+
+        #for x in range(3):
+            #x += 1
+            #if random_number == x:
+                #self.pc_route = route_list[x - 1]
 
         return self.pc_route
 

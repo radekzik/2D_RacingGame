@@ -1,8 +1,7 @@
 import pygame
 import math
 
-from game.ui.load_image import normal_font, game_screen
-from game.ui.resolution import image_position, draw_text
+from game.ui.resolution import image_position
 
 
 class Car:

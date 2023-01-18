@@ -14,43 +14,19 @@ class Player(Car):
     car_width = car_image.get_width()
     car_height = car_image.get_height()
 
-    # formula
-    def car_blue_formula(self):
-        self.car_image = blue_formula
+    def player_cars(self, index):
 
-    def car_orange_formula(self):
-        self.car_image = orange_formula
+        car_list = [blue_formula, orange_formula, yellow_formula, green_formula,
+                    blue_lambo, cyan_lambo, red_lambo, pink_lambo,
+                    dark_purple_spoiler_car, light_blue_spoiler_car, orange_spoiler_car, pink_spoiler_car]
 
-    def car_yellow_formula(self):
-        self.car_image = yellow_formula
+        # for x in range(12):
+        # x += 1
+        # if random_number == x:
+        # settings.enemy_car_type = x
+        # car_image = car_list[x - 1]
 
-    def car_green_formula(self):
-        self.car_image = green_formula
-
-    # lambo
-    def car_blue_lambo(self):
-        self.car_image = blue_lambo
-
-    def car_cyan_lambo(self):
-        self.car_image = cyan_lambo
-
-    def car_red_lambo(self):
-        self.car_image = red_lambo
-
-    def car_pink_lambo(self):
-        self.car_image = pink_lambo
-
-    def spoiler_car_dark_purple(self):
-        self.car_image = dark_purple_spoiler_car
-
-    def spoiler_car_light_blue(self):
-        self.car_image = light_blue_spoiler_car
-
-    def spoiler_car_orange(self):
-        self.car_image = orange_spoiler_car
-
-    def spoiler_car_pink(self):
-        self.car_image = pink_spoiler_car
+        return car_list[index]
 
     def respawn_first_map(self):
         self.x = 700

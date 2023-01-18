@@ -76,7 +76,7 @@ class MapLoop:
                     game_methods.start_countdown(player_car, enemy_car)
 
                     enemy_car.start_drive()
-                    enemy_route(enemy_car)
+                    enemy_car.pc_route = enemy_route(enemy_car)
 
                 if settings.show_ui == 1:
                     draw.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)

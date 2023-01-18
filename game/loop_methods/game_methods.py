@@ -33,6 +33,11 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
         check_audio(game.sounds.sounds.out_off_the_track_sound.play)
         # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
+    # if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
+    # enemy_car.border_collision()
+    # check_audio(game.sounds.sounds.out_off_the_track_sound.play)
+    # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
+
     if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
         if FIRST_FINISH_LINE_Y_RANGE < enemy_car.y < SECOND_FINISH_LINE_Y_RANGE:
             settings.enemy_lap += 1
@@ -94,7 +99,7 @@ def check_new_game():
     settings.started = False
 
     while not settings.started:
-        game_screen.blit(time_background2, (700, 200))
+        game_screen.blit(time_background, (700, 200))
         draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, game_screen)
         draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, game_screen)
         pygame.display.update()
@@ -108,35 +113,10 @@ def check_new_game():
 
 
 def check_car_type(car):
-    # formula
-    if settings.car_type == 1:
-        car.car_blue_formula()
-    if settings.car_type == 2:
-        car.car_orange_formula()
-    if settings.car_type == 3:
-        car.car_yellow_formula()
-    if settings.car_type == 4:
-        car.car_green_formula()
-
-    # lambo
-    if settings.car_type == 5:
-        car.car_blue_lambo()
-    if settings.car_type == 6:
-        car.car_cyan_lambo()
-    if settings.car_type == 7:
-        car.car_red_lambo()
-    if settings.car_type == 8:
-        car.car_pink_lambo()
-
-    # spoiler car
-    if settings.car_type == 9:
-        car.spoiler_car_dark_purple()
-    if settings.car_type == 10:
-        car.spoiler_car_light_blue()
-    if settings.car_type == 11:
-        car.spoiler_car_orange()
-    if settings.car_type == 12:
-        car.spoiler_car_pink()
+    for x in range(12):
+        x += 1
+        if settings.car_type == x:
+            car.car_image = car.player_cars(x - 1)
 
 
 def check_audio(command):
