@@ -76,6 +76,7 @@ finish_line_x3 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7
 
 # buttons
 button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
+button_win_lose = res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()
 button_image = res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()
 pointer_right = res(pygame.image.load("../images/ui/buttons/pointer_right.png"), 1).convert_alpha()
 pointer_left = res(pygame.image.load("../images/ui/buttons/pointer_left.png"), 1).convert_alpha()

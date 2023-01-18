@@ -36,24 +36,24 @@ def animation(stopwatch, car, first_image, second_image):
     if stopwatch % 2 == 0:
         car.car_image = first_image
         car.render_position(GAME_SCREEN)
+        pygame.display.update()
 
     if stopwatch % 3 == 0:
         car.car_image = second_image
         car.render_position(GAME_SCREEN)
-
-    pygame.display.update()
+        pygame.display.update()
 
 
 def second_animation(stopwatch, enemy, first_image, second_image):
     if stopwatch % 3 == 0:
         enemy.car_image = second_image
         enemy.render_position(GAME_SCREEN)
+        pygame.display.update()
 
     if stopwatch % 2 == 0:
         enemy.car_image = first_image
         enemy.render_position(GAME_SCREEN)
-
-    pygame.display.update()
+        pygame.display.update()
 
 
 def car_animation(stopwatch, car):

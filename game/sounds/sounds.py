@@ -23,4 +23,3 @@ car_engine_sound.set_volume(0.02)
 
 car_engine_sound2 = pygame.mixer.Sound("./../sound_effects/sound.mp3")
 car_engine_sound2.set_volume(0.02)
-
