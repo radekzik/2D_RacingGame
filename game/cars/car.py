@@ -75,14 +75,14 @@ class Car:
         if stopwatch % 2 == 0:
             self.car_nitro += 1
 
-        if self.car_nitro >= 15:
-            self.car_nitro = 15
+        if self.car_nitro >= 10:
+            self.car_nitro = 10
 
     def use_nitro(self):
 
         self.car_speed = self.car_speed + self.car_nitro
 
-        if self.car_nitro <= 15:
+        if self.car_nitro <= 10:
             self.car_nitro -= 1
 
             if self.car_nitro <= 0:

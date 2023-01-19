@@ -77,7 +77,7 @@ class Player(Car):
             draw_text(f"{round(self.car_speed)}", normal_font, "green", 1800, 940, GAME_SCREEN)
         if 2 < self.car_speed <= 3:
             draw_text(f"{round(self.car_speed)}", normal_font, "orange", 1800, 940, GAME_SCREEN)
-        if 3 < self.car_speed <= 10:
+        if 3 < self.car_speed <= 20:
             draw_text(f"{round(self.car_speed)}", normal_font, "red", 1800, 940, GAME_SCREEN)
 
     def car_current_nitro(self):

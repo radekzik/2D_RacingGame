@@ -148,9 +148,12 @@ def check_show_ui(command, player_car, car_stopwatch):
 
 def ui(player_car, car_stopwatch):
     draw.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)
+
     speedometer(player_car)
     player_car.car_current_speed()
-    player_car.car_current_nitro()
+
+    nitro(player_car)
+    #player_car.car_current_nitro()
 
 
 def car_stopwatch(ticks):
@@ -180,6 +183,26 @@ def speedometer(car):
         GAME_SCREEN.blit(speedometr_3, (1730, 900))
     if 3 < car.car_speed <= 10:
         GAME_SCREEN.blit(speedometr_nitro, (1730, 900))
+
+
+def nitro(car):
+
+    nitro_position = 1630, 950
+
+    if car.car_nitro < 0:
+        GAME_SCREEN.blit(nitro_0, nitro_position)
+    if car.car_nitro == 0:
+        GAME_SCREEN.blit(nitro_empty, nitro_position)
+    if 0 < car.car_nitro <= 2:
+        GAME_SCREEN.blit(nitro_1, nitro_position)
+    if 2 < car.car_nitro <= 4:
+        GAME_SCREEN.blit(nitro_2, nitro_position)
+    if 4 < car.car_nitro <= 6:
+        GAME_SCREEN.blit(nitro_3, nitro_position)
+    if 6 < car.car_nitro <= 8:
+        GAME_SCREEN.blit(nitro_4, nitro_position)
+    if 8 < car.car_nitro <= 15:
+        GAME_SCREEN.blit(nitro_5, nitro_position)
 
 
 def start_game():

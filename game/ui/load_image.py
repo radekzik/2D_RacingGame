@@ -111,6 +111,16 @@ speedometr_2 = res(pygame.image.load("../images/ui/speedometr/speedometr_2.png")
 speedometr_3 = res(pygame.image.load("../images/ui/speedometr/speedometr_3.png"), 0.5).convert_alpha()
 speedometr_nitro = res(pygame.image.load("../images/ui/speedometr/speedometr_nitro.png"), 0.5).convert_alpha()
 
+# nitro
+nitro_empty = res(pygame.image.load("../images/ui/nitro/nitro_empty.png"), 0.3).convert_alpha()
+nitro_0 = res(pygame.image.load("../images/ui/nitro/nitro_0.png"), 0.3).convert_alpha()
+nitro_1 = res(pygame.image.load("../images/ui/nitro/nitro_1.png"), 0.3).convert_alpha()
+nitro_2 = res(pygame.image.load("../images/ui/nitro/nitro_2.png"), 0.3).convert_alpha()
+nitro_3 = res(pygame.image.load("../images/ui/nitro/nitro_3.png"), 0.3).convert_alpha()
+nitro_4 = res(pygame.image.load("../images/ui/nitro/nitro_4.png"), 0.3).convert_alpha()
+nitro_5 = res(pygame.image.load("../images/ui/nitro/nitro_5.png"), 0.3).convert_alpha()
+
+
 car_selection_menu = res(pygame.image.load("../images/backgrounds/car_selection_background.png"), 1.5).convert_alpha()
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
 lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection.png"), 2).convert_alpha()
