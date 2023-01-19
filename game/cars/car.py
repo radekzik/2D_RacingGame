@@ -17,7 +17,7 @@ class Car:
         self.movement_speed = 2
         self.max_movement_speed = 5
         self.car_angle = self.car_angle
-        self.car_nitro = 5
+        self.car_nitro = 0
 
     def rotate_left(self):
         self.car_angle += self.movement_speed
@@ -70,8 +70,23 @@ class Car:
 
         self.movement()
 
-    def nitro(self):
+    def add_nitro(self, stopwatch):
+
+        if stopwatch % 2 == 0:
+            self.car_nitro += 1
+
+        if self.car_nitro >= 15:
+            self.car_nitro = 15
+
+    def use_nitro(self):
+
         self.car_speed = self.car_speed + self.car_nitro
+
+        if self.car_nitro <= 15:
+            self.car_nitro -= 1
+
+            if self.car_nitro <= 0:
+                self.car_nitro = 0
 
         self.movement()
 
@@ -92,9 +107,9 @@ class Car:
         self.max_speed -= 40
         self.car_speed -= 40
 
-        #pygame.time.wait(100)
+        # pygame.time.wait(100)
         # draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 800, game_screen)
-        #pygame.display.update()
+        # pygame.display.update()
 
         self.movement()
 

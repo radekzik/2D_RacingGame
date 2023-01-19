@@ -40,6 +40,8 @@ enemy_lap = 0
 car_time_list = []
 enemy_time_list = []
 
+nitro = 0
+
 # on - 1 / off - 2
 audio = 1
 camera_focus = 2
@@ -51,6 +53,7 @@ window_flag = pygame.HWSURFACE
 fullscreen = 1
 show_fps = 1
 show_ui = 1
+show_xy = 1
 
 # file paths
 first_map_lap_times_file = "first_map_lap_times.txt"

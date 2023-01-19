@@ -4,7 +4,7 @@ from game.cars.pc import random_car
 from game.config import settings
 from game.handler.key_binds import player_key_binds, enemy_key_binds
 from game.loop_methods import game_methods
-from game.loop_methods.game_methods import check_show_fps
+from game.loop_methods.game_methods import check_show_fps, check_show_xy, check_show_ui
 from game.ui import draw
 from game.ui.load_image import GAME_SCREEN
 
@@ -82,10 +82,10 @@ class MapLoop:
                     enemy_car.pc_route = enemy_route(enemy_car)
 
                 if settings.show_ui == 1:
-                    draw.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)
-                    player_car.car_info()
-                    game_methods.speedometer(player_car)
+                    game_methods.ui(player_car, car_stopwatch)
 
+                check_show_ui(game_methods.ui, player_car, car_stopwatch)
+                check_show_xy(player_car.car_position)
                 check_show_fps(draw.game_show_fps, clock)
 
                 if enemy is not None:
@@ -94,6 +94,7 @@ class MapLoop:
                 game_methods.check_car_type(player_car)
 
                 player_car.render_position(GAME_SCREEN)
+                player_car.add_nitro(car_stopwatch)
 
                 if enemy is not None:
                     enemy_car.render_position(GAME_SCREEN)

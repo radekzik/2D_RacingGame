@@ -136,9 +136,21 @@ def check_show_fps(command, clock):
         command(clock)
 
 
-def check_show_ui(command):
-    if settings.show_ui == 1:
+def check_show_xy(command):
+    if settings.show_xy == 1:
         command()
+
+
+def check_show_ui(command, player_car, car_stopwatch):
+    if settings.show_ui == 1:
+        command(player_car, car_stopwatch)
+
+
+def ui(player_car, car_stopwatch):
+    draw.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)
+    speedometer(player_car)
+    player_car.car_current_speed()
+    player_car.car_current_nitro()
 
 
 def car_stopwatch(ticks):
@@ -190,11 +202,11 @@ def start_countdown(car, enemy_car):
 
         count_timer = pygame.time.get_ticks()
         car.max_speed = 0
-        car.car_nitro = 0
+
         # car.movement_speed = 0
 
         enemy_car.max_speed = 0
-        enemy_car.car_nitro = 0
+
         enemy_car.movement_speed = 0
 
         if count_timer - settings.last_count > 1000:
@@ -225,11 +237,11 @@ def start_countdown(car, enemy_car):
         check_audio(game.sounds.sounds.starting_sound.stop)
         check_audio(game.sounds.sounds.countdown_sound.stop)
         car.max_speed = 3
-        car.car_nitro = 5
+
         car.max_movement_speed = 5
 
         enemy_car.max_speed = 3
-        enemy_car.car_nitro = 5
+
         enemy_car.max_movement_speed = 5
 
 
@@ -320,7 +332,9 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
         draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
                                settings.car_match_time)
 
-        storing_data.save_lap_time(settings.car_time_list[0], lap_filename)
+        if settings.car_time_list[0] <= 9.9:
+            storing_data.save_lap_time(settings.car_time_list[0], lap_filename)
+
         storing_data.save_match_time(settings.car_match_time, match_filename)
 
         # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)

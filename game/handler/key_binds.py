@@ -1,7 +1,7 @@
 import pygame
 
 import game.sounds.sounds
-from game.loop_methods.game_methods import check_audio, check_fadeout_audio
+from game.loop_methods.game_methods import check_audio
 from game.ui import draw, menu
 from game.config import settings
 
@@ -14,15 +14,20 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
     if pressed_key[pygame.K_w]:
         car.forward_control()
         draw.car_animation(stopwatch, car)
-        #check_audio(game.sounds.sounds.car_engine_sound2.play)
 
-        #game.sounds.sounds.car_engine_sound2.play(-1)
+        # if stopwatch % 3 == 0:
+        # settings.nitro = settings.nitro + 1
+
+        # check_audio(game.sounds.sounds.car_engine_sound2.play)
+
+        # game.sounds.sounds.car_engine_sound2.play(-1)
 
     else:
         car.forward_slowdown()
-        #check_fadeout_audio(game.sounds.sounds.car_engine_sound2.fadeout, 100)
-        #game.sounds.sounds.car_engine_sound2.fadeout(5)
-       # game.sounds.sounds.car_engine_sound2.stop()
+
+        # check_fadeout_audio(game.sounds.sounds.car_engine_sound2.fadeout, 100)
+        # game.sounds.sounds.car_engine_sound2.fadeout(5)
+    # game.sounds.sounds.car_engine_sound2.stop()
 
     if pressed_key[pygame.K_s]:
         car.backward_control()
@@ -55,12 +60,12 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
     if pressed_key[pygame.K_w]:
         if enemy_rect is None:
             if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)):
-                car.nitro()
+                car.use_nitro()
 
         else:
             if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
                     and not car_rect.colliderect(enemy_rect):
-                car.nitro()
+                car.use_nitro()
 
 
 def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):
@@ -93,4 +98,4 @@ def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):
     if pressed_key[pygame.K_i]:
         if pressed_key[pygame.K_o] and not enemy_car.border_collide(pygame.mask.from_surface(map_border)) \
                 and not enemy_rect.colliderect(car_rect):
-            enemy_car.nitro()
+            enemy_car.use_nitro()

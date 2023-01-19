@@ -517,8 +517,8 @@ def stats_first_map():
 
         draw_text("STATS - FIRST MAP", big_font, TITLE_COLOR, 600, TITLE_Y, GAME_SCREEN)
 
-        draw_text("FASTEST LAP TIMES", small_font, "white", 670, 330, GAME_SCREEN)
-        draw_text("FASTEST RACE TIMES", small_font, "white", 1170, 330, GAME_SCREEN)
+        draw_text("FASTEST LAP TIMES", medium_font, "purple", 580, 330, GAME_SCREEN)
+        draw_text("FASTEST RACE TIMES", medium_font, "purple", 1080, 330, GAME_SCREEN)
 
         lap_times = load_lap_times("first_map_lap_times.txt")
         match_times = load_match_times("first_map_match_times.txt")
@@ -795,10 +795,11 @@ def game_settings():
         draw_text("SETTINGS", big_font, TITLE_COLOR, 765, TITLE_Y, GAME_SCREEN)
 
         draw_text("AUDIO", normal_font, "cyan", 620, 300, GAME_SCREEN)
-        draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
-        draw_text("VSYNC", normal_font, "cyan", 620, 500, GAME_SCREEN)
-        draw_text("SHOW FPS", normal_font, "cyan", 620, 600, GAME_SCREEN)
-        draw_text("SHOW UI", normal_font, "cyan", 620, 700, GAME_SCREEN)
+        # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
+        draw_text("VSYNC", normal_font, "cyan", 620, 400, GAME_SCREEN)
+        draw_text("UI", normal_font, "cyan", 620, 500, GAME_SCREEN)
+        draw_text("FPS", normal_font, "cyan", 620, 600, GAME_SCREEN)
+        draw_text("CAR XY", normal_font, "cyan", 620, 700, GAME_SCREEN)
 
         audio_on_button = Button(button_image=on_off_button, x_y=(1220, 340),
                                  button_text="ON", font=small_font, font_color="white", font_hover_color="white")
@@ -806,28 +807,30 @@ def game_settings():
         audio_off_button = Button(button_image=on_off_button, x_y=(1300, 340),
                                   button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
-        camera_on_button = Button(button_image=on_off_button, x_y=(1220, 440),
-                                  button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+        # camera_on_button = Button(button_image=on_off_button, x_y=(1220, 440),
+        # button_text="ON", font=small_font, font_color="white", font_hover_color="white")
 
-        camera_off_button = Button(button_image=on_off_button, x_y=(1300, 440),
-                                   button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+        # camera_off_button = Button(button_image=on_off_button, x_y=(1300, 440),
+        # button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
-        vsync_on_button = Button(button_image=on_off_button, x_y=(1220, 540),
+        vsync_on_button = Button(button_image=on_off_button, x_y=(1220, 440),
                                  button_text="ON", font=small_font, font_color="white", font_hover_color="white")
-
-        vsync_off_button = Button(button_image=on_off_button, x_y=(1300, 540),
+        vsync_off_button = Button(button_image=on_off_button, x_y=(1300, 440),
                                   button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+
+        show_ui_on_button = Button(button_image=on_off_button, x_y=(1220, 540),
+                                   button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+        show_ui_off_button = Button(button_image=on_off_button, x_y=(1300, 540),
+                                    button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
         show_fps_on_button = Button(button_image=on_off_button, x_y=(1220, 640),
                                     button_text="ON", font=small_font, font_color="white", font_hover_color="white")
-
         show_fps_off_button = Button(button_image=on_off_button, x_y=(1300, 640),
                                      button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
-        show_ui_on_button = Button(button_image=on_off_button, x_y=(1220, 740),
+        show_xy_on_button = Button(button_image=on_off_button, x_y=(1220, 740),
                                    button_text="ON", font=small_font, font_color="white", font_hover_color="white")
-
-        show_ui_off_button = Button(button_image=on_off_button, x_y=(1300, 740),
+        show_xy_off_button = Button(button_image=on_off_button, x_y=(1300, 740),
                                     button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
         back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
@@ -835,14 +838,21 @@ def game_settings():
 
         audio_on_button.button_render(GAME_SCREEN)
         audio_off_button.button_render(GAME_SCREEN)
-        camera_on_button.button_render(GAME_SCREEN)
-        camera_off_button.button_render(GAME_SCREEN)
+
+        # camera_on_button.button_render(GAME_SCREEN)
+        # camera_off_button.button_render(GAME_SCREEN)
+
         vsync_on_button.button_render(GAME_SCREEN)
         vsync_off_button.button_render(GAME_SCREEN)
-        show_fps_on_button.button_render(GAME_SCREEN)
-        show_fps_off_button.button_render(GAME_SCREEN)
+
         show_ui_on_button.button_render(GAME_SCREEN)
         show_ui_off_button.button_render(GAME_SCREEN)
+
+        show_fps_on_button.button_render(GAME_SCREEN)
+        show_fps_off_button.button_render(GAME_SCREEN)
+
+        show_xy_on_button.button_render(GAME_SCREEN)
+        show_xy_off_button.button_render(GAME_SCREEN)
 
         back_button.button_render(GAME_SCREEN)
 
@@ -885,59 +895,71 @@ def game_settings():
                     pygame.display.update()
                     pygame.time.wait(2000)
 
-                if camera_on_button.on_click(mouse_coordinates):
-                    settings.camera_focus = 1
-                    draw_text("CAMERA FOCUS ON!", normal_font, "green", 730, 210, GAME_SCREEN)
-                    pygame.display.update()
-                    pygame.time.wait(2000)
+                # if camera_on_button.on_click(mouse_coordinates):
+                #  settings.camera_focus = 1
+                #  draw_text("CAMERA FOCUS ON!", normal_font, "green", 730, 210, GAME_SCREEN)
+                #  pygame.display.update()
+                # pygame.time.wait(2000)
 
-                if camera_off_button.on_click(mouse_coordinates):
-                    settings.camera_focus = 2
-                    draw_text("CAMERA FOCUS OFF!", normal_font, "green", 730, 210, GAME_SCREEN)
-                    pygame.display.update()
-                    pygame.time.wait(2000)
+                # if camera_off_button.on_click(mouse_coordinates):
+                # settings.camera_focus = 2
+                # draw_text("CAMERA FOCUS OFF!", normal_font, "green", 730, 210, GAME_SCREEN)
+                # pygame.display.update()
+                # pygame.time.wait(2000)
 
                 if vsync_on_button.on_click(mouse_coordinates):
                     settings.vsync = 1
                     print(settings.vsync)
                     draw_text("VSYNC ON!", normal_font, "green", 830, 210, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
 
                 if vsync_off_button.on_click(mouse_coordinates):
                     settings.vsync = 0
                     print(settings.vsync)
                     draw_text("VSYNC OFF!", normal_font, "green", 830, 210, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
-
-                if show_fps_on_button.on_click(mouse_coordinates):
-                    settings.show_fps = 1
-                    print(settings.show_fps)
-                    draw_text("FPS ON!", normal_font, "green", 850, 210, GAME_SCREEN)
-                    pygame.display.update()
-                    pygame.time.wait(2000)
-
-                if show_fps_off_button.on_click(mouse_coordinates):
-                    settings.show_fps = 2
-                    print(settings.show_fps)
-                    draw_text("FPS OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
-                    pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
 
                 if show_ui_on_button.on_click(mouse_coordinates):
                     settings.show_ui = 1
                     print(settings.show_ui)
                     draw_text("UI ON!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
 
                 if show_ui_off_button.on_click(mouse_coordinates):
                     settings.show_ui = 2
                     print(settings.show_ui)
                     draw_text("UI OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
+
+                if show_fps_on_button.on_click(mouse_coordinates):
+                    settings.show_fps = 1
+                    print(settings.show_fps)
+                    draw_text("FPS ON!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    pygame.display.update()
+                    pygame.time.wait(1200)
+
+                if show_fps_off_button.on_click(mouse_coordinates):
+                    settings.show_fps = 2
+                    print(settings.show_fps)
+                    draw_text("FPS OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    pygame.display.update()
+                    pygame.time.wait(1200)
+
+                if show_xy_on_button.on_click(mouse_coordinates):
+                    settings.show_xy = 1
+                    draw_text("X-Y ON!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    pygame.display.update()
+                    pygame.time.wait(1200)
+
+                if show_xy_off_button.on_click(mouse_coordinates):
+                    settings.show_xy = 2
+                    draw_text("X-Y OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    pygame.display.update()
+                    pygame.time.wait(1200)
 
                 if back_button.on_click(mouse_coordinates):
                     main_menu()
