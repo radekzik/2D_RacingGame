@@ -64,10 +64,15 @@ class MapLoop:
                 enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
+                #player_car.x = GAME_SCREEN.get_width() / 2
+                #player_car.y = GAME_SCREEN.get_height() / 2
+
                 GAME_SCREEN.blit(background, (0, 0))
                 GAME_SCREEN.blit(map_image, (0, 0))
                 GAME_SCREEN.blit(finish_line, finish_line_xy)
                 GAME_SCREEN.blit(map_border, (0, 0))
+
+
 
                 if enemy is None and enemy_route is None:
                     game_methods.start_countdown(player_car, player_car)

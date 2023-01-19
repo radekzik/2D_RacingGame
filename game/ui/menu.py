@@ -10,7 +10,7 @@ from game.ui.load_image import GAME_SCREEN, big_font, button_transparent_image, 
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, fifth_map_image, medium_font
+    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image
 from game.ui.resolution import draw_text
 
 TITLE_Y = 70

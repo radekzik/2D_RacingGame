@@ -12,22 +12,19 @@ GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 16, vsync=settings
 
 # maps
 first_map = res(pygame.image.load("../images/maps/first_map.png"), 0.75).convert_alpha()
-first_map_border = res(pygame.image.load("../images/borders/first_map_border3.png"), 0.75).convert_alpha()
+first_map_border = res(pygame.image.load("../images/borders/first_map_border.png"), 0.75).convert_alpha()
 
 second_map = res(pygame.image.load("../images/maps/second_map.png"), 0.75).convert_alpha()
-second_map_border = res(pygame.image.load("../images/borders/second_map_border2.png"), 0.75).convert_alpha()
+second_map_border = res(pygame.image.load("../images/borders/second_map_border.png"), 0.75).convert_alpha()
 
-third_map = res(pygame.image.load("../images/maps/third_map2.png"), 0.75).convert_alpha()
+third_map = res(pygame.image.load("../images/maps/third_map.png"), 0.75).convert_alpha()
 third_map_border = res(pygame.image.load("../images/borders/third_map_border.png"), 0.75).convert_alpha()
 
-fourth_map = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.75).convert_alpha()
-fourth_map_border = res(pygame.image.load("../images/borders/fourth_map_border3.png"), 0.75).convert_alpha()
+fourth_map = res(pygame.image.load("../images/maps/fourth_map.png"), 0.75).convert_alpha()
+fourth_map_border = res(pygame.image.load("../images/borders/fourth_map_border.png"), 0.75).convert_alpha()
 
-# fifth_map = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.75).convert_alpha()
-# fifth_map_border = res(pygame.image.load("../images/borders/fifth_map_border.png"), 0.75).convert_alpha()
-
-fifth_map = res(pygame.image.load("../images/maps/test_map3.png"), 0.75).convert_alpha()
-fifth_map_border = res(pygame.image.load("../images/borders/test_map_border.png"), 0.75).convert_alpha()
+fifth_map = res(pygame.image.load("../images/maps/fifth_map.png"), 0.75).convert_alpha()
+fifth_map_border = res(pygame.image.load("../images/borders/fifth_map_border.png"), 0.75).convert_alpha()
 
 # cars
 
@@ -86,9 +83,8 @@ on_off_button = res(pygame.image.load("../images/ui/buttons/on_off_button.png"),
 first_map_image = res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.15).convert_alpha()
 second_map_image = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()
 third_map_image = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()
-fourth_map_image = res(pygame.image.load("../images/maps/fourth_map3.png"), 0.15).convert_alpha()
-# fifth_map_image = res(pygame.image.load("../images/maps/fifth_map2.png"), 0.15).convert_alpha()
-fifth_map_image = res(pygame.image.load("../images/maps/test_map3.png"), 0.15).convert_alpha()
+fourth_map_image = res(pygame.image.load("../images/maps/fourth_map.png"), 0.15).convert_alpha()
+fifth_map_image = res(pygame.image.load("../images/maps/fifth_map.png"), 0.15).convert_alpha()
 
 # banners
 esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()
@@ -119,7 +115,6 @@ nitro_2 = res(pygame.image.load("../images/ui/nitro/nitro_2.png"), 0.4).convert_
 nitro_3 = res(pygame.image.load("../images/ui/nitro/nitro_3.png"), 0.4).convert_alpha()
 nitro_4 = res(pygame.image.load("../images/ui/nitro/nitro_4.png"), 0.4).convert_alpha()
 nitro_5 = res(pygame.image.load("../images/ui/nitro/nitro_5.png"), 0.4).convert_alpha()
-
 
 car_selection_menu = res(pygame.image.load("../images/backgrounds/car_selection_background.png"), 1.5).convert_alpha()
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()

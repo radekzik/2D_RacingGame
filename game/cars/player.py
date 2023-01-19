@@ -10,6 +10,10 @@ from game.ui.load_image import blue_formula, blue_lambo, WIDTH, HEIGHT, GAME_SCR
 class Player(Car):
     x_position = 700
     y_position = 950
+
+    #x_position = GAME_SCREEN.get_width() / 2
+    #y_position = GAME_SCREEN.get_height() / 2
+
     car_image = blue_formula
     car_angle = 270
 
@@ -51,8 +55,8 @@ class Player(Car):
         self.car_angle = 270
 
     def respawn_fifth_map(self):
-        self.x = 450
-        self.y = 850
+        self.x = 680
+        self.y = 950
         self.car_angle = 270
 
     def out_of_map(self):
