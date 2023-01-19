@@ -1024,7 +1024,8 @@ def main_menu():
                 if car_selection_button.on_click(mouse_coordinates):
                     car_selection()
                 if stats_button.on_click(mouse_coordinates):
-                    stats_first_map()
+                    # stats_first_map()
+                    first_map_stats()
                 if binds_button.on_click(mouse_coordinates):
                     binds()
                 if settings_button.on_click(mouse_coordinates):
@@ -1033,3 +1034,116 @@ def main_menu():
                     pygame.quit()
 
         pygame.display.update()
+
+
+def first_map_stats():
+    map_stats("FIRST MAP STATS", settings.first_map_lap_times_file, settings.first_map_match_times_file
+              , 2, 1, 2, second_map_stats)
+
+
+def second_map_stats():
+    map_stats("SECOND MAP STATS", settings.second_map_lap_times_file, settings.second_map_match_times_file
+              , 1, 1, first_map_stats, third_map_stats)
+
+
+def third_map_stats():
+    map_stats("THIRD MAP STATS", settings.third_map_lap_times_file, settings.third_map_match_times_file
+              , 1, 1, second_map_stats, fourth_map_stats)
+
+
+def fourth_map_stats():
+    map_stats("FOURTH MAP STATS", settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file
+              , 1, 1, third_map_stats, fifth_map_stats)
+
+
+def fifth_map_stats():
+    map_stats("FIFTH MAP STATS", settings.fifth_map_lap_times_file, settings.fifth_map_match_times_file
+              , 1, 2, fourth_map_stats, 2)
+
+
+def map_stats(title, lap_times_file, match_times_file,
+              pl, pr,
+              pointer_left_map, pointer_right_map):
+
+    global pointer_left_button, pointer_right_button
+    loading = 1
+
+    while 1:
+        GAME_SCREEN.blit(f_background, (0, 0))
+
+        while loading:
+            draw_text("Loading stats.", normal_font, "white", 780, 230, GAME_SCREEN)
+            pygame.display.update()
+            pygame.time.wait(300)
+
+            draw_text("Loading stats..", normal_font, "white", 780, 230, GAME_SCREEN)
+            pygame.display.update()
+            pygame.time.wait(300)
+
+            draw_text("Loading stats...", normal_font, "white", 780, 230, GAME_SCREEN)
+            pygame.display.update()
+            pygame.time.wait(300)
+            loading = False
+
+        GAME_SCREEN.blit(f_background, (0, 0))
+        mouse_coordinates = pygame.mouse.get_pos()
+
+        draw_text(title, big_font, TITLE_COLOR, 600, TITLE_Y, GAME_SCREEN)
+
+        draw_text("FASTEST LAP TIMES", medium_font, "purple", 580, 330, GAME_SCREEN)
+        draw_text("FASTEST RACE TIMES", medium_font, "purple", 1080, 330, GAME_SCREEN)
+
+        lap_times = load_lap_times(lap_times_file)
+        match_times = load_match_times(match_times_file)
+
+        draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, GAME_SCREEN)
+        draw_text(f"2. - {lap_times[1]}" + "s", small_font, "orange", 670, 450, GAME_SCREEN)
+        draw_text(f"3. - {lap_times[2]}" + "s", small_font, "orange", 670, 500, GAME_SCREEN)
+        draw_text(f"4. - {lap_times[3]}" + "s", small_font, "orange", 670, 550, GAME_SCREEN)
+        draw_text(f"5. - {lap_times[4]}" + "s", small_font, "red", 670, 600, GAME_SCREEN)
+
+        draw_text(f"1. - {match_times[0]}" + "s", small_font, "green", 1170, 400, GAME_SCREEN)
+        draw_text(f"2. - {match_times[1]}" + "s", small_font, "orange", 1170, 450, GAME_SCREEN)
+        draw_text(f"3. - {match_times[2]}" + "s", small_font, "orange", 1170, 500, GAME_SCREEN)
+        draw_text(f"4. - {match_times[3]}" + "s", small_font, "orange", 1170, 550, GAME_SCREEN)
+        draw_text(f"5. - {match_times[4]}" + "s", small_font, "red", 1170, 600, GAME_SCREEN)
+
+        pointer_right_button = Button(button_image=pointer_right, x_y=(1600, 500),
+                                      button_text="", font=normal_font, font_color="white",
+                                      font_hover_color="white")
+
+        pointer_left_button = Button(button_image=pointer_left, x_y=(320, 500),
+                                     button_text="", font=normal_font, font_color="white", font_hover_color="white")
+
+        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+                             button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
+
+        if pr == 1:
+            pointer_right_button.button_render(GAME_SCREEN)
+
+        if pl == 1:
+            pointer_left_button.button_render(GAME_SCREEN)
+
+        back_button.button_render(GAME_SCREEN)
+
+        button_hover_render(back_button, mouse_coordinates, GAME_SCREEN)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+
+                if pr == 1:
+                    if pointer_right_button.on_click(mouse_coordinates):
+                        pointer_right_map()
+
+                if pl == 1:
+                    if pointer_left_button.on_click(mouse_coordinates):
+                        pointer_left_map()
+
+                if back_button.on_click(mouse_coordinates):
+                    main_menu()
+
+        pygame.display.update()
+

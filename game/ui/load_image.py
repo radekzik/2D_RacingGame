@@ -55,6 +55,10 @@ pink_lambo = res(pygame.image.load("../images/cars/lamborghini/lambo_pink.png"),
 # spoiler car
 dark_purple_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_dark_purple.png"),
                               0.85).convert_alpha()
+
+#dark_purple_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/special_car3.png"),
+                              #0.85).convert_alpha()
+
 light_blue_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_light_blue.png"),
                              0.85).convert_alpha()
 orange_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_orange.png"), 0.85).convert_alpha()
