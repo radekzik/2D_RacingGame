@@ -171,23 +171,26 @@ def enemy_stopwatch(ticks):
 
 
 def speedometer(car):
+
+    speedometr_position = 1730, 900
+
     if car.car_speed < 0:
-        GAME_SCREEN.blit(speedometr, (1730, 900))
+        GAME_SCREEN.blit(speedometr, speedometr_position)
     if car.car_speed == 0:
-        GAME_SCREEN.blit(speedometr_0, (1730, 900))
+        GAME_SCREEN.blit(speedometr_0, speedometr_position)
     if 0 < car.car_speed <= 1:
-        GAME_SCREEN.blit(speedometr_1, (1730, 900))
+        GAME_SCREEN.blit(speedometr_1, speedometr_position)
     if 1 < car.car_speed <= 2:
-        GAME_SCREEN.blit(speedometr_2, (1730, 900))
+        GAME_SCREEN.blit(speedometr_2, speedometr_position)
     if 2 < car.car_speed <= 3:
-        GAME_SCREEN.blit(speedometr_3, (1730, 900))
+        GAME_SCREEN.blit(speedometr_3, speedometr_position)
     if 3 < car.car_speed <= 10:
-        GAME_SCREEN.blit(speedometr_nitro, (1730, 900))
+        GAME_SCREEN.blit(speedometr_nitro, speedometr_position)
 
 
 def nitro(car):
 
-    nitro_position = 1630, 950
+    nitro_position = 1670, 950
 
     if car.car_nitro < 0:
         GAME_SCREEN.blit(nitro_0, nitro_position)
