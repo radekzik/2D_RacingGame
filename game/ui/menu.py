@@ -372,7 +372,7 @@ def game_settings():
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("SETTINGS", big_font, TITLE_COLOR, 765, TITLE_Y, GAME_SCREEN)
+        draw_text("SETTINGS", big_font, TITLE_COLOR, 760, TITLE_Y, GAME_SCREEN)
 
         draw_text("AUDIO", normal_font, "cyan", 620, 300, GAME_SCREEN)
         # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
@@ -532,14 +532,12 @@ def game_settings():
         pygame.display.update()
 
 
-def change_settings(button, mouse_coordinates, o, value, title):
+def change_settings(button, mouse_coordinates, option, value, title):
     if button.on_click(mouse_coordinates):
-        o = value
+        option = value
         draw_text(title, normal_font, "green", 850, 210, GAME_SCREEN)
         pygame.display.update()
         pygame.time.wait(1200)
-
-        return o
 
 
 # MAIN MENU ------------------------------------------------------------------------------------------------------------

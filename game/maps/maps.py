@@ -151,7 +151,7 @@ class AllMaps:
     # FIFTH MAP --------------------------------------------------------------------------------------------------
     @staticmethod
     def fifth_map_vs_pc():
-        MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, dark_green_forest, fifth_map, fifth_map_border,
+        MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, green_forest, fifth_map, fifth_map_border,
                      AllMaps.fifth_map_vs_pc, Player.respawn_fifth_map,
                      finish_line_x2, settings.FINISH_LINES[5]["FINISH_LINE"],
                      settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][0],
@@ -162,7 +162,7 @@ class AllMaps:
 
     @staticmethod
     def fifth_map_solo():
-        MapLoop.loop(Player, None, None, dark_green_forest, fifth_map, fifth_map_border,
+        MapLoop.loop(Player, None, None, green_forest, fifth_map, fifth_map_border,
                      AllMaps.fifth_map_solo, Player.respawn_fifth_map,
                      finish_line_x2, settings.FINISH_LINES[5]["FINISH_LINE"],
                      settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][0],
@@ -173,7 +173,7 @@ class AllMaps:
 
     @staticmethod
     def fifth_map_1v1():
-        MapLoop.loop(Player, EnemyPlayer, None, dark_green_forest, fifth_map, fifth_map_border,
+        MapLoop.loop(Player, EnemyPlayer, None, green_forest, fifth_map, fifth_map_border,
                      AllMaps.fifth_map_1v1, Player.respawn_fifth_map,
                      finish_line_x2, settings.FINISH_LINES[5]["FINISH_LINE"],
                      settings.FINISH_LINES[5]["FINISH_LINE_RANGES"][0][0],

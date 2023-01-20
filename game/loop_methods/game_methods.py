@@ -190,7 +190,7 @@ def speedometer(car):
 
 def nitro(car):
 
-    nitro_position = 1670, 950
+    nitro_position = 1690, 970
 
     if car.car_nitro < 0:
         GAME_SCREEN.blit(nitro_0, nitro_position)
