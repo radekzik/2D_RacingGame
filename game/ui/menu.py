@@ -146,30 +146,30 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
 
 # CAR SELECTION --------------------------------------------------------------------------------------------------------
 def car_formula_selection():
-    car_color_selection("FORMULA", "BLUE", "ORANGE", "YELLOW", "GREEN",
-                        "blue", "orange", "yellow", "green",
+    car_color_selection("FORMULA", 780, "BLUE", "ORANGE", "YELLOW", "GREEN",
+                        "cyan", "orange", "yellow", "green",
                         blue_formula_selection, orange_formula_selection,
                         yellow_formula_selection, green_formula_selection,
                         1, 2, 3, 4)
 
 
 def car_lambo_selection():
-    car_color_selection("LAMBORGHINI", "BLUE", "CYAN", "RED", "PINK",
-                        "blue", "cyan", "red", "pink",
-                        blue_lambo_selection, cyan_lambo_selection,
-                        red_lambo_selection, pink_lambo_selection,
-                        5, 6, 7, 8)
+    car_color_selection("LAMBORGHINI", 680, "BLUE", "CRIMSON", "L - BLUE", "PINK",
+                        "blue", "red", "cyan", "pink",
+                        blue_lambo_selection, red_lambo_selection,
+                        cyan_lambo_selection, pink_lambo_selection,
+                        5, 7, 6, 8)
 
 
 def car_spoiler_car_selection():
-    car_color_selection("SPOILER CAR", "DARK PURPLE", "LIGHT BLUE", "ORANGE", "PINK",
-                        "violet", "cyan", "orange", "pink",
-                        dark_purple_spoiler_car_selection, light_blue_spoiler_car_selection,
+    car_color_selection("SPOILER CAR", 710, "CYAN", "PURPLE", "ORANGE", "PINK",
+                        "cyan", "violet", "orange", "pink",
+                        light_blue_spoiler_car_selection, dark_purple_spoiler_car_selection,
                         orange_spoiler_car_selection, pink_spoiler_car_selection,
-                        9, 10, 11, 12)
+                        10, 9, 11, 12)
 
 
-def car_color_selection(car_title, title1, title2, title3, title4,
+def car_color_selection(car_title, title_x, title1, title2, title3, title4,
                         color1, color2, color3, color4,
                         image1, image2, image3, image4,
                         car_option1, car_option2, car_option3, car_option4):
@@ -178,11 +178,11 @@ def car_color_selection(car_title, title1, title2, title3, title4,
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text(car_title, big_font, TITLE_COLOR, 770, TITLE_Y, GAME_SCREEN)
+        draw_text(car_title, big_font, TITLE_COLOR, title_x, TITLE_Y, GAME_SCREEN)
 
         draw_text(title1, small_font, color1, 330, 340, GAME_SCREEN)
-        draw_text(title2, small_font, color2, 720, 340, GAME_SCREEN)
-        draw_text(title3, small_font, color3, 1115, 340, GAME_SCREEN)
+        draw_text(title2, small_font, color2, 717, 340, GAME_SCREEN)
+        draw_text(title3, small_font, color3, 1120, 340, GAME_SCREEN)
         draw_text(title4, small_font, color4, 1530, 340, GAME_SCREEN)
 
         first_button = Button(x_y=(350, 550), button_image=image1, button_text="",
@@ -220,30 +220,30 @@ def car_color_selection(car_title, title1, title2, title3, title4,
 
                 if first_button.on_click(mouse_coordinates):
                     settings.car_type = car_option1
-                    draw_text("Car Selected!", normal_font, color1, 790, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color1, 800, 230, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
                     main_menu()
 
                 if second_button.on_click(mouse_coordinates):
                     settings.car_type = car_option2
-                    draw_text("Car Selected!", normal_font, color2, 790, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color2, 800, 230, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
                     main_menu()
 
                 if third_button.on_click(mouse_coordinates):
                     settings.car_type = car_option3
-                    draw_text("Car Selected!", normal_font, color3, 790, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color3, 800, 230, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
                     main_menu()
 
                 if fourth_button.on_click(mouse_coordinates):
                     settings.car_type = car_option4
-                    draw_text("Car Selected!", normal_font, color4, 790, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color4, 800, 230, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
                     main_menu()
 
                 if back_button.on_click(mouse_coordinates):
