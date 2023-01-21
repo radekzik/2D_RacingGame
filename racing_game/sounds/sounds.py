@@ -20,3 +20,6 @@ car_engine.set_volume(0.02)
 
 car_turbo = pygame.mixer.Sound("./../sound_effects/turbo_sound.wav")
 car_turbo.set_volume(0.02)
+
+finish = pygame.mixer.Sound("./../sound_effects/finish_sound.wav")
+finish.set_volume(0.02)

@@ -15,7 +15,7 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
         car.forward_control()
         draw.car_animation(stopwatch, car)
         #check_audio(racing_game.sounds.sounds.car_engine.play)
-        #check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.1)
+        #check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.05)
 
     else:
         car.forward_slowdown()
@@ -23,6 +23,7 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
 
         #if stopwatch % 2 == 0:
             #check_audio(racing_game.sounds.sounds.car_engine.stop)
+
 
     if pressed_key[pygame.K_s]:
         car.backward_control()
@@ -41,13 +42,11 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
         car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
-        check_audio(racing_game.sounds.sounds.starting_sound.stop)
-        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
+        stop_sounds()
         menu.mode_selection()
 
     if pressed_key[pygame.K_r]:
-        check_audio(racing_game.sounds.sounds.starting_sound.stop)
-        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
+        stop_sounds()
         map_restart()
 
     if pressed_key[pygame.K_w]:
@@ -61,6 +60,15 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
                     and not car_rect.colliderect(enemy_rect):
                 car.use_nitro()
                 check_audio(racing_game.sounds.sounds.car_turbo.play)
+
+
+def stop_sounds():
+    check_audio(racing_game.sounds.sounds.car_engine.stop)
+    check_audio(racing_game.sounds.sounds.car_turbo.stop)
+    check_audio(racing_game.sounds.sounds.crash_sound.stop)
+    check_audio(racing_game.sounds.sounds.out_off_the_track_sound.stop)
+    check_audio(racing_game.sounds.sounds.starting_sound.stop)
+    check_audio(racing_game.sounds.sounds.countdown_sound.stop)
 
 
 def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):

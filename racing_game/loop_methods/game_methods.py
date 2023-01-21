@@ -1,5 +1,6 @@
 import racing_game.sounds.sounds
-from racing_game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, \
+from racing_game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, \
+    SECOND_FINISH_LINE_Y_RANGE, \
     FIRST_FINISH_LINE_Y_RANGE
 from racing_game.storage import storing_data
 from racing_game.ui import draw
@@ -23,6 +24,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
         # pygame.draw.rect(game_screen, "green", enemy_rect)
         # pygame.draw.rect(game_screen, "red", car_rect)
         car.car_collide()
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.crash_sound.play)
 
     else:
@@ -31,6 +33,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
         # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
@@ -91,10 +94,12 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, enemy_
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
     if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
         enemy_car.out_of_track()
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
 
@@ -126,9 +131,11 @@ def check_audio(command):
     if settings.audio == 1:
         command()
 
+
 def check_audio_set_volume(command, volume):
     if settings.audio == 1:
         command(volume)
+
 
 def check_fadeout_audio(command, time):
     if settings.audio == 1:
@@ -157,7 +164,7 @@ def ui(player_car, car_stopwatch):
     player_car.car_current_speed()
 
     nitro(player_car)
-    #player_car.car_current_nitro()
+    # player_car.car_current_nitro()
 
 
 def car_stopwatch(ticks):
@@ -175,7 +182,6 @@ def enemy_stopwatch(ticks):
 
 
 def speedometer(car):
-
     speedometr_position = 1730, 900
 
     if car.car_speed < 0:
@@ -193,7 +199,6 @@ def speedometer(car):
 
 
 def nitro(car):
-
     nitro_position = 1690, 970
 
     if car.car_nitro < 0:
@@ -307,6 +312,7 @@ def stats_reset_solo(car, car_time_list):
 def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
     if car_stopwatch > 5:
         settings.car_lap += 1
+        check_audio(racing_game.sounds.sounds.finish.play)
 
         for time_position in range(0, 1):
             time_position += 1
