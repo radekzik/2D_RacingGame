@@ -14,6 +14,13 @@ def game_info(match_time, lap, stopwatch):
     draw_text(f"LAP - {lap} / {settings.max_laps}", small_font, "cyan", 1777, 1040, GAME_SCREEN)
 
 
+def enemy_game_info(match_time, lap, stopwatch):
+    draw_text(f"LAP TIME - {stopwatch}", small_font, "white", 30, 20, GAME_SCREEN)
+    draw_text(f"RACE TIME - {round(match_time)}", small_font, "cyan", 30, 60, GAME_SCREEN)
+
+    draw_text(f"LAP - {lap} / {settings.max_laps}", small_font, "cyan", 73, 1040, GAME_SCREEN)
+
+
 def game_show_fps(clock):
     draw_text(f"FPS - {round(clock.get_fps())}", small_font, "cyan", 30, 20, GAME_SCREEN)
 

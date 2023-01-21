@@ -40,8 +40,6 @@ class MapLoop:
 
         while 1:
 
-
-
             clock = pygame.time.Clock()
 
             if enemy is None and enemy_route is None:
@@ -68,9 +66,6 @@ class MapLoop:
                 enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
-                # player_car.x = GAME_SCREEN.get_width() / 2
-                # player_car.y = GAME_SCREEN.get_height() / 2
-
                 GAME_SCREEN.blit(background, (0, 0))
                 GAME_SCREEN.blit(map_image, (0, 0))
                 GAME_SCREEN.blit(finish_line, finish_line_xy)
@@ -81,6 +76,8 @@ class MapLoop:
 
                 if enemy is not None and enemy_route is None:
                     game_methods.start_countdown(player_car, enemy_car)
+                    settings.show_xy = 2
+                    settings.show_fps = 2
 
                 if enemy is not None and enemy_route is not None:
                     game_methods.start_countdown(player_car, enemy_car)
@@ -90,6 +87,9 @@ class MapLoop:
 
                 if settings.show_ui == 1:
                     game_methods.ui(player_car, car_stopwatch)
+
+                    if enemy is not None and enemy_route is None:
+                        game_methods.enemy_ui(enemy_car, enemy_stopwatch)
 
                 check_show_ui(game_methods.ui, player_car, car_stopwatch)
                 check_show_xy(player_car.car_position)
@@ -105,11 +105,10 @@ class MapLoop:
 
                 if enemy is not None:
                     enemy_car.render_position(GAME_SCREEN)
+                    enemy_car.add_nitro(enemy_stopwatch)
 
                 game_methods.start_game()
                 pygame.display.update()
-
-
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:

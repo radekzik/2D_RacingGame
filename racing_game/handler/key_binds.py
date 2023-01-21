@@ -14,16 +14,15 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
     if pressed_key[pygame.K_w]:
         car.forward_control()
         draw.car_animation(stopwatch, car)
-        #check_audio(racing_game.sounds.sounds.car_engine.play)
-        #check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.05)
+        # check_audio(racing_game.sounds.sounds.car_engine.play)
+        # check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.05)
 
     else:
         car.forward_slowdown()
-        #check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.02)
+        # check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.02)
 
-        #if stopwatch % 2 == 0:
-            #check_audio(racing_game.sounds.sounds.car_engine.stop)
-
+        # if stopwatch % 2 == 0:
+        # check_audio(racing_game.sounds.sounds.car_engine.stop)
 
     if pressed_key[pygame.K_s]:
         car.backward_control()
@@ -102,3 +101,4 @@ def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):
         if pressed_key[pygame.K_o] and not enemy_car.border_collide(pygame.mask.from_surface(map_border)) \
                 and not enemy_rect.colliderect(car_rect):
             enemy_car.use_nitro()
+            check_audio(racing_game.sounds.sounds.car_turbo.play)

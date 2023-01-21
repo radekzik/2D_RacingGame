@@ -85,16 +85,10 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, enemy_
     if car_rect.colliderect(enemy_rect):
         car.car_collide()
         check_audio(racing_game.sounds.sounds.crash_sound.play)
-    else:
-        car.car_image = car.car_image
-        car.max_speed = 3
 
     if enemy_rect.colliderect(car_rect):
         enemy_car.car_collide()
-        # check_audio(racing_game.sounds.sounds.crash_sound.play)
-    else:
-        enemy_car.car_image = enemy_car.car_image
-        enemy_car.max_speed = 3
+        check_audio(racing_game.sounds.sounds.crash_sound.play)
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
@@ -164,10 +158,20 @@ def check_show_ui(command, player_car, car_stopwatch):
 def ui(player_car, car_stopwatch):
     draw.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)
 
-    speedometer(player_car)
+    speedometer(player_car, 1730, 900)
     player_car.car_current_speed()
 
-    nitro(player_car)
+    nitro(player_car, 1690, 970)
+    # player_car.car_current_nitro()
+
+
+def enemy_ui(enemy_car, enemy_stopwatch):
+    draw.enemy_game_info(settings.enemy_match_time, settings.enemy_lap, enemy_stopwatch)
+
+    speedometer(enemy_car, 30, 900)
+    enemy_car.car_current_speed()
+
+    nitro(enemy_car, 200, 970)
     # player_car.car_current_nitro()
 
 
@@ -185,8 +189,8 @@ def enemy_stopwatch(ticks):
     return stopwatch
 
 
-def speedometer(car):
-    speedometr_position = 1730, 900
+def speedometer(car, x, y):
+    speedometr_position = x, y
 
     if car.car_speed < 0:
         GAME_SCREEN.blit(speedometr, speedometr_position)
@@ -202,8 +206,8 @@ def speedometer(car):
         GAME_SCREEN.blit(speedometr_nitro, speedometr_position)
 
 
-def nitro(car):
-    nitro_position = 1690, 970
+def nitro(car, x, y):
+    nitro_position = x, y
 
     if car.car_nitro < 0:
         GAME_SCREEN.blit(nitro_0, nitro_position)
