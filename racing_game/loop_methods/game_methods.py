@@ -230,6 +230,7 @@ def start_game():
                 settings.started = 1
                 check_audio(racing_game.sounds.sounds.starting_sound.play)
                 settings.car_start_time = pygame.time.get_ticks()
+                check_audio_set_volume(racing_game.sounds.sounds.car_engine.play, -1)
 
 
 def start_countdown(car, enemy_car):

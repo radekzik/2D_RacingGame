@@ -1,10 +1,12 @@
 import pygame
 
+import racing_game.sounds.sounds
 from racing_game.cars.pc import random_car
 from racing_game.config import settings
 from racing_game.handler.key_binds import player_key_binds, enemy_key_binds
 from racing_game.loop_methods import game_methods
-from racing_game.loop_methods.game_methods import check_show_fps, check_show_xy, check_show_ui
+from racing_game.loop_methods.game_methods import check_show_fps, check_show_xy, check_show_ui, check_audio, \
+    check_audio_set_volume
 from racing_game.ui import draw
 from racing_game.ui.load_image import GAME_SCREEN
 
@@ -38,6 +40,8 @@ class MapLoop:
 
         while 1:
 
+
+
             clock = pygame.time.Clock()
 
             if enemy is None and enemy_route is None:
@@ -64,15 +68,13 @@ class MapLoop:
                 enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
-                #player_car.x = GAME_SCREEN.get_width() / 2
-                #player_car.y = GAME_SCREEN.get_height() / 2
+                # player_car.x = GAME_SCREEN.get_width() / 2
+                # player_car.y = GAME_SCREEN.get_height() / 2
 
                 GAME_SCREEN.blit(background, (0, 0))
                 GAME_SCREEN.blit(map_image, (0, 0))
                 GAME_SCREEN.blit(finish_line, finish_line_xy)
                 GAME_SCREEN.blit(map_border, (0, 0))
-
-
 
                 if enemy is None and enemy_route is None:
                     game_methods.start_countdown(player_car, player_car)
@@ -106,6 +108,8 @@ class MapLoop:
 
                 game_methods.start_game()
                 pygame.display.update()
+
+
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
