@@ -1,10 +1,10 @@
 import pygame
 
-from game.config import settings
-from game.ui.load_image import GAME_SCREEN, normal_font, small_font, purple_formula_2, purple_formula, \
+from racing_game.config import settings
+from racing_game.ui.load_image import GAME_SCREEN, normal_font, small_font, purple_formula_2, purple_formula, \
     blue_formula_2, blue_formula, orange_formula, orange_formula_2, yellow_formula_2, yellow_formula, \
     green_formula, green_formula_2, time_background2
-from game.ui.resolution import draw_text
+from racing_game.ui.resolution import draw_text
 
 
 def game_info(match_time, lap, stopwatch):

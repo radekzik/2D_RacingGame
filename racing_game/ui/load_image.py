@@ -1,7 +1,7 @@
 import pygame
 
-from game.config import settings
-from game.ui.resolution import res
+from racing_game.config import settings
+from racing_game.ui.resolution import res
 
 pygame.init()
 

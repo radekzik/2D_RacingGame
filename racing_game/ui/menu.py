@@ -1,17 +1,17 @@
 import pygame
 
-from game.config import settings
-from game.maps.maps import AllMaps
-from game.storage.storing_data import load_lap_times, load_match_times
-from game.ui.button import Button, button_hover_render
-from game.ui.load_image import GAME_SCREEN, big_font, button_transparent_image, normal_font, small_font, \
+from racing_game.config import settings
+from racing_game.maps.maps import AllMaps
+from racing_game.storage.storing_data import load_lap_times, load_match_times
+from racing_game.ui.button import Button, button_hover_render
+from racing_game.ui.load_image import GAME_SCREEN, big_font, button_transparent_image, normal_font, small_font, \
     first_map_image, \
     second_map_image, blue_lambo_selection, blue_formula_selection, f_background, formula_selection, lambo_selection, \
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
     pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image
-from game.ui.resolution import draw_text
+from racing_game.ui.resolution import draw_text
 
 TITLE_Y = 70
 TITLE_COLOR = "purple"

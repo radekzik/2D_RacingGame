@@ -1,11 +1,10 @@
-import pygame
 
-from game.cars.enemy import EnemyPlayer
-from game.cars.pc import PCPlayer
-from game.cars.player import Player
-from game.config import settings
-from game.maps.map_loop import MapLoop
-from game.ui.load_image import green_forest, first_map, finish_line, first_map_border, second_map, \
+from racing_game.cars.enemy import EnemyPlayer
+from racing_game.cars.pc import PCPlayer
+from racing_game.cars.player import Player
+from racing_game.config import settings
+from racing_game.maps.map_loop import MapLoop
+from racing_game.ui.load_image import green_forest, first_map, finish_line, first_map_border, second_map, \
     second_map_border, third_map, third_map_border, fourth_map, fourth_map_border, finish_line_x3, dark_green_forest, \
     fifth_map, fifth_map_border, finish_line_x2
 

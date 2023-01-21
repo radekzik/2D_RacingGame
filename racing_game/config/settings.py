@@ -8,7 +8,7 @@ FINISH_LINES = {
     5: {'FINISH_LINE': (540, 800), 'FINISH_LINE_RANGES': [(550, 800), (670, 1080)]}
 }
 
-# check start game
+# check start racing_game
 started = False
 
 # tick

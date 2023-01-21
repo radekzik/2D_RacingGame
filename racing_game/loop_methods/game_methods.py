@@ -1,11 +1,12 @@
-import game.sounds.sounds
-from game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, \
+import racing_game.sounds.sounds
+from racing_game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_Y_RANGE, \
     FIRST_FINISH_LINE_Y_RANGE
-from game.storage import storing_data
-from game.ui import draw
-from game.ui.load_image import *
-from game.ui.draw import *
-from game.config import settings
+from racing_game.storage import storing_data
+from racing_game.ui import draw
+from racing_game.ui.load_image import *
+from racing_game.ui.draw import *
+from racing_game.config import settings
+from racing_game.ui.resolution import draw_text
 
 pygame.init()
 
@@ -13,7 +14,7 @@ pygame.init()
 def collision_solo(car, map_border):
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
-        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
 
 def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
@@ -22,7 +23,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
         # pygame.draw.rect(game_screen, "green", enemy_rect)
         # pygame.draw.rect(game_screen, "red", car_rect)
         car.car_collide()
-        check_audio(game.sounds.sounds.crash_sound.play)
+        check_audio(racing_game.sounds.sounds.crash_sound.play)
 
     else:
         car.car_image = car.car_image
@@ -30,12 +31,12 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
-        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
         # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
     # if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
     # enemy_car.border_collision()
-    # check_audio(game.sounds.sounds.out_off_the_track_sound.play)
+    # check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
     # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
     if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
@@ -76,25 +77,25 @@ def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, enemy_
                         car_time_list, enemy_time_list, restart_map):
     if car_rect.colliderect(enemy_rect):
         car.car_collide()
-        check_audio(game.sounds.sounds.crash_sound.play)
+        check_audio(racing_game.sounds.sounds.crash_sound.play)
     else:
         car.car_image = car.car_image
         car.max_speed = 3
 
     if enemy_rect.colliderect(car_rect):
         enemy_car.car_collide()
-        # check_audio(game.sounds.sounds.crash_sound.play)
+        # check_audio(racing_game.sounds.sounds.crash_sound.play)
     else:
         enemy_car.car_image = enemy_car.car_image
         enemy_car.max_speed = 3
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
-        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
     if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
         enemy_car.out_of_track()
-        check_audio(game.sounds.sounds.out_off_the_track_sound.play)
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
 
 def check_new_game():
@@ -125,6 +126,9 @@ def check_audio(command):
     if settings.audio == 1:
         command()
 
+def check_audio_set_volume(command, volume):
+    if settings.audio == 1:
+        command(volume)
 
 def check_fadeout_audio(command, time):
     if settings.audio == 1:
@@ -219,7 +223,7 @@ def start_game():
                 pygame.quit()
             if event.type == pygame.KEYDOWN:
                 settings.started = 1
-                check_audio(game.sounds.sounds.starting_sound.play)
+                check_audio(racing_game.sounds.sounds.starting_sound.play)
                 settings.car_start_time = pygame.time.get_ticks()
 
 
@@ -243,7 +247,7 @@ def start_countdown(car, enemy_car):
         GAME_SCREEN.blit(semaphor_all_red, (880, 500))
 
     if settings.countdown == 4:
-        check_audio(game.sounds.sounds.countdown_sound.play)
+        check_audio(racing_game.sounds.sounds.countdown_sound.play)
 
     if settings.countdown == 3:
         draw_text(f"{str(settings.countdown)} - READY", normal_font, "red", 850, 570, GAME_SCREEN)
@@ -260,8 +264,8 @@ def start_countdown(car, enemy_car):
     if settings.countdown == 0:
         # draw_text(f"", font, "white", 900, 500)
 
-        check_audio(game.sounds.sounds.starting_sound.stop)
-        check_audio(game.sounds.sounds.countdown_sound.stop)
+        check_audio(racing_game.sounds.sounds.starting_sound.stop)
+        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
         car.max_speed = 3
 
         car.max_movement_speed = 5

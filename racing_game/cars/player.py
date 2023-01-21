@@ -1,8 +1,8 @@
 import pygame.display
 
-from game.cars.car import Car
-from game.ui.resolution import draw_text
-from game.ui.load_image import blue_formula, blue_lambo, WIDTH, HEIGHT, GAME_SCREEN, small_font, green_formula, \
+from racing_game.cars.car import Car
+from racing_game.ui.resolution import draw_text
+from racing_game.ui.load_image import blue_formula, blue_lambo, WIDTH, HEIGHT, GAME_SCREEN, small_font, green_formula, \
     yellow_formula, orange_formula, cyan_lambo, red_lambo, pink_lambo, dark_purple_spoiler_car, light_blue_spoiler_car, \
     orange_spoiler_car, pink_spoiler_car, normal_font
 

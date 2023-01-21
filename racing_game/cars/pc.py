@@ -1,9 +1,9 @@
 import math
 import random
 
-from game.cars.car import Car
-from game.config import settings
-from game.ui.load_image import purple_formula, pink_lambo, WIDTH, HEIGHT, red_formula, red_lambo, orange_formula, \
+from racing_game.cars.car import Car
+from racing_game.config import settings
+from racing_game.ui.load_image import purple_formula, pink_lambo, WIDTH, HEIGHT, red_formula, red_lambo, orange_formula, \
     yellow_formula, green_formula, cyan_lambo, dark_purple_spoiler_car, orange_spoiler_car, light_blue_spoiler_car, \
     pink_spoiler_car
 

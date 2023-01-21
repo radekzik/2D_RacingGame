@@ -1,9 +1,9 @@
 import pygame
 
-import game.sounds.sounds
-from game.loop_methods.game_methods import check_audio
-from game.ui import draw, menu
-from game.config import settings
+import racing_game.sounds.sounds
+from racing_game.loop_methods.game_methods import check_audio, check_audio_set_volume
+from racing_game.ui import draw, menu
+from racing_game.config import settings
 
 
 def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
@@ -14,20 +14,15 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
     if pressed_key[pygame.K_w]:
         car.forward_control()
         draw.car_animation(stopwatch, car)
-
-        # if stopwatch % 3 == 0:
-        # settings.nitro = settings.nitro + 1
-
-        # check_audio(game.sounds.sounds.car_engine_sound2.play)
-
-        # game.sounds.sounds.car_engine_sound2.play(-1)
+        #check_audio(racing_game.sounds.sounds.car_engine.play)
+        #check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.1)
 
     else:
         car.forward_slowdown()
+        #check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.02)
 
-        # check_fadeout_audio(game.sounds.sounds.car_engine_sound2.fadeout, 100)
-        # game.sounds.sounds.car_engine_sound2.fadeout(5)
-    # game.sounds.sounds.car_engine_sound2.stop()
+        #if stopwatch % 2 == 0:
+            #check_audio(racing_game.sounds.sounds.car_engine.stop)
 
     if pressed_key[pygame.K_s]:
         car.backward_control()
@@ -46,26 +41,26 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
         car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
-        check_audio(game.sounds.sounds.engine_sound.stop)
-        check_audio(game.sounds.sounds.starting_sound.stop)
-        check_audio(game.sounds.sounds.countdown_sound.stop)
+        check_audio(racing_game.sounds.sounds.starting_sound.stop)
+        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
         menu.mode_selection()
 
     if pressed_key[pygame.K_r]:
-        check_audio(game.sounds.sounds.engine_sound.stop)
-        check_audio(game.sounds.sounds.starting_sound.stop)
-        check_audio(game.sounds.sounds.countdown_sound.stop)
+        check_audio(racing_game.sounds.sounds.starting_sound.stop)
+        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
         map_restart()
 
     if pressed_key[pygame.K_w]:
         if enemy_rect is None:
             if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)):
                 car.use_nitro()
+                check_audio(racing_game.sounds.sounds.car_turbo.play)
 
         else:
             if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
                     and not car_rect.colliderect(enemy_rect):
                 car.use_nitro()
+                check_audio(racing_game.sounds.sounds.car_turbo.play)
 
 
 def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):

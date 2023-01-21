@@ -1,12 +1,12 @@
 import pygame
 
-from game.cars.pc import random_car
-from game.config import settings
-from game.handler.key_binds import player_key_binds, enemy_key_binds
-from game.loop_methods import game_methods
-from game.loop_methods.game_methods import check_show_fps, check_show_xy, check_show_ui
-from game.ui import draw
-from game.ui.load_image import GAME_SCREEN
+from racing_game.cars.pc import random_car
+from racing_game.config import settings
+from racing_game.handler.key_binds import player_key_binds, enemy_key_binds
+from racing_game.loop_methods import game_methods
+from racing_game.loop_methods.game_methods import check_show_fps, check_show_xy, check_show_ui
+from racing_game.ui import draw
+from racing_game.ui.load_image import GAME_SCREEN
 
 
 class MapLoop:

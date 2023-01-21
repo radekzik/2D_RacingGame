@@ -1,7 +1,7 @@
 import pygame
 import math
 
-from game.ui.resolution import image_position
+from racing_game.ui.resolution import image_position
 
 
 class Car:
@@ -89,6 +89,7 @@ class Car:
                 self.car_nitro = 0
 
         self.movement()
+
 
     def drift(self):
 
