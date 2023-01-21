@@ -48,6 +48,7 @@ class MapLoop:
             if enemy is not None and enemy_route is None:
                 player_car = player()
                 enemy_car = enemy()
+                enemy_car.car_image = random_car()
 
             if enemy is not None and enemy_route is not None:
                 player_car = player()
@@ -78,6 +79,7 @@ class MapLoop:
                     game_methods.start_countdown(player_car, enemy_car)
                     settings.show_xy = 2
                     settings.show_fps = 2
+                    draw.player_title()
 
                 if enemy is not None and enemy_route is not None:
                     game_methods.start_countdown(player_car, enemy_car)

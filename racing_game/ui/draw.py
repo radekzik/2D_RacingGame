@@ -3,7 +3,7 @@ import pygame
 from racing_game.config import settings
 from racing_game.ui.load_image import GAME_SCREEN, normal_font, small_font, purple_formula_2, purple_formula, \
     blue_formula_2, blue_formula, orange_formula, orange_formula_2, yellow_formula_2, yellow_formula, \
-    green_formula, green_formula_2, time_background2
+    green_formula, green_formula_2, time_background2, medium_font
 from racing_game.ui.resolution import draw_text
 
 
@@ -14,11 +14,21 @@ def game_info(match_time, lap, stopwatch):
     draw_text(f"LAP - {lap} / {settings.max_laps}", small_font, "cyan", 1777, 1040, GAME_SCREEN)
 
 
+def player_title():
+    draw_text(f"FIRST PLAYER", medium_font, "light blue", 1595, 15, GAME_SCREEN)
+
+
 def enemy_game_info(match_time, lap, stopwatch):
     draw_text(f"LAP TIME - {stopwatch}", small_font, "white", 30, 20, GAME_SCREEN)
     draw_text(f"RACE TIME - {round(match_time)}", small_font, "cyan", 30, 60, GAME_SCREEN)
 
     draw_text(f"LAP - {lap} / {settings.max_laps}", small_font, "cyan", 73, 1040, GAME_SCREEN)
+
+    enemy_title()
+
+
+def enemy_title():
+    draw_text(f"SECOND PLAYER", medium_font, "red", 150, 15, GAME_SCREEN)
 
 
 def game_show_fps(clock):
