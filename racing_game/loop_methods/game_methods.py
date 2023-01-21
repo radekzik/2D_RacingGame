@@ -24,7 +24,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
         # pygame.draw.rect(game_screen, "green", enemy_rect)
         # pygame.draw.rect(game_screen, "red", car_rect)
         car.car_collide()
-        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        # check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.crash_sound.play)
 
     else:
@@ -33,7 +33,7 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
 
     if car.border_collide(pygame.mask.from_surface(map_border)):
         car.out_of_track()
-        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        # check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
         # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
 
@@ -54,6 +54,8 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
     if settings.enemy_lap == settings.max_laps:
         print(settings.enemy_lap)
         if settings.car_lap < settings.enemy_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.lose.play)
             GAME_SCREEN.blit(button_win_lose, (770, 560))
             draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
 
@@ -65,6 +67,8 @@ def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stop
             restart_map()
 
         if settings.car_lap > settings.enemy_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.win.play)
             GAME_SCREEN.blit(button_win_lose, (770, 560))
             draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
 
@@ -329,6 +333,10 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         settings.car_start_time = pygame.time.get_ticks()
 
     else:
+        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
+        check_audio(racing_game.sounds.sounds.starting_sound.stop)
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        check_audio(racing_game.sounds.sounds.lose.play)
         draw_text(f"Wrong Way", normal_font, "white", 830, 450, GAME_SCREEN)
 
         pygame.display.update()
@@ -351,6 +359,8 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
         print(settings.max_laps)
 
         if settings.car_lap > settings.enemy_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.win.play)
             GAME_SCREEN.blit(button_win_lose, (770, 560))
             draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
 
@@ -358,6 +368,8 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
             pygame.time.wait(1000)
 
         if settings.car_lap < settings.enemy_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.lose.play)
             GAME_SCREEN.blit(button_win_lose, (770, 560))
             draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
 

@@ -23,3 +23,9 @@ car_turbo.set_volume(0.02)
 
 finish = pygame.mixer.Sound("./../sound_effects/finish_sound.wav")
 finish.set_volume(0.02)
+
+win = pygame.mixer.Sound("./../sound_effects/win_sound.wav")
+win.set_volume(0.02)
+
+lose = pygame.mixer.Sound("./../sound_effects/lose_sound.wav")
+lose.set_volume(0.02)
