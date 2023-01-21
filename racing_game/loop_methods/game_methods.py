@@ -402,3 +402,80 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
 
         check_new_game()
         reset_map()
+
+
+def enemy_check_laps(car, pc_car, enemy_stopwatch, reset_map, map_respawn):
+    if enemy_stopwatch > 5:
+        settings.enemy_lap += 1
+        check_audio(racing_game.sounds.sounds.finish.play)
+
+        for time_position in range(0, 1):
+            time_position += 1
+            settings.enemy_time_list.insert(time_position, enemy_stopwatch)
+
+        settings.enemy_match_time = settings.enemy_match_time + enemy_stopwatch
+
+        draw_text(f"Lap Time - {enemy_stopwatch}", normal_font, "white", 800, 450, GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(200)
+
+        map_respawn(car)
+        settings.enemy_start_time = pygame.time.get_ticks()
+
+    else:
+        check_audio(racing_game.sounds.sounds.countdown_sound.stop)
+        check_audio(racing_game.sounds.sounds.starting_sound.stop)
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        check_audio(racing_game.sounds.sounds.lose.play)
+
+        draw_text(f"Wrong Way", normal_font, "white", 830, 450, GAME_SCREEN)
+
+        pygame.display.update()
+        pygame.time.wait(1000)
+
+        if pc_car is not None:
+            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+        else:
+            stats_reset_solo(car, settings.car_time_list)
+
+        check_new_game()
+        reset_map()
+
+
+def enemy_end_game(car, pc_car, reset_map):
+    if settings.enemy_lap == settings.max_laps:
+
+        if settings.enemy_lap > settings.car_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.win.play)
+            GAME_SCREEN.blit(button_win_lose, (770, 560))
+            draw_text(f"SECOND PLAYER WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
+
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+        if settings.enemy_lap < settings.car_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.lose.play)
+
+            GAME_SCREEN.blit(button_win_lose, (770, 560))
+            draw_text(f"FIRST PLAYER WON THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
+
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+        settings.enemy_time_list.sort()
+        settings.car_time_list.sort()
+        draw.enemy_time_table(settings.enemy_time_list[0], settings.enemy_time_list[2],
+                              settings.enemy_match_time)
+
+        pygame.display.update()
+        pygame.time.wait(5000)
+
+        if pc_car is not None:
+            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+        else:
+            stats_reset_solo(car, settings.car_time_list)
+
+        check_new_game()
+        reset_map()

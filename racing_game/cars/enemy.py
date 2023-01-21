@@ -7,7 +7,7 @@ from racing_game.ui.resolution import draw_text
 
 class EnemyPlayer(Car):
     x_position = 700
-    y_position = 880
+    y_position = 900
     car_image = random_car()
     car_angle = 270
 
@@ -15,8 +15,8 @@ class EnemyPlayer(Car):
     car_height = car_image.get_height()
 
     def respawn_first_map(self):
-        self.x = 700
-        self.y = 880
+        self.x = 800
+        self.y = 900
         self.car_angle = 270
 
     def car_current_speed(self):
