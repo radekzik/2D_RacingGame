@@ -1,7 +1,7 @@
 from racing_game.cars.car import Car
 from racing_game.cars.pc import random_car
 
-from racing_game.ui.load_image import red_formula, normal_font, GAME_SCREEN
+from racing_game.ui.load_image import normal_font, GAME_SCREEN
 from racing_game.ui.resolution import draw_text
 
 
@@ -13,11 +13,6 @@ class EnemyPlayer(Car):
 
     car_width = car_image.get_width()
     car_height = car_image.get_height()
-
-    def respawn_first_map(self):
-        self.x = 800
-        self.y = 900
-        self.car_angle = 270
 
     def car_current_speed(self):
         position_x = 100
@@ -38,3 +33,28 @@ class EnemyPlayer(Car):
 
     def car_current_nitro(self):
         draw_text(f"{round(self.car_nitro)}", normal_font, "cyan", 200, 740, GAME_SCREEN)
+
+    def respawn_first_map(self):
+        self.x = 700
+        self.y = 950
+        self.car_angle = 270
+
+    def respawn_second_map(self):
+        self.x = 700
+        self.y = 900
+        self.car_angle = 270
+
+    def respawn_third_map(self):
+        self.x = 670
+        self.y = 880
+        self.car_angle = 270
+
+    def respawn_fourth_map(self):
+        self.x = 700
+        self.y = 900
+        self.car_angle = 270
+
+    def respawn_fifth_map(self):
+        self.x = 680
+        self.y = 950
+        self.car_angle = 270

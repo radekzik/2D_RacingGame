@@ -185,23 +185,23 @@ class PCPlayer(Car):
         self.pc_route = [(1121, 915), (1379, 637), (1655, 454), (1631, 169), (1631, 169),
                          (1003, 46), (813, 379), (353, 373), (200, 632), (340, 900), (754, 1040)]
 
-        #random_number = random.randint(1, 3)
+        # random_number = random.randint(1, 3)
 
-        #route1 = [(1121, 915), (1379, 580), (1655, 420), (1631, 130), (1631, 130),
-                  #(1003, 30), (813, 350), (353, 350), (200, 600), (340, 900), (754, 990)]
+        # route1 = [(1121, 915), (1379, 580), (1655, 420), (1631, 130), (1631, 130),
+        # (1003, 30), (813, 350), (353, 350), (200, 600), (340, 900), (754, 990)]
 
-        #route2 = [(1121, 915), (1379, 630), (1655, 470), (1631, 180), (1631, 180),
-                  #(1003, 80), (813, 400), (353, 400), (200, 650), (340, 900), (754, 1020)]
+        # route2 = [(1121, 915), (1379, 630), (1655, 470), (1631, 180), (1631, 180),
+        # (1003, 80), (813, 400), (353, 400), (200, 650), (340, 900), (754, 1020)]
 
-        #route3 = [(1121, 915), (1379, 680), (1655, 520), (1631, 230), (1631, 230),
-                  #(1003, 130), (813, 450), (353, 450), (200, 700), (340, 900), (754, 1050)]
+        # route3 = [(1121, 915), (1379, 680), (1655, 520), (1631, 230), (1631, 230),
+        # (1003, 130), (813, 450), (353, 450), (200, 700), (340, 900), (754, 1050)]
 
-        #route_list = [route1, route2, route3]
+        # route_list = [route1, route2, route3]
 
-        #for x in range(3):
-            #x += 1
-            #if random_number == x:
-                #self.pc_route = route_list[x - 1]
+        # for x in range(3):
+        # x += 1
+        # if random_number == x:
+        # self.pc_route = route_list[x - 1]
 
         return self.pc_route
 
@@ -225,18 +225,26 @@ class PCPlayer(Car):
         return self.pc_route
 
     def respawn_first_map(self):
-        self.x = self.x_position
-        self.y = self.y_position
-
+        self.x = 700
+        self.y = 950
         self.car_angle = 270
 
     def respawn_second_map(self):
-        self.x = 1050
-        self.y = 840
+        self.x = 700
+        self.y = 900
         self.car_angle = 270
 
-    def out_of_map(self):
-        if self.x >= WIDTH or self.x <= 0:
-            self.respawn_first_map()
-        if self.y >= HEIGHT or self.y <= 0:
-            self.respawn_first_map()
+    def respawn_third_map(self):
+        self.x = 670
+        self.y = 880
+        self.car_angle = 270
+
+    def respawn_fourth_map(self):
+        self.x = 700
+        self.y = 900
+        self.car_angle = 270
+
+    def respawn_fifth_map(self):
+        self.x = 680
+        self.y = 950
+        self.car_angle = 270

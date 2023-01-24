@@ -12,124 +12,6 @@ from racing_game.ui.resolution import draw_text
 pygame.init()
 
 
-def collision_solo(car, map_border, restart_map):
-    if car.border_collide(pygame.mask.from_surface(map_border)):
-        # car.out_of_track()
-
-        #check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
-
-        check_audio(racing_game.sounds.sounds.car_engine.stop)
-        check_audio(racing_game.sounds.sounds.lose.play)
-
-        #stop_sounds()
-        draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 600, GAME_SCREEN)
-        pygame.display.update()
-        pygame.time.wait(500)
-
-        check_new_game()
-        restart_map()
-
-
-def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
-                    car_time_list, enemy_time_list, restart_map):
-    if car_rect.colliderect(enemy_rect):
-        # pygame.draw.rect(game_screen, "green", enemy_rect)
-        # pygame.draw.rect(game_screen, "red", car_rect)
-        car.car_collide()
-        # check_audio(racing_game.sounds.sounds.car_engine.stop)
-        check_audio(racing_game.sounds.sounds.crash_sound.play)
-
-    else:
-        car.car_image = car.car_image
-        car.max_speed = 3
-
-    if car.border_collide(pygame.mask.from_surface(map_border)):
-        car.out_of_track()
-        # check_audio(racing_game.sounds.sounds.car_engine.stop)
-        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
-        # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
-
-    # if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
-    # enemy_car.border_collision()
-    # check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
-    # pygame.draw.rect(game_screen, (255, 0, 0), car_rect)
-
-    if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
-        if FIRST_FINISH_LINE_Y_RANGE < enemy_car.y < SECOND_FINISH_LINE_Y_RANGE:
-            settings.enemy_lap += 1
-            settings.enemy_start_time = pygame.time.get_ticks()
-            settings.enemy_match_time = settings.enemy_match_time + enemy_stopwatch
-            enemy_car.respawn_first_map()
-            enemy_car.next_route_position = 0
-            enemy_car.start_drive()
-
-    if settings.enemy_lap == settings.max_laps:
-        print(settings.enemy_lap)
-        if settings.car_lap < settings.enemy_lap:
-            check_audio(racing_game.sounds.sounds.car_engine.stop)
-            check_audio(racing_game.sounds.sounds.lose.play)
-            GAME_SCREEN.blit(button_win_lose, (770, 560))
-            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
-
-            pygame.display.update()
-            pygame.time.wait(1000)
-
-            stats_reset_vs_pc(car, enemy_car, car_time_list, enemy_time_list)
-            check_new_game()
-            restart_map()
-
-        if settings.car_lap > settings.enemy_lap:
-            check_audio(racing_game.sounds.sounds.car_engine.stop)
-            check_audio(racing_game.sounds.sounds.win.play)
-            GAME_SCREEN.blit(button_win_lose, (770, 560))
-            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
-
-            pygame.display.update()
-            pygame.time.wait(1000)
-
-            stats_reset_vs_pc(car, enemy_car, car_time_list, enemy_time_list)
-            check_new_game()
-            restart_map()
-
-
-def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
-                        car_time_list, enemy_time_list, restart_map):
-    if car_rect.colliderect(enemy_rect):
-        car.car_collide()
-        check_audio(racing_game.sounds.sounds.crash_sound.play)
-
-    if enemy_rect.colliderect(car_rect):
-        enemy_car.car_collide()
-        check_audio(racing_game.sounds.sounds.crash_sound.play)
-
-    if car.border_collide(pygame.mask.from_surface(map_border)):
-        car.out_of_track()
-        check_audio(racing_game.sounds.sounds.car_engine.stop)
-        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
-
-    if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
-        enemy_car.out_of_track()
-        check_audio(racing_game.sounds.sounds.car_engine.stop)
-        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
-
-
-def check_new_game():
-    settings.started = False
-
-    while not settings.started:
-        GAME_SCREEN.blit(time_background, (700, 200))
-        draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, GAME_SCREEN)
-        draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, GAME_SCREEN)
-        pygame.display.update()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-            if event.type == pygame.KEYDOWN:
-                settings.started = 1
-                settings.car_start_time = pygame.time.get_ticks()
-
-
 def check_car_type(car):
     for x in range(12):
         x += 1
@@ -291,6 +173,113 @@ def loading_text(game_mode, map_title, map_image):
     pygame.time.wait(500)
 
 
+def collision_solo(car, map_border, restart_map):
+    if car.border_collide(pygame.mask.from_surface(map_border)):
+        # car.out_of_track()
+
+        # check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        check_audio(racing_game.sounds.sounds.lose.play)
+
+        draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 600, GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(500)
+
+        check_new_game()
+        restart_map()
+
+
+def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
+                    car_time_list, enemy_time_list, restart_map, player_respawn, enemy_respawn):
+    if car_rect.colliderect(enemy_rect):
+        car.car_collide()
+        check_audio(racing_game.sounds.sounds.crash_sound.play)
+
+    else:
+        car.car_image = car.car_image
+        car.max_speed = 3
+
+    if car.border_collide(pygame.mask.from_surface(map_border)):
+        car.out_of_track()
+
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+
+    if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
+        if FIRST_FINISH_LINE_Y_RANGE < enemy_car.y < SECOND_FINISH_LINE_Y_RANGE:
+            settings.enemy_lap += 1
+            settings.enemy_start_time = pygame.time.get_ticks()
+            settings.enemy_match_time = settings.enemy_match_time + enemy_stopwatch
+            enemy_respawn(enemy_car)
+            enemy_car.next_route_position = 0
+            enemy_car.start_drive()
+
+    if settings.enemy_lap == settings.max_laps:
+        print(settings.enemy_lap)
+        if settings.car_lap < settings.enemy_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.lose.play)
+            GAME_SCREEN.blit(button_win_lose, (770, 560))
+            draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
+
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+            stats_reset_vs_pc(car, enemy_car, car_time_list, enemy_time_list, player_respawn, enemy_respawn)
+            check_new_game()
+            restart_map()
+
+        if settings.car_lap > settings.enemy_lap:
+            check_audio(racing_game.sounds.sounds.car_engine.stop)
+            check_audio(racing_game.sounds.sounds.win.play)
+            GAME_SCREEN.blit(button_win_lose, (770, 560))
+            draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
+
+            pygame.display.update()
+            pygame.time.wait(1000)
+
+            stats_reset_vs_pc(car, enemy_car, car_time_list, enemy_time_list, player_respawn, enemy_respawn)
+            check_new_game()
+            restart_map()
+
+
+def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
+    if car_rect.colliderect(enemy_rect):
+        car.car_collide()
+        check_audio(racing_game.sounds.sounds.crash_sound.play)
+
+    if enemy_rect.colliderect(car_rect):
+        enemy_car.car_collide()
+        check_audio(racing_game.sounds.sounds.crash_sound.play)
+
+    if car.border_collide(pygame.mask.from_surface(map_border)):
+        car.out_of_track()
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+
+    if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
+        enemy_car.out_of_track()
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+
+
+def check_new_game():
+    settings.started = False
+
+    while not settings.started:
+        GAME_SCREEN.blit(time_background, (700, 200))
+        draw_text("PLAY AGAIN - SPACE", normal_font, "white", 740, 250, GAME_SCREEN)
+        draw_text("EXIT TO MENU - X", normal_font, "cyan", 740, 350, GAME_SCREEN)
+        pygame.display.update()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+            if event.type == pygame.KEYDOWN:
+                settings.started = 1
+                settings.car_start_time = pygame.time.get_ticks()
+
+
 def start_game():
     while not settings.started:
         draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, GAME_SCREEN)
@@ -356,7 +345,7 @@ def start_countdown(car, enemy_car):
         enemy_car.max_movement_speed = 5
 
 
-def stats_reset_vs_pc(car, enemy, car_time_list, enemy_time_list):
+def stats_reset_vs_pc(car, enemy, car_time_list, enemy_time_list, player_respawn, enemy_respawn):
     car_time_list.clear()
     enemy_time_list.clear()
 
@@ -365,14 +354,15 @@ def stats_reset_vs_pc(car, enemy, car_time_list, enemy_time_list):
     settings.car_match_time = 0
     settings.enemy_match_time = 0
 
-    car.respawn_first_map()
-    enemy.respawn_first_map()
+    player_respawn(car)
+    enemy_respawn(enemy)
+
     enemy.next_route_position = 0
     settings.car_start_time = pygame.time.get_ticks()
     settings.enemy_start_time = pygame.time.get_ticks()
 
 
-def stats_reset_solo(car, car_time_list):
+def stats_reset_solo(car, car_time_list, player_respawn):
     car_time_list.clear()
 
     settings.car_lap = 0
@@ -380,12 +370,12 @@ def stats_reset_solo(car, car_time_list):
     settings.car_match_time = 0
     settings.enemy_match_time = 0
 
-    car.respawn_first_map()
+    player_respawn(car)
     settings.car_start_time = pygame.time.get_ticks()
     settings.enemy_start_time = pygame.time.get_ticks()
 
 
-def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
+def check_laps(car, pc_car, car_stopwatch, reset_map, player_respawn, enemy_respawn):
     if car_stopwatch > 5:
         settings.car_lap += 1
         check_audio(racing_game.sounds.sounds.finish.play)
@@ -400,7 +390,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         pygame.display.update()
         pygame.time.wait(200)
 
-        map_respawn(car)
+        player_respawn(car)
         settings.car_start_time = pygame.time.get_ticks()
 
     else:
@@ -414,15 +404,16 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, map_respawn):
         pygame.time.wait(1000)
 
         if pc_car is not None:
-            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list,
+                              player_respawn, enemy_respawn)
         else:
-            stats_reset_solo(car, settings.car_time_list)
+            stats_reset_solo(car, settings.car_time_list, player_respawn)
 
         check_new_game()
         reset_map()
 
 
-def end_game(car, pc_car, reset_map, lap_filename, match_filename):
+def end_game(car, pc_car, reset_map, lap_filename, match_filename, player_respawn, enemy_respawn):
     if settings.car_lap == settings.max_laps:
         print(settings.car_match_time)
         print(settings.enemy_match_time)
@@ -462,15 +453,16 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
         pygame.time.wait(5000)
 
         if pc_car is not None:
-            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
+            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list,
+                              player_respawn, enemy_respawn)
         else:
-            stats_reset_solo(car, settings.car_time_list)
+            stats_reset_solo(car, settings.car_time_list, player_respawn)
 
         check_new_game()
         reset_map()
 
 
-def enemy_check_laps(car, pc_car, enemy_stopwatch, reset_map, map_respawn):
+def enemy_check_laps(pc_car, enemy_stopwatch, reset_map, enemy_respawn):
     if enemy_stopwatch > 5:
         settings.enemy_lap += 1
         check_audio(racing_game.sounds.sounds.finish.play)
@@ -485,7 +477,7 @@ def enemy_check_laps(car, pc_car, enemy_stopwatch, reset_map, map_respawn):
         pygame.display.update()
         pygame.time.wait(200)
 
-        map_respawn(car)
+        enemy_respawn(pc_car)
         settings.enemy_start_time = pygame.time.get_ticks()
 
     else:
@@ -499,16 +491,11 @@ def enemy_check_laps(car, pc_car, enemy_stopwatch, reset_map, map_respawn):
         pygame.display.update()
         pygame.time.wait(1000)
 
-        if pc_car is not None:
-            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
-        else:
-            stats_reset_solo(car, settings.car_time_list)
-
         check_new_game()
         reset_map()
 
 
-def enemy_end_game(car, pc_car, reset_map):
+def enemy_end_game(reset_map):
     if settings.enemy_lap == settings.max_laps:
 
         if settings.enemy_lap > settings.car_lap:
@@ -537,11 +524,6 @@ def enemy_end_game(car, pc_car, reset_map):
 
         pygame.display.update()
         pygame.time.wait(5000)
-
-        if pc_car is not None:
-            stats_reset_vs_pc(car, pc_car, settings.car_time_list, settings.enemy_time_list)
-        else:
-            stats_reset_solo(car, settings.car_time_list)
 
         check_new_game()
         reset_map()

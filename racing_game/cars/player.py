@@ -59,6 +59,12 @@ class Player(Car):
         self.y = 950
         self.car_angle = 270
 
+    def optimal_respawn(self):
+        self.x = self.x + 100
+        self.y = self.y
+        self.car_angle = 270
+
+
     def out_of_map(self):
         if self.x >= WIDTH or self.x <= 0:
             self.respawn_first_map()
