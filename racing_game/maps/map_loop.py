@@ -158,6 +158,6 @@ class MapLoop:
                     if x_range1 < enemy_car.x < x_range2:
                         if y_range1 < enemy_car.y < y_range2:
                             game_methods.enemy_check_laps(enemy_car, enemy_stopwatch, map_restart, enemy_respawn)
-                            game_methods.enemy_end_game(enemy_car)
+                            game_methods.enemy_end_game(map_restart)
 
             pygame.display.update()

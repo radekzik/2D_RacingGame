@@ -43,10 +43,10 @@ def player_time_table(fastest_time, slowest_time, match_time):
 
 
 def enemy_time_table(fastest_time, slowest_time, match_time):
-    GAME_SCREEN.blit(time_background2, (1050, 200))
-    draw_text(f"FASTEST LAP TIME : {fastest_time}", normal_font, "green", 1150, 250, GAME_SCREEN)
-    draw_text(f"SLOWEST LAP TIME : {slowest_time}", normal_font, "red", 1150, 350, GAME_SCREEN)
-    draw_text(f"MATCH TIME : {round(match_time)}", normal_font, "white", 1150, 450, GAME_SCREEN)
+    GAME_SCREEN.blit(time_background2, (700, 200))
+    draw_text(f"FASTEST LAP TIME : {fastest_time}", normal_font, "green", 740, 250, GAME_SCREEN)
+    draw_text(f"SLOWEST LAP TIME : {slowest_time}", normal_font, "red", 740, 350, GAME_SCREEN)
+    draw_text(f"MATCH TIME : {round(match_time)}", normal_font, "white", 740, 450, GAME_SCREEN)
 
 
 def animation(stopwatch, car, first_image, second_image):

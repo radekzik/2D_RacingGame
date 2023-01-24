@@ -386,7 +386,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, player_respawn, enemy_resp
 
         settings.car_match_time = settings.car_match_time + car_stopwatch
 
-        draw_text(f"Lap Time - {car_stopwatch}", normal_font, "white", 800, 450, GAME_SCREEN)
+        draw_text(f"LAP TIME - {car_stopwatch}", normal_font, "white", 800, 450, GAME_SCREEN)
         pygame.display.update()
         pygame.time.wait(200)
 
@@ -398,7 +398,7 @@ def check_laps(car, pc_car, car_stopwatch, reset_map, player_respawn, enemy_resp
         check_audio(racing_game.sounds.sounds.starting_sound.stop)
         check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.lose.play)
-        draw_text(f"Wrong Way", normal_font, "white", 830, 450, GAME_SCREEN)
+        draw_text(f"WRONG WAY!", normal_font, "white", 830, 450, GAME_SCREEN)
 
         pygame.display.update()
         pygame.time.wait(1000)
@@ -473,7 +473,7 @@ def enemy_check_laps(pc_car, enemy_stopwatch, reset_map, enemy_respawn):
 
         settings.enemy_match_time = settings.enemy_match_time + enemy_stopwatch
 
-        draw_text(f"Lap Time - {enemy_stopwatch}", normal_font, "white", 800, 450, GAME_SCREEN)
+        draw_text(f"LAP TIME - {enemy_stopwatch}", normal_font, "white", 800, 450, GAME_SCREEN)
         pygame.display.update()
         pygame.time.wait(200)
 
@@ -486,7 +486,7 @@ def enemy_check_laps(pc_car, enemy_stopwatch, reset_map, enemy_respawn):
         check_audio(racing_game.sounds.sounds.car_engine.stop)
         check_audio(racing_game.sounds.sounds.lose.play)
 
-        draw_text(f"Wrong Way", normal_font, "white", 830, 450, GAME_SCREEN)
+        draw_text(f"WRONG WAY!", normal_font, "white", 830, 450, GAME_SCREEN)
 
         pygame.display.update()
         pygame.time.wait(1000)
@@ -502,7 +502,7 @@ def enemy_end_game(reset_map):
             check_audio(racing_game.sounds.sounds.car_engine.stop)
             check_audio(racing_game.sounds.sounds.win.play)
             GAME_SCREEN.blit(button_win_lose, (770, 560))
-            draw_text(f"SECOND PLAYER WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
+            draw_text(f"SECOND PLAYER WON THE RACE!", normal_font, "gold", 710, 600, GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
