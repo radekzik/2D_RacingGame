@@ -20,11 +20,9 @@ class MapLoop:
         pygame.event.set_allowed(pygame.KEYDOWN)
 
         global enemy_car, player_car
-        settings.max_laps = 3
         settings.car_lap = 0
         settings.enemy_lap = 0
 
-        settings.animation_value = 0
         settings.car_start_time = 0
         settings.enemy_start_time = 0
         settings.car_match_time = 0

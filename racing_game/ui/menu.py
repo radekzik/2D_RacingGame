@@ -112,6 +112,25 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                                   button_text="", font=normal_font, font_color="white",
                                   font_hover_color="cyan")
 
+        draw_text("LAPS", normal_font, "cyan", 1780, 350, GAME_SCREEN)
+        lap_button1 = Button(button_image=on_off_button, x_y=(1800, 450),
+                             button_text="1", font=small_font, font_color="white", font_hover_color="cyan")
+
+        lap_button2 = Button(button_image=on_off_button, x_y=(1875, 450),
+                             button_text="2", font=small_font, font_color="white", font_hover_color="cyan")
+
+        lap_button3 = Button(button_image=on_off_button, x_y=(1800, 500),
+                             button_text="3", font=small_font, font_color="white", font_hover_color="cyan")
+
+        lap_button4 = Button(button_image=on_off_button, x_y=(1875, 500),
+                             button_text="4", font=small_font, font_color="white", font_hover_color="cyan")
+
+        lap_button5 = Button(button_image=on_off_button, x_y=(1800, 550),
+                             button_text="5", font=small_font, font_color="white", font_hover_color="cyan")
+
+        lap_button6 = Button(button_image=on_off_button, x_y=(1875, 550),
+                             button_text="6", font=small_font, font_color="white", font_hover_color="cyan")
+
         back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
@@ -120,6 +139,14 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
         third_map_button.button_render(GAME_SCREEN)
         fourth_map_button.button_render(GAME_SCREEN)
         fifth_map_button.button_render(GAME_SCREEN)
+
+        lap_button1.button_render(GAME_SCREEN)
+        lap_button2.button_render(GAME_SCREEN)
+        lap_button3.button_render(GAME_SCREEN)
+        lap_button4.button_render(GAME_SCREEN)
+        lap_button5.button_render(GAME_SCREEN)
+        lap_button6.button_render(GAME_SCREEN)
+
         back_button.button_render(GAME_SCREEN)
 
         button_hover_render(back_button, mouse_coordinates, GAME_SCREEN)
@@ -139,10 +166,41 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                     fourth_button()
                 if fifth_map_button.on_click(mouse_coordinates):
                     fifth_button()
+
+                if lap_button1.on_click(mouse_coordinates):
+                    settings.max_laps = 1
+                    set_text()
+
+                if lap_button2.on_click(mouse_coordinates):
+                    settings.max_laps = 2
+                    set_text()
+
+                if lap_button3.on_click(mouse_coordinates):
+                    settings.max_laps = 3
+                    set_text()
+
+                if lap_button4.on_click(mouse_coordinates):
+                    settings.max_laps = 4
+                    set_text()
+
+                if lap_button5.on_click(mouse_coordinates):
+                    settings.max_laps = 5
+                    set_text()
+
+                if lap_button6.on_click(mouse_coordinates):
+                    settings.max_laps = 6
+                    set_text()
+
                 if back_button.on_click(mouse_coordinates):
                     mode_selection()
 
         pygame.display.update()
+
+
+def set_text():
+    draw_text("LAPS SET!", small_font, "green", 1800, 580, GAME_SCREEN)
+    pygame.display.update()
+    pygame.time.wait(700)
 
 
 # CAR SELECTION --------------------------------------------------------------------------------------------------------
