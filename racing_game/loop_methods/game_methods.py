@@ -428,7 +428,7 @@ def end_game(car, pc_car, reset_map, lap_filename, match_filename):
 
         settings.car_time_list.sort()
         settings.enemy_time_list.sort()
-        draw.player_time_table(settings.car_time_list[0], settings.car_time_list[2],
+        draw.player_time_table(settings.car_time_list[0], settings.car_time_list[settings.max_laps - 1],
                                settings.car_match_time)
 
         if settings.car_time_list[0] <= 9.9:
@@ -511,7 +511,7 @@ def enemy_end_game(car, pc_car, reset_map):
 
         settings.enemy_time_list.sort()
         settings.car_time_list.sort()
-        draw.enemy_time_table(settings.enemy_time_list[0], settings.enemy_time_list[2],
+        draw.enemy_time_table(settings.enemy_time_list[0], settings.enemy_time_list[settings.max_laps - 1],
                               settings.enemy_match_time)
 
         pygame.display.update()

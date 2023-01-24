@@ -113,10 +113,8 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                                   font_hover_color="cyan")
 
         draw_text("LAPS", normal_font, "cyan", 1780, 350, GAME_SCREEN)
-        lap_button1 = Button(button_image=on_off_button, x_y=(1800, 450),
-                             button_text="1", font=small_font, font_color="white", font_hover_color="cyan")
 
-        lap_button2 = Button(button_image=on_off_button, x_y=(1875, 450),
+        lap_button2 = Button(button_image=on_off_button, x_y=(1837, 450),
                              button_text="2", font=small_font, font_color="white", font_hover_color="cyan")
 
         lap_button3 = Button(button_image=on_off_button, x_y=(1800, 500),
@@ -140,7 +138,6 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
         fourth_map_button.button_render(GAME_SCREEN)
         fifth_map_button.button_render(GAME_SCREEN)
 
-        lap_button1.button_render(GAME_SCREEN)
         lap_button2.button_render(GAME_SCREEN)
         lap_button3.button_render(GAME_SCREEN)
         lap_button4.button_render(GAME_SCREEN)
@@ -166,10 +163,6 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                     fourth_button()
                 if fifth_map_button.on_click(mouse_coordinates):
                     fifth_button()
-
-                if lap_button1.on_click(mouse_coordinates):
-                    settings.max_laps = 1
-                    set_text()
 
                 if lap_button2.on_click(mouse_coordinates):
                     settings.max_laps = 2
