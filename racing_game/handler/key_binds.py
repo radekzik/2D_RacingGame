@@ -1,6 +1,7 @@
 import pygame
 
 import racing_game.sounds.sounds
+from racing_game.loop_methods import game_methods
 from racing_game.loop_methods.game_methods import check_audio, check_audio_set_volume
 from racing_game.ui import draw, menu
 from racing_game.config import settings
@@ -46,6 +47,7 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
 
     if pressed_key[pygame.K_r]:
         stop_sounds()
+        #game_methods.restarting_game()
         map_restart()
 
     if pressed_key[pygame.K_w]:

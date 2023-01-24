@@ -225,6 +225,51 @@ def nitro(car, x, y):
         GAME_SCREEN.blit(nitro_5, nitro_position)
 
 
+def restarting_game():
+    loading = 1
+
+    while loading:
+        GAME_SCREEN.blit(f_light_background, (0, 0))
+        draw_text("Restarting Game.", normal_font, "white", 780, 230, GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(300)
+
+        draw_text("Restarting Game..", normal_font, "white", 780, 230, GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(300)
+
+        draw_text("Restarting Game...", normal_font, "white", 780, 230, GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(300)
+        loading = False
+
+
+def loading_game(title, game_mode, map_title, map_image):
+    loading = 1
+
+    while loading:
+        GAME_SCREEN.blit(f_light_background, (0, 0))
+
+        draw_text(title + " Game.", normal_font, "white", 780, 130, GAME_SCREEN)
+        loading_text(game_mode, map_title, map_image)
+
+        draw_text(title + " Game..", normal_font, "white", 780, 130, GAME_SCREEN)
+        loading_text(game_mode, map_title, map_image)
+
+        draw_text(title + " Game...", normal_font, "white", 780, 130, GAME_SCREEN)
+        loading_text(game_mode, map_title, map_image)
+
+        loading = False
+
+
+def loading_text(game_mode, map_title, map_image):
+    draw_text(game_mode, normal_font, "cyan", 810, 230, GAME_SCREEN)
+    draw_text(map_title, normal_font, "purple", 970, 230, GAME_SCREEN)
+    GAME_SCREEN.blit(map_image, (600, 450))
+    pygame.display.update()
+    pygame.time.wait(500)
+
+
 def start_game():
     while not settings.started:
         draw_text(f"PRESS ANY KEY TO START", medium_font, "orange", 800, 600, GAME_SCREEN)

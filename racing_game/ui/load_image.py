@@ -65,8 +65,8 @@ orange_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_c
 pink_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_pink.png"), 0.85).convert_alpha()
 
 # backgrounds
-menu_background = res(pygame.image.load("../images/backgrounds/blue_grey_gradient.jpg"), 1).convert_alpha()
 f_background = res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()
+f_light_background = res(pygame.image.load("../images/backgrounds/futuristic_light_bg.png"), 0.5).convert_alpha()
 green_forest = res(pygame.image.load("../images/backgrounds/green_forest.png"), 0.75).convert_alpha()
 dark_green_forest = res(pygame.image.load("../images/backgrounds/dark_green_forest.png"), 0.75).convert_alpha()
 
@@ -89,6 +89,13 @@ second_map_image = res(pygame.image.load("../images/ui/buttons/second_map_button
 third_map_image = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()
 fourth_map_image = res(pygame.image.load("../images/maps/fourth_map.png"), 0.15).convert_alpha()
 fifth_map_image = res(pygame.image.load("../images/maps/fifth_map.png"), 0.15).convert_alpha()
+
+# map loading
+first_map_loading = res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.3).convert_alpha()
+second_map_loading = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.3).convert_alpha()
+third_map_loading = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.3).convert_alpha()
+fourth_map_loading = res(pygame.image.load("../images/maps/fourth_map.png"), 0.3).convert_alpha()
+fifth_map_loading = res(pygame.image.load("../images/maps/fifth_map.png"), 0.3).convert_alpha()
 
 # banners
 esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()
@@ -120,7 +127,6 @@ nitro_3 = res(pygame.image.load("../images/ui/nitro/nitro_3.png"), 0.3).convert_
 nitro_4 = res(pygame.image.load("../images/ui/nitro/nitro_4.png"), 0.3).convert_alpha()
 nitro_5 = res(pygame.image.load("../images/ui/nitro/nitro_5.png"), 0.3).convert_alpha()
 
-car_selection_menu = res(pygame.image.load("../images/backgrounds/car_selection_background.png"), 1.5).convert_alpha()
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
 lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection.png"), 2).convert_alpha()
 spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection.png"), 2).convert_alpha()

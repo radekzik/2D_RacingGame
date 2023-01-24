@@ -10,7 +10,8 @@ from racing_game.ui.load_image import GAME_SCREEN, big_font, button_transparent_
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
-    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image
+    pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image, \
+    f_light_background
 from racing_game.ui.resolution import draw_text
 
 TITLE_Y = 70
@@ -646,15 +647,16 @@ def map_stats(title, lap_times_file, match_times_file,
         GAME_SCREEN.blit(f_background, (0, 0))
 
         while loading:
-            draw_text("Loading stats.", normal_font, "white", 780, 230, GAME_SCREEN)
+            GAME_SCREEN.blit(f_light_background, (0, 0))
+            draw_text("Loading Stats.", normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            draw_text("Loading stats..", normal_font, "white", 780, 230, GAME_SCREEN)
+            draw_text("Loading Stats..", normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            draw_text("Loading stats...", normal_font, "white", 780, 230, GAME_SCREEN)
+            draw_text("Loading Stats...", normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
             loading = False
