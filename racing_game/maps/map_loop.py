@@ -130,7 +130,7 @@ class MapLoop:
 
                 if enemy is None and enemy_route is None:
                     player_key_binds(player_car, player_car.get_car_rect(), None, map_border, map_restart)
-                    game_methods.collision_solo(player_car, map_border)
+                    game_methods.collision_solo(player_car, map_border, map_restart)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:

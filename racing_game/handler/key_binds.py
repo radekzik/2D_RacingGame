@@ -42,12 +42,12 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
         car.movement_speed = 2.5
 
     if pressed_key[pygame.K_x]:
-        stop_sounds()
+        game_methods.stop_sounds()
         menu.mode_selection()
 
     if pressed_key[pygame.K_r]:
-        stop_sounds()
-        #game_methods.restarting_game()
+        game_methods.stop_sounds()
+        # game_methods.restarting_game()
         map_restart()
 
     if pressed_key[pygame.K_w]:
@@ -61,15 +61,6 @@ def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
                     and not car_rect.colliderect(enemy_rect):
                 car.use_nitro()
                 check_audio(racing_game.sounds.sounds.car_turbo.play)
-
-
-def stop_sounds():
-    check_audio(racing_game.sounds.sounds.car_engine.stop)
-    check_audio(racing_game.sounds.sounds.car_turbo.stop)
-    check_audio(racing_game.sounds.sounds.crash_sound.stop)
-    check_audio(racing_game.sounds.sounds.out_off_the_track_sound.stop)
-    check_audio(racing_game.sounds.sounds.starting_sound.stop)
-    check_audio(racing_game.sounds.sounds.countdown_sound.stop)
 
 
 def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):

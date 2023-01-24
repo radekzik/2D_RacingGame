@@ -12,10 +12,22 @@ from racing_game.ui.resolution import draw_text
 pygame.init()
 
 
-def collision_solo(car, map_border):
+def collision_solo(car, map_border, restart_map):
     if car.border_collide(pygame.mask.from_surface(map_border)):
-        car.out_of_track()
-        check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+        # car.out_of_track()
+
+        #check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+
+        check_audio(racing_game.sounds.sounds.car_engine.stop)
+        check_audio(racing_game.sounds.sounds.lose.play)
+
+        #stop_sounds()
+        draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 600, GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(500)
+
+        check_new_game()
+        restart_map()
 
 
 def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
@@ -138,6 +150,15 @@ def check_audio_set_volume(command, volume):
 def check_fadeout_audio(command, time):
     if settings.audio == 1:
         command(time)
+
+
+def stop_sounds():
+    check_audio(racing_game.sounds.sounds.car_engine.stop)
+    check_audio(racing_game.sounds.sounds.car_turbo.stop)
+    check_audio(racing_game.sounds.sounds.crash_sound.stop)
+    check_audio(racing_game.sounds.sounds.out_off_the_track_sound.stop)
+    check_audio(racing_game.sounds.sounds.starting_sound.stop)
+    check_audio(racing_game.sounds.sounds.countdown_sound.stop)
 
 
 def check_show_fps(command, clock):
