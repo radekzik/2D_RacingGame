@@ -13,7 +13,7 @@ pygame.init()
 
 
 def check_car_type(car):
-    for x in range(12):
+    for x in range(16):
         x += 1
         if settings.car_type == x:
             car.car_image = car.player_cars(x - 1)

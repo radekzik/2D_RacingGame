@@ -64,6 +64,12 @@ light_blue_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoil
 orange_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_orange.png"), 0.85).convert_alpha()
 pink_spoiler_car = res(pygame.image.load("../images/cars/spoiler_car/spoiler_car_pink.png"), 0.85).convert_alpha()
 
+# cabrio car
+blue_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_blue.png"), 0.85).convert_alpha()
+light_blue_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_light_blue.png"), 0.85).convert_alpha()
+red_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_red.png"), 0.85).convert_alpha()
+yellow_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_yellow.png"), 0.85).convert_alpha()
+
 # backgrounds
 f_background = res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()
 f_light_background = res(pygame.image.load("../images/backgrounds/futuristic_light_bg.png"), 0.5).convert_alpha()
@@ -130,6 +136,7 @@ nitro_5 = res(pygame.image.load("../images/ui/nitro/nitro_5.png"), 0.3).convert_
 formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
 lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection.png"), 2).convert_alpha()
 spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection.png"), 2).convert_alpha()
+cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_selection.png"), 2).convert_alpha()
 
 blue_formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection_blue.png"), 2).convert_alpha()
 orange_formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection_orange.png"),
@@ -144,14 +151,15 @@ cyan_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_sele
 red_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection_red.png"), 2).convert_alpha()
 pink_lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection_pink.png"), 2).convert_alpha()
 
-dark_purple_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_dark_purple"
-                                                          ".png"), 2).convert_alpha()
-light_blue_spoiler_car_selection = res(
-    pygame.image.load("../images/ui/selections/spoiler_car_selection_light_blue.png"), 2).convert_alpha()
-orange_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_orange.png"),
-                                   2).convert_alpha()
-pink_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_pink.png"),
-                                 2).convert_alpha()
+dark_purple_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_dark_purple.png"), 2).convert_alpha()
+light_blue_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_light_blue.png"), 2).convert_alpha()
+orange_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_orange.png"), 2).convert_alpha()
+pink_spoiler_car_selection = res(pygame.image.load("../images/ui/selections/spoiler_car_selection_pink.png"), 2).convert_alpha()
+
+blue_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_blue_selection.png"), 2).convert_alpha()
+light_blue_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_light_blue_selection.png"), 2).convert_alpha()
+red_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_red_selection.png"), 2).convert_alpha()
+yellow_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_yellow_selection.png"), 2).convert_alpha()
 
 # icon
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()

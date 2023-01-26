@@ -11,7 +11,8 @@ from racing_game.ui.load_image import GAME_SCREEN, big_font, button_transparent_
     red_lambo_selection, pink_lambo_selection, third_map_image, dark_purple_spoiler_car_selection, \
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
     pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image, \
-    f_light_background
+    f_light_background, blue_cabrio_selection, yellow_cabrio_selection, light_blue_cabrio_selection, \
+    red_cabrio_selection, cabrio_selection
 from racing_game.ui.resolution import draw_text
 
 TITLE_Y = 70
@@ -206,7 +207,7 @@ def car_formula_selection():
 
 
 def car_lambo_selection():
-    car_color_selection("LAMBORGHINI", 680, "BLUE", "CRIMSON", "L - BLUE", "PINK",
+    car_color_selection("SPORTS CAR I.", 680, "BLUE", "CRIMSON", "L - BLUE", "PINK",
                         "blue", "red", "cyan", "pink",
                         blue_lambo_selection, red_lambo_selection,
                         cyan_lambo_selection, pink_lambo_selection,
@@ -214,11 +215,19 @@ def car_lambo_selection():
 
 
 def car_spoiler_car_selection():
-    car_color_selection("SPOILER CAR", 710, "CYAN", "PURPLE", "ORANGE", "PINK",
+    car_color_selection("SPORTS CAR II.", 710, "CYAN", "PURPLE", "ORANGE", "PINK",
                         "cyan", "violet", "orange", "pink",
                         light_blue_spoiler_car_selection, dark_purple_spoiler_car_selection,
                         orange_spoiler_car_selection, pink_spoiler_car_selection,
                         10, 9, 11, 12)
+
+
+def car_cabrio_selection():
+    car_color_selection("CABRIO", 710, "BLUE", "L - BLUE", "RED", "YELLOW",
+                        "blue", "cyan", "red", "yellow",
+                        blue_cabrio_selection, light_blue_cabrio_selection,
+                        red_cabrio_selection, yellow_cabrio_selection,
+                        13, 14, 15, 16)
 
 
 def car_color_selection(car_title, title_x, title1, title2, title3, title4,
@@ -314,8 +323,9 @@ def car_selection():
         draw_text("CAR SELECTION", big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
 
         draw_text("FORMULA", small_font, "white", 525, 330, GAME_SCREEN)
-        draw_text("LAMBORGHINI", small_font, "white", 910, 330, GAME_SCREEN)
-        draw_text("SPOILER CAR", small_font, "white", 1310, 330, GAME_SCREEN)
+        draw_text("SPORTS CAR I.", small_font, "white", 910, 330, GAME_SCREEN)
+        draw_text("SPORTS CAR II.", small_font, "white", 1310, 330, GAME_SCREEN)
+        draw_text("CABRIO", small_font, "white", 1310, 330, GAME_SCREEN)
 
         formula_button = Button(x_y=(560, 550), button_image=formula_selection, button_text="", font=small_font,
                                 font_color="white", font_hover_color="cyan")
@@ -326,12 +336,16 @@ def car_selection():
         spoiler_car_button = Button(x_y=(1360, 550), button_image=spoiler_car_selection, button_text="",
                                     font=small_font, font_color="white", font_hover_color="cyan")
 
+        cabrio_button = Button(x_y=(1760, 550), button_image=cabrio_selection, button_text="",
+                                    font=small_font, font_color="white", font_hover_color="cyan")
+
         back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         formula_button.button_render(GAME_SCREEN)
         lambo_button.button_render(GAME_SCREEN)
         spoiler_car_button.button_render(GAME_SCREEN)
+        cabrio_button.button_render(GAME_SCREEN)
         back_button.button_render(GAME_SCREEN)
 
         button_hover_render(back_button, mouse_coordinates, GAME_SCREEN)
@@ -350,6 +364,9 @@ def car_selection():
 
                 if spoiler_car_button.on_click(mouse_coordinates):
                     car_spoiler_car_selection()
+
+                if cabrio_button.on_click(mouse_coordinates):
+                    car_cabrio_selection()
 
                 if back_button.on_click(mouse_coordinates):
                     main_menu()
