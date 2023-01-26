@@ -83,11 +83,14 @@ finish_line_x3 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7
 
 # buttons
 button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
+button_play_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1.3).convert_alpha()
 button_win_lose = res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()
 button_image = res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()
 pointer_right = res(pygame.image.load("../images/ui/buttons/pointer_right.png"), 1).convert_alpha()
 pointer_left = res(pygame.image.load("../images/ui/buttons/pointer_left.png"), 1).convert_alpha()
+
 on_off_button = res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 1).convert_alpha()
+on_off_button_x2 = res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 2).convert_alpha()
 
 # map selection buttons
 first_map_image = res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.15).convert_alpha()
@@ -160,6 +163,9 @@ blue_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_bl
 light_blue_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_light_blue_selection.png"), 2).convert_alpha()
 red_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_red_selection.png"), 2).convert_alpha()
 yellow_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_yellow_selection.png"), 2).convert_alpha()
+
+
+settings_button_icon = res(pygame.image.load("../images/ui/buttons/settings_button.png"), 0.1).convert_alpha()
 
 # icon
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()

@@ -12,24 +12,24 @@ from racing_game.ui.load_image import GAME_SCREEN, big_font, button_transparent_
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
     pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image, \
     f_light_background, blue_cabrio_selection, yellow_cabrio_selection, light_blue_cabrio_selection, \
-    red_cabrio_selection, cabrio_selection
+    red_cabrio_selection, cabrio_selection, settings_button_icon, button_play_transparent_image, on_off_button_x2
 from racing_game.ui.resolution import draw_text
 
 TITLE_Y = 70
 TITLE_COLOR = "purple"
+QUIT_X = 977
 QUIT_Y = 980
 
 
 # GAME MODE SELECTION --------------------------------------------------------------------------------------------------
 def mode_selection():
-    pygame.display.set_caption("2D Racing Game - Mode Selection")
 
     while 1:
 
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MODE SELECTION", big_font, TITLE_COLOR, 640, TITLE_Y, GAME_SCREEN)
+        draw_text("MODE SELECTION", big_font, TITLE_COLOR, 650, TITLE_Y, GAME_SCREEN)
 
         against_pc = Button(button_image=button_transparent_image, x_y=(760, 420),
                             button_text="VERSUS PC", font=normal_font, font_color="white", font_hover_color="cyan")
@@ -40,7 +40,7 @@ def mode_selection():
         solo = Button(button_image=button_transparent_image, x_y=(960, 580),
                       button_text="SOLO", font=normal_font, font_color="white", font_hover_color="cyan")
 
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         solo.button_render(GAME_SCREEN)
@@ -80,7 +80,6 @@ def mode_selection():
 
 # MAP SELECTION --------------------------------------------------------------------------------------------------------
 def map_selection(first_button, second_button, third_button, fourth_button, fifth_button):
-    pygame.display.set_caption("2D Racing Game - Map Selection")
 
     while 1:
 
@@ -113,24 +112,11 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                                   button_text="", font=normal_font, font_color="white",
                                   font_hover_color="cyan")
 
-        draw_text("LAPS", normal_font, "cyan", 1780, 350, GAME_SCREEN)
+        settings_button = Button(button_image=settings_button_icon, x_y=(1860, 60), button_text="",
+                                 font=normal_font,
+                                 font_color="white", font_hover_color="cyan")
 
-        lap_button2 = Button(button_image=on_off_button, x_y=(1837, 450),
-                             button_text="2", font=small_font, font_color="white", font_hover_color="cyan")
-
-        lap_button3 = Button(button_image=on_off_button, x_y=(1800, 500),
-                             button_text="3", font=small_font, font_color="white", font_hover_color="cyan")
-
-        lap_button4 = Button(button_image=on_off_button, x_y=(1875, 500),
-                             button_text="4", font=small_font, font_color="white", font_hover_color="cyan")
-
-        lap_button5 = Button(button_image=on_off_button, x_y=(1800, 550),
-                             button_text="5", font=small_font, font_color="white", font_hover_color="cyan")
-
-        lap_button6 = Button(button_image=on_off_button, x_y=(1875, 550),
-                             button_text="6", font=small_font, font_color="white", font_hover_color="cyan")
-
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         first_map_button.button_render(GAME_SCREEN)
@@ -138,12 +124,7 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
         third_map_button.button_render(GAME_SCREEN)
         fourth_map_button.button_render(GAME_SCREEN)
         fifth_map_button.button_render(GAME_SCREEN)
-
-        lap_button2.button_render(GAME_SCREEN)
-        lap_button3.button_render(GAME_SCREEN)
-        lap_button4.button_render(GAME_SCREEN)
-        lap_button5.button_render(GAME_SCREEN)
-        lap_button6.button_render(GAME_SCREEN)
+        settings_button.button_render(GAME_SCREEN)
 
         back_button.button_render(GAME_SCREEN)
 
@@ -165,6 +146,68 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                 if fifth_map_button.on_click(mouse_coordinates):
                     fifth_button()
 
+                if settings_button.on_click(mouse_coordinates):
+                    laps_settings()
+
+                if back_button.on_click(mouse_coordinates):
+                    mode_selection()
+
+        pygame.display.update()
+
+
+def laps_settings():
+
+    while 1:
+        GAME_SCREEN.blit(f_background, (0, 0))
+        mouse_coordinates = pygame.mouse.get_pos()
+
+        draw_text("LAPS", big_font, TITLE_COLOR, 880, TITLE_Y, GAME_SCREEN)
+        draw_text("DEFAULT - 3 LAPS", medium_font, "grey", 1680, 1030, GAME_SCREEN)
+
+        lap_button2 = Button(button_image=on_off_button_x2, x_y=(760, 400),
+                             button_text="2", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        lap_button3 = Button(button_image=on_off_button_x2, x_y=(970, 400),
+                             button_text="3", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        lap_button4 = Button(button_image=on_off_button_x2, x_y=(1180, 400),
+                             button_text="4", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        lap_button5 = Button(button_image=on_off_button_x2, x_y=(760, 600),
+                             button_text="6", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        lap_button6 = Button(button_image=on_off_button_x2, x_y=(970, 600),
+                             button_text="8", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        lap_button7 = Button(button_image=on_off_button_x2, x_y=(1180, 600),
+                             button_text="10", font=normal_font, font_color="white", font_hover_color="cyan")
+
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
+                             button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
+
+        lap_button2.button_render(GAME_SCREEN)
+        lap_button3.button_render(GAME_SCREEN)
+        lap_button4.button_render(GAME_SCREEN)
+        lap_button5.button_render(GAME_SCREEN)
+        lap_button6.button_render(GAME_SCREEN)
+        lap_button7.button_render(GAME_SCREEN)
+
+        back_button.button_render(GAME_SCREEN)
+
+        button_hover_render(lap_button2, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(lap_button3, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(lap_button4, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(lap_button5, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(lap_button6, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(lap_button7, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(back_button, mouse_coordinates, GAME_SCREEN)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+
                 if lap_button2.on_click(mouse_coordinates):
                     settings.max_laps = 2
                     set_text()
@@ -178,11 +221,15 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
                     set_text()
 
                 if lap_button5.on_click(mouse_coordinates):
-                    settings.max_laps = 5
+                    settings.max_laps = 6
                     set_text()
 
                 if lap_button6.on_click(mouse_coordinates):
-                    settings.max_laps = 6
+                    settings.max_laps = 8
+                    set_text()
+
+                if lap_button7.on_click(mouse_coordinates):
+                    settings.max_laps = 10
                     set_text()
 
                 if back_button.on_click(mouse_coordinates):
@@ -192,7 +239,7 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
 
 
 def set_text():
-    draw_text("LAPS SET!", small_font, "green", 1800, 580, GAME_SCREEN)
+    draw_text("LAPS SET!", normal_font, "green", 840, 230, GAME_SCREEN)
     pygame.display.update()
     pygame.time.wait(700)
 
@@ -223,7 +270,7 @@ def car_spoiler_car_selection():
 
 
 def car_cabrio_selection():
-    car_color_selection("CABRIO", 780, "BLUE", "L - BLUE", "YELLOW", "RED",
+    car_color_selection("CABRIO", 790, "BLUE", "L - BLUE", "YELLOW", "RED",
                         "blue", "cyan", "yellow", "red",
                         blue_cabrio_selection, light_blue_cabrio_selection,
                         yellow_cabrio_selection, red_cabrio_selection,
@@ -261,7 +308,7 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
                                font=small_font,
                                font_color="white", font_hover_color="cyan")
 
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         first_button.button_render(GAME_SCREEN)
@@ -314,7 +361,6 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
 
 
 def car_selection():
-    pygame.display.set_caption("2D Racing Game - Car Selection")
 
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
@@ -337,9 +383,9 @@ def car_selection():
                                     font=small_font, font_color="white", font_hover_color="cyan")
 
         cabrio_button = Button(x_y=(1550, 550), button_image=cabrio_selection, button_text="",
-                                    font=small_font, font_color="white", font_hover_color="cyan")
+                               font=small_font, font_color="white", font_hover_color="cyan")
 
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         formula_button.button_render(GAME_SCREEN)
@@ -376,13 +422,12 @@ def car_selection():
 
 # GAME BINDS -----------------------------------------------------------------------------------------------------------
 def binds():
-    pygame.display.set_caption("2D Racing Game - Binds")
 
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("BINDS", big_font, TITLE_COLOR, 820, TITLE_Y, GAME_SCREEN)
+        draw_text("BINDS", big_font, TITLE_COLOR, 850, TITLE_Y, GAME_SCREEN)
 
         draw_text("CAR CONTROL", normal_font, "purple", 495, 200, GAME_SCREEN)
 
@@ -414,7 +459,7 @@ def binds():
         draw_text("X", medium_font, "white", 630, 790, GAME_SCREEN)
         draw_text("Exit", medium_font, "cyan", 1220, 790, GAME_SCREEN)
 
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         back_button.button_render(GAME_SCREEN)
@@ -435,13 +480,12 @@ def binds():
 
 # GAME SETTINGS --------------------------------------------------------------------------------------------------------
 def game_settings():
-    pygame.display.set_caption("2D Racing Game - Settings")
 
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("SETTINGS", big_font, TITLE_COLOR, 760, TITLE_Y, GAME_SCREEN)
+        draw_text("SETTINGS", big_font, TITLE_COLOR, 790, TITLE_Y, GAME_SCREEN)
 
         draw_text("AUDIO", normal_font, "cyan", 620, 300, GAME_SCREEN)
         # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
@@ -451,10 +495,10 @@ def game_settings():
         draw_text("CAR XY", normal_font, "cyan", 620, 700, GAME_SCREEN)
 
         audio_on_button = Button(button_image=on_off_button, x_y=(1220, 340),
-                                 button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+                                 button_text="ON", font=small_font, font_color="white", font_hover_color="cyan")
 
         audio_off_button = Button(button_image=on_off_button, x_y=(1300, 340),
-                                  button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+                                  button_text="OFF", font=small_font, font_color="white", font_hover_color="purple")
 
         # camera_on_button = Button(button_image=on_off_button, x_y=(1220, 440),
         # button_text="ON", font=small_font, font_color="white", font_hover_color="white")
@@ -463,26 +507,26 @@ def game_settings():
         # button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
         vsync_on_button = Button(button_image=on_off_button, x_y=(1220, 440),
-                                 button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+                                 button_text="ON", font=small_font, font_color="white", font_hover_color="cyan")
         vsync_off_button = Button(button_image=on_off_button, x_y=(1300, 440),
-                                  button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+                                  button_text="OFF", font=small_font, font_color="white", font_hover_color="purple")
 
         show_ui_on_button = Button(button_image=on_off_button, x_y=(1220, 540),
-                                   button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+                                   button_text="ON", font=small_font, font_color="white", font_hover_color="cyan")
         show_ui_off_button = Button(button_image=on_off_button, x_y=(1300, 540),
-                                    button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+                                    button_text="OFF", font=small_font, font_color="white", font_hover_color="purple")
 
         show_fps_on_button = Button(button_image=on_off_button, x_y=(1220, 640),
-                                    button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+                                    button_text="ON", font=small_font, font_color="white", font_hover_color="cyan")
         show_fps_off_button = Button(button_image=on_off_button, x_y=(1300, 640),
-                                     button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+                                     button_text="OFF", font=small_font, font_color="white", font_hover_color="purple")
 
         show_xy_on_button = Button(button_image=on_off_button, x_y=(1220, 740),
-                                   button_text="ON", font=small_font, font_color="white", font_hover_color="white")
+                                   button_text="ON", font=small_font, font_color="white", font_hover_color="cyan")
         show_xy_off_button = Button(button_image=on_off_button, x_y=(1300, 740),
-                                    button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
+                                    button_text="OFF", font=small_font, font_color="white", font_hover_color="purple")
 
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         audio_on_button.button_render(GAME_SCREEN)
@@ -504,6 +548,21 @@ def game_settings():
         show_xy_off_button.button_render(GAME_SCREEN)
 
         back_button.button_render(GAME_SCREEN)
+
+        button_hover_render(audio_on_button, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(audio_off_button, mouse_coordinates, GAME_SCREEN)
+
+        button_hover_render(vsync_on_button, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(vsync_off_button, mouse_coordinates, GAME_SCREEN)
+
+        button_hover_render(show_ui_on_button, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(show_ui_off_button, mouse_coordinates, GAME_SCREEN)
+
+        button_hover_render(show_fps_on_button, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(show_fps_off_button, mouse_coordinates, GAME_SCREEN)
+
+        button_hover_render(show_xy_on_button, mouse_coordinates, GAME_SCREEN)
+        button_hover_render(show_xy_off_button, mouse_coordinates, GAME_SCREEN)
 
         button_hover_render(back_button, mouse_coordinates, GAME_SCREEN)
 
@@ -620,27 +679,31 @@ def main_menu():
 
         draw_text("MAIN MENU", big_font, TITLE_COLOR, 750, TITLE_Y, GAME_SCREEN)
 
-        play_button = Button(button_image=button_transparent_image, x_y=(960, 300), button_text="PLAY",
-                             font=normal_font,
+        play_button = Button(button_image=button_play_transparent_image, x_y=(976, 430), button_text="PLAY",
+                             font=big_font,
                              font_color="white", font_hover_color="cyan")
 
-        car_selection_button = Button(button_image=button_transparent_image, x_y=(590, 390), button_text="SELECT CAR",
+        car_selection_button = Button(button_image=button_transparent_image, x_y=(606, 630), button_text="SELECT CAR",
                                       font=normal_font,
                                       font_color="white", font_hover_color="cyan")
 
-        stats_button = Button(button_image=button_transparent_image, x_y=(1330, 390), button_text="STATS",
+        stats_button = Button(button_image=button_transparent_image, x_y=(1346, 630), button_text="STATS",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
-        binds_button = Button(button_image=button_transparent_image, x_y=(960, 430), button_text="BINDS",
+        binds_button = Button(button_image=button_transparent_image, x_y=(976, 630), button_text="BINDS",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
-        settings_button = Button(button_image=button_transparent_image, x_y=(960, 550), button_text="SETTINGS",
+        # settings_button = Button(button_image=settings_button_icon, x_y=(960, 550), button_text="SETTINGS",
+        # font=normal_font,
+        # font_color="white", font_hover_color="cyan")
+
+        settings_button = Button(button_image=settings_button_icon, x_y=(1860, 60), button_text="",
                                  font=normal_font,
                                  font_color="white", font_hover_color="cyan")
 
-        quit_button = Button(button_image=button_image, x_y=(960, QUIT_Y), button_text="QUIT", font=normal_font,
+        quit_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y), button_text="QUIT", font=normal_font,
                              font_color="orange", font_hover_color="red")
 
         play_button.button_render(GAME_SCREEN)
@@ -732,7 +795,7 @@ def map_stats(title, lap_times_file, match_times_file,
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text(title, big_font, TITLE_COLOR, 600, TITLE_Y, GAME_SCREEN)
+        draw_text(title, big_font, TITLE_COLOR, 630, TITLE_Y, GAME_SCREEN)
 
         draw_text("FASTEST LAP TIMES", medium_font, "purple", 580, 330, GAME_SCREEN)
         draw_text("FASTEST RACE TIMES", medium_font, "purple", 1080, 330, GAME_SCREEN)
@@ -759,7 +822,7 @@ def map_stats(title, lap_times_file, match_times_file,
         pointer_left_button = Button(button_image=pointer_left, x_y=(320, 500),
                                      button_text="", font=normal_font, font_color="white", font_hover_color="white")
 
-        back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
+        back_button = Button(button_image=button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=normal_font, font_color="orange", font_hover_color="red")
 
         if show_pointer_left == 1:
