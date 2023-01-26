@@ -328,28 +328,28 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
 
                 if first_button.on_click(mouse_coordinates):
                     settings.car_type = car_option1
-                    draw_text("Car Selected!", normal_font, color1, 800, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color1, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if second_button.on_click(mouse_coordinates):
                     settings.car_type = car_option2
-                    draw_text("Car Selected!", normal_font, color2, 800, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color2, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if third_button.on_click(mouse_coordinates):
                     settings.car_type = car_option3
-                    draw_text("Car Selected!", normal_font, color3, 800, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color3, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if fourth_button.on_click(mouse_coordinates):
                     settings.car_type = car_option4
-                    draw_text("Car Selected!", normal_font, color4, 800, 230, GAME_SCREEN)
+                    draw_text("Car Selected!", normal_font, color4, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
@@ -577,14 +577,14 @@ def game_settings():
                     print(settings.audio)
                     draw_text("AUDIO ON!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
 
                 if audio_off_button.on_click(mouse_coordinates):
                     settings.audio = 2
                     print(settings.audio)
                     draw_text("AUDIO OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
-                    pygame.time.wait(2000)
+                    pygame.time.wait(1200)
 
                 # if camera_on_button.on_click(mouse_coordinates):
                 #  settings.camera_focus = 1
