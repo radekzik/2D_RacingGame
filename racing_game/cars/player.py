@@ -1,4 +1,3 @@
-import pygame.display
 
 from racing_game.cars.car import Car
 from racing_game.ui.resolution import draw_text

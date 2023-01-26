@@ -215,7 +215,7 @@ def car_lambo_selection():
 
 
 def car_spoiler_car_selection():
-    car_color_selection("SPORTS CAR II.", 710, "CYAN", "PURPLE", "ORANGE", "PINK",
+    car_color_selection("SPORTS CAR II.", 700, "CYAN", "PURPLE", "ORANGE", "PINK",
                         "cyan", "violet", "orange", "pink",
                         light_blue_spoiler_car_selection, dark_purple_spoiler_car_selection,
                         orange_spoiler_car_selection, pink_spoiler_car_selection,
@@ -223,11 +223,11 @@ def car_spoiler_car_selection():
 
 
 def car_cabrio_selection():
-    car_color_selection("CABRIO", 710, "BLUE", "L - BLUE", "RED", "YELLOW",
-                        "blue", "cyan", "red", "yellow",
+    car_color_selection("CABRIO", 780, "BLUE", "L - BLUE", "YELLOW", "RED",
+                        "blue", "cyan", "yellow", "red",
                         blue_cabrio_selection, light_blue_cabrio_selection,
-                        red_cabrio_selection, yellow_cabrio_selection,
-                        13, 14, 15, 16)
+                        yellow_cabrio_selection, red_cabrio_selection,
+                        13, 14, 16, 15)
 
 
 def car_color_selection(car_title, title_x, title1, title2, title3, title4,
@@ -322,21 +322,21 @@ def car_selection():
 
         draw_text("CAR SELECTION", big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
 
-        draw_text("FORMULA", small_font, "white", 525, 330, GAME_SCREEN)
-        draw_text("SPORTS CAR I.", small_font, "white", 910, 330, GAME_SCREEN)
-        draw_text("SPORTS CAR II.", small_font, "white", 1310, 330, GAME_SCREEN)
-        draw_text("CABRIO", small_font, "white", 1310, 330, GAME_SCREEN)
+        draw_text("FORMULA", small_font, "white", 320, 330, GAME_SCREEN)
+        draw_text("SPORTS CAR I.", small_font, "white", 700, 330, GAME_SCREEN)
+        draw_text("SPORTS CAR II.", small_font, "white", 1095, 330, GAME_SCREEN)
+        draw_text("CABRIO", small_font, "white", 1520, 330, GAME_SCREEN)
 
-        formula_button = Button(x_y=(560, 550), button_image=formula_selection, button_text="", font=small_font,
+        formula_button = Button(x_y=(350, 550), button_image=formula_selection, button_text="", font=small_font,
                                 font_color="white", font_hover_color="cyan")
 
-        lambo_button = Button(x_y=(960, 550), button_image=lambo_selection, button_text="", font=small_font,
+        lambo_button = Button(x_y=(750, 550), button_image=lambo_selection, button_text="", font=small_font,
                               font_color="white", font_hover_color="cyan")
 
-        spoiler_car_button = Button(x_y=(1360, 550), button_image=spoiler_car_selection, button_text="",
+        spoiler_car_button = Button(x_y=(1150, 550), button_image=spoiler_car_selection, button_text="",
                                     font=small_font, font_color="white", font_hover_color="cyan")
 
-        cabrio_button = Button(x_y=(1760, 550), button_image=cabrio_selection, button_text="",
+        cabrio_button = Button(x_y=(1550, 550), button_image=cabrio_selection, button_text="",
                                     font=small_font, font_color="white", font_hover_color="cyan")
 
         back_button = Button(button_image=button_image, x_y=(960, QUIT_Y),
