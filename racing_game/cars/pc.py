@@ -3,9 +3,7 @@ import random
 
 from racing_game.cars.car import Car
 from racing_game.config import settings
-from racing_game.ui.load_image import purple_formula, pink_lambo, WIDTH, HEIGHT, red_formula, red_lambo, orange_formula, \
-    yellow_formula, green_formula, cyan_lambo, dark_purple_spoiler_car, orange_spoiler_car, light_blue_spoiler_car, \
-    pink_spoiler_car, blue_cabrio, light_blue_cabrio, yellow_cabrio, red_cabrio
+from racing_game.ui import loading_images
 
 global difference_x, difference_y
 global angle
@@ -18,9 +16,12 @@ half_degrees = 180
 def random_car():
     random_number = random.randint(1, 16)
 
-    car_list = [purple_formula, orange_formula, yellow_formula, green_formula, red_formula, cyan_lambo, red_lambo,
-                pink_lambo, dark_purple_spoiler_car, light_blue_spoiler_car, orange_spoiler_car, pink_spoiler_car,
-                blue_cabrio, light_blue_cabrio, red_cabrio, yellow_cabrio]
+    car_list = [loading_images.purple_formula, loading_images.orange_formula, loading_images.yellow_formula,
+                loading_images.green_formula, loading_images.red_formula, loading_images.cyan_lambo,
+                loading_images.red_lambo, loading_images.pink_lambo, loading_images.dark_purple_spoiler_car,
+                loading_images.light_blue_spoiler_car, loading_images.orange_spoiler_car,
+                loading_images.pink_spoiler_car, loading_images.blue_cabrio, loading_images.light_blue_cabrio,
+                loading_images.red_cabrio, loading_images.yellow_cabrio]
 
     for x in range(16):
         x += 1

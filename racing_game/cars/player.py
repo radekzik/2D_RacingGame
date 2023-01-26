@@ -1,17 +1,15 @@
-
 from racing_game.cars.car import Car
+from racing_game.ui import loading_images
 from racing_game.ui.resolution import draw_text
-from racing_game.ui.load_image import blue_formula, blue_lambo, WIDTH, HEIGHT, GAME_SCREEN, small_font, green_formula, \
-    yellow_formula, orange_formula, cyan_lambo, red_lambo, pink_lambo, dark_purple_spoiler_car, light_blue_spoiler_car, \
-    orange_spoiler_car, pink_spoiler_car, normal_font, blue_cabrio, light_blue_cabrio, red_cabrio, yellow_cabrio
+from racing_game.ui.loading_images import blue_formula, WIDTH, HEIGHT, GAME_SCREEN, small_font, normal_font
 
 
 class Player(Car):
     x_position = 700
     y_position = 950
 
-    #x_position = GAME_SCREEN.get_width() / 2
-    #y_position = GAME_SCREEN.get_height() / 2
+    # x_position = GAME_SCREEN.get_width() / 2
+    # y_position = GAME_SCREEN.get_height() / 2
 
     car_image = blue_formula
     car_angle = 270
@@ -21,10 +19,14 @@ class Player(Car):
 
     def player_cars(self, index):
 
-        car_list = [blue_formula, orange_formula, yellow_formula, green_formula,
-                    blue_lambo, cyan_lambo, red_lambo, pink_lambo,
-                    dark_purple_spoiler_car, light_blue_spoiler_car, orange_spoiler_car, pink_spoiler_car,
-                    blue_cabrio, light_blue_cabrio, red_cabrio, yellow_cabrio]
+        car_list = [loading_images.blue_formula, loading_images.orange_formula,
+                    loading_images.yellow_formula, loading_images.green_formula,
+                    loading_images.blue_lambo, loading_images.cyan_lambo,
+                    loading_images.red_lambo, loading_images.pink_lambo,
+                    loading_images.dark_purple_spoiler_car, loading_images.light_blue_spoiler_car,
+                    loading_images.orange_spoiler_car, loading_images.pink_spoiler_car,
+                    loading_images.blue_cabrio, loading_images.light_blue_cabrio,
+                    loading_images.red_cabrio, loading_images.yellow_cabrio]
 
         # for x in range(12):
         # x += 1
@@ -64,7 +66,6 @@ class Player(Car):
         self.y = self.y
         self.car_angle = 270
 
-
     def out_of_map(self):
         if self.x >= WIDTH or self.x <= 0:
             self.respawn_first_map()
@@ -92,4 +93,3 @@ class Player(Car):
 
     def car_current_nitro(self):
         draw_text(f"{round(self.car_nitro)}", normal_font, "cyan", 1800, 740, GAME_SCREEN)
-

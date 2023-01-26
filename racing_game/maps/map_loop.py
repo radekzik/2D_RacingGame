@@ -1,14 +1,11 @@
 import pygame
 
-import racing_game.sounds.sounds
 from racing_game.cars.pc import random_car
 from racing_game.config import settings
-from racing_game.handler.key_binds import player_key_binds, enemy_key_binds
-from racing_game.loop_methods import game_methods
-from racing_game.loop_methods.game_methods import check_show_fps, check_show_xy, check_show_ui, check_audio, \
-    check_audio_set_volume
-from racing_game.ui import draw
-from racing_game.ui.load_image import GAME_SCREEN
+from racing_game.handler.key_binds import KeyBinds
+from racing_game.loop_functions.functions import LoopFunctions, Collisions
+from racing_game.ui.draw_ui import DrawUI
+from racing_game.ui.loading_images import GAME_SCREEN
 
 
 class MapLoop:
@@ -71,34 +68,34 @@ class MapLoop:
                 GAME_SCREEN.blit(map_border, (0, 0))
 
                 if enemy is None and enemy_route is None:
-                    game_methods.start_countdown(player_car, player_car)
+                    LoopFunctions.start_countdown(player_car, player_car)
 
                 if enemy is not None and enemy_route is None:
-                    game_methods.start_countdown(player_car, enemy_car)
+                    LoopFunctions.start_countdown(player_car, enemy_car)
                     settings.show_xy = 2
                     settings.show_fps = 2
-                    draw.player_title()
+                    DrawUI.player_title()
 
                 if enemy is not None and enemy_route is not None:
-                    game_methods.start_countdown(player_car, enemy_car)
+                    LoopFunctions.start_countdown(player_car, enemy_car)
 
                     enemy_car.start_drive()
                     enemy_car.pc_route = enemy_route(enemy_car)
 
                 if settings.show_ui == 1:
-                    game_methods.ui(player_car, car_stopwatch)
+                    DrawUI.ui(player_car, car_stopwatch)
 
                     if enemy is not None and enemy_route is None:
-                        game_methods.enemy_ui(enemy_car, enemy_stopwatch)
+                        DrawUI.enemy_ui(enemy_car, enemy_stopwatch)
 
-                check_show_ui(game_methods.ui, player_car, car_stopwatch)
-                check_show_xy(player_car.car_position)
-                check_show_fps(draw.game_show_fps, clock)
+                DrawUI.check_show_ui(DrawUI.ui, player_car, car_stopwatch)
+                DrawUI.check_show_xy(player_car.car_position)
+                DrawUI.check_show_fps(DrawUI.game_show_fps, clock)
 
                 if enemy is not None:
-                    draw.enemy_animation(car_stopwatch, enemy_car)
+                    DrawUI.enemy_animation(car_stopwatch, enemy_car)
 
-                game_methods.check_car_type(player_car)
+                DrawUI.check_car_type(player_car)
 
                 player_car.render_position(GAME_SCREEN)
                 player_car.add_nitro(car_stopwatch)
@@ -107,7 +104,7 @@ class MapLoop:
                     enemy_car.render_position(GAME_SCREEN)
                     enemy_car.add_nitro(enemy_stopwatch)
 
-                game_methods.start_game()
+                LoopFunctions.start_game()
                 pygame.display.update()
 
                 for event in pygame.event.get():
@@ -115,49 +112,49 @@ class MapLoop:
                         pygame.quit()
 
                 if enemy is not None and enemy_route is not None:
-                    player_key_binds(player_car, player_car.get_car_rect(), enemy_car.get_car_rect(), map_border,
-                                     map_restart)
-                    game_methods.collision_vs_pc(player_car, enemy_car, player_car.get_car_rect(),
-                                                 enemy_car.get_car_rect(),
-                                                 map_border, enemy_stopwatch, settings.car_time_list,
-                                                 settings.enemy_time_list, map_restart, map_respawn, enemy_respawn)
+                    KeyBinds.player_key_binds(player_car, player_car.get_car_rect(), enemy_car.get_car_rect(),
+                                              map_border, map_restart)
+                    Collisions.collision_vs_pc(player_car, enemy_car, player_car.get_car_rect(),
+                                               enemy_car.get_car_rect(),
+                                               map_border, enemy_stopwatch, settings.car_time_list,
+                                               settings.enemy_time_list, map_restart, map_respawn, enemy_respawn)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
-                            game_methods.check_laps(player_car, enemy_car, car_stopwatch, map_restart,
-                                                    map_respawn, enemy_respawn)
-                            game_methods.end_game(player_car, enemy_car, map_restart, lap_times_file,
-                                                  settings.fourth_map_match_times_file, map_respawn, enemy_respawn)
+                            LoopFunctions.check_laps(player_car, enemy_car, car_stopwatch, map_restart,
+                                                     map_respawn, enemy_respawn)
+                            LoopFunctions.end_game(player_car, enemy_car, map_restart, lap_times_file,
+                                                   settings.fourth_map_match_times_file, map_respawn, enemy_respawn)
 
                 if enemy is None and enemy_route is None:
-                    player_key_binds(player_car, player_car.get_car_rect(), None, map_border, map_restart)
-                    game_methods.collision_solo(player_car, map_border, map_restart)
+                    KeyBinds.player_key_binds(player_car, player_car.get_car_rect(), None, map_border, map_restart)
+                    Collisions.collision_solo(player_car, map_border, map_restart)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
-                            game_methods.check_laps(player_car, None, car_stopwatch, map_restart,
-                                                    map_respawn, enemy_respawn)
-                            game_methods.end_game(player_car, None, map_restart, lap_times_file,
-                                                  match_times_file, map_respawn, enemy_respawn)
+                            LoopFunctions.check_laps(player_car, None, car_stopwatch, map_restart,
+                                                     map_respawn, enemy_respawn)
+                            LoopFunctions.end_game(player_car, None, map_restart, lap_times_file,
+                                                   match_times_file, map_respawn, enemy_respawn)
 
                 if enemy is not None and enemy_route is None:
-                    player_key_binds(player_car, player_car.get_car_rect(), enemy_car.get_car_rect(),
-                                     map_border, map_restart)
-                    enemy_key_binds(enemy_car, player_car.get_car_rect(), enemy_car.get_car_rect(), map_border)
+                    KeyBinds.player_key_binds(player_car, player_car.get_car_rect(), enemy_car.get_car_rect(),
+                                              map_border, map_restart)
+                    KeyBinds.enemy_key_binds(enemy_car, player_car.get_car_rect(), enemy_car.get_car_rect(), map_border)
 
-                    game_methods.collision_vs_player(player_car, enemy_car, player_car.get_car_rect(),
-                                                     enemy_car.get_car_rect(), map_border)
+                    Collisions.collision_vs_player(player_car, enemy_car, player_car.get_car_rect(),
+                                                   enemy_car.get_car_rect(), map_border)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
-                            game_methods.check_laps(player_car, enemy_car, car_stopwatch, map_restart,
-                                                    map_respawn, enemy_respawn)
-                            game_methods.end_game(player_car, enemy_car, map_restart, lap_times_file,
-                                                  match_times_file, map_respawn, enemy_respawn)
+                            LoopFunctions.check_laps(player_car, enemy_car, car_stopwatch, map_restart,
+                                                     map_respawn, enemy_respawn)
+                            LoopFunctions.end_game(player_car, enemy_car, map_restart, lap_times_file,
+                                                   match_times_file, map_respawn, enemy_respawn)
 
                     if x_range1 < enemy_car.x < x_range2:
                         if y_range1 < enemy_car.y < y_range2:
-                            game_methods.enemy_check_laps(enemy_car, enemy_stopwatch, map_restart, enemy_respawn)
-                            game_methods.enemy_end_game(map_restart)
+                            LoopFunctions.enemy_check_laps(enemy_car, enemy_stopwatch, map_restart, enemy_respawn)
+                            LoopFunctions.enemy_end_game(map_restart)
 
             pygame.display.update()

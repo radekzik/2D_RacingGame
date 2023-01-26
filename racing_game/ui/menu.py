@@ -2,9 +2,9 @@ import pygame
 
 from racing_game.config import settings
 from racing_game.maps.maps import AllMaps
-from racing_game.storage.storing_data import load_lap_times, load_match_times
+from racing_game.storage.data_processing import DataProcessing
 from racing_game.ui.button import Button, button_hover_render
-from racing_game.ui.load_image import GAME_SCREEN, big_font, button_transparent_image, normal_font, small_font, \
+from racing_game.ui.loading_images import GAME_SCREEN, big_font, button_transparent_image, normal_font, small_font, \
     first_map_image, \
     second_map_image, blue_lambo_selection, blue_formula_selection, f_background, formula_selection, lambo_selection, \
     orange_formula_selection, green_formula_selection, yellow_formula_selection, cyan_lambo_selection, \
@@ -24,7 +24,6 @@ QUIT_Y = 980
 
 # GAME MODE SELECTION --------------------------------------------------------------------------------------------------
 def mode_selection():
-
     while 1:
 
         GAME_SCREEN.blit(f_background, (0, 0))
@@ -81,7 +80,6 @@ def mode_selection():
 
 # MAP SELECTION --------------------------------------------------------------------------------------------------------
 def map_selection(first_button, second_button, third_button, fourth_button, fifth_button):
-
     while 1:
 
         GAME_SCREEN.blit(f_background, (0, 0))
@@ -157,7 +155,6 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
 
 
 def laps_settings():
-
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
@@ -362,7 +359,6 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
 
 
 def car_selection():
-
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
@@ -423,7 +419,6 @@ def car_selection():
 
 # GAME BINDS -----------------------------------------------------------------------------------------------------------
 def binds():
-
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
@@ -481,7 +476,6 @@ def binds():
 
 # GAME SETTINGS --------------------------------------------------------------------------------------------------------
 def game_settings():
-
     while 1:
         GAME_SCREEN.blit(f_background, (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
@@ -692,9 +686,9 @@ def main_menu():
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
-        #binds_button = Button(button_image=button_transparent_image, x_y=(976, 630), button_text="BINDS",
-                              #font=normal_font,
-                              #font_color="white", font_hover_color="cyan")
+        # binds_button = Button(button_image=button_transparent_image, x_y=(976, 630), button_text="BINDS",
+        # font=normal_font,
+        # font_color="white", font_hover_color="cyan")
 
         binds_button = Button(button_image=binds_button_icon, x_y=(60, 60), button_text="",
                               font=normal_font,
@@ -805,8 +799,8 @@ def map_stats(title, lap_times_file, match_times_file,
         draw_text("FASTEST LAP TIMES", medium_font, "purple", 580, 330, GAME_SCREEN)
         draw_text("FASTEST RACE TIMES", medium_font, "purple", 1080, 330, GAME_SCREEN)
 
-        lap_times = load_lap_times(lap_times_file)
-        match_times = load_match_times(match_times_file)
+        lap_times = DataProcessing.load_lap_times(lap_times_file)
+        match_times = DataProcessing.load_match_times(match_times_file)
 
         draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, GAME_SCREEN)
         draw_text(f"2. - {lap_times[1]}" + "s", small_font, "green", 670, 450, GAME_SCREEN)

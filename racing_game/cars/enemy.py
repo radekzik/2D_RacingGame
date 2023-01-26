@@ -1,7 +1,7 @@
 from racing_game.cars.car import Car
 from racing_game.cars.pc import random_car
 
-from racing_game.ui.load_image import normal_font, GAME_SCREEN
+from racing_game.ui.loading_images import normal_font, GAME_SCREEN
 from racing_game.ui.resolution import draw_text
 
 
