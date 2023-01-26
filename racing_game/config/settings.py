@@ -56,20 +56,20 @@ show_ui = 1
 show_xy = 1
 
 # file paths
-first_map_lap_times_file = "first_map_lap_times.txt"
-first_map_match_times_file = "first_map_match_times.txt"
+first_map_lap_times_file = "../racing_game/storage/files/first_map_lap_times.txt"
+first_map_match_times_file = "../racing_game/storage/files/first_map_match_times.txt"
 
-second_map_lap_times_file = "second_map_lap_times.txt"
-second_map_match_times_file = "second_map_match_times.txt"
+second_map_lap_times_file = "../racing_game/storage/files/second_map_lap_times.txt"
+second_map_match_times_file = "../racing_game/storage/files/second_map_match_times.txt"
 
-third_map_lap_times_file = "third_map_lap_times.txt"
-third_map_match_times_file = "third_map_match_times.txt"
+third_map_lap_times_file = "../racing_game/storage/files/third_map_lap_times.txt"
+third_map_match_times_file = "../racing_game/storage/files/third_map_match_times.txt"
 
-fourth_map_lap_times_file = "fourth_map_lap_times.txt"
-fourth_map_match_times_file = "fourth_map_match_times.txt"
+fourth_map_lap_times_file = "../racing_game/storage/files/fourth_map_lap_times.txt"
+fourth_map_match_times_file = "../racing_game/storage/files/fourth_map_match_times.txt"
 
-fifth_map_lap_times_file = "fifth_map_lap_times.txt"
-fifth_map_match_times_file = "fifth_map_match_times.txt"
+fifth_map_lap_times_file = "../racing_game/storage/files/fifth_map_lap_times.txt"
+fifth_map_match_times_file = "../racing_game/storage/files/fifth_map_match_times.txt"
 
 # finish line x-y
 FIRST_MAP_FINISH_LINE_X = 580
