@@ -74,7 +74,9 @@ class MapLoop:
                     LoopFunctions.start_countdown(player_car, enemy_car)
                     settings.show_xy = 2
                     settings.show_fps = 2
-                    DrawUI.player_title()
+
+                    if settings.show_ui == 1:
+                        DrawUI.player_title()
 
                 if enemy is not None and enemy_route is not None:
                     LoopFunctions.start_countdown(player_car, enemy_car)
