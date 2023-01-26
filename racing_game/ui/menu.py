@@ -809,14 +809,14 @@ def map_stats(title, lap_times_file, match_times_file,
         match_times = load_match_times(match_times_file)
 
         draw_text(f"1. - {lap_times[0]}" + "s", small_font, "green", 670, 400, GAME_SCREEN)
-        draw_text(f"2. - {lap_times[1]}" + "s", small_font, "orange", 670, 450, GAME_SCREEN)
-        draw_text(f"3. - {lap_times[2]}" + "s", small_font, "orange", 670, 500, GAME_SCREEN)
+        draw_text(f"2. - {lap_times[1]}" + "s", small_font, "green", 670, 450, GAME_SCREEN)
+        draw_text(f"3. - {lap_times[2]}" + "s", small_font, "yellow", 670, 500, GAME_SCREEN)
         draw_text(f"4. - {lap_times[3]}" + "s", small_font, "orange", 670, 550, GAME_SCREEN)
         draw_text(f"5. - {lap_times[4]}" + "s", small_font, "red", 670, 600, GAME_SCREEN)
 
         draw_text(f"1. - {match_times[0]}" + "s", small_font, "green", 1170, 400, GAME_SCREEN)
-        draw_text(f"2. - {match_times[1]}" + "s", small_font, "orange", 1170, 450, GAME_SCREEN)
-        draw_text(f"3. - {match_times[2]}" + "s", small_font, "orange", 1170, 500, GAME_SCREEN)
+        draw_text(f"2. - {match_times[1]}" + "s", small_font, "green", 1170, 450, GAME_SCREEN)
+        draw_text(f"3. - {match_times[2]}" + "s", small_font, "yellow", 1170, 500, GAME_SCREEN)
         draw_text(f"4. - {match_times[3]}" + "s", small_font, "orange", 1170, 550, GAME_SCREEN)
         draw_text(f"5. - {match_times[4]}" + "s", small_font, "red", 1170, 600, GAME_SCREEN)
 
