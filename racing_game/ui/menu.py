@@ -239,14 +239,14 @@ def laps_settings():
 
 
 def set_text():
-    draw_text("LAPS SET!", normal_font, "green", 840, 230, GAME_SCREEN)
+    draw_text("LAPS SET!", normal_font, "green", 860, 230, GAME_SCREEN)
     pygame.display.update()
     pygame.time.wait(700)
 
 
 # CAR SELECTION --------------------------------------------------------------------------------------------------------
 def car_formula_selection():
-    car_color_selection("FORMULA", 780, "BLUE", "ORANGE", "YELLOW", "GREEN",
+    car_color_selection("FORMULA", 790, "BLUE", "ORANGE", "YELLOW", "GREEN",
                         "cyan", "orange", "yellow", "green",
                         blue_formula_selection, orange_formula_selection,
                         yellow_formula_selection, green_formula_selection,
@@ -254,7 +254,7 @@ def car_formula_selection():
 
 
 def car_lambo_selection():
-    car_color_selection("SPORTS CAR I.", 680, "BLUE", "CRIMSON", "L - BLUE", "PINK",
+    car_color_selection("SPORTS CAR I.", 710, "BLUE", "CRIMSON", "L - BLUE", "PINK",
                         "blue", "red", "cyan", "pink",
                         blue_lambo_selection, red_lambo_selection,
                         cyan_lambo_selection, pink_lambo_selection,
@@ -262,7 +262,7 @@ def car_lambo_selection():
 
 
 def car_spoiler_car_selection():
-    car_color_selection("SPORTS CAR II.", 700, "CYAN", "PURPLE", "ORANGE", "PINK",
+    car_color_selection("SPORTS CAR II.", 710, "CYAN", "PURPLE", "ORANGE", "PINK",
                         "cyan", "violet", "orange", "pink",
                         light_blue_spoiler_car_selection, dark_purple_spoiler_car_selection,
                         orange_spoiler_car_selection, pink_spoiler_car_selection,
@@ -270,7 +270,7 @@ def car_spoiler_car_selection():
 
 
 def car_cabrio_selection():
-    car_color_selection("CABRIO", 790, "BLUE", "L - BLUE", "YELLOW", "RED",
+    car_color_selection("CABRIO", 820, "BLUE", "L - BLUE", "YELLOW", "RED",
                         "blue", "cyan", "yellow", "red",
                         blue_cabrio_selection, light_blue_cabrio_selection,
                         yellow_cabrio_selection, red_cabrio_selection,
@@ -575,14 +575,14 @@ def game_settings():
                 if audio_on_button.on_click(mouse_coordinates):
                     settings.audio = 1
                     print(settings.audio)
-                    draw_text("AUDIO ON!", normal_font, "green", 830, 210, GAME_SCREEN)
+                    draw_text("AUDIO ON!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(2000)
 
                 if audio_off_button.on_click(mouse_coordinates):
                     settings.audio = 2
                     print(settings.audio)
-                    draw_text("AUDIO OFF!", normal_font, "green", 830, 210, GAME_SCREEN)
+                    draw_text("AUDIO OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(2000)
 
@@ -601,54 +601,54 @@ def game_settings():
                 if vsync_on_button.on_click(mouse_coordinates):
                     settings.vsync = 1
                     print(settings.vsync)
-                    draw_text("VSYNC ON!", normal_font, "green", 830, 210, GAME_SCREEN)
+                    draw_text("VSYNC ON!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if vsync_off_button.on_click(mouse_coordinates):
                     settings.vsync = 0
                     print(settings.vsync)
-                    draw_text("VSYNC OFF!", normal_font, "green", 830, 210, GAME_SCREEN)
+                    draw_text("VSYNC OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_ui_on_button.on_click(mouse_coordinates):
                     settings.show_ui = 1
                     print(settings.show_ui)
-                    draw_text("UI ON!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    draw_text("UI ON!", normal_font, "green", 900, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_ui_off_button.on_click(mouse_coordinates):
                     settings.show_ui = 2
                     print(settings.show_ui)
-                    draw_text("UI OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    draw_text("UI OFF!", normal_font, "green", 900, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_fps_on_button.on_click(mouse_coordinates):
                     settings.show_fps = 1
                     print(settings.show_fps)
-                    draw_text("FPS ON!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    draw_text("FPS ON!", normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_fps_off_button.on_click(mouse_coordinates):
                     settings.show_fps = 2
                     print(settings.show_fps)
-                    draw_text("FPS OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    draw_text("FPS OFF!", normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_xy_on_button.on_click(mouse_coordinates):
                     settings.show_xy = 1
-                    draw_text("X-Y ON!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    draw_text("X-Y ON!", normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_xy_off_button.on_click(mouse_coordinates):
                     settings.show_xy = 2
-                    draw_text("X-Y OFF!", normal_font, "green", 850, 210, GAME_SCREEN)
+                    draw_text("X-Y OFF!", normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
