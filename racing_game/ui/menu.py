@@ -12,7 +12,8 @@ from racing_game.ui.load_image import GAME_SCREEN, big_font, button_transparent_
     light_blue_spoiler_car_selection, orange_spoiler_car_selection, pink_spoiler_car_selection, spoiler_car_selection, \
     pointer_right, pointer_left, on_off_button, button_image, fourth_map_image, medium_font, fifth_map_image, \
     f_light_background, blue_cabrio_selection, yellow_cabrio_selection, light_blue_cabrio_selection, \
-    red_cabrio_selection, cabrio_selection, settings_button_icon, button_play_transparent_image, on_off_button_x2
+    red_cabrio_selection, cabrio_selection, settings_button_icon, button_play_transparent_image, on_off_button_x2, \
+    binds_button_icon
 from racing_game.ui.resolution import draw_text
 
 TITLE_Y = 70
@@ -683,15 +684,19 @@ def main_menu():
                              font=big_font,
                              font_color="white", font_hover_color="cyan")
 
-        car_selection_button = Button(button_image=button_transparent_image, x_y=(606, 630), button_text="SELECT CAR",
+        car_selection_button = Button(button_image=button_transparent_image, x_y=(756, 630), button_text="SELECT CAR",
                                       font=normal_font,
                                       font_color="white", font_hover_color="cyan")
 
-        stats_button = Button(button_image=button_transparent_image, x_y=(1346, 630), button_text="STATS",
+        stats_button = Button(button_image=button_transparent_image, x_y=(1196, 630), button_text="STATS",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 
-        binds_button = Button(button_image=button_transparent_image, x_y=(976, 630), button_text="BINDS",
+        #binds_button = Button(button_image=button_transparent_image, x_y=(976, 630), button_text="BINDS",
+                              #font=normal_font,
+                              #font_color="white", font_hover_color="cyan")
+
+        binds_button = Button(button_image=binds_button_icon, x_y=(60, 60), button_text="",
                               font=normal_font,
                               font_color="white", font_hover_color="cyan")
 

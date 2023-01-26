@@ -166,6 +166,7 @@ yellow_cabrio_selection = res(pygame.image.load("../images/ui/selections/cabrio_
 
 
 settings_button_icon = res(pygame.image.load("../images/ui/buttons/settings_button.png"), 0.1).convert_alpha()
+binds_button_icon = res(pygame.image.load("../images/ui/buttons/binds_button.png"), 0.15).convert_alpha()
 
 # icon
 icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()
