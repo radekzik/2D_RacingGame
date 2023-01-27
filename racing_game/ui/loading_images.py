@@ -70,11 +70,16 @@ light_blue_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_light_bl
 red_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_red.png"), 0.85).convert_alpha()
 yellow_cabrio = res(pygame.image.load("../images/cars/cabrio/cabrio_yellow.png"), 0.85).convert_alpha()
 
-# backgrounds
+# menu backgrounds
 f_background = res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()
 f_light_background = res(pygame.image.load("../images/backgrounds/futuristic_light_bg.png"), 0.5).convert_alpha()
+
+# map backgrounds
 green_forest = res(pygame.image.load("../images/backgrounds/green_forest.png"), 0.75).convert_alpha()
 dark_green_forest = res(pygame.image.load("../images/backgrounds/dark_green_forest.png"), 0.75).convert_alpha()
+green_lake_forest = res(pygame.image.load("../images/backgrounds/green_lake_forest2.png"), 0.75).convert_alpha()
+green_lake_forest2 = res(pygame.image.load("../images/backgrounds/green_lake_forest3.png"), 0.75).convert_alpha()
+dark_green_lake_forest = res(pygame.image.load("../images/backgrounds/dark_green_lake_forest.png"), 0.75).convert_alpha()
 
 # finish
 finish_line = res(pygame.image.load("../images/borders/finish_line.png"), 1.2).convert_alpha()

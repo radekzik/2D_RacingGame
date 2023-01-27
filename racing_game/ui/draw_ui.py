@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 from racing_game.config import settings
@@ -8,6 +10,37 @@ from racing_game.ui.resolution import draw_text
 
 
 class DrawUI:
+    @staticmethod
+    def random_all_maps_background():
+        global background
+
+        random_number = random.randint(1, 5)
+
+        map_background_list = [loading_images.green_forest, loading_images.green_lake_forest,
+                               loading_images.green_lake_forest2, loading_images.dark_green_forest,
+                               loading_images.dark_green_lake_forest]
+
+        for x in range(5):
+            x += 1
+            if random_number == x:
+                background = map_background_list[x - 1]
+
+        return background
+
+    @staticmethod
+    def random_selected_map_background():
+        global background
+
+        random_number = random.randint(1, 2)
+
+        map_background_list = [loading_images.green_forest, loading_images.dark_green_forest]
+
+        for x in range(2):
+            x += 1
+            if random_number == x:
+                background = map_background_list[x - 1]
+
+        return background
 
     @staticmethod
     def game_info(match_time, lap, stopwatch):
