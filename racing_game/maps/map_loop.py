@@ -119,7 +119,8 @@ class MapLoop:
                     Collisions.collision_vs_pc(player_car, enemy_car, player_car.get_car_rect(),
                                                enemy_car.get_car_rect(),
                                                map_border, enemy_stopwatch, settings.car_time_list,
-                                               settings.enemy_time_list, map_restart, map_respawn, enemy_respawn)
+                                               settings.enemy_time_list, map_restart, map_respawn, enemy_respawn,
+                                               x_range1, x_range2, y_range1, y_range2)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:

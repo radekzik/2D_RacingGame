@@ -1,7 +1,4 @@
 import racing_game.sounds.sounds
-from racing_game.config.settings import FIRST_FINISH_LINE_X_RANGE, SECOND_FINISH_LINE_X_RANGE, \
-    SECOND_FINISH_LINE_Y_RANGE, \
-    FIRST_FINISH_LINE_Y_RANGE
 from racing_game.storage.data_processing import DataProcessing
 from racing_game.ui.loading_images import *
 from racing_game.ui.draw_ui import *
@@ -32,7 +29,8 @@ class Collisions:
 
     @staticmethod
     def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
-                        car_time_list, enemy_time_list, restart_map, player_respawn, enemy_respawn):
+                        car_time_list, enemy_time_list, restart_map, player_respawn, enemy_respawn,
+                        x_range1, x_range2, y_range1, y_range2,):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
             DrawUI.check_audio(racing_game.sounds.sounds.crash_sound.play)
@@ -46,8 +44,8 @@ class Collisions:
 
             DrawUI.check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
-        if FIRST_FINISH_LINE_X_RANGE < enemy_car.x < SECOND_FINISH_LINE_X_RANGE:
-            if FIRST_FINISH_LINE_Y_RANGE < enemy_car.y < SECOND_FINISH_LINE_Y_RANGE:
+        if x_range1 < enemy_car.x < x_range2:
+            if y_range1 < enemy_car.y < y_range2:
                 settings.enemy_lap += 1
                 settings.enemy_start_time = pygame.time.get_ticks()
                 settings.enemy_match_time = settings.enemy_match_time + enemy_stopwatch
