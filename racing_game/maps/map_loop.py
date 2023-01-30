@@ -126,7 +126,7 @@ class MapLoop:
                             LoopFunctions.check_laps(player_car, enemy_car, car_stopwatch, map_restart,
                                                      map_respawn, enemy_respawn)
                             LoopFunctions.end_game(player_car, enemy_car, map_restart, lap_times_file,
-                                                   settings.fourth_map_match_times_file, map_respawn, enemy_respawn)
+                                                   match_times_file, map_respawn, enemy_respawn)
 
                 if enemy is None and enemy_route is None:
                     KeyBinds.player_key_binds(player_car, player_car.get_car_rect(), None, map_border, map_restart)

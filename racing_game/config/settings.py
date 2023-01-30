@@ -8,6 +8,24 @@ FINISH_LINES = {
     5: {'FINISH_LINE': (540, 800), 'FINISH_LINE_RANGES': [(550, 800), (670, 1080)]}
 }
 
+FILE_PATHS = {
+
+    1: {"LAP_TIMES": "../racing_game/storage/files/first_map_lap_times.txt",
+        "MATCH_TIMES": "../racing_game/storage/files/first_map_match_times.txt"},
+
+    2: {"LAP_TIMES": "../racing_game/storage/files/second_map_lap_times.txt",
+        "MATCH_TIMES": "../racing_game/storage/files/second_map_match_times.txt"},
+
+    3: {"LAP_TIMES": "../racing_game/storage/files/third_map_lap_times.txt",
+        "MATCH_TIMES": "../racing_game/storage/files/third_map_match_times.txt"},
+
+    4: {"LAP_TIMES": "../racing_game/storage/files/fourth_map_lap_times.txt",
+        "MATCH_TIMES": "../racing_game/storage/files/fourth_map_match_times.txt"},
+
+    5: {"LAP_TIMES": "../racing_game/storage/files/fifth_map_lap_times.txt",
+        "MATCH_TIMES": "../racing_game/storage/files/fifth_map_match_times.txt"},
+}
+
 # check start racing_game
 started = False
 
@@ -56,34 +74,7 @@ show_ui = 1
 show_xy = 1
 
 # file paths
-first_map_lap_times_file = "../racing_game/storage/files/first_map_lap_times.txt"
-first_map_match_times_file = "../racing_game/storage/files/first_map_match_times.txt"
 
-second_map_lap_times_file = "../racing_game/storage/files/second_map_lap_times.txt"
-second_map_match_times_file = "../racing_game/storage/files/second_map_match_times.txt"
 
-third_map_lap_times_file = "../racing_game/storage/files/third_map_lap_times.txt"
-third_map_match_times_file = "../racing_game/storage/files/third_map_match_times.txt"
 
-fourth_map_lap_times_file = "../racing_game/storage/files/fourth_map_lap_times.txt"
-fourth_map_match_times_file = "../racing_game/storage/files/fourth_map_match_times.txt"
 
-fifth_map_lap_times_file = "../racing_game/storage/files/fifth_map_lap_times.txt"
-fifth_map_match_times_file = "../racing_game/storage/files/fifth_map_match_times.txt"
-
-# finish line x-y
-FIRST_MAP_FINISH_LINE_X = 580
-FIRST_MAP_FINISH_LINE_Y = 840
-
-SECOND_MAP_FINISH_LINE_X = 580
-SECOND_MAP_FINISH_LINE_Y = 788
-
-THIRD_MAP_FINISH_LINE_X = 480
-THIRD_MAP_FINISH_LINE_Y = 855
-
-# finish line x-y range
-FIRST_FINISH_LINE_X_RANGE = 650
-SECOND_FINISH_LINE_X_RANGE = 680
-
-FIRST_FINISH_LINE_Y_RANGE = 860
-SECOND_FINISH_LINE_Y_RANGE = 1080

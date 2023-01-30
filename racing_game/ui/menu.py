@@ -758,27 +758,27 @@ def main_menu():
 
 # MAP STATS ------------------------------------------------------------------------------------------------------------
 def first_map_stats():
-    map_stats("FIRST MAP STATS", settings.first_map_lap_times_file, settings.first_map_match_times_file,
+    map_stats("FIRST MAP STATS", settings.FILE_PATHS[1]["LAP_TIMES"], settings.FILE_PATHS[1]["MATCH_TIMES"],
               2, 1, 2, second_map_stats)
 
 
 def second_map_stats():
-    map_stats("SECOND MAP STATS", settings.second_map_lap_times_file, settings.second_map_match_times_file,
+    map_stats("SECOND MAP STATS", settings.FILE_PATHS[2]["LAP_TIMES"], settings.FILE_PATHS[2]["MATCH_TIMES"],
               1, 1, first_map_stats, third_map_stats)
 
 
 def third_map_stats():
-    map_stats("THIRD MAP STATS", settings.third_map_lap_times_file, settings.third_map_match_times_file,
+    map_stats("THIRD MAP STATS", settings.FILE_PATHS[3]["LAP_TIMES"], settings.FILE_PATHS[3]["MATCH_TIMES"],
               1, 1, second_map_stats, fourth_map_stats)
 
 
 def fourth_map_stats():
-    map_stats("FOURTH MAP STATS", settings.fourth_map_lap_times_file, settings.fourth_map_match_times_file,
+    map_stats("FOURTH MAP STATS", settings.FILE_PATHS[4]["LAP_TIMES"], settings.FILE_PATHS[4]["MATCH_TIMES"],
               1, 1, third_map_stats, fifth_map_stats)
 
 
 def fifth_map_stats():
-    map_stats("FIFTH MAP STATS", settings.fifth_map_lap_times_file, settings.fifth_map_match_times_file,
+    map_stats("FIFTH MAP STATS", settings.FILE_PATHS[5]["LAP_TIMES"], settings.FILE_PATHS[5]["MATCH_TIMES"],
               1, 2, fourth_map_stats, 2)
 
 
