@@ -1,4 +1,4 @@
-import racing_game.sounds.sounds
+from racing_game.sounds.sounds import Sounds
 from racing_game.storage.data_processing import DataProcessing
 from racing_game.ui.loading_images import *
 from racing_game.ui.draw_ui import *
@@ -15,8 +15,8 @@ class Collisions:
 
             # check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
 
-            DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.lose.play)
+            DrawUI.check_audio(Sounds.car_engine.stop)
+            DrawUI.check_audio(Sounds.lose.play)
 
             DrawUI.draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 600, GAME_SCREEN)
             pygame.display.update()
@@ -31,7 +31,7 @@ class Collisions:
                         x_range1, x_range2, y_range1, y_range2,):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
-            DrawUI.check_audio(racing_game.sounds.sounds.crash_sound.play)
+            DrawUI.check_audio(Sounds.crash_sound.play)
 
         else:
             car.car_image = car.car_image
@@ -40,7 +40,7 @@ class Collisions:
         if car.border_collide(pygame.mask.from_surface(map_border)):
             car.out_of_track()
 
-            DrawUI.check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+            DrawUI.check_audio(Sounds.out_off_the_track_sound.play)
 
         if x_range1 < enemy_car.x < x_range2:
             if y_range1 < enemy_car.y < y_range2:
@@ -54,8 +54,8 @@ class Collisions:
         if Settings.enemy_lap == Settings.max_laps:
             print(Settings.enemy_lap)
             if Settings.car_lap < Settings.enemy_lap:
-                DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-                DrawUI.check_audio(racing_game.sounds.sounds.lose.play)
+                DrawUI.check_audio(Sounds.car_engine.stop)
+                DrawUI.check_audio(Sounds.lose.play)
                 GAME_SCREEN.blit(button_win_lose, (770, 560))
                 DrawUI.draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
 
@@ -68,8 +68,8 @@ class Collisions:
                 restart_map()
 
             if Settings.car_lap > Settings.enemy_lap:
-                DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-                DrawUI.check_audio(racing_game.sounds.sounds.win.play)
+                DrawUI.check_audio(Sounds.car_engine.stop)
+                DrawUI.check_audio(Sounds.win.play)
                 GAME_SCREEN.blit(button_win_lose, (770, 560))
                 DrawUI.draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
 
@@ -85,21 +85,21 @@ class Collisions:
     def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
-            DrawUI.check_audio(racing_game.sounds.sounds.crash_sound.play)
+            DrawUI.check_audio(Sounds.crash_sound.play)
 
         if enemy_rect.colliderect(car_rect):
             enemy_car.car_collide()
-            DrawUI.check_audio(racing_game.sounds.sounds.crash_sound.play)
+            DrawUI.check_audio(Sounds.crash_sound.play)
 
         if car.border_collide(pygame.mask.from_surface(map_border)):
             car.out_of_track()
-            DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+            DrawUI.check_audio(Sounds.car_engine.stop)
+            DrawUI.check_audio(Sounds.out_off_the_track_sound.play)
 
         if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
             enemy_car.out_of_track()
-            DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.out_off_the_track_sound.play)
+            DrawUI.check_audio(Sounds.car_engine.stop)
+            DrawUI.check_audio(Sounds.out_off_the_track_sound.play)
 
 
 # LOOP METHODS----------------------------------------------------------------------------------------------------------
@@ -135,10 +135,10 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
-                    DrawUI.check_audio(racing_game.sounds.sounds.starting_sound.play)
+                    DrawUI.check_audio(Sounds.starting_sound.play)
                     Settings.car_start_time = pygame.time.get_ticks()
                     Settings.enemy_start_time = pygame.time.get_ticks()
-                    DrawUI.check_audio_set_volume(racing_game.sounds.sounds.car_engine.play, -1)
+                    DrawUI.check_audio_set_volume(Sounds.car_engine.play, -1)
 
     @staticmethod
     def start_countdown(car, enemy_car):
@@ -161,7 +161,7 @@ class LoopFunctions:
             GAME_SCREEN.blit(semaphor_all_red, (880, 500))
 
         if Settings.countdown == 4:
-            DrawUI.check_audio(racing_game.sounds.sounds.countdown_sound.play)
+            DrawUI.check_audio(Sounds.countdown_sound.play)
 
         if Settings.countdown == 3:
             DrawUI.draw_text(f"{str(Settings.countdown)} - READY", normal_font, "red", 850, 570, GAME_SCREEN)
@@ -177,8 +177,8 @@ class LoopFunctions:
 
         if Settings.countdown == 0:
 
-            DrawUI.check_audio(racing_game.sounds.sounds.starting_sound.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.countdown_sound.stop)
+            DrawUI.check_audio(Sounds.starting_sound.stop)
+            DrawUI.check_audio(Sounds.countdown_sound.stop)
             car.max_speed = 3
 
             car.max_movement_speed = 5
@@ -221,7 +221,7 @@ class LoopFunctions:
     def check_laps(car, pc_car, car_stopwatch, reset_map, player_respawn, enemy_respawn):
         if car_stopwatch > 5:
             Settings.car_lap += 1
-            DrawUI.check_audio(racing_game.sounds.sounds.finish.play)
+            DrawUI.check_audio(Sounds.finish.play)
 
             for time_position in range(0, 1):
                 time_position += 1
@@ -237,10 +237,10 @@ class LoopFunctions:
             Settings.car_start_time = pygame.time.get_ticks()
 
         else:
-            DrawUI.check_audio(racing_game.sounds.sounds.countdown_sound.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.starting_sound.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.lose.play)
+            DrawUI.check_audio(Sounds.countdown_sound.stop)
+            DrawUI.check_audio(Sounds.starting_sound.stop)
+            DrawUI.check_audio(Sounds.car_engine.stop)
+            DrawUI.check_audio(Sounds.lose.play)
             DrawUI.draw_text(f"WRONG WAY!", normal_font, "white", 830, 450, GAME_SCREEN)
 
             pygame.display.update()
@@ -260,8 +260,8 @@ class LoopFunctions:
         if Settings.car_lap == Settings.max_laps:
 
             if Settings.car_lap > Settings.enemy_lap:
-                DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-                DrawUI.check_audio(racing_game.sounds.sounds.win.play)
+                DrawUI.check_audio(Sounds.car_engine.stop)
+                DrawUI.check_audio(Sounds.win.play)
                 GAME_SCREEN.blit(button_win_lose, (770, 560))
                 DrawUI.draw_text(f"YOU WON THE RACE!", normal_font, "gold", 800, 600, GAME_SCREEN)
 
@@ -269,8 +269,8 @@ class LoopFunctions:
                 pygame.time.wait(1000)
 
             if Settings.car_lap < Settings.enemy_lap:
-                DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-                DrawUI.check_audio(racing_game.sounds.sounds.lose.play)
+                DrawUI.check_audio(Sounds.car_engine.stop)
+                DrawUI.check_audio(Sounds.lose.play)
                 GAME_SCREEN.blit(button_win_lose, (770, 560))
                 DrawUI.draw_text(f"YOU LOST THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)
 
@@ -304,7 +304,7 @@ class LoopFunctions:
     def enemy_check_laps(pc_car, enemy_stopwatch, reset_map, enemy_respawn):
         if enemy_stopwatch > 5:
             Settings.enemy_lap += 1
-            DrawUI.check_audio(racing_game.sounds.sounds.finish.play)
+            DrawUI.check_audio(Sounds.finish.play)
 
             for time_position in range(0, 1):
                 time_position += 1
@@ -320,10 +320,10 @@ class LoopFunctions:
             Settings.enemy_start_time = pygame.time.get_ticks()
 
         else:
-            DrawUI.check_audio(racing_game.sounds.sounds.countdown_sound.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.starting_sound.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-            DrawUI.check_audio(racing_game.sounds.sounds.lose.play)
+            DrawUI.check_audio(Sounds.countdown_sound.stop)
+            DrawUI.check_audio(Sounds.starting_sound.stop)
+            DrawUI.check_audio(Sounds.car_engine.stop)
+            DrawUI.check_audio(Sounds.lose.play)
 
             DrawUI.draw_text(f"WRONG WAY!", normal_font, "white", 830, 450, GAME_SCREEN)
 
@@ -338,8 +338,8 @@ class LoopFunctions:
         if Settings.enemy_lap == Settings.max_laps:
 
             if Settings.enemy_lap > Settings.car_lap:
-                DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-                DrawUI.check_audio(racing_game.sounds.sounds.win.play)
+                DrawUI.check_audio(Sounds.car_engine.stop)
+                DrawUI.check_audio(Sounds.win.play)
                 GAME_SCREEN.blit(button_win_lose, (770, 560))
                 DrawUI.draw_text(f"SECOND PLAYER WON THE RACE!", normal_font, "gold", 710, 600, GAME_SCREEN)
 
@@ -347,8 +347,8 @@ class LoopFunctions:
                 pygame.time.wait(1000)
 
             if Settings.enemy_lap < Settings.car_lap:
-                DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-                DrawUI.check_audio(racing_game.sounds.sounds.lose.play)
+                DrawUI.check_audio(Sounds.car_engine.stop)
+                DrawUI.check_audio(Sounds.lose.play)
 
                 GAME_SCREEN.blit(button_win_lose, (770, 560))
                 DrawUI.draw_text(f"FIRST PLAYER WON THE RACE!", normal_font, "red", 800, 600, GAME_SCREEN)

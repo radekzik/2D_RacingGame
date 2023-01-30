@@ -1,9 +1,9 @@
 import pygame
 
-import racing_game.sounds.sounds
 from racing_game.config.settings import Settings
 from racing_game.ui import menu
 from racing_game.ui.draw_ui import DrawUI
+from racing_game.sounds.sounds import Sounds
 
 
 class KeyBinds:
@@ -55,13 +55,13 @@ class KeyBinds:
             if enemy_rect is None:
                 if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)):
                     car.use_nitro()
-                    DrawUI.check_audio(racing_game.sounds.sounds.car_turbo.play)
+                    DrawUI.check_audio(Sounds.car_turbo.play)
 
             else:
                 if pressed_key[pygame.K_e] and not car.border_collide(pygame.mask.from_surface(map_border)) \
                         and not car_rect.colliderect(enemy_rect):
                     car.use_nitro()
-                    DrawUI.check_audio(racing_game.sounds.sounds.car_turbo.play)
+                    DrawUI.check_audio(Sounds.car_turbo.play)
 
     @staticmethod
     def enemy_key_binds(enemy_car, car_rect, enemy_rect, map_border):
@@ -95,13 +95,13 @@ class KeyBinds:
             if pressed_key[pygame.K_o] and not enemy_car.border_collide(pygame.mask.from_surface(map_border)) \
                     and not enemy_rect.colliderect(car_rect):
                 enemy_car.use_nitro()
-                DrawUI.check_audio(racing_game.sounds.sounds.car_turbo.play)
+                DrawUI.check_audio(Sounds.car_turbo.play)
 
 
 def stop_sounds():
-    DrawUI.check_audio(racing_game.sounds.sounds.car_engine.stop)
-    DrawUI.check_audio(racing_game.sounds.sounds.car_turbo.stop)
-    DrawUI.check_audio(racing_game.sounds.sounds.crash_sound.stop)
-    DrawUI.check_audio(racing_game.sounds.sounds.out_off_the_track_sound.stop)
-    DrawUI.check_audio(racing_game.sounds.sounds.starting_sound.stop)
-    DrawUI.check_audio(racing_game.sounds.sounds.countdown_sound.stop)
+    DrawUI.check_audio(Sounds.car_engine.stop)
+    DrawUI.check_audio(Sounds.car_turbo.stop)
+    DrawUI.check_audio(Sounds.crash_sound.stop)
+    DrawUI.check_audio(Sounds.out_off_the_track_sound.stop)
+    DrawUI.check_audio(Sounds.starting_sound.stop)
+    DrawUI.check_audio(Sounds.countdown_sound.stop)
