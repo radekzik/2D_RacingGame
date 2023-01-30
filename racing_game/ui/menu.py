@@ -5,8 +5,8 @@ from racing_game.maps.maps import AllMaps
 from racing_game.storage.data_processing import DataProcessing
 from racing_game.ui import loading_images
 from racing_game.ui.button import Button, button_hover_render
+from racing_game.ui.draw_ui import DrawUI
 from racing_game.ui.loading_images import GAME_SCREEN
-from racing_game.ui.resolution import draw_text
 
 TITLE_Y = 70
 TITLE_COLOR = "purple"
@@ -21,7 +21,7 @@ def mode_selection():
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MODE SELECTION", loading_images.big_font, TITLE_COLOR, 650, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("MODE SELECTION", loading_images.big_font, TITLE_COLOR, 650, TITLE_Y, GAME_SCREEN)
 
         against_pc = Button(button_image=loading_images.button_transparent_image, x_y=(760, 420),
                             button_text="VERSUS PC", font=loading_images.normal_font, font_color="white",
@@ -80,13 +80,13 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MAP SELECTION", loading_images.big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("MAP SELECTION", loading_images.big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
 
-        draw_text("I. MAP", loading_images.small_font, "cyan", 410, 380, GAME_SCREEN)
-        draw_text("II. MAP", loading_images.small_font, "cyan", 940, 340, GAME_SCREEN)
-        draw_text("III. MAP", loading_images.small_font, "cyan", 1440, 315, GAME_SCREEN)
-        draw_text("IV. MAP", loading_images.small_font, "cyan", 675, 615, GAME_SCREEN)
-        draw_text("V. MAP", loading_images.small_font, "cyan", 1185, 615, GAME_SCREEN)
+        DrawUI.draw_text("I. MAP", loading_images.small_font, "cyan", 410, 380, GAME_SCREEN)
+        DrawUI.draw_text("II. MAP", loading_images.small_font, "cyan", 940, 340, GAME_SCREEN)
+        DrawUI.draw_text("III. MAP", loading_images.small_font, "cyan", 1440, 315, GAME_SCREEN)
+        DrawUI.draw_text("IV. MAP", loading_images.small_font, "cyan", 675, 615, GAME_SCREEN)
+        DrawUI.draw_text("V. MAP", loading_images.small_font, "cyan", 1185, 615, GAME_SCREEN)
 
         first_map_button = Button(button_image=loading_images.first_map_image, x_y=(500, 450),
                                   button_text="", font=loading_images.normal_font, font_color="white",
@@ -157,8 +157,8 @@ def laps_settings():
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("LAPS", loading_images.big_font, TITLE_COLOR, 880, TITLE_Y, GAME_SCREEN)
-        draw_text("DEFAULT - 3 LAPS", loading_images.medium_font, "grey", 1680, 1030, GAME_SCREEN)
+        DrawUI.draw_text("LAPS", loading_images.big_font, TITLE_COLOR, 880, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("DEFAULT - 3 LAPS", loading_images.medium_font, "grey", 1680, 1030, GAME_SCREEN)
 
         lap_button2 = Button(button_image=loading_images.on_off_button_x2, x_y=(760, 400),
                              button_text="2", font=loading_images.normal_font, font_color="white",
@@ -242,7 +242,7 @@ def laps_settings():
 
 
 def set_text():
-    draw_text("LAPS SET!", loading_images.normal_font, "green", 860, 230, GAME_SCREEN)
+    DrawUI.draw_text("LAPS SET!", loading_images.normal_font, "green", 860, 230, GAME_SCREEN)
     pygame.display.update()
     pygame.time.wait(700)
 
@@ -290,14 +290,14 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text(car_title, loading_images.big_font, TITLE_COLOR, title_x, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text(car_title, loading_images.big_font, TITLE_COLOR, title_x, TITLE_Y, GAME_SCREEN)
 
-        draw_text(title1, loading_images.small_font, color1, 330, 340, GAME_SCREEN)
-        draw_text(title2, loading_images.small_font, color2, 717, 340, GAME_SCREEN)
-        draw_text(title3, loading_images.small_font, color3, 1120, 340, GAME_SCREEN)
-        draw_text(title4, loading_images.small_font, color4, 1530, 340, GAME_SCREEN)
+        DrawUI.draw_text(title1, loading_images.small_font, color1, 330, 340, GAME_SCREEN)
+        DrawUI.draw_text(title2, loading_images.small_font, color2, 717, 340, GAME_SCREEN)
+        DrawUI.draw_text(title3, loading_images.small_font, color3, 1120, 340, GAME_SCREEN)
+        DrawUI.draw_text(title4, loading_images.small_font, color4, 1530, 340, GAME_SCREEN)
 
-        draw_text("DEFAULT - BLUE FORMULA", loading_images.medium_font, "grey", 1580, 1030, GAME_SCREEN)
+        DrawUI.draw_text("DEFAULT - BLUE FORMULA", loading_images.medium_font, "grey", 1580, 1030, GAME_SCREEN)
 
         first_button = Button(x_y=(350, 550), button_image=image1, button_text="",
                               font=loading_images.small_font,
@@ -335,28 +335,28 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
 
                 if first_button.on_click(mouse_coordinates):
                     Settings.car_type = car_option1
-                    draw_text("Car Selected!", loading_images.normal_font, color1, 810, 230, GAME_SCREEN)
+                    DrawUI.draw_text("Car Selected!", loading_images.normal_font, color1, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if second_button.on_click(mouse_coordinates):
                     Settings.car_type = car_option2
-                    draw_text("Car Selected!", loading_images.normal_font, color2, 810, 230, GAME_SCREEN)
+                    DrawUI.draw_text("Car Selected!", loading_images.normal_font, color2, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if third_button.on_click(mouse_coordinates):
                     Settings.car_type = car_option3
-                    draw_text("Car Selected!", loading_images.normal_font, color3, 810, 230, GAME_SCREEN)
+                    DrawUI.draw_text("Car Selected!", loading_images.normal_font, color3, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if fourth_button.on_click(mouse_coordinates):
                     Settings.car_type = car_option4
-                    draw_text("Car Selected!", loading_images.normal_font, color4, 810, 230, GAME_SCREEN)
+                    DrawUI.draw_text("Car Selected!", loading_images.normal_font, color4, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
@@ -372,14 +372,14 @@ def car_selection():
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("CAR SELECTION", loading_images.big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("CAR SELECTION", loading_images.big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
 
-        draw_text("FORMULA", loading_images.small_font, "white", 320, 330, GAME_SCREEN)
-        draw_text("SPORTS CAR I.", loading_images.small_font, "white", 700, 330, GAME_SCREEN)
-        draw_text("SPORTS CAR II.", loading_images.small_font, "white", 1095, 330, GAME_SCREEN)
-        draw_text("CABRIO", loading_images.small_font, "white", 1520, 330, GAME_SCREEN)
+        DrawUI.draw_text("FORMULA", loading_images.small_font, "white", 320, 330, GAME_SCREEN)
+        DrawUI.draw_text("SPORTS CAR I.", loading_images.small_font, "white", 700, 330, GAME_SCREEN)
+        DrawUI.draw_text("SPORTS CAR II.", loading_images.small_font, "white", 1095, 330, GAME_SCREEN)
+        DrawUI.draw_text("CABRIO", loading_images.small_font, "white", 1520, 330, GAME_SCREEN)
 
-        draw_text("DEFAULT - BLUE FORMULA", loading_images.medium_font, "grey", 1580, 1030, GAME_SCREEN)
+        DrawUI.draw_text("DEFAULT - BLUE FORMULA", loading_images.medium_font, "grey", 1580, 1030, GAME_SCREEN)
 
         formula_button = Button(x_y=(350, 550), button_image=loading_images.formula_selection, button_text="",
                                 font=loading_images.small_font,
@@ -437,37 +437,37 @@ def binds():
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("BINDS", loading_images.big_font, TITLE_COLOR, 850, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("BINDS", loading_images.big_font, TITLE_COLOR, 850, TITLE_Y, GAME_SCREEN)
 
-        draw_text("CAR CONTROL", loading_images.normal_font, "purple", 495, 200, GAME_SCREEN)
+        DrawUI.draw_text("CAR CONTROL", loading_images.normal_font, "purple", 495, 200, GAME_SCREEN)
 
-        draw_text("W", loading_images.medium_font, "white", 625, 280, GAME_SCREEN)
-        draw_text("Forward", loading_images.medium_font, "cyan", 1220, 280, GAME_SCREEN)
+        DrawUI.draw_text("W", loading_images.medium_font, "white", 625, 280, GAME_SCREEN)
+        DrawUI.draw_text("Forward", loading_images.medium_font, "cyan", 1220, 280, GAME_SCREEN)
 
-        draw_text("S", loading_images.medium_font, "white", 630, 330, GAME_SCREEN)
-        draw_text("Backward", loading_images.medium_font, "cyan", 1220, 330, GAME_SCREEN)
+        DrawUI.draw_text("S", loading_images.medium_font, "white", 630, 330, GAME_SCREEN)
+        DrawUI.draw_text("Backward", loading_images.medium_font, "cyan", 1220, 330, GAME_SCREEN)
 
-        draw_text("A", loading_images.medium_font, "white", 630, 380, GAME_SCREEN)
-        draw_text("Left", loading_images.medium_font, "cyan", 1220, 380, GAME_SCREEN)
+        DrawUI.draw_text("A", loading_images.medium_font, "white", 630, 380, GAME_SCREEN)
+        DrawUI.draw_text("Left", loading_images.medium_font, "cyan", 1220, 380, GAME_SCREEN)
 
-        draw_text("D", loading_images.medium_font, "white", 630, 430, GAME_SCREEN)
-        draw_text("Right", loading_images.medium_font, "cyan", 1220, 430, GAME_SCREEN)
+        DrawUI.draw_text("D", loading_images.medium_font, "white", 630, 430, GAME_SCREEN)
+        DrawUI.draw_text("Right", loading_images.medium_font, "cyan", 1220, 430, GAME_SCREEN)
 
-        draw_text("CAR ABILITIES", loading_images.normal_font, "purple", 495, 480, GAME_SCREEN)
+        DrawUI.draw_text("CAR ABILITIES", loading_images.normal_font, "purple", 495, 480, GAME_SCREEN)
 
-        draw_text("E", loading_images.medium_font, "white", 632, 560, GAME_SCREEN)
-        draw_text("Nitro", loading_images.medium_font, "cyan", 1220, 560, GAME_SCREEN)
+        DrawUI.draw_text("E", loading_images.medium_font, "white", 632, 560, GAME_SCREEN)
+        DrawUI.draw_text("Nitro", loading_images.medium_font, "cyan", 1220, 560, GAME_SCREEN)
 
-        draw_text("Q", loading_images.medium_font, "white", 630, 610, GAME_SCREEN)
-        draw_text("Faster Movement", loading_images.medium_font, "cyan", 1220, 610, GAME_SCREEN)
+        DrawUI.draw_text("Q", loading_images.medium_font, "white", 630, 610, GAME_SCREEN)
+        DrawUI.draw_text("Faster Movement", loading_images.medium_font, "cyan", 1220, 610, GAME_SCREEN)
 
-        draw_text("IN-GAME", loading_images.normal_font, "purple", 550, 660, GAME_SCREEN)
+        DrawUI.draw_text("IN-GAME", loading_images.normal_font, "purple", 550, 660, GAME_SCREEN)
 
-        draw_text("R", loading_images.medium_font, "white", 630, 740, GAME_SCREEN)
-        draw_text("Restart Game", loading_images.medium_font, "cyan", 1220, 740, GAME_SCREEN)
+        DrawUI.draw_text("R", loading_images.medium_font, "white", 630, 740, GAME_SCREEN)
+        DrawUI.draw_text("Restart Game", loading_images.medium_font, "cyan", 1220, 740, GAME_SCREEN)
 
-        draw_text("X", loading_images.medium_font, "white", 630, 790, GAME_SCREEN)
-        draw_text("Exit", loading_images.medium_font, "cyan", 1220, 790, GAME_SCREEN)
+        DrawUI.draw_text("X", loading_images.medium_font, "white", 630, 790, GAME_SCREEN)
+        DrawUI.draw_text("Exit", loading_images.medium_font, "cyan", 1220, 790, GAME_SCREEN)
 
         back_button = Button(button_image=loading_images.button_image, x_y=(QUIT_X, QUIT_Y),
                              button_text="BACK", font=loading_images.normal_font, font_color="orange",
@@ -495,14 +495,14 @@ def game_settings():
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("SETTINGS", loading_images.big_font, TITLE_COLOR, 790, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("SETTINGS", loading_images.big_font, TITLE_COLOR, 790, TITLE_Y, GAME_SCREEN)
 
-        draw_text("AUDIO", loading_images.normal_font, "cyan", 620, 300, GAME_SCREEN)
+        DrawUI.draw_text("AUDIO", loading_images.normal_font, "cyan", 620, 300, GAME_SCREEN)
         # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
-        draw_text("VSYNC", loading_images.normal_font, "cyan", 620, 400, GAME_SCREEN)
-        draw_text("UI", loading_images.normal_font, "cyan", 620, 500, GAME_SCREEN)
-        draw_text("FPS", loading_images.normal_font, "cyan", 620, 600, GAME_SCREEN)
-        draw_text("CAR XY", loading_images.normal_font, "cyan", 620, 700, GAME_SCREEN)
+        DrawUI.draw_text("VSYNC", loading_images.normal_font, "cyan", 620, 400, GAME_SCREEN)
+        DrawUI.draw_text("UI", loading_images.normal_font, "cyan", 620, 500, GAME_SCREEN)
+        DrawUI.draw_text("FPS", loading_images.normal_font, "cyan", 620, 600, GAME_SCREEN)
+        DrawUI.draw_text("CAR XY", loading_images.normal_font, "cyan", 620, 700, GAME_SCREEN)
 
         audio_on_button = Button(button_image=loading_images.on_off_button, x_y=(1220, 340),
                                  button_text="ON", font=loading_images.small_font, font_color="white", font_hover_color="cyan")
@@ -584,13 +584,13 @@ def game_settings():
 
                 if audio_on_button.on_click(mouse_coordinates):
                     Settings.audio = 1
-                    draw_text("AUDIO ON!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
+                    DrawUI.draw_text("AUDIO ON!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if audio_off_button.on_click(mouse_coordinates):
                     Settings.audio = 2
-                    draw_text("AUDIO OFF!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
+                    DrawUI.draw_text("AUDIO OFF!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
@@ -608,49 +608,49 @@ def game_settings():
 
                 if vsync_on_button.on_click(mouse_coordinates):
                     Settings.vsync = 1
-                    draw_text("VSYNC ON!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
+                    DrawUI.draw_text("VSYNC ON!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if vsync_off_button.on_click(mouse_coordinates):
                     Settings.vsync = 0
-                    draw_text("VSYNC OFF!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
+                    DrawUI.draw_text("VSYNC OFF!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_ui_on_button.on_click(mouse_coordinates):
                     Settings.show_ui = 1
-                    draw_text("UI ON!", loading_images.normal_font, "green", 900, 210, GAME_SCREEN)
+                    DrawUI.draw_text("UI ON!", loading_images.normal_font, "green", 900, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_ui_off_button.on_click(mouse_coordinates):
                     Settings.show_ui = 2
-                    draw_text("UI OFF!", loading_images.normal_font, "green", 900, 210, GAME_SCREEN)
+                    DrawUI.draw_text("UI OFF!", loading_images.normal_font, "green", 900, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_fps_on_button.on_click(mouse_coordinates):
                     Settings.show_fps = 1
-                    draw_text("FPS ON!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
+                    DrawUI.draw_text("FPS ON!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_fps_off_button.on_click(mouse_coordinates):
                     Settings.show_fps = 2
-                    draw_text("FPS OFF!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
+                    DrawUI.draw_text("FPS OFF!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_xy_on_button.on_click(mouse_coordinates):
                     Settings.show_xy = 1
-                    draw_text("X-Y ON!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
+                    DrawUI.draw_text("X-Y ON!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_xy_off_button.on_click(mouse_coordinates):
                     Settings.show_xy = 2
-                    draw_text("X-Y OFF!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
+                    DrawUI.draw_text("X-Y OFF!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
@@ -665,7 +665,7 @@ def game_settings():
 def change_settings(button, mouse_coordinates, option, value, title):
     if button.on_click(mouse_coordinates):
         option = value
-        draw_text(title, loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
+        DrawUI.draw_text(title, loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
         pygame.display.update()
         pygame.time.wait(1200)
 
@@ -679,7 +679,7 @@ def main_menu():
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text("MAIN MENU", loading_images.big_font, TITLE_COLOR, 750, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text("MAIN MENU", loading_images.big_font, TITLE_COLOR, 750, TITLE_Y, GAME_SCREEN)
 
         play_button = Button(button_image=loading_images.button_play_transparent_image, x_y=(976, 430), button_text="PLAY",
                              font=loading_images.big_font,
@@ -777,7 +777,9 @@ def fifth_map_stats():
 def map_stats(title, lap_times_file, match_times_file,
               show_pointer_left, show_pointer_right,
               pointer_left_map, pointer_right_map):
+
     global pointer_left_button, pointer_right_button
+
     loading = 1
 
     while 1:
@@ -785,15 +787,15 @@ def map_stats(title, lap_times_file, match_times_file,
 
         while loading:
             GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
-            draw_text("Loading Stats.", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
+            DrawUI.draw_text("Loading Stats.", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            draw_text("Loading Stats..", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
+            DrawUI.draw_text("Loading Stats..", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            draw_text("Loading Stats...", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
+            DrawUI.draw_text("Loading Stats...", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
             loading = False
@@ -801,25 +803,25 @@ def map_stats(title, lap_times_file, match_times_file,
         GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        draw_text(title, loading_images.big_font, TITLE_COLOR, 630, TITLE_Y, GAME_SCREEN)
+        DrawUI.draw_text(title, loading_images.big_font, TITLE_COLOR, 630, TITLE_Y, GAME_SCREEN)
 
-        draw_text("FASTEST LAP TIMES", loading_images.medium_font, "purple", 580, 330, GAME_SCREEN)
-        draw_text("FASTEST RACE TIMES", loading_images.medium_font, "purple", 1080, 330, GAME_SCREEN)
+        DrawUI.draw_text("FASTEST LAP TIMES", loading_images.medium_font, "purple", 580, 330, GAME_SCREEN)
+        DrawUI.draw_text("FASTEST RACE TIMES", loading_images.medium_font, "purple", 1080, 330, GAME_SCREEN)
 
         lap_times = DataProcessing.load_lap_times(lap_times_file)
         match_times = DataProcessing.load_match_times(match_times_file)
 
-        draw_text(f"1. - {lap_times[0]}" + "s", loading_images.small_font, "green", 670, 400, GAME_SCREEN)
-        draw_text(f"2. - {lap_times[1]}" + "s", loading_images.small_font, "green", 670, 450, GAME_SCREEN)
-        draw_text(f"3. - {lap_times[2]}" + "s", loading_images.small_font, "yellow", 670, 500, GAME_SCREEN)
-        draw_text(f"4. - {lap_times[3]}" + "s", loading_images.small_font, "orange", 670, 550, GAME_SCREEN)
-        draw_text(f"5. - {lap_times[4]}" + "s", loading_images.small_font, "red", 670, 600, GAME_SCREEN)
+        DrawUI.draw_text(f"1. - {lap_times[0]}" + "s", loading_images.small_font, "green", 670, 400, GAME_SCREEN)
+        DrawUI.draw_text(f"2. - {lap_times[1]}" + "s", loading_images.small_font, "green", 670, 450, GAME_SCREEN)
+        DrawUI.draw_text(f"3. - {lap_times[2]}" + "s", loading_images.small_font, "yellow", 670, 500, GAME_SCREEN)
+        DrawUI.draw_text(f"4. - {lap_times[3]}" + "s", loading_images.small_font, "orange", 670, 550, GAME_SCREEN)
+        DrawUI.draw_text(f"5. - {lap_times[4]}" + "s", loading_images.small_font, "red", 670, 600, GAME_SCREEN)
 
-        draw_text(f"1. - {match_times[0]}" + "s", loading_images.small_font, "green", 1170, 400, GAME_SCREEN)
-        draw_text(f"2. - {match_times[1]}" + "s", loading_images.small_font, "green", 1170, 450, GAME_SCREEN)
-        draw_text(f"3. - {match_times[2]}" + "s", loading_images.small_font, "yellow", 1170, 500, GAME_SCREEN)
-        draw_text(f"4. - {match_times[3]}" + "s", loading_images.small_font, "orange", 1170, 550, GAME_SCREEN)
-        draw_text(f"5. - {match_times[4]}" + "s", loading_images.small_font, "red", 1170, 600, GAME_SCREEN)
+        DrawUI.draw_text(f"1. - {match_times[0]}" + "s", loading_images.small_font, "green", 1170, 400, GAME_SCREEN)
+        DrawUI.draw_text(f"2. - {match_times[1]}" + "s", loading_images.small_font, "green", 1170, 450, GAME_SCREEN)
+        DrawUI.draw_text(f"3. - {match_times[2]}" + "s", loading_images.small_font, "yellow", 1170, 500, GAME_SCREEN)
+        DrawUI.draw_text(f"4. - {match_times[3]}" + "s", loading_images.small_font, "orange", 1170, 550, GAME_SCREEN)
+        DrawUI.draw_text(f"5. - {match_times[4]}" + "s", loading_images.small_font, "red", 1170, 600, GAME_SCREEN)
 
         pointer_right_button = Button(button_image=loading_images.pointer_right, x_y=(1600, 500),
                                       button_text="", font=loading_images.normal_font, font_color="white",

@@ -5,7 +5,6 @@ import math
 
 from racing_game.config.settings import Settings
 from racing_game.ui import loading_images
-from racing_game.ui.resolution import image_position
 
 
 class Car:
@@ -29,8 +28,16 @@ class Car:
     def rotate_right(self):
         self.car_angle -= self.movement_speed
 
+    @staticmethod
+    def image_position(game_window, car_image, car_left_corner, car_angle):
+        angle_position = pygame.transform.rotate(car_image, car_angle)
+
+        car_hitbox = angle_position.get_rect(center=car_image.get_rect(topleft=car_left_corner).center)
+
+        game_window.blit(angle_position, car_hitbox.topleft)
+
     def render_position(self, game_window):
-        image_position(game_window, self.car_image, (self.x, self.y), self.car_angle)
+        self.image_position(game_window, self.car_image, (self.x, self.y), self.car_angle)
 
     def movement(self):
         half_degree = 180
