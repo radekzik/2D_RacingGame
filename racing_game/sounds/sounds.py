@@ -5,6 +5,7 @@ pygame.init()
 
 
 class Sounds:
+
     starting_sound = pygame.mixer.Sound("./../sound_effects/car_starting.wav")
     starting_sound.set_volume(0.02)
 

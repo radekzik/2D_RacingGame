@@ -4,7 +4,7 @@ from racing_game.config.settings import Settings
 from racing_game.handler.key_binds import KeyBinds
 from racing_game.loop_functions.functions import LoopFunctions, Collisions
 from racing_game.ui.draw_ui import DrawUI
-from racing_game.ui.loading_images import GAME_SCREEN
+from racing_game.ui.loading_images import LoadingImages
 
 
 class MapLoop:
@@ -62,10 +62,10 @@ class MapLoop:
                 enemy_stopwatch = pygame.time.get_ticks() - Settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
-                GAME_SCREEN.blit(background, (0, 0))
-                GAME_SCREEN.blit(map_image, (0, 0))
-                GAME_SCREEN.blit(finish_line, finish_line_xy)
-                GAME_SCREEN.blit(map_border, (0, 0))
+                LoadingImages.GAME_SCREEN.blit(background, (0, 0))
+                LoadingImages.GAME_SCREEN.blit(map_image, (0, 0))
+                LoadingImages.GAME_SCREEN.blit(finish_line, finish_line_xy)
+                LoadingImages.GAME_SCREEN.blit(map_border, (0, 0))
 
                 if enemy is None and enemy_route is None:
                     LoopFunctions.start_countdown(player_car, player_car)
@@ -99,11 +99,11 @@ class MapLoop:
 
                 DrawUI.check_car_type(player_car)
 
-                player_car.render_position(GAME_SCREEN)
+                player_car.render_position(LoadingImages.GAME_SCREEN)
                 player_car.add_nitro(car_stopwatch)
 
                 if enemy is not None:
-                    enemy_car.render_position(GAME_SCREEN)
+                    enemy_car.render_position(LoadingImages.GAME_SCREEN)
                     enemy_car.add_nitro(enemy_stopwatch)
 
                 LoopFunctions.start_game()

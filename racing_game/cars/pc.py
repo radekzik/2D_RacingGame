@@ -2,7 +2,7 @@ import math
 import random
 
 from racing_game.cars.car import Car
-from racing_game.ui import loading_images
+from racing_game.ui.loading_images import LoadingImages
 
 global difference_x, difference_y
 global angle
@@ -16,7 +16,7 @@ class PCPlayer(Car):
     x_position = 700
     y_position = 900
     car_angle = 270
-    car_image = loading_images.FORMULA[5]["CAR"]
+    car_image = LoadingImages.FORMULA[5]["CAR"]
 
     car_width = car_image.get_width()
     car_height = car_image.get_height()

@@ -1,10 +1,5 @@
-def button_hover_render(button_name, mouse_coordinates, game_screen):
-    button_name.on_hover(mouse_coordinates)
-    button_name.button_render(game_screen)
 
 
-def buttons_render(game_screen, *name):
-    name.button_render(game_screen)
 
 
 class Button:
@@ -41,3 +36,12 @@ class Button:
     def button_render(self, game_screen):
         game_screen.blit(self.button_image, self.button_rect)
         game_screen.blit(self.text_render, self.text_rect)
+
+    @staticmethod
+    def button_hover_render(button_name, mouse_coordinates, game_screen):
+        button_name.on_hover(mouse_coordinates)
+        button_name.button_render(game_screen)
+
+    @staticmethod
+    def buttons_render(game_screen, *name):
+        name.button_render(game_screen)

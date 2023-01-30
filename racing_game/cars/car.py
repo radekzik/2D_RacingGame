@@ -4,7 +4,7 @@ import pygame
 import math
 
 from racing_game.config.settings import Settings
-from racing_game.ui import loading_images
+from racing_game.ui.loading_images import LoadingImages
 
 
 class Car:
@@ -174,16 +174,16 @@ class Car:
     def random_enemy_car(self):
         random_number = random.randint(1, 18)
 
-        car_list = [loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[2]["CAR"], loading_images.FORMULA[3]["CAR"],
-                    loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[5]["CAR"], loading_images.FORMULA[6]["CAR"],
-                    loading_images.SPORTS_CAR_I[1]["CAR"], loading_images.SPORTS_CAR_I[2]["CAR"],
-                    loading_images.SPORTS_CAR_I[3]["CAR"], loading_images.SPORTS_CAR_I[4]["CAR"],
-                    loading_images.SPORTS_CAR_II[1]["CAR"], loading_images.SPORTS_CAR_II[2]["CAR"],
-                    loading_images.SPORTS_CAR_II[3]["CAR"], loading_images.SPORTS_CAR_II[4]["CAR"],
-                    loading_images.CABRIO[1]["CAR"], loading_images.CABRIO[2]["CAR"], loading_images.CABRIO[3]["CAR"],
-                    loading_images.CABRIO[4]["CAR"]]
+        car_list = [LoadingImages.FORMULA[1]["CAR"], LoadingImages.FORMULA[2]["CAR"], LoadingImages.FORMULA[3]["CAR"],
+                    LoadingImages.FORMULA[4]["CAR"], LoadingImages.FORMULA[5]["CAR"], LoadingImages.FORMULA[6]["CAR"],
+                    LoadingImages.SPORTS_CAR_I[1]["CAR"], LoadingImages.SPORTS_CAR_I[2]["CAR"],
+                    LoadingImages.SPORTS_CAR_I[3]["CAR"], LoadingImages.SPORTS_CAR_I[4]["CAR"],
+                    LoadingImages.SPORTS_CAR_II[1]["CAR"], LoadingImages.SPORTS_CAR_II[2]["CAR"],
+                    LoadingImages.SPORTS_CAR_II[3]["CAR"], LoadingImages.SPORTS_CAR_II[4]["CAR"],
+                    LoadingImages.CABRIO[1]["CAR"], LoadingImages.CABRIO[2]["CAR"], LoadingImages.CABRIO[3]["CAR"],
+                    LoadingImages.CABRIO[4]["CAR"]]
 
-        loading_images.FORMULA.keys()
+        LoadingImages.FORMULA.keys()
 
         for x in range(18):
             x += 1
