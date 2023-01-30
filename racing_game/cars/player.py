@@ -11,28 +11,23 @@ class Player(Car):
     # x_position = GAME_SCREEN.get_width() / 2
     # y_position = GAME_SCREEN.get_height() / 2
 
-    car_image = loading_images.blue_formula
+    car_image = loading_images.FORMULA[1]["CAR"]
     car_angle = 270
 
     car_width = car_image.get_width()
     car_height = car_image.get_height()
 
-    def player_cars(self, index):
+    @staticmethod
+    def player_cars(index):
 
-        car_list = [loading_images.blue_formula, loading_images.orange_formula,
-                    loading_images.yellow_formula, loading_images.green_formula,
-                    loading_images.blue_lambo, loading_images.cyan_lambo,
-                    loading_images.red_lambo, loading_images.pink_lambo,
-                    loading_images.dark_purple_spoiler_car, loading_images.light_blue_spoiler_car,
-                    loading_images.orange_spoiler_car, loading_images.pink_spoiler_car,
-                    loading_images.blue_cabrio, loading_images.light_blue_cabrio,
-                    loading_images.red_cabrio, loading_images.yellow_cabrio]
-
-        # for x in range(12):
-        # x += 1
-        # if random_number == x:
-        # settings.enemy_car_type = x
-        # car_image = car_list[x - 1]
+        car_list = [loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[3]["CAR"],
+                    loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[5]["CAR"],
+                    loading_images.SPORTS_CAR_I[1]["CAR"], loading_images.SPORTS_CAR_I[2]["CAR"],
+                    loading_images.SPORTS_CAR_I[3]["CAR"], loading_images.SPORTS_CAR_I[4]["CAR"],
+                    loading_images.SPORTS_CAR_II[1]["CAR"], loading_images.SPORTS_CAR_II[2]["CAR"],
+                    loading_images.SPORTS_CAR_II[3]["CAR"], loading_images.SPORTS_CAR_II[4]["CAR"],
+                    loading_images.CABRIO[1]["CAR"], loading_images.CABRIO[2]["CAR"],
+                    loading_images.CABRIO[3]["CAR"], loading_images.CABRIO[4]["CAR"]]
 
         return car_list[index]
 

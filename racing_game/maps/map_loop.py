@@ -1,6 +1,5 @@
 import pygame
 
-from racing_game.cars.pc import random_car
 from racing_game.config import settings
 from racing_game.handler.key_binds import KeyBinds
 from racing_game.loop_functions.functions import LoopFunctions, Collisions
@@ -43,12 +42,12 @@ class MapLoop:
             if enemy is not None and enemy_route is None:
                 player_car = player()
                 enemy_car = enemy()
-                enemy_car.car_image = random_car()
+                enemy_car.car_image = enemy_car.random_enemy_car()
 
             if enemy is not None and enemy_route is not None:
                 player_car = player()
                 enemy_car = enemy()
-                enemy_car.car_image = random_car()
+                enemy_car.car_image = enemy_car.random_enemy_car()
 
             settings.started = False
 

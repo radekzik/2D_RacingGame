@@ -2,7 +2,6 @@ import math
 import random
 
 from racing_game.cars.car import Car
-from racing_game.config import settings
 from racing_game.ui import loading_images
 
 global difference_x, difference_y
@@ -13,30 +12,11 @@ full_degrees = 360
 half_degrees = 180
 
 
-def random_car():
-    random_number = random.randint(1, 16)
-
-    car_list = [loading_images.purple_formula, loading_images.orange_formula, loading_images.yellow_formula,
-                loading_images.green_formula, loading_images.red_formula, loading_images.cyan_lambo,
-                loading_images.red_lambo, loading_images.pink_lambo, loading_images.dark_purple_spoiler_car,
-                loading_images.light_blue_spoiler_car, loading_images.orange_spoiler_car,
-                loading_images.pink_spoiler_car, loading_images.blue_cabrio, loading_images.light_blue_cabrio,
-                loading_images.red_cabrio, loading_images.yellow_cabrio]
-
-    for x in range(16):
-        x += 1
-        if random_number == x:
-            settings.enemy_car_type = x
-            car_image = car_list[x - 1]
-
-    return car_image
-
-
 class PCPlayer(Car):
     x_position = 700
     y_position = 900
     car_angle = 270
-    car_image = random_car()
+    car_image = loading_images.FORMULA[5]["CAR"]
 
     car_width = car_image.get_width()
     car_height = car_image.get_height()

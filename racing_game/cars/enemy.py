@@ -1,5 +1,5 @@
 from racing_game.cars.car import Car
-from racing_game.cars.pc import random_car
+from racing_game.ui import loading_images
 
 from racing_game.ui.loading_images import normal_font, GAME_SCREEN
 from racing_game.ui.resolution import draw_text
@@ -8,7 +8,7 @@ from racing_game.ui.resolution import draw_text
 class EnemyPlayer(Car):
     x_position = 700
     y_position = 900
-    car_image = random_car()
+    car_image = loading_images.FORMULA[5]["CAR"]
     car_angle = 270
 
     car_width = car_image.get_width()

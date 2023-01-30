@@ -1,6 +1,10 @@
+import random
+
 import pygame
 import math
 
+from racing_game.config import settings
+from racing_game.ui import loading_images
 from racing_game.ui.resolution import image_position
 
 
@@ -159,3 +163,25 @@ class Car:
         self.x = 580
         self.y = 950
         self.car_angle = 270
+
+    def random_enemy_car(self):
+        random_number = random.randint(1, 18)
+
+        car_list = [loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[2]["CAR"], loading_images.FORMULA[3]["CAR"],
+                    loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[5]["CAR"], loading_images.FORMULA[6]["CAR"],
+                    loading_images.SPORTS_CAR_I[1]["CAR"], loading_images.SPORTS_CAR_I[2]["CAR"],
+                    loading_images.SPORTS_CAR_I[3]["CAR"], loading_images.SPORTS_CAR_I[4]["CAR"],
+                    loading_images.SPORTS_CAR_II[1]["CAR"], loading_images.SPORTS_CAR_II[2]["CAR"],
+                    loading_images.SPORTS_CAR_II[3]["CAR"], loading_images.SPORTS_CAR_II[4]["CAR"],
+                    loading_images.CABRIO[1]["CAR"], loading_images.CABRIO[2]["CAR"], loading_images.CABRIO[3]["CAR"],
+                    loading_images.CABRIO[4]["CAR"]]
+
+        loading_images.FORMULA.keys()
+
+        for x in range(18):
+            x += 1
+            if random_number == x:
+                settings.enemy_car_type = x
+                self.car_image = car_list[x - 1]
+
+        return self.car_image

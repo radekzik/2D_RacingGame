@@ -124,7 +124,7 @@ class DrawUI:
         loading = 1
 
         while loading:
-            GAME_SCREEN.blit(loading_images.f_light_background, (0, 0))
+            GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
             draw_text("Restarting Game.", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
@@ -143,7 +143,7 @@ class DrawUI:
         loading = 1
 
         while loading:
-            GAME_SCREEN.blit(loading_images.f_light_background, (0, 0))
+            GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
 
             draw_text(title + " Game.", loading_images.normal_font, "white", 780, 130, GAME_SCREEN)
             DrawUI.loading_text(game_mode, map_title, map_image)
@@ -262,27 +262,27 @@ class DrawUI:
     @staticmethod
     def car_animation(stopwatch, car):
         if settings.car_type == 1:
-            DrawUI.animation(stopwatch, car, loading_images.blue_formula, loading_images.blue_formula_2)
+            DrawUI.animation(stopwatch, car, loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[1]["CAR-2"])
 
         if settings.car_type == 2:
-            DrawUI.animation(stopwatch, car, loading_images.orange_formula, loading_images.orange_formula_2)
+            DrawUI.animation(stopwatch, car,  loading_images.FORMULA[3]["CAR"], loading_images.FORMULA[3]["CAR-2"])
 
         if settings.car_type == 3:
-            DrawUI.animation(stopwatch, car, loading_images.yellow_formula, loading_images.yellow_formula_2)
+            DrawUI.animation(stopwatch, car,  loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[4]["CAR-2"])
 
         if settings.car_type == 4:
-            DrawUI.animation(stopwatch, car, loading_images.green_formula, loading_images.green_formula_2)
+            DrawUI.animation(stopwatch, car,  loading_images.FORMULA[5]["CAR"], loading_images.FORMULA[5]["CAR-2"])
 
     @staticmethod
     def enemy_animation(stopwatch, enemy):
         if settings.enemy_car_type == 1:
-            DrawUI.second_animation(stopwatch, enemy, loading_images.purple_formula, loading_images.purple_formula_2)
+            DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[1]["CAR-2"])
 
         if settings.enemy_car_type == 2:
-            DrawUI.second_animation(stopwatch, enemy, loading_images.orange_formula, loading_images.orange_formula_2)
+            DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[3]["CAR"], loading_images.FORMULA[3]["CAR-2"])
 
         if settings.enemy_car_type == 3:
-            DrawUI.second_animation(stopwatch, enemy, loading_images.yellow_formula, loading_images.yellow_formula_2)
+            DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[4]["CAR-2"])
 
         if settings.enemy_car_type == 4:
-            DrawUI.second_animation(stopwatch, enemy, loading_images.green_formula, loading_images.green_formula_2)
+            DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[5]["CAR"], loading_images.FORMULA[5]["CAR-2"])

@@ -18,7 +18,7 @@ QUIT_Y = 980
 def mode_selection():
     while 1:
 
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("MODE SELECTION", loading_images.big_font, TITLE_COLOR, 650, TITLE_Y, GAME_SCREEN)
@@ -77,7 +77,7 @@ def mode_selection():
 def map_selection(first_button, second_button, third_button, fourth_button, fifth_button):
     while 1:
 
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("MAP SELECTION", loading_images.big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
@@ -154,7 +154,7 @@ def map_selection(first_button, second_button, third_button, fourth_button, fift
 
 def laps_settings():
     while 1:
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("LAPS", loading_images.big_font, TITLE_COLOR, 880, TITLE_Y, GAME_SCREEN)
@@ -287,7 +287,7 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
                         car_option1, car_option2, car_option3, car_option4):
     while 1:
 
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text(car_title, loading_images.big_font, TITLE_COLOR, title_x, TITLE_Y, GAME_SCREEN)
@@ -296,6 +296,8 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
         draw_text(title2, loading_images.small_font, color2, 717, 340, GAME_SCREEN)
         draw_text(title3, loading_images.small_font, color3, 1120, 340, GAME_SCREEN)
         draw_text(title4, loading_images.small_font, color4, 1530, 340, GAME_SCREEN)
+
+        draw_text("DEFAULT - BLUE FORMULA", loading_images.medium_font, "grey", 1580, 1030, GAME_SCREEN)
 
         first_button = Button(x_y=(350, 550), button_image=image1, button_text="",
                               font=loading_images.small_font,
@@ -367,7 +369,7 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
 
 def car_selection():
     while 1:
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("CAR SELECTION", loading_images.big_font, TITLE_COLOR, 680, TITLE_Y, GAME_SCREEN)
@@ -376,6 +378,8 @@ def car_selection():
         draw_text("SPORTS CAR I.", loading_images.small_font, "white", 700, 330, GAME_SCREEN)
         draw_text("SPORTS CAR II.", loading_images.small_font, "white", 1095, 330, GAME_SCREEN)
         draw_text("CABRIO", loading_images.small_font, "white", 1520, 330, GAME_SCREEN)
+
+        draw_text("DEFAULT - BLUE FORMULA", loading_images.medium_font, "grey", 1580, 1030, GAME_SCREEN)
 
         formula_button = Button(x_y=(350, 550), button_image=loading_images.formula_selection, button_text="",
                                 font=loading_images.small_font,
@@ -430,7 +434,7 @@ def car_selection():
 # GAME BINDS -----------------------------------------------------------------------------------------------------------
 def binds():
     while 1:
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("BINDS", loading_images.big_font, TITLE_COLOR, 850, TITLE_Y, GAME_SCREEN)
@@ -488,7 +492,7 @@ def binds():
 # GAME SETTINGS --------------------------------------------------------------------------------------------------------
 def game_settings():
     while 1:
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("SETTINGS", loading_images.big_font, TITLE_COLOR, 790, TITLE_Y, GAME_SCREEN)
@@ -680,7 +684,7 @@ def main_menu():
 
     while 1:
 
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text("MAIN MENU", loading_images.big_font, TITLE_COLOR, 750, TITLE_Y, GAME_SCREEN)
@@ -785,10 +789,10 @@ def map_stats(title, lap_times_file, match_times_file,
     loading = 1
 
     while 1:
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
 
         while loading:
-            GAME_SCREEN.blit(loading_images.f_light_background, (0, 0))
+            GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
             draw_text("Loading Stats.", loading_images.normal_font, "white", 780, 230, GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
@@ -802,7 +806,7 @@ def map_stats(title, lap_times_file, match_times_file,
             pygame.time.wait(300)
             loading = False
 
-        GAME_SCREEN.blit(loading_images.f_background, (0, 0))
+        GAME_SCREEN.blit(loading_images.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
         draw_text(title, loading_images.big_font, TITLE_COLOR, 630, TITLE_Y, GAME_SCREEN)
