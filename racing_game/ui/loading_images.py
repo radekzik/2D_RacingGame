@@ -1,6 +1,6 @@
 import pygame
 
-from racing_game.config import settings
+from racing_game.config.settings import Settings
 from racing_game.ui.resolution import res
 
 pygame.init()
@@ -8,7 +8,7 @@ pygame.init()
 WIDTH = 1920
 HEIGHT = 1080
 FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
-GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 16, vsync=settings.vsync)
+GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 16, vsync=Settings.vsync)
 
 # MAPS
 

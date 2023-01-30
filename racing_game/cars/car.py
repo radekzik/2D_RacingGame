@@ -3,7 +3,7 @@ import random
 import pygame
 import math
 
-from racing_game.config import settings
+from racing_game.config.settings import Settings
 from racing_game.ui import loading_images
 from racing_game.ui.resolution import image_position
 
@@ -181,7 +181,7 @@ class Car:
         for x in range(18):
             x += 1
             if random_number == x:
-                settings.enemy_car_type = x
+                Settings.enemy_car_type = x
                 self.car_image = car_list[x - 1]
 
         return self.car_image

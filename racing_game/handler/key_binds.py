@@ -1,15 +1,15 @@
 import pygame
 
 import racing_game.sounds.sounds
+from racing_game.config.settings import Settings
 from racing_game.ui import menu
-from racing_game.config import settings
 from racing_game.ui.draw_ui import DrawUI
 
 
 class KeyBinds:
     @staticmethod
     def player_key_binds(car, car_rect, enemy_rect, map_border, map_restart):
-        stopwatch = pygame.time.get_ticks() - settings.car_start_time
+        stopwatch = pygame.time.get_ticks() - Settings.car_start_time
         stopwatch = stopwatch // 100 / 10
         pressed_key = pygame.key.get_pressed()
 

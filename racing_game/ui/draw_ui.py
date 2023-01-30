@@ -2,7 +2,7 @@ import random
 
 import pygame
 
-from racing_game.config import settings
+from racing_game.config.settings import Settings
 from racing_game.ui import loading_images
 from racing_game.ui.loading_images import GAME_SCREEN
 from racing_game.ui.resolution import draw_text
@@ -46,7 +46,7 @@ class DrawUI:
         draw_text(f"LAP TIME - {stopwatch}", loading_images.small_font, "white", 1790, 20, GAME_SCREEN)
         draw_text(f"RACE TIME - {round(match_time)}", loading_images.small_font, "cyan", 1790, 60, GAME_SCREEN)
 
-        draw_text(f"LAP - {lap} / {settings.max_laps}", loading_images.small_font, "cyan", 1777, 1040, GAME_SCREEN)
+        draw_text(f"LAP - {lap} / {Settings.max_laps}", loading_images.small_font, "cyan", 1777, 1040, GAME_SCREEN)
 
     @staticmethod
     def player_title():
@@ -57,7 +57,7 @@ class DrawUI:
         draw_text(f"LAP TIME - {stopwatch}", loading_images.small_font, "white", 30, 20, GAME_SCREEN)
         draw_text(f"RACE TIME - {round(match_time)}", loading_images.small_font, "cyan", 30, 60, GAME_SCREEN)
 
-        draw_text(f"LAP - {lap} / {settings.max_laps}", loading_images.small_font, "cyan", 73, 1040, GAME_SCREEN)
+        draw_text(f"LAP - {lap} / {Settings.max_laps}", loading_images.small_font, "cyan", 73, 1040, GAME_SCREEN)
 
         DrawUI.enemy_title()
 
@@ -168,42 +168,42 @@ class DrawUI:
     def check_car_type(car):
         for x in range(16):
             x += 1
-            if settings.car_type == x:
+            if Settings.car_type == x:
                 car.car_image = car.player_cars(x - 1)
 
     @staticmethod
     def check_show_fps(command, clock):
-        if settings.show_fps == 1:
+        if Settings.show_fps == 1:
             command(clock)
 
     @staticmethod
     def check_show_xy(command):
-        if settings.show_xy == 1:
+        if Settings.show_xy == 1:
             command()
 
     @staticmethod
     def check_audio(command):
-        if settings.audio == 1:
+        if Settings.audio == 1:
             command()
 
     @staticmethod
     def check_audio_set_volume(command, volume):
-        if settings.audio == 1:
+        if Settings.audio == 1:
             command(volume)
 
     @staticmethod
     def check_fadeout_audio(command, time):
-        if settings.audio == 1:
+        if Settings.audio == 1:
             command(time)
 
     @staticmethod
     def check_show_ui(command, player_car, car_stopwatch):
-        if settings.show_ui == 1:
+        if Settings.show_ui == 1:
             command(player_car, car_stopwatch)
 
     @staticmethod
     def ui(player_car, car_stopwatch):
-        DrawUI.game_info(settings.car_match_time, settings.car_lap, car_stopwatch)
+        DrawUI.game_info(Settings.car_match_time, Settings.car_lap, car_stopwatch)
 
         DrawUI.speedometer(player_car, 1730, 900)
         player_car.car_current_speed()
@@ -213,7 +213,7 @@ class DrawUI:
 
     @staticmethod
     def enemy_ui(enemy_car, enemy_stopwatch):
-        DrawUI.enemy_game_info(settings.enemy_match_time, settings.enemy_lap, enemy_stopwatch)
+        DrawUI.enemy_game_info(Settings.enemy_match_time, Settings.enemy_lap, enemy_stopwatch)
 
         DrawUI.speedometer(enemy_car, 30, 900)
         enemy_car.car_current_speed()
@@ -223,14 +223,14 @@ class DrawUI:
 
     @staticmethod
     def car_stopwatch(ticks):
-        stopwatch = ticks - settings.car_start_time
+        stopwatch = ticks - Settings.car_start_time
         stopwatch = stopwatch // 100 / 10
 
         return stopwatch
 
     @staticmethod
     def enemy_stopwatch(ticks):
-        stopwatch = ticks - settings.enemy_start_time
+        stopwatch = ticks - Settings.enemy_start_time
         stopwatch = stopwatch // 100 / 10
 
         return stopwatch
@@ -261,28 +261,28 @@ class DrawUI:
 
     @staticmethod
     def car_animation(stopwatch, car):
-        if settings.car_type == 1:
+        if Settings.car_type == 1:
             DrawUI.animation(stopwatch, car, loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[1]["CAR-2"])
 
-        if settings.car_type == 2:
+        if Settings.car_type == 2:
             DrawUI.animation(stopwatch, car,  loading_images.FORMULA[3]["CAR"], loading_images.FORMULA[3]["CAR-2"])
 
-        if settings.car_type == 3:
+        if Settings.car_type == 3:
             DrawUI.animation(stopwatch, car,  loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[4]["CAR-2"])
 
-        if settings.car_type == 4:
+        if Settings.car_type == 4:
             DrawUI.animation(stopwatch, car,  loading_images.FORMULA[5]["CAR"], loading_images.FORMULA[5]["CAR-2"])
 
     @staticmethod
     def enemy_animation(stopwatch, enemy):
-        if settings.enemy_car_type == 1:
+        if Settings.enemy_car_type == 1:
             DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[1]["CAR"], loading_images.FORMULA[1]["CAR-2"])
 
-        if settings.enemy_car_type == 2:
+        if Settings.enemy_car_type == 2:
             DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[3]["CAR"], loading_images.FORMULA[3]["CAR-2"])
 
-        if settings.enemy_car_type == 3:
+        if Settings.enemy_car_type == 3:
             DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[4]["CAR"], loading_images.FORMULA[4]["CAR-2"])
 
-        if settings.enemy_car_type == 4:
+        if Settings.enemy_car_type == 4:
             DrawUI.second_animation(stopwatch, enemy, loading_images.FORMULA[5]["CAR"], loading_images.FORMULA[5]["CAR-2"])

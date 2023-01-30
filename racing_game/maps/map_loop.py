@@ -1,6 +1,6 @@
 import pygame
 
-from racing_game.config import settings
+from racing_game.config.settings import Settings
 from racing_game.handler.key_binds import KeyBinds
 from racing_game.loop_functions.functions import LoopFunctions, Collisions
 from racing_game.ui.draw_ui import DrawUI
@@ -16,21 +16,22 @@ class MapLoop:
         pygame.event.set_allowed(pygame.KEYDOWN)
 
         global enemy_car, player_car
-        settings.car_lap = 0
-        settings.enemy_lap = 0
 
-        settings.car_start_time = 0
-        settings.enemy_start_time = 0
-        settings.car_match_time = 0
-        settings.enemy_match_time = 0
+        Settings.car_lap = 0
+        Settings.enemy_lap = 0
 
-        settings.car_time_list = []
-        settings.enemy_time_list = []
+        Settings.car_start_time = 0
+        Settings.enemy_start_time = 0
+        Settings.car_match_time = 0
+        Settings.enemy_match_time = 0
+
+        Settings.car_time_list = []
+        Settings.enemy_time_list = []
 
         game_loop = 1
 
-        settings.countdown = 5
-        settings.last_count = pygame.time.get_ticks()
+        Settings.countdown = 5
+        Settings.last_count = pygame.time.get_ticks()
 
         while 1:
 
@@ -49,16 +50,16 @@ class MapLoop:
                 enemy_car = enemy()
                 enemy_car.car_image = enemy_car.random_enemy_car()
 
-            settings.started = False
+            Settings.started = False
 
             while game_loop:
 
-                clock.tick(settings.game_tick)
+                clock.tick(Settings.game_tick)
 
-                car_stopwatch = pygame.time.get_ticks() - settings.car_start_time
+                car_stopwatch = pygame.time.get_ticks() - Settings.car_start_time
                 car_stopwatch = car_stopwatch // 100 / 10
 
-                enemy_stopwatch = pygame.time.get_ticks() - settings.enemy_start_time
+                enemy_stopwatch = pygame.time.get_ticks() - Settings.enemy_start_time
                 enemy_stopwatch = enemy_stopwatch // 100 / 10
 
                 GAME_SCREEN.blit(background, (0, 0))
@@ -71,10 +72,10 @@ class MapLoop:
 
                 if enemy is not None and enemy_route is None:
                     LoopFunctions.start_countdown(player_car, enemy_car)
-                    settings.show_xy = 2
-                    settings.show_fps = 2
+                    Settings.show_xy = 2
+                    Settings.show_fps = 2
 
-                    if settings.show_ui == 1:
+                    if Settings.show_ui == 1:
                         DrawUI.player_title()
 
                 if enemy is not None and enemy_route is not None:
@@ -83,7 +84,7 @@ class MapLoop:
                     enemy_car.start_drive()
                     enemy_car.pc_route = enemy_route(enemy_car)
 
-                if settings.show_ui == 1:
+                if Settings.show_ui == 1:
                     DrawUI.ui(player_car, car_stopwatch)
 
                     if enemy is not None and enemy_route is None:
@@ -117,8 +118,8 @@ class MapLoop:
                                               map_border, map_restart)
                     Collisions.collision_vs_pc(player_car, enemy_car, player_car.get_car_rect(),
                                                enemy_car.get_car_rect(),
-                                               map_border, enemy_stopwatch, settings.car_time_list,
-                                               settings.enemy_time_list, map_restart, map_respawn, enemy_respawn,
+                                               map_border, enemy_stopwatch, Settings.car_time_list,
+                                               Settings.enemy_time_list, map_restart, map_respawn, enemy_respawn,
                                                x_range1, x_range2, y_range1, y_range2)
 
                     if x_range1 < player_car.x < x_range2:

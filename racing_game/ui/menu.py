@@ -1,6 +1,6 @@
 import pygame
 
-from racing_game.config import settings
+from racing_game.config.settings import Settings
 from racing_game.maps.maps import AllMaps
 from racing_game.storage.data_processing import DataProcessing
 from racing_game.ui import loading_images
@@ -212,27 +212,27 @@ def laps_settings():
             if event.type == pygame.MOUSEBUTTONDOWN:
 
                 if lap_button2.on_click(mouse_coordinates):
-                    settings.max_laps = 2
+                    Settings.max_laps = 2
                     set_text()
 
                 if lap_button3.on_click(mouse_coordinates):
-                    settings.max_laps = 3
+                    Settings.max_laps = 3
                     set_text()
 
                 if lap_button4.on_click(mouse_coordinates):
-                    settings.max_laps = 4
+                    Settings.max_laps = 4
                     set_text()
 
                 if lap_button5.on_click(mouse_coordinates):
-                    settings.max_laps = 6
+                    Settings.max_laps = 6
                     set_text()
 
                 if lap_button6.on_click(mouse_coordinates):
-                    settings.max_laps = 8
+                    Settings.max_laps = 8
                     set_text()
 
                 if lap_button7.on_click(mouse_coordinates):
-                    settings.max_laps = 10
+                    Settings.max_laps = 10
                     set_text()
 
                 if back_button.on_click(mouse_coordinates):
@@ -334,28 +334,28 @@ def car_color_selection(car_title, title_x, title1, title2, title3, title4,
             if event.type == pygame.MOUSEBUTTONDOWN:
 
                 if first_button.on_click(mouse_coordinates):
-                    settings.car_type = car_option1
+                    Settings.car_type = car_option1
                     draw_text("Car Selected!", loading_images.normal_font, color1, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if second_button.on_click(mouse_coordinates):
-                    settings.car_type = car_option2
+                    Settings.car_type = car_option2
                     draw_text("Car Selected!", loading_images.normal_font, color2, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if third_button.on_click(mouse_coordinates):
-                    settings.car_type = car_option3
+                    Settings.car_type = car_option3
                     draw_text("Car Selected!", loading_images.normal_font, color3, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
                     main_menu()
 
                 if fourth_button.on_click(mouse_coordinates):
-                    settings.car_type = car_option4
+                    Settings.car_type = car_option4
                     draw_text("Car Selected!", loading_images.normal_font, color4, 810, 230, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
@@ -583,15 +583,13 @@ def game_settings():
             if event.type == pygame.MOUSEBUTTONDOWN:
 
                 if audio_on_button.on_click(mouse_coordinates):
-                    settings.audio = 1
-                    print(settings.audio)
+                    Settings.audio = 1
                     draw_text("AUDIO ON!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if audio_off_button.on_click(mouse_coordinates):
-                    settings.audio = 2
-                    print(settings.audio)
+                    Settings.audio = 2
                     draw_text("AUDIO OFF!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
@@ -609,55 +607,49 @@ def game_settings():
                 # pygame.time.wait(2000)
 
                 if vsync_on_button.on_click(mouse_coordinates):
-                    settings.vsync = 1
-                    print(settings.vsync)
+                    Settings.vsync = 1
                     draw_text("VSYNC ON!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if vsync_off_button.on_click(mouse_coordinates):
-                    settings.vsync = 0
-                    print(settings.vsync)
+                    Settings.vsync = 0
                     draw_text("VSYNC OFF!", loading_images.normal_font, "green", 850, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_ui_on_button.on_click(mouse_coordinates):
-                    settings.show_ui = 1
-                    print(settings.show_ui)
+                    Settings.show_ui = 1
                     draw_text("UI ON!", loading_images.normal_font, "green", 900, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_ui_off_button.on_click(mouse_coordinates):
-                    settings.show_ui = 2
-                    print(settings.show_ui)
+                    Settings.show_ui = 2
                     draw_text("UI OFF!", loading_images.normal_font, "green", 900, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_fps_on_button.on_click(mouse_coordinates):
-                    settings.show_fps = 1
-                    print(settings.show_fps)
+                    Settings.show_fps = 1
                     draw_text("FPS ON!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_fps_off_button.on_click(mouse_coordinates):
-                    settings.show_fps = 2
-                    print(settings.show_fps)
+                    Settings.show_fps = 2
                     draw_text("FPS OFF!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_xy_on_button.on_click(mouse_coordinates):
-                    settings.show_xy = 1
+                    Settings.show_xy = 1
                     draw_text("X-Y ON!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
 
                 if show_xy_off_button.on_click(mouse_coordinates):
-                    settings.show_xy = 2
+                    Settings.show_xy = 2
                     draw_text("X-Y OFF!", loading_images.normal_font, "green", 890, 210, GAME_SCREEN)
                     pygame.display.update()
                     pygame.time.wait(1200)
@@ -758,27 +750,27 @@ def main_menu():
 
 # MAP STATS ------------------------------------------------------------------------------------------------------------
 def first_map_stats():
-    map_stats("FIRST MAP STATS", settings.FILE_PATHS[1]["LAP_TIMES"], settings.FILE_PATHS[1]["MATCH_TIMES"],
+    map_stats("FIRST MAP STATS", Settings.FILE_PATHS[1]["LAP_TIMES"], Settings.FILE_PATHS[1]["MATCH_TIMES"],
               2, 1, 2, second_map_stats)
 
 
 def second_map_stats():
-    map_stats("SECOND MAP STATS", settings.FILE_PATHS[2]["LAP_TIMES"], settings.FILE_PATHS[2]["MATCH_TIMES"],
+    map_stats("SECOND MAP STATS", Settings.FILE_PATHS[2]["LAP_TIMES"], Settings.FILE_PATHS[2]["MATCH_TIMES"],
               1, 1, first_map_stats, third_map_stats)
 
 
 def third_map_stats():
-    map_stats("THIRD MAP STATS", settings.FILE_PATHS[3]["LAP_TIMES"], settings.FILE_PATHS[3]["MATCH_TIMES"],
+    map_stats("THIRD MAP STATS", Settings.FILE_PATHS[3]["LAP_TIMES"], Settings.FILE_PATHS[3]["MATCH_TIMES"],
               1, 1, second_map_stats, fourth_map_stats)
 
 
 def fourth_map_stats():
-    map_stats("FOURTH MAP STATS", settings.FILE_PATHS[4]["LAP_TIMES"], settings.FILE_PATHS[4]["MATCH_TIMES"],
+    map_stats("FOURTH MAP STATS", Settings.FILE_PATHS[4]["LAP_TIMES"], Settings.FILE_PATHS[4]["MATCH_TIMES"],
               1, 1, third_map_stats, fifth_map_stats)
 
 
 def fifth_map_stats():
-    map_stats("FIFTH MAP STATS", settings.FILE_PATHS[5]["LAP_TIMES"], settings.FILE_PATHS[5]["MATCH_TIMES"],
+    map_stats("FIFTH MAP STATS", Settings.FILE_PATHS[5]["LAP_TIMES"], Settings.FILE_PATHS[5]["MATCH_TIMES"],
               1, 2, fourth_map_stats, 2)
 
 
