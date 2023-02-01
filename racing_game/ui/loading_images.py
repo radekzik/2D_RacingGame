@@ -6,6 +6,7 @@ pygame.init()
 
 
 class LoadingImages:
+
     WIDTH = 1920
     HEIGHT = 1080
     FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE

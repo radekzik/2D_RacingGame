@@ -1,5 +1,6 @@
 
 class DataProcessing:
+
     @staticmethod
     def save_lap_time(data, filename):
         file = open(filename, "a")

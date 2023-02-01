@@ -1,7 +1,7 @@
 import pygame
 
+import racing_game.ui.menu
 from racing_game.config.settings import Settings
-from racing_game.ui import menu
 from racing_game.ui.draw_ui import DrawUI
 from racing_game.sounds.sounds import Sounds
 
@@ -44,7 +44,7 @@ class KeyBinds:
 
         if pressed_key[pygame.K_x]:
             stop_sounds()
-            menu.mode_selection()
+            racing_game.ui.menu.mode_selection()
 
         if pressed_key[pygame.K_r]:
             stop_sounds()
@@ -89,7 +89,7 @@ class KeyBinds:
             enemy_car.movement_speed = 2.5
 
         if pressed_key[pygame.K_x]:
-            menu.mode_selection()
+            racing_game.ui.menu.mode_selection()
 
         if pressed_key[pygame.K_i]:
             if pressed_key[pygame.K_o] and not enemy_car.border_collide(pygame.mask.from_surface(map_border)) \

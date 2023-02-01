@@ -1,8 +1,6 @@
 
-
-
-
 class Button:
+
     def __init__(self, x_y, button_image, button_text, font, font_color, font_hover_color):
         self.x = x_y[0]
         self.y = x_y[1]
@@ -42,6 +40,3 @@ class Button:
         button_name.on_hover(mouse_coordinates)
         button_name.button_render(game_screen)
 
-    @staticmethod
-    def buttons_render(game_screen, *name):
-        name.button_render(game_screen)
