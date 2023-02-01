@@ -7,13 +7,12 @@ from racing_game.ui.draw_ui import DrawUI
 from racing_game.ui.loading_images import LoadingImages
 from racing_game.ui.button import Button
 
-TITLE_Y = 70
-TITLE_COLOR = "purple"
-QUIT_X = 977
-QUIT_Y = 980
-
 
 class Menu:
+    TITLE_Y = 70
+    TITLE_COLOR = "purple"
+    QUIT_X = 977
+    QUIT_Y = 980
 
     # MAP SELECTION --------------------------------------------------------------------------------------------------------
     @staticmethod
@@ -23,7 +22,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("MAP SELECTION", LoadingImages.big_font, TITLE_COLOR, 680, TITLE_Y,
+            DrawUI.draw_text("MAP SELECTION", LoadingImages.big_font, Menu.TITLE_COLOR, 680, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("I. MAP", LoadingImages.small_font, "cyan", 410, 380, LoadingImages.GAME_SCREEN)
@@ -56,7 +55,7 @@ class Menu:
                                      font=LoadingImages.normal_font,
                                      font_color="white", font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -101,7 +100,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("LAPS", LoadingImages.big_font, TITLE_COLOR, 880, TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("LAPS", LoadingImages.big_font, Menu.TITLE_COLOR, 880, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("DEFAULT - 3 LAPS", LoadingImages.medium_font, "grey", 1680, 1030,
                              LoadingImages.GAME_SCREEN)
 
@@ -129,7 +128,7 @@ class Menu:
                                  button_text="10", font=LoadingImages.normal_font, font_color="white",
                                  font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -235,7 +234,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text(car_title, LoadingImages.big_font, TITLE_COLOR, title_x, TITLE_Y,
+            DrawUI.draw_text(car_title, LoadingImages.big_font, Menu.TITLE_COLOR, title_x, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text(title1, LoadingImages.small_font, color1, 330, 340, LoadingImages.GAME_SCREEN)
@@ -261,7 +260,7 @@ class Menu:
                                    font=LoadingImages.small_font,
                                    font_color="white", font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -323,7 +322,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("CAR SELECTION", LoadingImages.big_font, TITLE_COLOR, 680, TITLE_Y,
+            DrawUI.draw_text("CAR SELECTION", LoadingImages.big_font, Menu.TITLE_COLOR, 680, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("FORMULA", LoadingImages.small_font, "white", 320, 330, LoadingImages.GAME_SCREEN)
@@ -349,7 +348,7 @@ class Menu:
             cabrio_button = Button(x_y=(1550, 550), button_image=LoadingImages.cabrio_selection, button_text="",
                                    font=LoadingImages.small_font, font_color="white", font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -391,7 +390,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("BINDS", LoadingImages.big_font, TITLE_COLOR, 850, TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("BINDS", LoadingImages.big_font, Menu.TITLE_COLOR, 850, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("CAR CONTROL", LoadingImages.normal_font, "purple", 495, 200, LoadingImages.GAME_SCREEN)
 
@@ -423,7 +422,7 @@ class Menu:
             DrawUI.draw_text("X", LoadingImages.medium_font, "white", 630, 790, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Exit", LoadingImages.medium_font, "cyan", 1220, 790, LoadingImages.GAME_SCREEN)
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -449,7 +448,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("SETTINGS", LoadingImages.big_font, TITLE_COLOR, 790, TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("SETTINGS", LoadingImages.big_font, Menu.TITLE_COLOR, 790, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("AUDIO", LoadingImages.normal_font, "cyan", 620, 300, LoadingImages.GAME_SCREEN)
             # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
@@ -500,7 +499,7 @@ class Menu:
                                         button_text="OFF", font=LoadingImages.small_font, font_color="white",
                                         font_hover_color="purple")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -654,7 +653,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("MAIN MENU", LoadingImages.big_font, TITLE_COLOR, 750, TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("MAIN MENU", LoadingImages.big_font, Menu.TITLE_COLOR, 750, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
 
             play_button = Button(button_image=LoadingImages.button_play_transparent_image, x_y=(976, 430),
                                  button_text="PLAY",
@@ -687,7 +686,7 @@ class Menu:
                                      font=LoadingImages.normal_font,
                                      font_color="white", font_hover_color="cyan")
 
-            quit_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y), button_text="QUIT",
+            quit_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y), button_text="QUIT",
                                  font=LoadingImages.normal_font,
                                  font_color="orange", font_hover_color="red")
 
@@ -785,7 +784,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text(title, LoadingImages.big_font, TITLE_COLOR, 630, TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(title, LoadingImages.big_font, Menu.TITLE_COLOR, 630, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("FASTEST LAP TIMES", LoadingImages.medium_font, "purple", 580, 330,
                              LoadingImages.GAME_SCREEN)
@@ -825,7 +824,7 @@ class Menu:
                                          button_text="", font=LoadingImages.normal_font, font_color="white",
                                          font_hover_color="white")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                                  font_hover_color="red")
 
@@ -866,7 +865,7 @@ def mode_selection():
         LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
         mouse_coordinates = pygame.mouse.get_pos()
 
-        DrawUI.draw_text("MODE SELECTION", LoadingImages.big_font, TITLE_COLOR, 650, TITLE_Y,
+        DrawUI.draw_text("MODE SELECTION", LoadingImages.big_font, Menu.TITLE_COLOR, 650, Menu.TITLE_Y,
                          LoadingImages.GAME_SCREEN)
 
         against_pc = Button(button_image=LoadingImages.button_transparent_image, x_y=(760, 420),
@@ -881,7 +880,7 @@ def mode_selection():
                       button_text="SOLO", font=LoadingImages.normal_font, font_color="white",
                       font_hover_color="cyan")
 
-        back_button = Button(button_image=LoadingImages.button_image, x_y=(QUIT_X, QUIT_Y),
+        back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                              button_text="BACK", font=LoadingImages.normal_font, font_color="orange",
                              font_hover_color="red")
 

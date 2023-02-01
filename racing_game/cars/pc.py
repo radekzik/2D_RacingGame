@@ -8,9 +8,6 @@ global difference_x, difference_y
 global angle
 global new_angle
 
-full_degrees = 360
-half_degrees = 180
-
 
 class PCPlayer(Car):
     x_position = 700
@@ -20,6 +17,9 @@ class PCPlayer(Car):
 
     car_width = car_image.get_width()
     car_height = car_image.get_height()
+
+    full_degrees = 360
+    half_degrees = 180
 
     def __init__(self, pc_route=None):
         super().__init__()
@@ -59,7 +59,7 @@ class PCPlayer(Car):
         difference_x, difference_y = (route_x - self.x, route_y - self.y)
 
         if difference_y == 0:
-            angle = half_degrees
+            angle = self.half_degrees
         else:
             xy_division = difference_x / difference_y
 
@@ -79,8 +79,8 @@ class PCPlayer(Car):
 
         new_angle = self.car_angle - math.degrees(angle)
 
-        if new_angle >= half_degrees:
-            new_angle = new_angle - full_degrees
+        if new_angle >= self.half_degrees:
+            new_angle = new_angle - self.full_degrees
 
         if new_angle > 0:
             # self.subtract_angle()
