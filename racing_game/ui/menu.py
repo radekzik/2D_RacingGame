@@ -100,7 +100,8 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("LAPS", LoadingImages.big_font, Menu.TITLE_COLOR, 880, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("LAPS", LoadingImages.big_font, Menu.TITLE_COLOR, 880, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("DEFAULT - 3 LAPS", LoadingImages.medium_font, "grey", 1680, 1030,
                              LoadingImages.GAME_SCREEN)
 
@@ -390,7 +391,8 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("BINDS", LoadingImages.big_font, Menu.TITLE_COLOR, 850, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("BINDS", LoadingImages.big_font, Menu.TITLE_COLOR, 850, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("CAR CONTROL", LoadingImages.normal_font, "purple", 495, 200, LoadingImages.GAME_SCREEN)
 
@@ -448,7 +450,8 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("SETTINGS", LoadingImages.big_font, Menu.TITLE_COLOR, 790, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("SETTINGS", LoadingImages.big_font, Menu.TITLE_COLOR, 790, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("AUDIO", LoadingImages.normal_font, "cyan", 620, 300, LoadingImages.GAME_SCREEN)
             # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
@@ -621,12 +624,16 @@ class Menu:
                         pygame.display.update()
                         pygame.time.wait(1200)
 
+                    # Menu.change_settings(show_xy_on_button, mouse_coordinates, Settings.show_xy == 1, "X-Y ON!", 890)
+
                     if show_xy_off_button.on_click(mouse_coordinates):
                         Settings.show_xy = 2
                         DrawUI.draw_text("X-Y OFF!", LoadingImages.normal_font, "green", 890, 210,
                                          LoadingImages.GAME_SCREEN)
                         pygame.display.update()
                         pygame.time.wait(1200)
+
+                    # Menu.change_settings(show_xy_off_button, mouse_coordinates, Settings.show_xy == 2, "X-Y OFF!", 890)
 
                     # change_settings(show_xy_off_button, mouse_coordinates, settings.show_xy, 2, "X-Y OFF!")
 
@@ -636,12 +643,16 @@ class Menu:
             pygame.display.update()
 
     @staticmethod
-    def change_settings(button, mouse_coordinates, option, value, title):
+    def change_settings(button, mouse_coordinates, command, title, title_x):
+
         if button.on_click(mouse_coordinates):
-            option = value
-            DrawUI.draw_text(title, LoadingImages.normal_font, "green", 850, 210, LoadingImages.GAME_SCREEN)
+            settings = command
+            DrawUI.draw_text(title, LoadingImages.normal_font, "green", title_x, 210, LoadingImages.GAME_SCREEN)
+
             pygame.display.update()
             pygame.time.wait(1200)
+
+            return settings
 
     # MAIN MENU ------------------------------------------------------------------------------------------------------------
     @staticmethod
@@ -653,7 +664,8 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text("MAIN MENU", LoadingImages.big_font, Menu.TITLE_COLOR, 750, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("MAIN MENU", LoadingImages.big_font, Menu.TITLE_COLOR, 750, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
 
             play_button = Button(button_image=LoadingImages.button_play_transparent_image, x_y=(976, 430),
                                  button_text="PLAY",
@@ -686,7 +698,8 @@ class Menu:
                                      font=LoadingImages.normal_font,
                                      font_color="white", font_hover_color="cyan")
 
-            quit_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y), button_text="QUIT",
+            quit_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+                                 button_text="QUIT",
                                  font=LoadingImages.normal_font,
                                  font_color="orange", font_hover_color="red")
 
@@ -784,7 +797,8 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text(title, LoadingImages.big_font, Menu.TITLE_COLOR, 630, Menu.TITLE_Y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(title, LoadingImages.big_font, Menu.TITLE_COLOR, 630, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("FASTEST LAP TIMES", LoadingImages.medium_font, "purple", 580, 330,
                              LoadingImages.GAME_SCREEN)

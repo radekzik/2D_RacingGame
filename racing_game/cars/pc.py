@@ -4,12 +4,10 @@ import random
 from racing_game.cars.car import Car
 from racing_game.ui.loading_images import LoadingImages
 
-global difference_x, difference_y
-global angle
-global new_angle
-
 
 class PCPlayer(Car):
+    global difference_x, difference_y, angle, new_angle
+
     x_position = 700
     y_position = 900
     car_angle = 270
@@ -50,9 +48,7 @@ class PCPlayer(Car):
         self.movement()
 
     def new_angle_pos(self):
-        global difference_x, difference_y
-        global angle
-        global new_angle
+        global difference_x, difference_y, angle, new_angle
 
         route_x, route_y = self.pc_route[self.next_route_position]
 

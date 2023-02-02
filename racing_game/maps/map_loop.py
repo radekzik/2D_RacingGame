@@ -70,7 +70,7 @@ class MapLoop:
                 # SOLO
                 if enemy is None and enemy_route is None:
                     LoopFunctions.start_countdown(player_car, player_car)
-                    #DrawUI.check_show_fps(DrawUI.game_show_fps, clock)
+                    # DrawUI.check_show_fps(DrawUI.game_show_fps, clock)
 
                 # 1v1
                 if enemy is not None and enemy_route is None:
@@ -84,7 +84,7 @@ class MapLoop:
                 # VS PC
                 if enemy is not None and enemy_route is not None:
                     LoopFunctions.start_countdown(player_car, enemy_car)
-                    #DrawUI.check_show_fps(DrawUI.game_show_fps, clock)
+                    # DrawUI.check_show_fps(DrawUI.game_show_fps, clock)
 
                     enemy_car.start_drive()
                     enemy_car.pc_route = enemy_route(enemy_car)
