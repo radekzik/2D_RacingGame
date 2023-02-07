@@ -361,11 +361,7 @@ class Menu:
                             pygame.time.wait(1200)
                             Menu.main_menu()
                         else:
-                            DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red",
-                                             810, 230,
-                                             LoadingImages.GAME_SCREEN)
-                            pygame.display.update()
-                            pygame.time.wait(1200)
+                            Menu.car_locked_alert()
 
                     if third_button.on_click(mouse_coordinates):
 
@@ -378,10 +374,7 @@ class Menu:
                             Menu.main_menu()
 
                         else:
-                            DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red", 810,
-                                             230, LoadingImages.GAME_SCREEN)
-                            pygame.display.update()
-                            pygame.time.wait(1200)
+                            Menu.car_locked_alert()
 
                     if fourth_button.on_click(mouse_coordinates):
 
@@ -394,15 +387,18 @@ class Menu:
                             Menu.main_menu()
 
                         else:
-                            DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red",
-                                             810, 230, LoadingImages.GAME_SCREEN)
-                            pygame.display.update()
-                            pygame.time.wait(1200)
+                            Menu.car_locked_alert()
 
                     if back_button.on_click(mouse_coordinates):
                         Menu.car_selection()
 
             pygame.display.update()
+
+    @staticmethod
+    def car_locked_alert():
+        DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red", 810, 230, LoadingImages.GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(1200)
 
     @staticmethod
     def car_selection():
