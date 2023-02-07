@@ -25,6 +25,10 @@ class Menu:
             DrawUI.draw_text("MAP SELECTION", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 680, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (1830, 250))
+            DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.MEDIUM_FONT, "cyan", 1850, 210,
+                             LoadingImages.GAME_SCREEN)
+
             DrawUI.draw_text("I. MAP", LoadingImages.SMALL_FONT, "cyan", 410, 380, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("II. MAP", LoadingImages.SMALL_FONT, "cyan", 940, 340, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("III. MAP", LoadingImages.SMALL_FONT, "cyan", 1440, 315, LoadingImages.GAME_SCREEN)
@@ -239,6 +243,10 @@ class Menu:
             DrawUI.draw_text(car_title, LoadingImages.BIG_FONT, Menu.TITLE_COLOR, title_x, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (1830, 250))
+            DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.MEDIUM_FONT, "cyan", 1850, 210,
+                             LoadingImages.GAME_SCREEN)
+
             DrawUI.draw_text(title1, LoadingImages.SMALL_FONT, color1, 330, 340, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text(title2, LoadingImages.SMALL_FONT, color2, 717, 340, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text(title3, LoadingImages.SMALL_FONT, color3, 1120, 340, LoadingImages.GAME_SCREEN)
@@ -325,6 +333,10 @@ class Menu:
             mouse_coordinates = pygame.mouse.get_pos()
 
             DrawUI.draw_text("CAR SELECTION", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 680, Menu.TITLE_Y,
+                             LoadingImages.GAME_SCREEN)
+
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (1830, 250))
+            DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.MEDIUM_FONT, "cyan", 1850, 210,
                              LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("FORMULA", LoadingImages.SMALL_FONT, "white", 320, 330, LoadingImages.GAME_SCREEN)
@@ -885,6 +897,10 @@ def mode_selection():
         mouse_coordinates = pygame.mouse.get_pos()
 
         DrawUI.draw_text("MODE SELECTION", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 650, Menu.TITLE_Y,
+                         LoadingImages.GAME_SCREEN)
+
+        LoadingImages.GAME_SCREEN.blit(LoadingImages.trophy_icon, (1830, 250))
+        DrawUI.draw_text(f"{Settings.win_coins}", LoadingImages.MEDIUM_FONT, "cyan", 1850, 210,
                          LoadingImages.GAME_SCREEN)
 
         against_pc = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(760, 420),

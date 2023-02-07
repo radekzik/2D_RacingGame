@@ -76,7 +76,7 @@ class DrawUI:
     @staticmethod
     def player_time_table(fastest_time, slowest_time, match_time):
 
-        LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
+        LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[2]["TABLE"], (700, 200))
         DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
@@ -84,7 +84,7 @@ class DrawUI:
     @staticmethod
     def enemy_time_table(fastest_time, slowest_time, match_time):
 
-        LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
+        LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[2]["TABLE"], (700, 200))
         DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
