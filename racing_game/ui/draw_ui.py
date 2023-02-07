@@ -76,7 +76,7 @@ class DrawUI:
     @staticmethod
     def player_time_table(fastest_time, slowest_time, match_time):
 
-        LoadingImages.GAME_SCREEN.blit(LoadingImages.time_background2, (700, 200))
+        LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
         DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
@@ -84,7 +84,7 @@ class DrawUI:
     @staticmethod
     def enemy_time_table(fastest_time, slowest_time, match_time):
 
-        LoadingImages.GAME_SCREEN.blit(LoadingImages.time_background2, (700, 200))
+        LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
         DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
         DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
@@ -94,36 +94,36 @@ class DrawUI:
         speedometr_position = x, y
 
         if car.car_speed < 0:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.speedometr, speedometr_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SPEEDOMETR[1]["SPEEDOMETR"], speedometr_position)
         if car.car_speed == 0:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.speedometr_0, speedometr_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SPEEDOMETR[2]["SPEEDOMETR"], speedometr_position)
         if 0 < car.car_speed <= 1:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.speedometr_1, speedometr_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SPEEDOMETR[3]["SPEEDOMETR"], speedometr_position)
         if 1 < car.car_speed <= 2:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.speedometr_2, speedometr_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SPEEDOMETR[4]["SPEEDOMETR"], speedometr_position)
         if 2 < car.car_speed <= 3:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.speedometr_3, speedometr_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SPEEDOMETR[5]["SPEEDOMETR"], speedometr_position)
         if 3 < car.car_speed <= 10:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.speedometr_nitro, speedometr_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SPEEDOMETR[6]["SPEEDOMETR"], speedometr_position)
 
     @staticmethod
     def nitro(car, x, y):
         nitro_position = x, y
 
         if car.car_nitro < 0:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_0, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[2]["NITRO"], nitro_position)
         if car.car_nitro == 0:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_empty, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[1]["NITRO"], nitro_position)
         if 0 < car.car_nitro <= 2:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_1, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[3]["NITRO"], nitro_position)
         if 2 < car.car_nitro <= 4:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_2, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[4]["NITRO"], nitro_position)
         if 4 < car.car_nitro <= 6:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_3, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[5]["NITRO"], nitro_position)
         if 6 < car.car_nitro <= 8:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_4, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[6]["NITRO"], nitro_position)
         if 8 < car.car_nitro <= 15:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.nitro_5, nitro_position)
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.NITRO[7]["NITRO"], nitro_position)
 
     @staticmethod
     def restarting_game():

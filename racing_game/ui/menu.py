@@ -105,27 +105,27 @@ class Menu:
             DrawUI.draw_text("DEFAULT - 3 LAPS", LoadingImages.MEDIUM_FONT, "grey", 1680, 1030,
                              LoadingImages.GAME_SCREEN)
 
-            lap_button2 = Button(button_image=LoadingImages.on_off_button_x2, x_y=(760, 400),
+            lap_button2 = Button(button_image=LoadingImages.ON_OFF_BUTTONS[2]["BUTTON"], x_y=(760, 400),
                                  button_text="2", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
-            lap_button3 = Button(button_image=LoadingImages.on_off_button_x2, x_y=(970, 400),
+            lap_button3 = Button(button_image=LoadingImages.ON_OFF_BUTTONS[2]["BUTTON"], x_y=(970, 400),
                                  button_text="3", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
-            lap_button4 = Button(button_image=LoadingImages.on_off_button_x2, x_y=(1180, 400),
+            lap_button4 = Button(button_image=LoadingImages.ON_OFF_BUTTONS[2]["BUTTON"], x_y=(1180, 400),
                                  button_text="4", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
-            lap_button5 = Button(button_image=LoadingImages.on_off_button_x2, x_y=(760, 600),
+            lap_button5 = Button(button_image=LoadingImages.ON_OFF_BUTTONS[2]["BUTTON"], x_y=(760, 600),
                                  button_text="6", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
-            lap_button6 = Button(button_image=LoadingImages.on_off_button_x2, x_y=(970, 600),
+            lap_button6 = Button(button_image=LoadingImages.ON_OFF_BUTTONS[2]["BUTTON"], x_y=(970, 600),
                                  button_text="8", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
-            lap_button7 = Button(button_image=LoadingImages.on_off_button_x2, x_y=(1180, 600),
+            lap_button7 = Button(button_image=LoadingImages.ON_OFF_BUTTONS[2]["BUTTON"], x_y=(1180, 600),
                                  button_text="10", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
@@ -460,11 +460,11 @@ class Menu:
             DrawUI.draw_text("FPS", LoadingImages.NORMAL_FONT, "cyan", 620, 600, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("CAR XY", LoadingImages.NORMAL_FONT, "cyan", 620, 700, LoadingImages.GAME_SCREEN)
 
-            audio_on_button = Button(button_image=LoadingImages.on_off_button, x_y=(1220, 340),
+            audio_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 340),
                                      button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
                                      font_hover_color="cyan")
 
-            audio_off_button = Button(button_image=LoadingImages.on_off_button, x_y=(1300, 340),
+            audio_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 340),
                                       button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                       font_hover_color="purple")
 
@@ -474,31 +474,31 @@ class Menu:
             # camera_off_button = Button(button_image=on_off_button, x_y=(1300, 440),
             # button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
 
-            vsync_on_button = Button(button_image=LoadingImages.on_off_button, x_y=(1220, 440),
+            vsync_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 440),
                                      button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
                                      font_hover_color="cyan")
-            vsync_off_button = Button(button_image=LoadingImages.on_off_button, x_y=(1300, 440),
+            vsync_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 440),
                                       button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                       font_hover_color="purple")
 
-            show_ui_on_button = Button(button_image=LoadingImages.on_off_button, x_y=(1220, 540),
+            show_ui_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 540),
                                        button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
                                        font_hover_color="cyan")
-            show_ui_off_button = Button(button_image=LoadingImages.on_off_button, x_y=(1300, 540),
+            show_ui_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 540),
                                         button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                         font_hover_color="purple")
 
-            show_fps_on_button = Button(button_image=LoadingImages.on_off_button, x_y=(1220, 640),
+            show_fps_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 640),
                                         button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
                                         font_hover_color="cyan")
-            show_fps_off_button = Button(button_image=LoadingImages.on_off_button, x_y=(1300, 640),
+            show_fps_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 640),
                                          button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                          font_hover_color="purple")
 
-            show_xy_on_button = Button(button_image=LoadingImages.on_off_button, x_y=(1220, 740),
+            show_xy_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 740),
                                        button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
                                        font_hover_color="cyan")
-            show_xy_off_button = Button(button_image=LoadingImages.on_off_button, x_y=(1300, 740),
+            show_xy_off_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1300, 740),
                                         button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                         font_hover_color="purple")
 

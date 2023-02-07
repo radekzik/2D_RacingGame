@@ -153,8 +153,7 @@ class LoadingImages:
         2: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/green_lake_forest3.png"), 0.75).convert_alpha()},
 
         3: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/dark_green_lake_forest.png"),
-                              0.75).convert_alpha()
-            },
+                              0.75).convert_alpha()},
 
     }
 
@@ -168,48 +167,66 @@ class LoadingImages:
 
     }
 
-    # buttons
+    # BUTTONS ---------------------------------------------------------------------------------------------------------------
     button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
     button_play_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"),
                                         1.3).convert_alpha()
     button_win_lose = res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()
     button_image = res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()
-    pointer_right = res(pygame.image.load("../images/ui/buttons/pointer_right.png"), 1).convert_alpha()
-    pointer_left = res(pygame.image.load("../images/ui/buttons/pointer_left.png"), 1).convert_alpha()
 
-    on_off_button = res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 1).convert_alpha()
-    on_off_button_x2 = res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 2).convert_alpha()
+    POINTERS = {
 
+        1: {"POINTER": res(pygame.image.load("../images/ui/buttons/pointer_left.png"), 1).convert_alpha()},
+        2: {"POINTER": res(pygame.image.load("../images/ui/buttons/pointer_right.png"), 1).convert_alpha()}
 
+    }
 
-    # banners
-    esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()
-    time_menu = res(pygame.image.load("../images/ui/time_menu.png"), 1).convert_alpha()
-    time_background = res(pygame.image.load("../images/backgrounds/time_background.png"), 1).convert_alpha()
-    time_background2 = res(pygame.image.load("../images/backgrounds/time_background3.png"), 1).convert_alpha()
+    ON_OFF_BUTTONS = {
 
-    # semaphor
-    semaphor_all_red = res(pygame.image.load("../images/ui/semaphor/semaphor_all_red.png"), 1).convert_alpha()
-    semaphor_red = res(pygame.image.load("../images/ui/semaphor/semaphor_red.png"), 1).convert_alpha()
-    semaphor_orange = res(pygame.image.load("../images/ui/semaphor/semaphor_orange.png"), 1).convert_alpha()
-    semaphor_green = res(pygame.image.load("../images/ui/semaphor/semaphor_green.png"), 1).convert_alpha()
+        1: {"BUTTON": res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 1).convert_alpha()},
+        2: {"BUTTON": res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 2).convert_alpha()}
 
-    # speedometr
-    speedometr = res(pygame.image.load("../images/ui/speedometr/speedometr_default.png"), 0.5).convert_alpha()
-    speedometr_0 = res(pygame.image.load("../images/ui/speedometr/speedometr_0.png"), 0.5).convert_alpha()
-    speedometr_1 = res(pygame.image.load("../images/ui/speedometr/speedometr_1.png"), 0.5).convert_alpha()
-    speedometr_2 = res(pygame.image.load("../images/ui/speedometr/speedometr_2.png"), 0.5).convert_alpha()
-    speedometr_3 = res(pygame.image.load("../images/ui/speedometr/speedometr_3.png"), 0.5).convert_alpha()
-    speedometr_nitro = res(pygame.image.load("../images/ui/speedometr/speedometr_nitro.png"), 0.5).convert_alpha()
+    }
 
-    # nitro
-    nitro_empty = res(pygame.image.load("../images/ui/nitro/nitro_empty.png"), 0.3).convert_alpha()
-    nitro_0 = res(pygame.image.load("../images/ui/nitro/nitro_0.png"), 0.3).convert_alpha()
-    nitro_1 = res(pygame.image.load("../images/ui/nitro/nitro_1.png"), 0.3).convert_alpha()
-    nitro_2 = res(pygame.image.load("../images/ui/nitro/nitro_2.png"), 0.3).convert_alpha()
-    nitro_3 = res(pygame.image.load("../images/ui/nitro/nitro_3.png"), 0.3).convert_alpha()
-    nitro_4 = res(pygame.image.load("../images/ui/nitro/nitro_4.png"), 0.3).convert_alpha()
-    nitro_5 = res(pygame.image.load("../images/ui/nitro/nitro_5.png"), 0.3).convert_alpha()
+    TIME_TABLES = {
+
+        1: {"TABLE": res(pygame.image.load("../images/backgrounds/time_background.png"), 1).convert_alpha()},
+        2: {"TABLE": res(pygame.image.load("../images/backgrounds/time_background3.png"), 1).convert_alpha()}
+
+    }
+
+    SEMAPHORE = {
+
+        1: {"SEMAPHORE": res(pygame.image.load("../images/ui/semaphor/semaphor_all_red.png"), 1).convert_alpha()},
+        2: {"SEMAPHORE": res(pygame.image.load("../images/ui/semaphor/semaphor_red.png"), 1).convert_alpha()},
+        3: {"SEMAPHORE": res(pygame.image.load("../images/ui/semaphor/semaphor_orange.png"), 1).convert_alpha()},
+        4: {"SEMAPHORE": res(pygame.image.load("../images/ui/semaphor/semaphor_green.png"), 1).convert_alpha()}
+
+    }
+
+    SPEEDOMETR = {
+
+        1: {"SPEEDOMETR": res(pygame.image.load("../images/ui/speedometr/speedometr_default.png"),
+                              0.5).convert_alpha()},
+        2: {"SPEEDOMETR": res(pygame.image.load("../images/ui/speedometr/speedometr_0.png"), 0.5).convert_alpha()},
+        3: {"SPEEDOMETR": res(pygame.image.load("../images/ui/speedometr/speedometr_1.png"), 0.5).convert_alpha()},
+        4: {"SPEEDOMETR": res(pygame.image.load("../images/ui/speedometr/speedometr_2.png"), 0.5).convert_alpha()},
+        5: {"SPEEDOMETR": res(pygame.image.load("../images/ui/speedometr/speedometr_3.png"), 0.5).convert_alpha()},
+        6: {"SPEEDOMETR": res(pygame.image.load("../images/ui/speedometr/speedometr_nitro.png"), 0.5).convert_alpha()}
+
+    }
+
+    NITRO = {
+
+        1: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_empty.png"), 0.3).convert_alpha()},
+        2: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_0.png"), 0.3).convert_alpha()},
+        3: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_1.png"), 0.3).convert_alpha()},
+        4: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_2.png"), 0.3).convert_alpha()},
+        5: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_3.png"), 0.3).convert_alpha()},
+        6: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_4.png"), 0.3).convert_alpha()},
+        7: {"NITRO": res(pygame.image.load("../images/ui/nitro/nitro_5.png"), 0.3).convert_alpha()}
+
+    }
 
     formula_selection = res(pygame.image.load("../images/ui/selections/formula_selection.png"), 2).convert_alpha()
     lambo_selection = res(pygame.image.load("../images/ui/selections/lambo_selection.png"), 2).convert_alpha()

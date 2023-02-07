@@ -157,22 +157,22 @@ class LoopFunctions:
                 Settings.last_count = count_timer
 
         if Settings.countdown == 5 or Settings.countdown == 4:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.semaphor_all_red, (880, 500))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SEMAPHORE[1]["SEMAPHORE"], (880, 500))
 
         if Settings.countdown == 4:
             DrawUI.check_audio(Sounds.countdown_sound.play)
 
         if Settings.countdown == 3:
             DrawUI.draw_text(f"{str(Settings.countdown)} - READY", LoadingImages.NORMAL_FONT, "red", 850, 570, LoadingImages.GAME_SCREEN)
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.semaphor_red, (880, 500))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SEMAPHORE[2]["SEMAPHORE"], (880, 500))
 
         if Settings.countdown == 2:
             DrawUI.draw_text(f"{str(Settings.countdown)} - STEADY", LoadingImages.NORMAL_FONT, "orange", 850, 570, LoadingImages.GAME_SCREEN)
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.semaphor_orange, (880, 500))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SEMAPHORE[3]["SEMAPHORE"], (880, 500))
 
         if Settings.countdown == 1:
             DrawUI.draw_text(f"{str(Settings.countdown)} - GO!", LoadingImages.NORMAL_FONT, "green", 880, 570, LoadingImages.GAME_SCREEN)
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.semaphor_green, (880, 500))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.SEMAPHORE[4]["SEMAPHORE"], (880, 500))
 
         if Settings.countdown == 0:
 
