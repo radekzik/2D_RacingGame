@@ -82,5 +82,5 @@ class Settings:
     win_file = DataProcessing.load_wins(FILE_PATHS[6]["WINS"])
 
     #win_coins = int(win_file[len(win_file) - 1])
-    win_coins = 17
+    win_coins = 7
     print(win_coins)
