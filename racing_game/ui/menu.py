@@ -295,13 +295,13 @@ class Menu:
             Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             if not Settings.win_coins >= 5:
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (770, 400))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (700, 380))
 
             if not Settings.win_coins >= 15:
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1170, 400))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1100, 380))
 
             if not Settings.win_coins >= 25:
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1570, 400))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1500, 380))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
