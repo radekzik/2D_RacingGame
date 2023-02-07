@@ -55,7 +55,7 @@ class Menu:
                                      font=LoadingImages.NORMAL_FONT,
                                      font_color="white", font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -129,7 +129,7 @@ class Menu:
                                  button_text="10", font=LoadingImages.NORMAL_FONT, font_color="white",
                                  font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -261,7 +261,7 @@ class Menu:
                                    font=LoadingImages.SMALL_FONT,
                                    font_color="white", font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -349,7 +349,7 @@ class Menu:
             cabrio_button = Button(x_y=(1550, 550), button_image=LoadingImages.cabrio_selection, button_text="",
                                    font=LoadingImages.SMALL_FONT, font_color="white", font_hover_color="cyan")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -424,7 +424,7 @@ class Menu:
             DrawUI.draw_text("X", LoadingImages.MEDIUM_FONT, "white", 630, 790, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Exit", LoadingImages.MEDIUM_FONT, "cyan", 1220, 790, LoadingImages.GAME_SCREEN)
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -502,7 +502,7 @@ class Menu:
                                         button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                         font_hover_color="purple")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -667,17 +667,17 @@ class Menu:
             DrawUI.draw_text("MAIN MENU", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 750, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
-            play_button = Button(button_image=LoadingImages.button_play_transparent_image, x_y=(976, 430),
+            play_button = Button(button_image=LoadingImages.BUTTONS[2]["BUTTON"], x_y=(976, 430),
                                  button_text="PLAY",
                                  font=LoadingImages.BIG_FONT,
                                  font_color="white", font_hover_color="cyan")
 
-            car_selection_button = Button(button_image=LoadingImages.button_transparent_image, x_y=(756, 630),
+            car_selection_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(756, 630),
                                           button_text="SELECT CAR",
                                           font=LoadingImages.NORMAL_FONT,
                                           font_color="white", font_hover_color="cyan")
 
-            stats_button = Button(button_image=LoadingImages.button_transparent_image, x_y=(1196, 630),
+            stats_button = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1196, 630),
                                   button_text="STATS",
                                   font=LoadingImages.NORMAL_FONT,
                                   font_color="white", font_hover_color="cyan")
@@ -698,7 +698,7 @@ class Menu:
                                      font=LoadingImages.NORMAL_FONT,
                                      font_color="white", font_hover_color="cyan")
 
-            quit_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            quit_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="QUIT",
                                  font=LoadingImages.NORMAL_FONT,
                                  font_color="orange", font_hover_color="red")
@@ -830,15 +830,15 @@ class Menu:
             DrawUI.draw_text(f"5. - {match_times[4]}" + "s", LoadingImages.SMALL_FONT, "red", 1170, 600,
                              LoadingImages.GAME_SCREEN)
 
-            pointer_right_button = Button(button_image=LoadingImages.pointer_right, x_y=(1600, 500),
+            pointer_right_button = Button(button_image=LoadingImages.POINTERS[2]["POINTER"], x_y=(1600, 500),
                                           button_text="", font=LoadingImages.NORMAL_FONT, font_color="white",
                                           font_hover_color="white")
 
-            pointer_left_button = Button(button_image=LoadingImages.pointer_left, x_y=(320, 500),
+            pointer_left_button = Button(button_image=LoadingImages.POINTERS[1]["POINTER"], x_y=(320, 500),
                                          button_text="", font=LoadingImages.NORMAL_FONT, font_color="white",
                                          font_hover_color="white")
 
-            back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+            back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
@@ -882,19 +882,19 @@ def mode_selection():
         DrawUI.draw_text("MODE SELECTION", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 650, Menu.TITLE_Y,
                          LoadingImages.GAME_SCREEN)
 
-        against_pc = Button(button_image=LoadingImages.button_transparent_image, x_y=(760, 420),
+        against_pc = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(760, 420),
                             button_text="VERSUS PC", font=LoadingImages.NORMAL_FONT, font_color="white",
                             font_hover_color="cyan")
 
-        one_vs_one = Button(button_image=LoadingImages.button_transparent_image, x_y=(1160, 420),
+        one_vs_one = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(1160, 420),
                             button_text="1 VS 1", font=LoadingImages.NORMAL_FONT, font_color="white",
                             font_hover_color="cyan")
 
-        solo = Button(button_image=LoadingImages.button_transparent_image, x_y=(960, 580),
+        solo = Button(button_image=LoadingImages.BUTTONS[1]["BUTTON"], x_y=(960, 580),
                       button_text="SOLO", font=LoadingImages.NORMAL_FONT, font_color="white",
                       font_hover_color="cyan")
 
-        back_button = Button(button_image=LoadingImages.button_image, x_y=(Menu.QUIT_X, Menu.QUIT_Y),
+        back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                              button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                              font_hover_color="red")
 

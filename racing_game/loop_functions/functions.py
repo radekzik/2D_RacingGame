@@ -55,7 +55,7 @@ class Collisions:
             if Settings.car_lap < Settings.enemy_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.lose.play)
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.button_win_lose, (770, 560))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"YOU LOST THE RACE!", LoadingImages.NORMAL_FONT, "red", 800, 600, LoadingImages.GAME_SCREEN)
 
                 pygame.display.update()
@@ -69,7 +69,7 @@ class Collisions:
             if Settings.car_lap > Settings.enemy_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.win.play)
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.button_win_lose, (770, 560))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"YOU WON THE RACE!", LoadingImages.NORMAL_FONT, "gold", 800, 600, LoadingImages.GAME_SCREEN)
 
                 pygame.display.update()
@@ -110,7 +110,7 @@ class LoopFunctions:
         Settings.started = False
 
         while not Settings.started:
-            LoadingImages.GAME_SCREEN.blit(LoadingImages.time_background, (700, 200))
+            LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[1]["TABLE"], (700, 200))
             DrawUI.draw_text("PLAY AGAIN - SPACE", LoadingImages.NORMAL_FONT, "white", 740, 250, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("EXIT TO MENU - X", LoadingImages.NORMAL_FONT, "cyan", 740, 350, LoadingImages.GAME_SCREEN)
             pygame.display.update()
@@ -261,7 +261,7 @@ class LoopFunctions:
             if Settings.car_lap > Settings.enemy_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.win.play)
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.button_win_lose, (770, 560))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"YOU WON THE RACE!", LoadingImages.NORMAL_FONT, "gold", 800, 600, LoadingImages.GAME_SCREEN)
 
                 pygame.display.update()
@@ -270,7 +270,7 @@ class LoopFunctions:
             if Settings.car_lap < Settings.enemy_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.lose.play)
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.button_win_lose, (770, 560))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"YOU LOST THE RACE!", LoadingImages.NORMAL_FONT, "red", 800, 600, LoadingImages.GAME_SCREEN)
 
                 pygame.display.update()
@@ -339,7 +339,7 @@ class LoopFunctions:
             if Settings.enemy_lap > Settings.car_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.win.play)
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.button_win_lose, (770, 560))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"SECOND PLAYER WON THE RACE!", LoadingImages.NORMAL_FONT, "gold", 710, 600, LoadingImages.GAME_SCREEN)
 
                 pygame.display.update()
@@ -349,7 +349,7 @@ class LoopFunctions:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.lose.play)
 
-                LoadingImages.GAME_SCREEN.blit(LoadingImages.button_win_lose, (770, 560))
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"FIRST PLAYER WON THE RACE!", LoadingImages.NORMAL_FONT, "red", 800, 600, LoadingImages.GAME_SCREEN)
 
                 pygame.display.update()

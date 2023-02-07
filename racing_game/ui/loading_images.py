@@ -168,11 +168,15 @@ class LoadingImages:
     }
 
     # BUTTONS ---------------------------------------------------------------------------------------------------------------
-    button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
-    button_play_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"),
-                                        1.3).convert_alpha()
-    button_win_lose = res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()
-    button_image = res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()
+
+    BUTTONS = {
+
+        1: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()},
+        2: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1.3).convert_alpha()},
+        3: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button.png"), 1).convert_alpha()},
+        4: {"BUTTON": res(pygame.image.load("../images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()}
+
+    }
 
     POINTERS = {
 
