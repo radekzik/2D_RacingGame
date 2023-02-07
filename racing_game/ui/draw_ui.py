@@ -14,9 +14,9 @@ class DrawUI:
 
         random_number = random.randint(1, 5)
 
-        map_background_list = [LoadingImages.green_forest, LoadingImages.green_lake_forest,
-                               LoadingImages.green_lake_forest2, LoadingImages.dark_green_forest,
-                               LoadingImages.dark_green_lake_forest]
+        map_background_list = [LoadingImages.MAP_BACKGROUND[1]["BACKGROUND"], LoadingImages.MAP_BACKGROUND_LAKE[1]["BACKGROUND"],
+                               LoadingImages.MAP_BACKGROUND_LAKE[2]["BACKGROUND"], LoadingImages.MAP_BACKGROUND[2]["BACKGROUND"],
+                               LoadingImages.MAP_BACKGROUND_LAKE[3]["BACKGROUND"]]
 
         for x in range(5):
             x += 1
@@ -31,7 +31,7 @@ class DrawUI:
 
         random_number = random.randint(1, 2)
 
-        map_background_list = [LoadingImages.green_forest, LoadingImages.dark_green_forest]
+        map_background_list = [LoadingImages.MAP_BACKGROUND[1]["BACKGROUND"], LoadingImages.MAP_BACKGROUND[2]["BACKGROUND"]]
 
         for x in range(2):
             x += 1
@@ -47,47 +47,47 @@ class DrawUI:
 
     @staticmethod
     def game_info(match_time, lap, stopwatch):
-        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.small_font, "white", 1790, 20, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.small_font, "cyan", 1790, 60, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.SMALL_FONT, "white", 1790, 20, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.SMALL_FONT, "cyan", 1790, 60, LoadingImages.GAME_SCREEN)
 
-        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.small_font, "cyan", 1777, 1040, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.SMALL_FONT, "cyan", 1777, 1040, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def player_title():
-        DrawUI.draw_text(f"FIRST PLAYER", LoadingImages.medium_font, "light blue", 1595, 15, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FIRST PLAYER", LoadingImages.MEDIUM_FONT, "light blue", 1595, 15, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def enemy_game_info(match_time, lap, stopwatch):
-        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.small_font, "white", 30, 20, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.small_font, "cyan", 30, 60, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.SMALL_FONT, "white", 30, 20, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.SMALL_FONT, "cyan", 30, 60, LoadingImages.GAME_SCREEN)
 
-        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.small_font, "cyan", 73, 1040, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.SMALL_FONT, "cyan", 73, 1040, LoadingImages.GAME_SCREEN)
 
         DrawUI.enemy_title()
 
     @staticmethod
     def enemy_title():
-        DrawUI.draw_text(f"SECOND PLAYER", LoadingImages.medium_font, "red", 150, 15, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"SECOND PLAYER", LoadingImages.MEDIUM_FONT, "red", 150, 15, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def game_show_fps(clock):
-        DrawUI.draw_text(f"FPS - {round(clock.get_fps())}", LoadingImages.small_font, "cyan", 30, 20, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FPS - {round(clock.get_fps())}", LoadingImages.SMALL_FONT, "cyan", 30, 20, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def player_time_table(fastest_time, slowest_time, match_time):
 
         LoadingImages.GAME_SCREEN.blit(LoadingImages.time_background2, (700, 200))
-        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.normal_font, "green", 740, 250, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.normal_font, "red", 740, 350, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.normal_font, "white", 740, 450, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def enemy_time_table(fastest_time, slowest_time, match_time):
 
         LoadingImages.GAME_SCREEN.blit(LoadingImages.time_background2, (700, 200))
-        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.normal_font, "green", 740, 250, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.normal_font, "red", 740, 350, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.normal_font, "white", 740, 450, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def speedometer(car, x, y):
@@ -131,15 +131,15 @@ class DrawUI:
 
         while loading:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
-            DrawUI.draw_text("Restarting Game.", LoadingImages.normal_font, "white", 780, 230, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Restarting Game.", LoadingImages.NORMAL_FONT, "white", 780, 230, LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            DrawUI.draw_text("Restarting Game..", LoadingImages.normal_font, "white", 780, 230, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Restarting Game..", LoadingImages.NORMAL_FONT, "white", 780, 230, LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            DrawUI.draw_text("Restarting Game...", LoadingImages.normal_font, "white", 780, 230, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Restarting Game...", LoadingImages.NORMAL_FONT, "white", 780, 230, LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
             loading = False
@@ -151,13 +151,13 @@ class DrawUI:
         while loading:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
 
-            DrawUI.draw_text(title + " Game.", LoadingImages.normal_font, "white", 780, 130, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(title + " Game.", LoadingImages.NORMAL_FONT, "white", 780, 130, LoadingImages.GAME_SCREEN)
             DrawUI.loading_text(game_mode, map_title, map_image)
 
-            DrawUI.draw_text(title + " Game..", LoadingImages.normal_font, "white", 780, 130, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(title + " Game..", LoadingImages.NORMAL_FONT, "white", 780, 130, LoadingImages.GAME_SCREEN)
             DrawUI.loading_text(game_mode, map_title, map_image)
 
-            DrawUI.draw_text(title + " Game...", LoadingImages.normal_font, "white", 780, 130, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(title + " Game...", LoadingImages.NORMAL_FONT, "white", 780, 130, LoadingImages.GAME_SCREEN)
             DrawUI.loading_text(game_mode, map_title, map_image)
 
             loading = False
@@ -165,8 +165,8 @@ class DrawUI:
     @staticmethod
     def loading_text(game_mode, map_title, map_image):
 
-        DrawUI.draw_text(game_mode, LoadingImages.normal_font, "cyan", 810, 230, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(map_title, LoadingImages.normal_font, "purple", 970, 230, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(game_mode, LoadingImages.NORMAL_FONT, "cyan", 810, 230, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(map_title, LoadingImages.NORMAL_FONT, "purple", 970, 230, LoadingImages.GAME_SCREEN)
 
         LoadingImages.GAME_SCREEN.blit(map_image, (600, 450))
         pygame.display.update()

@@ -6,7 +6,6 @@ pygame.init()
 
 
 class LoadingImages:
-
     WIDTH = 1920
     HEIGHT = 1080
     FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
@@ -30,7 +29,7 @@ class LoadingImages:
 
         return pygame.transform.scale(image, new_res)
 
-# MAPS -----------------------------------------------------------------------------------------------------------------
+    # MAPS -----------------------------------------------------------------------------------------------------------------
 
     MAPS = {
         1: {"MAP": res(pygame.image.load("../images/maps/first_map.png"), 0.75).convert_alpha(),
@@ -49,7 +48,27 @@ class LoadingImages:
             "BORDER": res(pygame.image.load("../images/borders/fifth_map_border.png"), 0.75).convert_alpha()}
     }
 
-# CARS -----------------------------------------------------------------------------------------------------------------
+    MAP_SELECTION = {
+
+        1: {"MAP": res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.15).convert_alpha()},
+        2: {"MAP": res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()},
+        3: {"MAP": res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()},
+        4: {"MAP": res(pygame.image.load("../images/maps/fourth_map.png"), 0.15).convert_alpha()},
+        5: {"MAP": res(pygame.image.load("../images/maps/fifth_map.png"), 0.15).convert_alpha()}
+
+    }
+
+    MAP_LOADING = {
+
+        1: {"MAP": res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.3).convert_alpha()},
+        2: {"MAP": res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.3).convert_alpha()},
+        3: {"MAP": res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.3).convert_alpha()},
+        4: {"MAP": res(pygame.image.load("../images/maps/fourth_map.png"), 0.3).convert_alpha()},
+        5: {"MAP": res(pygame.image.load("../images/maps/fifth_map.png"), 0.3).convert_alpha()}
+
+    }
+
+    # CARS -----------------------------------------------------------------------------------------------------------------
 
     FORMULA = {
         1: {"CAR": res(pygame.image.load("../images/cars/formula/formula_blue.png"), 1.1).convert_alpha(),
@@ -109,6 +128,8 @@ class LoadingImages:
 
     }
 
+    # BACKGROUNDS -----------------------------------------------------------------------------------------------------------------
+
     MENU_BACKGROUND = {
 
         1: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()},
@@ -117,18 +138,35 @@ class LoadingImages:
 
     }
 
-    # map backgrounds
-    green_forest = res(pygame.image.load("../images/backgrounds/green_forest.png"), 0.75).convert_alpha()
-    dark_green_forest = res(pygame.image.load("../images/backgrounds/dark_green_forest.png"), 0.75).convert_alpha()
-    green_lake_forest = res(pygame.image.load("../images/backgrounds/green_lake_forest2.png"), 0.75).convert_alpha()
-    green_lake_forest2 = res(pygame.image.load("../images/backgrounds/green_lake_forest3.png"), 0.75).convert_alpha()
-    dark_green_lake_forest = res(pygame.image.load("../images/backgrounds/dark_green_lake_forest.png"),
-                                 0.75).convert_alpha()
+    MAP_BACKGROUND = {
 
-    # finish
-    finish_line = res(pygame.image.load("../images/borders/finish_line.png"), 1.2).convert_alpha()
-    finish_line_x2 = res(pygame.image.load("../images/borders/finish_line.png"), 1.35).convert_alpha()
-    finish_line_x3 = res(pygame.image.load("../images/borders/finish_line.png"), 1.7).convert_alpha()
+        1: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/green_forest.png"), 0.75).convert_alpha()},
+
+        2: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/dark_green_forest.png"), 0.75).convert_alpha()},
+
+    }
+
+    MAP_BACKGROUND_LAKE = {
+
+        1: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/green_lake_forest2.png"), 0.75).convert_alpha()},
+
+        2: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/green_lake_forest3.png"), 0.75).convert_alpha()},
+
+        3: {"BACKGROUND": res(pygame.image.load("../images/backgrounds/dark_green_lake_forest.png"),
+                              0.75).convert_alpha()
+            },
+
+    }
+
+    # FINISH LINES  -----------------------------------------------------------------------------------------------------------------
+
+    FINISH_LINE = {
+
+        1: {"FINISH_LINE": res(pygame.image.load("../images/borders/finish_line.png"), 1.2).convert_alpha()},
+        2: {"FINISH_LINE": res(pygame.image.load("../images/borders/finish_line.png"), 1.35).convert_alpha()},
+        3: {"FINISH_LINE": res(pygame.image.load("../images/borders/finish_line.png"), 1.7).convert_alpha()}
+
+    }
 
     # buttons
     button_transparent_image = res(pygame.image.load("../images/ui/buttons/button_transparent.png"), 1).convert_alpha()
@@ -142,19 +180,7 @@ class LoadingImages:
     on_off_button = res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 1).convert_alpha()
     on_off_button_x2 = res(pygame.image.load("../images/ui/buttons/on_off_button.png"), 2).convert_alpha()
 
-    # map selection buttons
-    first_map_image = res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.15).convert_alpha()
-    second_map_image = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()
-    third_map_image = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()
-    fourth_map_image = res(pygame.image.load("../images/maps/fourth_map.png"), 0.15).convert_alpha()
-    fifth_map_image = res(pygame.image.load("../images/maps/fifth_map.png"), 0.15).convert_alpha()
 
-    # map loading
-    first_map_loading = res(pygame.image.load("../images/ui/buttons/first_map_button.png"), 0.3).convert_alpha()
-    second_map_loading = res(pygame.image.load("../images/ui/buttons/second_map_button.png"), 0.3).convert_alpha()
-    third_map_loading = res(pygame.image.load("../images/ui/buttons/third_map_button.png"), 0.3).convert_alpha()
-    fourth_map_loading = res(pygame.image.load("../images/maps/fourth_map.png"), 0.3).convert_alpha()
-    fifth_map_loading = res(pygame.image.load("../images/maps/fifth_map.png"), 0.3).convert_alpha()
 
     # banners
     esc_menu = res(pygame.image.load("../images/ui/esc_menu.png"), 1).convert_alpha()
@@ -230,7 +256,7 @@ class LoadingImages:
     pygame.display.set_icon(icon_formula)
 
     # fonts
-    normal_font = pygame.font.SysFont("impact", 60)
-    small_font = pygame.font.SysFont("impact", 20)
-    big_font = pygame.font.SysFont("impact", 100)
-    medium_font = pygame.font.SysFont("impact", 35)
+    NORMAL_FONT = pygame.font.SysFont("impact", 60)
+    SMALL_FONT = pygame.font.SysFont("impact", 20)
+    BIG_FONT = pygame.font.SysFont("impact", 100)
+    MEDIUM_FONT = pygame.font.SysFont("impact", 35)

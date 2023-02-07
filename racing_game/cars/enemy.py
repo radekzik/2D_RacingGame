@@ -17,20 +17,20 @@ class EnemyPlayer(Car):
         position_y = 940
 
         if self.car_speed < 0:
-            DrawUI.draw_text(f"0", LoadingImages.normal_font, "red", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"0", LoadingImages.NORMAL_FONT, "red", position_x, position_y, LoadingImages.GAME_SCREEN)
         if self.car_speed == 0:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.normal_font, "white", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "white", position_x, position_y, LoadingImages.GAME_SCREEN)
         if 0 < self.car_speed <= 1:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.normal_font, "green", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "green", position_x, position_y, LoadingImages.GAME_SCREEN)
         if 1 < self.car_speed <= 2:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.normal_font, "green", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "green", position_x, position_y, LoadingImages.GAME_SCREEN)
         if 2 < self.car_speed <= 3:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.normal_font, "orange", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "orange", position_x, position_y, LoadingImages.GAME_SCREEN)
         if 3 < self.car_speed <= 20:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.normal_font, "red", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "red", position_x, position_y, LoadingImages.GAME_SCREEN)
 
     def car_current_nitro(self):
-        DrawUI.draw_text(f"{round(self.car_nitro)}", LoadingImages.normal_font, "cyan", 200, 740, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"{round(self.car_nitro)}", LoadingImages.NORMAL_FONT, "cyan", 200, 740, LoadingImages.GAME_SCREEN)
 
     def respawn_first_map(self):
         self.x = 700
