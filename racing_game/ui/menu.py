@@ -74,6 +74,18 @@ class Menu:
 
             Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
+            if not Settings.win_coins >= 5:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (915, 400))
+
+            if not Settings.win_coins >= 10:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1420, 400))
+
+            if not Settings.win_coins >= 20:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (655, 700))
+
+            if not Settings.win_coins >= 30:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1160, 700))
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -81,14 +93,30 @@ class Menu:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if first_map_button.on_click(mouse_coordinates):
                         first_button()
+
                     if second_map_button.on_click(mouse_coordinates):
-                        second_button()
+                        if Settings.win_coins >= 5:
+                            second_button()
+                        else:
+                            Menu.map_locked_alert()
+
                     if third_map_button.on_click(mouse_coordinates):
-                        third_button()
+                        if Settings.win_coins >= 10:
+                            third_button()
+                        else:
+                            Menu.map_locked_alert()
+
                     if fourth_map_button.on_click(mouse_coordinates):
-                        fourth_button()
+                        if Settings.win_coins >= 20:
+                            fourth_button()
+                        else:
+                            Menu.map_locked_alert()
+
                     if fifth_map_button.on_click(mouse_coordinates):
-                        fifth_button()
+                        if Settings.win_coins >= 30:
+                            fifth_button()
+                        else:
+                            Menu.map_locked_alert()
 
                     if settings_button.on_click(mouse_coordinates):
                         Menu.laps_settings()
@@ -97,6 +125,12 @@ class Menu:
                         mode_selection()
 
             pygame.display.update()
+
+    @staticmethod
+    def map_locked_alert():
+        DrawUI.draw_text("Map Locked!", LoadingImages.NORMAL_FONT, "red", 830, 230, LoadingImages.GAME_SCREEN)
+        pygame.display.update()
+        pygame.time.wait(1200)
 
     @staticmethod
     def laps_settings():
