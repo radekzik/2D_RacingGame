@@ -3,10 +3,7 @@
 - 🎮 FPS : Stable 60 FPS
 
 # TODO
-- zjednodusit code
-- random vyber cest pro pc car
+- pc car cesty
 
-
-- time - fix
 
 
