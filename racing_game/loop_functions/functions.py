@@ -69,6 +69,10 @@ class Collisions:
             if Settings.car_lap > Settings.enemy_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.win.play)
+
+                Settings.win_coins += 1
+                DataProcessing.save_wins(str(Settings.win_coins), Settings.FILE_PATHS[6]["WINS"])
+
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"YOU WON THE RACE!", LoadingImages.NORMAL_FONT, "gold", 800, 600, LoadingImages.GAME_SCREEN)
 
@@ -261,6 +265,9 @@ class LoopFunctions:
             if Settings.car_lap > Settings.enemy_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.win.play)
+
+                Settings.win_coins += 1
+                DataProcessing.save_wins(str(Settings.win_coins), Settings.FILE_PATHS[6]["WINS"])
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"YOU WON THE RACE!", LoadingImages.NORMAL_FONT, "gold", 800, 600, LoadingImages.GAME_SCREEN)
 
@@ -348,6 +355,9 @@ class LoopFunctions:
             if Settings.enemy_lap < Settings.car_lap:
                 DrawUI.check_audio(Sounds.car_engine.stop)
                 DrawUI.check_audio(Sounds.lose.play)
+
+                Settings.win_coins += 1
+                DataProcessing.save_wins(str(Settings.win_coins), Settings.FILE_PATHS[6]["WINS"])
 
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.BUTTONS[4]["BUTTON"], (770, 560))
                 DrawUI.draw_text(f"FIRST PLAYER WON THE RACE!", LoadingImages.NORMAL_FONT, "red", 800, 600, LoadingImages.GAME_SCREEN)

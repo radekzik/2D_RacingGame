@@ -1,5 +1,7 @@
 import pygame
 
+from racing_game.storage.data_processing import DataProcessing
+
 
 class Settings:
 
@@ -26,6 +28,8 @@ class Settings:
 
         5: {"LAP_TIMES": "../racing_game/storage/files/fifth_map_lap_times.txt",
             "MATCH_TIMES": "../racing_game/storage/files/fifth_map_match_times.txt"},
+
+        6: {"WINS": "../racing_game/storage/files/wins.txt"},
     }
 
     # check start racing_game
@@ -74,3 +78,8 @@ class Settings:
     show_fps = 1
     show_ui = 1
     show_xy = 1
+
+    win_file = DataProcessing.load_wins(FILE_PATHS[6]["WINS"])
+
+    win_coins = int(win_file[len(win_file) - 1])
+    print(win_coins)

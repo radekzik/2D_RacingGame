@@ -668,6 +668,9 @@ class Menu:
             DrawUI.draw_text("MAIN MENU", LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 750, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
+            DrawUI.draw_text(f"WIN COINS - {Settings.win_coins}", LoadingImages.SMALL_FONT, "cyan", 1800, 400,
+                             LoadingImages.GAME_SCREEN)
+
             play_button = Button(button_image=LoadingImages.BUTTONS[2]["BUTTON"], x_y=(976, 430),
                                  button_text="PLAY",
                                  font=LoadingImages.BIG_FONT,

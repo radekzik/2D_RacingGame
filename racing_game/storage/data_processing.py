@@ -14,6 +14,12 @@ class DataProcessing:
         file.close()
 
     @staticmethod
+    def save_wins(data, filename):
+        file = open(filename, "a")
+        file.write(data + "\n")
+        file.close()
+
+    @staticmethod
     def load_lap_times(filename):
         with open(filename, "r") as file:
             lap_list = [x.rstrip() for x in file]
@@ -28,5 +34,12 @@ class DataProcessing:
             match_list = [x.rstrip() for x in file]
 
         match_list.sort()
+
+        return match_list
+
+    @staticmethod
+    def load_wins(filename):
+        with open(filename, "r") as file:
+            match_list = [x.rstrip() for x in file]
 
         return match_list
