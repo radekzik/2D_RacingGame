@@ -51,7 +51,7 @@ class Menu:
                                       button_text="", font=LoadingImages.NORMAL_FONT, font_color="white",
                                       font_hover_color="cyan")
 
-            settings_button = Button(button_image=LoadingImages.settings_button_icon, x_y=(1860, 60), button_text="",
+            settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
                                      font=LoadingImages.NORMAL_FONT,
                                      font_color="white", font_hover_color="cyan")
 
@@ -196,33 +196,34 @@ class Menu:
     def car_formula_selection():
         Menu.car_color_selection("FORMULA", 790, "BLUE", "ORANGE", "YELLOW", "GREEN",
                                  "cyan", "orange", "yellow", "green",
-                                 LoadingImages.blue_formula_selection, LoadingImages.orange_formula_selection,
-                                 LoadingImages.yellow_formula_selection, LoadingImages.green_formula_selection,
+                                 LoadingImages.FORMULA_SELECTION[1]["CAR"], LoadingImages.FORMULA_SELECTION[2]["CAR"],
+                                 LoadingImages.FORMULA_SELECTION[3]["CAR"], LoadingImages.FORMULA_SELECTION[4]["CAR"],
                                  1, 2, 3, 4)
 
     @staticmethod
     def car_lambo_selection():
         Menu.car_color_selection("SPORTS CAR I.", 710, "BLUE", "CRIMSON", "L - BLUE", "PINK",
                                  "blue", "red", "cyan", "pink",
-                                 LoadingImages.blue_lambo_selection, LoadingImages.red_lambo_selection,
-                                 LoadingImages.cyan_lambo_selection, LoadingImages.pink_lambo_selection,
+                                 LoadingImages.SPORTS_CAR_I_SELECTION[1]["CAR"], LoadingImages.SPORTS_CAR_I_SELECTION[3]["CAR"],
+                                 LoadingImages.SPORTS_CAR_I_SELECTION[2]["CAR"], LoadingImages.SPORTS_CAR_I_SELECTION[4]["CAR"],
                                  5, 7, 6, 8)
 
     @staticmethod
     def car_spoiler_car_selection():
         Menu.car_color_selection("SPORTS CAR II.", 710, "CYAN", "PURPLE", "ORANGE", "PINK",
                                  "cyan", "violet", "orange", "pink",
-                                 LoadingImages.light_blue_spoiler_car_selection,
-                                 LoadingImages.dark_purple_spoiler_car_selection,
-                                 LoadingImages.orange_spoiler_car_selection, LoadingImages.pink_spoiler_car_selection,
+                                 LoadingImages.SPORTS_CAR_II_SELECTION[2]["CAR"],
+                                 LoadingImages.SPORTS_CAR_II_SELECTION[1]["CAR"],
+                                 LoadingImages.SPORTS_CAR_II_SELECTION[3]["CAR"],
+                                 LoadingImages.SPORTS_CAR_II_SELECTION[4]["CAR"],
                                  10, 9, 11, 12)
 
     @staticmethod
     def car_cabrio_selection():
         Menu.car_color_selection("CABRIO", 820, "BLUE", "L - BLUE", "YELLOW", "RED",
                                  "blue", "cyan", "yellow", "red",
-                                 LoadingImages.blue_cabrio_selection, LoadingImages.light_blue_cabrio_selection,
-                                 LoadingImages.yellow_cabrio_selection, LoadingImages.red_cabrio_selection,
+                                 LoadingImages.CABRIO_SELECTION[1]["CAR"], LoadingImages.CABRIO_SELECTION[2]["CAR"],
+                                 LoadingImages.CABRIO_SELECTION[4]["CAR"],  LoadingImages.CABRIO_SELECTION[3]["CAR"],
                                  13, 14, 16, 15)
 
     @staticmethod
@@ -334,19 +335,19 @@ class Menu:
             DrawUI.draw_text("DEFAULT - BLUE FORMULA", LoadingImages.MEDIUM_FONT, "grey", 1580, 1030,
                              LoadingImages.GAME_SCREEN)
 
-            formula_button = Button(x_y=(350, 550), button_image=LoadingImages.formula_selection, button_text="",
+            formula_button = Button(x_y=(350, 550), button_image=LoadingImages.CAR_SELECTION[1]["CAR"], button_text="",
                                     font=LoadingImages.SMALL_FONT,
                                     font_color="white", font_hover_color="cyan")
 
-            lambo_button = Button(x_y=(750, 550), button_image=LoadingImages.lambo_selection, button_text="",
+            lambo_button = Button(x_y=(750, 550), button_image=LoadingImages.CAR_SELECTION[2]["CAR"], button_text="",
                                   font=LoadingImages.SMALL_FONT,
                                   font_color="white", font_hover_color="cyan")
 
-            spoiler_car_button = Button(x_y=(1150, 550), button_image=LoadingImages.spoiler_car_selection,
+            spoiler_car_button = Button(x_y=(1150, 550), button_image=LoadingImages.CAR_SELECTION[3]["CAR"],
                                         button_text="",
                                         font=LoadingImages.SMALL_FONT, font_color="white", font_hover_color="cyan")
 
-            cabrio_button = Button(x_y=(1550, 550), button_image=LoadingImages.cabrio_selection, button_text="",
+            cabrio_button = Button(x_y=(1550, 550), button_image=LoadingImages.CAR_SELECTION[4]["CAR"], button_text="",
                                    font=LoadingImages.SMALL_FONT, font_color="white", font_hover_color="cyan")
 
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
@@ -686,7 +687,7 @@ class Menu:
             # font=normal_font,
             # font_color="white", font_hover_color="cyan")
 
-            binds_button = Button(button_image=LoadingImages.binds_button_icon, x_y=(60, 60), button_text="",
+            binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
                                   font=LoadingImages.NORMAL_FONT,
                                   font_color="white", font_hover_color="cyan")
 
@@ -694,7 +695,7 @@ class Menu:
             # font=normal_font,
             # font_color="white", font_hover_color="cyan")
 
-            settings_button = Button(button_image=LoadingImages.settings_button_icon, x_y=(1860, 60), button_text="",
+            settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
                                      font=LoadingImages.NORMAL_FONT,
                                      font_color="white", font_hover_color="cyan")
 
