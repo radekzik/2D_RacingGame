@@ -208,8 +208,10 @@ class Menu:
     def car_lambo_selection():
         Menu.car_color_selection("SPORTS CAR I.", 710, "BLUE", "CRIMSON", "L - BLUE", "PINK",
                                  "blue", "red", "cyan", "pink",
-                                 LoadingImages.SPORTS_CAR_I_SELECTION[1]["CAR"], LoadingImages.SPORTS_CAR_I_SELECTION[3]["CAR"],
-                                 LoadingImages.SPORTS_CAR_I_SELECTION[2]["CAR"], LoadingImages.SPORTS_CAR_I_SELECTION[4]["CAR"],
+                                 LoadingImages.SPORTS_CAR_I_SELECTION[1]["CAR"],
+                                 LoadingImages.SPORTS_CAR_I_SELECTION[3]["CAR"],
+                                 LoadingImages.SPORTS_CAR_I_SELECTION[2]["CAR"],
+                                 LoadingImages.SPORTS_CAR_I_SELECTION[4]["CAR"],
                                  5, 7, 6, 8)
 
     @staticmethod
@@ -227,7 +229,7 @@ class Menu:
         Menu.car_color_selection("CABRIO", 820, "BLUE", "L - BLUE", "YELLOW", "RED",
                                  "blue", "cyan", "yellow", "red",
                                  LoadingImages.CABRIO_SELECTION[1]["CAR"], LoadingImages.CABRIO_SELECTION[2]["CAR"],
-                                 LoadingImages.CABRIO_SELECTION[4]["CAR"],  LoadingImages.CABRIO_SELECTION[3]["CAR"],
+                                 LoadingImages.CABRIO_SELECTION[4]["CAR"], LoadingImages.CABRIO_SELECTION[3]["CAR"],
                                  13, 14, 16, 15)
 
     @staticmethod
@@ -258,17 +260,26 @@ class Menu:
             first_button = Button(x_y=(350, 550), button_image=image1, button_text="",
                                   font=LoadingImages.SMALL_FONT,
                                   font_color="white", font_hover_color="cyan")
+
+            DrawUI.draw_text("FREE", LoadingImages.SMALL_FONT, "grey", 335, 750, LoadingImages.GAME_SCREEN)
+
             second_button = Button(x_y=(750, 550), button_image=image2, button_text="",
                                    font=LoadingImages.SMALL_FONT,
                                    font_color="white", font_hover_color="cyan")
+
+            DrawUI.draw_text("5 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 695, 750, LoadingImages.GAME_SCREEN)
 
             third_button = Button(x_y=(1150, 550), button_image=image3, button_text="",
                                   font=LoadingImages.SMALL_FONT,
                                   font_color="white", font_hover_color="cyan")
 
+            DrawUI.draw_text("15 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 1090, 750, LoadingImages.GAME_SCREEN)
+
             fourth_button = Button(x_y=(1550, 550), button_image=image4, button_text="",
                                    font=LoadingImages.SMALL_FONT,
                                    font_color="white", font_hover_color="cyan")
+
+            DrawUI.draw_text("25 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 1490, 750, LoadingImages.GAME_SCREEN)
 
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
@@ -282,6 +293,15 @@ class Menu:
             back_button.button_render(LoadingImages.GAME_SCREEN)
 
             Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+
+            if not Settings.win_coins >= 5:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (770, 400))
+
+            if not Settings.win_coins >= 15:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1170, 400))
+
+            if not Settings.win_coins >= 25:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1570, 400))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -298,28 +318,52 @@ class Menu:
                         Menu.main_menu()
 
                     if second_button.on_click(mouse_coordinates):
-                        Settings.car_type = car_option2
-                        DrawUI.draw_text("Car Selected!", LoadingImages.NORMAL_FONT, color2, 810, 230,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-                        Menu.main_menu()
+
+                        if Settings.win_coins >= 5:
+                            Settings.car_type = car_option2
+                            DrawUI.draw_text("Car Selected!", LoadingImages.NORMAL_FONT, color2, 810, 230,
+                                             LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
+                            Menu.main_menu()
+                        else:
+                            DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red",
+                                             810, 230,
+                                             LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
 
                     if third_button.on_click(mouse_coordinates):
-                        Settings.car_type = car_option3
-                        DrawUI.draw_text("Car Selected!", LoadingImages.NORMAL_FONT, color3, 810, 230,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-                        Menu.main_menu()
+
+                        if Settings.win_coins >= 15:
+                            Settings.car_type = car_option3
+                            DrawUI.draw_text("Car Selected!", LoadingImages.NORMAL_FONT, color3, 810, 230,
+                                             LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
+                            Menu.main_menu()
+
+                        else:
+                            DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red", 810,
+                                             230, LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
 
                     if fourth_button.on_click(mouse_coordinates):
-                        Settings.car_type = car_option4
-                        DrawUI.draw_text("Car Selected!", LoadingImages.NORMAL_FONT, color4, 810, 230,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-                        Menu.main_menu()
+
+                        if Settings.win_coins >= 25:
+                            Settings.car_type = car_option4
+                            DrawUI.draw_text("Car Selected!", LoadingImages.NORMAL_FONT, color4, 810, 230,
+                                             LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
+                            Menu.main_menu()
+
+                        else:
+                            DrawUI.draw_text("Car Locked!", LoadingImages.NORMAL_FONT, "red",
+                                             810, 230, LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
 
                     if back_button.on_click(mouse_coordinates):
                         Menu.car_selection()

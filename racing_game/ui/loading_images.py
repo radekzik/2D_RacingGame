@@ -306,6 +306,7 @@ class LoadingImages:
 
     # ICON ----------------------------------------------------------------------------------------------------------------------
     trophy_icon = res(pygame.image.load("../images/icons/trophy-icon.png"), 0.15).convert_alpha()
+    lock_icon = res(pygame.image.load("../images/icons/lock.png"), 0.15).convert_alpha()
     icon_formula = pygame.image.load("../images/icons/streaming.png").convert_alpha()
     pygame.display.set_icon(icon_formula)
 
