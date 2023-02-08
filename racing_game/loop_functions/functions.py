@@ -289,9 +289,9 @@ class LoopFunctions:
                                      Settings.car_match_time)
 
             if Settings.car_time_list[0] <= 9.9:
-                DataProcessing.save_lap_time(Settings.car_time_list[0], lap_filename)
+                DataProcessing.save_time(Settings.car_time_list[0], lap_filename)
 
-            DataProcessing.save_match_time(Settings.car_match_time, match_filename)
+            DataProcessing.save_time(Settings.car_match_time, match_filename)
 
             # enemy_time_table(enemy_time_list[0], enemy_time_list[2], enemy_match_time)
             pygame.display.update()

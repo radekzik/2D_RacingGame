@@ -902,8 +902,8 @@ class Menu:
             DrawUI.draw_text("FASTEST RACE TIMES", LoadingImages.MEDIUM_FONT, "purple", 1080, 330,
                              LoadingImages.GAME_SCREEN)
 
-            lap_times = DataProcessing.load_lap_times(lap_times_file)
-            match_times = DataProcessing.load_match_times(match_times_file)
+            lap_times = DataProcessing.load_time(lap_times_file)
+            match_times = DataProcessing.load_time(match_times_file)
 
             DrawUI.draw_text(f"1. - {lap_times[0]}" + "s", LoadingImages.SMALL_FONT, "green", 670, 400,
                              LoadingImages.GAME_SCREEN)
