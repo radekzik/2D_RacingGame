@@ -288,7 +288,7 @@ class Menu:
             DrawUI.draw_text(title3, LoadingImages.SMALL_FONT, color3, 1120, 340, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text(title4, LoadingImages.SMALL_FONT, color4, 1530, 340, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("DEFAULT - BLUE FORMULA", LoadingImages.MEDIUM_FONT, "grey", 1580, 1030,
+            DrawUI.draw_text("DEFAULT - BLUE FORMULA", LoadingImages.SMALL_FONT, "grey", 1710, 1050,
                              LoadingImages.GAME_SCREEN)
 
             first_button = Button(x_y=(350, 550), button_image=image1, button_text="",
@@ -301,19 +301,13 @@ class Menu:
                                    font=LoadingImages.SMALL_FONT,
                                    font_color="white", font_hover_color="cyan")
 
-            DrawUI.draw_text("5 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 695, 750, LoadingImages.GAME_SCREEN)
-
             third_button = Button(x_y=(1150, 550), button_image=image3, button_text="",
                                   font=LoadingImages.SMALL_FONT,
                                   font_color="white", font_hover_color="cyan")
 
-            DrawUI.draw_text("15 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 1090, 750, LoadingImages.GAME_SCREEN)
-
             fourth_button = Button(x_y=(1550, 550), button_image=image4, button_text="",
                                    font=LoadingImages.SMALL_FONT,
                                    font_color="white", font_hover_color="cyan")
-
-            DrawUI.draw_text("25 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 1490, 750, LoadingImages.GAME_SCREEN)
 
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
@@ -330,12 +324,24 @@ class Menu:
 
             if not Settings.win_coins >= 5:
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (700, 380))
+                DrawUI.draw_text("5 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 695, 750, LoadingImages.GAME_SCREEN)
+
+            else:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.correct_icon, (725, 740))
 
             if not Settings.win_coins >= 15:
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1100, 380))
+                DrawUI.draw_text("15 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 1090, 750,
+                                 LoadingImages.GAME_SCREEN)
+            else:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.correct_icon, (1125, 740))
 
             if not Settings.win_coins >= 25:
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (1500, 380))
+                DrawUI.draw_text("25 WINS NEEDED", LoadingImages.SMALL_FONT, "grey", 1490, 750,
+                                 LoadingImages.GAME_SCREEN)
+            else:
+                LoadingImages.GAME_SCREEN.blit(LoadingImages.correct_icon, (1525, 740))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -418,7 +424,7 @@ class Menu:
             DrawUI.draw_text("SPORTS CAR II.", LoadingImages.SMALL_FONT, "white", 1095, 330, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("CABRIO", LoadingImages.SMALL_FONT, "white", 1520, 330, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("DEFAULT - BLUE FORMULA", LoadingImages.MEDIUM_FONT, "grey", 1580, 1030,
+            DrawUI.draw_text("DEFAULT - BLUE FORMULA", LoadingImages.SMALL_FONT, "grey", 1710, 1050,
                              LoadingImages.GAME_SCREEN)
 
             formula_button = Button(x_y=(350, 550), button_image=LoadingImages.CAR_SELECTION[1]["CAR"], button_text="",
