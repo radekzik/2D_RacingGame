@@ -54,7 +54,7 @@ class DrawUI:
 
     @staticmethod
     def player_title():
-        DrawUI.draw_text(f"FIRST PLAYER", LoadingImages.MEDIUM_FONT, "light blue", 1595, 15, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"I. PLAYER", LoadingImages.MEDIUM_FONT, "light blue", 1655, 15, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def enemy_game_info(match_time, lap, stopwatch):
@@ -67,7 +67,7 @@ class DrawUI:
 
     @staticmethod
     def enemy_title():
-        DrawUI.draw_text(f"SECOND PLAYER", LoadingImages.MEDIUM_FONT, "red", 150, 15, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"II. PLAYER", LoadingImages.MEDIUM_FONT, "red", 150, 15, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def game_show_fps(clock):

@@ -489,16 +489,20 @@ class Menu:
 
             DrawUI.draw_text("CAR CONTROL", LoadingImages.NORMAL_FONT, "purple", 495, 200, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("W", LoadingImages.MEDIUM_FONT, "white", 625, 280, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("W", LoadingImages.MEDIUM_FONT, "white", 595, 280, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("I", LoadingImages.MEDIUM_FONT, "white", 663, 280, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Forward", LoadingImages.MEDIUM_FONT, "cyan", 1220, 280, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("S", LoadingImages.MEDIUM_FONT, "white", 630, 330, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("S", LoadingImages.MEDIUM_FONT, "white", 600, 330, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("K", LoadingImages.MEDIUM_FONT, "white", 660, 330, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Backward", LoadingImages.MEDIUM_FONT, "cyan", 1220, 330, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("A", LoadingImages.MEDIUM_FONT, "white", 630, 380, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("A", LoadingImages.MEDIUM_FONT, "white", 600, 380, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("J", LoadingImages.MEDIUM_FONT, "white", 660, 380, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Left", LoadingImages.MEDIUM_FONT, "cyan", 1220, 380, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("D", LoadingImages.MEDIUM_FONT, "white", 630, 430, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("D", LoadingImages.MEDIUM_FONT, "white", 600, 430, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("L", LoadingImages.MEDIUM_FONT, "white", 660, 430, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Right", LoadingImages.MEDIUM_FONT, "cyan", 1220, 430, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("CAR ABILITIES", LoadingImages.NORMAL_FONT, "purple", 495, 480, LoadingImages.GAME_SCREEN)

@@ -16,8 +16,10 @@ class PCPlayer(Car):
     car_width = car_image.get_width()
     car_height = car_image.get_height()
 
-    full_degrees = 360
-    half_degrees = 180
+    FULL_DEGREES = 360
+    HALF_DEGREES = 180
+
+    PI = 3.14
 
     def __init__(self, pc_route=None):
         super().__init__()
@@ -28,9 +30,8 @@ class PCPlayer(Car):
         self.next_route_position = 0
 
     def movement(self):
-        half_degree = 180
 
-        plane_angle = self.car_angle * (math.pi / half_degree)
+        plane_angle = self.car_angle * (self.PI / self.HALF_DEGREES)
 
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)
@@ -55,7 +56,7 @@ class PCPlayer(Car):
         difference_x, difference_y = (route_x - self.x, route_y - self.y)
 
         if difference_y == 0:
-            angle = self.half_degrees
+            angle = self.HALF_DEGREES
         else:
             xy_division = difference_x / difference_y
 
@@ -64,7 +65,7 @@ class PCPlayer(Car):
         # print(angle)
 
         if route_y > self.y:
-            angle += math.pi
+            angle += self.PI
 
         # print(angle)
 
@@ -75,32 +76,34 @@ class PCPlayer(Car):
 
         new_angle = self.car_angle - math.degrees(angle)
 
-        if new_angle >= self.half_degrees:
-            new_angle = new_angle - self.full_degrees
+        if new_angle >= self.HALF_DEGREES:
+            new_angle = new_angle - self.FULL_DEGREES
 
         if new_angle > 0:
-            # self.subtract_angle()
-            self.car_angle -= min(self.max_movement_speed, abs(new_angle))
+            self.subtract_angle()
 
         else:
-            # self.add_angle()
-            self.car_angle += min(self.max_movement_speed, abs(new_angle))
+            self.add_angle()
 
     def add_angle(self):
         global new_angle
 
-        if self.car_angle > new_angle:
-            self.car_angle = self.car_angle + self.max_movement_speed
-        else:
-            self.car_angle = new_angle
+        # if self.car_angle > new_angle:
+        # self.car_angle = self.car_angle + self.max_movement_speed
+        # else:
+        # self.car_angle = new_angle
+
+        self.car_angle += min(self.max_movement_speed, abs(new_angle))
 
     def subtract_angle(self):
         global new_angle
 
-        if self.car_angle > new_angle:
-            self.car_angle = self.car_angle - self.max_movement_speed
-        else:
-            self.car_angle = new_angle
+        # if self.car_angle > new_angle:
+        # self.car_angle = self.car_angle - self.max_movement_speed
+        # else:
+        # self.car_angle = new_angle
+
+        self.car_angle -= min(self.max_movement_speed, abs(new_angle))
 
     def car_route(self):
 
