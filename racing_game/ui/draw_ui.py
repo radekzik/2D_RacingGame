@@ -67,7 +67,7 @@ class DrawUI:
 
     @staticmethod
     def enemy_title():
-        DrawUI.draw_text(f"II. PLAYER", LoadingImages.MEDIUM_FONT, "red", 150, 15, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"II. PLAYER", LoadingImages.MEDIUM_FONT, "light blue", 150, 15, LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def game_show_fps(clock):
