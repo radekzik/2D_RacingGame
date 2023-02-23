@@ -200,7 +200,7 @@ class AllMaps:
 
         DrawUI.loading_game("Loading", "VS PC", "V. MAP", LoadingImages.MAP_LOADING[5]["MAP"])
 
-        MapLoop.loop(Player, PCPlayer, PCPlayer.fourth_map_route, DrawUI.random_selected_map_background(),
+        MapLoop.loop(Player, PCPlayer, PCPlayer.fifth_map_route, DrawUI.random_selected_map_background(),
                      LoadingImages.MAPS[5]["MAP"], LoadingImages.MAPS[5]["BORDER"],
                      AllMaps.fifth_map_vs_pc, Player.respawn_fifth_map, PCPlayer.respawn_fifth_map,
                      LoadingImages.FINISH_LINE[2]["FINISH_LINE"], Settings.FINISH_LINES[5]["FINISH_LINE"],

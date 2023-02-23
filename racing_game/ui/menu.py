@@ -58,6 +58,7 @@ class Menu:
             settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
                                      font=LoadingImages.NORMAL_FONT,
                                      font_color="white", font_hover_color="cyan")
+            DrawUI.draw_text("LAPS", LoadingImages.SMALL_FONT, "cyan", 1840, 110, LoadingImages.GAME_SCREEN)
 
             back_button = Button(button_image=LoadingImages.BUTTONS[3]["BUTTON"], x_y=(Menu.QUIT_X, Menu.QUIT_Y),
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
