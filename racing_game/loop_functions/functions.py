@@ -222,7 +222,7 @@ class LoopFunctions:
 
     @staticmethod
     def check_laps(car, pc_car, car_stopwatch, reset_map, player_respawn, enemy_respawn):
-        if car_stopwatch > 5:
+        if car_stopwatch > 7:
             Settings.car_lap += 1
             DrawUI.check_audio(Sounds.finish.play)
 
@@ -244,7 +244,7 @@ class LoopFunctions:
             DrawUI.check_audio(Sounds.starting_sound.stop)
             DrawUI.check_audio(Sounds.car_engine.stop)
             DrawUI.check_audio(Sounds.lose.play)
-            DrawUI.draw_text(f"WRONG WAY!", LoadingImages.NORMAL_FONT, "white", 830, 450, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"WRONG WAY!", LoadingImages.NORMAL_FONT, "red", 830, 570, LoadingImages.GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
@@ -308,7 +308,7 @@ class LoopFunctions:
 
     @staticmethod
     def enemy_check_laps(pc_car, enemy_stopwatch, reset_map, enemy_respawn):
-        if enemy_stopwatch > 5:
+        if enemy_stopwatch > 7:
             Settings.enemy_lap += 1
             DrawUI.check_audio(Sounds.finish.play)
 
@@ -331,7 +331,7 @@ class LoopFunctions:
             DrawUI.check_audio(Sounds.car_engine.stop)
             DrawUI.check_audio(Sounds.lose.play)
 
-            DrawUI.draw_text(f"WRONG WAY!", LoadingImages.NORMAL_FONT, "white", 830, 450, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"WRONG WAY!", LoadingImages.NORMAL_FONT, "red", 830, 570, LoadingImages.GAME_SCREEN)
 
             pygame.display.update()
             pygame.time.wait(1000)
