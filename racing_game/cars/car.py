@@ -9,6 +9,11 @@ from racing_game.ui.loading_images import LoadingImages
 
 class Car:
 
+    FULL_DEGREES = 360
+    HALF_DEGREES = 180
+
+    PI = 3.14
+
     def __init__(self):
         self.car_image = self.car_image
         self.x = self.x_position
@@ -40,9 +45,8 @@ class Car:
         self.image_position(game_window, self.car_image, (self.x, self.y), self.car_angle)
 
     def movement(self):
-        half_degree = 180
 
-        plane_angle = self.car_angle * (math.pi / half_degree)
+        plane_angle = self.car_angle * (self.PI / self.HALF_DEGREES)
 
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)
