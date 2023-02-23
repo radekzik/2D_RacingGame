@@ -134,12 +134,11 @@ class Car:
 
         self.movement()
 
-    def border_collide(self, car_hitbox):
-        image_hitbox = pygame.mask.from_surface(self.car_image)
-        car_position = self.x, self.y
-        out_of_track = car_hitbox.overlap(image_hitbox, car_position)
+    def border_collide(self, map_border):
+        car = pygame.mask.from_surface(self.car_image)
+        out_of_track_detection = map_border.overlap(car, (self.x, self.y))
 
-        return out_of_track
+        return out_of_track_detection
 
     def get_car_rect(self):
         rect_angle = pygame.transform.rotate(self.car_image, self.car_angle)
