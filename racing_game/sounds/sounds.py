@@ -19,7 +19,7 @@ class Sounds:
     out_off_the_track_sound.set_volume(0.02)
 
     car_engine = pygame.mixer.Sound("./../sound_effects/car-acceleration.wav")
-    car_engine.set_volume(0.1)
+    car_engine.set_volume(0.03)
 
     car_turbo = pygame.mixer.Sound("./../sound_effects/turbo_sound.wav")
     car_turbo.set_volume(0.02)
