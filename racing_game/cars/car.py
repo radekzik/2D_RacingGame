@@ -8,7 +8,6 @@ from racing_game.ui.loading_images import LoadingImages
 
 
 class Car:
-
     FULL_DEGREES = 360
     HALF_DEGREES = 180
 
@@ -46,8 +45,10 @@ class Car:
 
     def movement(self):
 
+        # prevedeni na radiany
         plane_angle = self.car_angle * (self.PI / self.HALF_DEGREES)
 
+        # otaceni - pridavani/odebirani uhlu - pohyb po jednotkove kruznici
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)
 

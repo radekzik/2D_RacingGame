@@ -31,8 +31,10 @@ class PCPlayer(Car):
 
     def movement(self):
 
+        # prevedeni na radiany
         plane_angle = self.car_angle * (self.PI / self.HALF_DEGREES)
 
+        # otaceni - pridavani/odebirani uhlu - pohyb po jednotkove kruznici
         self.x += -self.car_speed * math.sin(plane_angle)
         self.y += -self.car_speed * math.cos(plane_angle)
 
@@ -48,19 +50,22 @@ class PCPlayer(Car):
 
         self.movement()
 
-    def new_angle_pos(self):
-        global difference_x, difference_y, angle, new_angle
-
+    def pos_difference(self):
+        global difference_x, difference_y, angle, new_angle, route_y
+        # pozice v listu
         route_x, route_y = self.pc_route[self.next_route_position]
 
+        # rozdil v aktualni pozici a dalsi pozici v listu
         difference_x, difference_y = (route_x - self.x, route_y - self.y)
 
-        if difference_y == 0:
-            angle = self.HALF_DEGREES
-        else:
-            xy_division = difference_x / difference_y
+    def new_angle_pos(self):
+        global difference_x, difference_y, angle, new_angle, route_y
 
-            angle = math.atan(xy_division)
+        self.pos_difference()
+
+        # inverzni tangens
+        xy_division = difference_x / difference_y
+        angle = math.atan(xy_division)
 
         # print(angle)
 
@@ -74,11 +79,14 @@ class PCPlayer(Car):
     def set_new_angle(self):
         global new_angle
 
+        # zjisteni noveho uhlu kam se ma auto natocit
         new_angle = self.car_angle - math.degrees(angle)
 
+        # kontrola - prechod ze 180 do -
         if new_angle >= self.HALF_DEGREES:
             new_angle = new_angle - self.FULL_DEGREES
 
+        # kontrola pricitani/odecitani uhlu
         if new_angle > 0:
             self.subtract_angle()
 
