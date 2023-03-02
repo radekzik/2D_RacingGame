@@ -21,6 +21,8 @@ class PCPlayer(Car):
 
     PI = 3.14
 
+    NULL = 0
+
     def __init__(self, pc_route=None):
         super().__init__()
         self.new_pc_route = None
@@ -87,7 +89,7 @@ class PCPlayer(Car):
             new_angle = new_angle - self.FULL_DEGREES
 
         # kontrola pricitani/odecitani uhlu
-        if new_angle > 0:
+        if new_angle > self.NULL:
             self.subtract_angle()
 
         else:
