@@ -70,7 +70,7 @@ class PCPlayer(Car):
         # print(angle)
 
         if route_y > self.y:
-            angle += self.PI
+            angle = angle + self.PI
 
         # print(angle)
 
