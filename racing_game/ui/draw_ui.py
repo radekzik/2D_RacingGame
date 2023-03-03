@@ -14,8 +14,10 @@ class DrawUI:
 
         random_number = random.randint(1, 5)
 
-        map_background_list = [LoadingImages.MAP_BACKGROUND[1]["BACKGROUND"], LoadingImages.MAP_BACKGROUND_LAKE[1]["BACKGROUND"],
-                               LoadingImages.MAP_BACKGROUND_LAKE[2]["BACKGROUND"], LoadingImages.MAP_BACKGROUND[2]["BACKGROUND"],
+        map_background_list = [LoadingImages.MAP_BACKGROUND[1]["BACKGROUND"],
+                               LoadingImages.MAP_BACKGROUND_LAKE[1]["BACKGROUND"],
+                               LoadingImages.MAP_BACKGROUND_LAKE[2]["BACKGROUND"],
+                               LoadingImages.MAP_BACKGROUND[2]["BACKGROUND"],
                                LoadingImages.MAP_BACKGROUND_LAKE[3]["BACKGROUND"]]
 
         for x in range(5):
@@ -31,7 +33,8 @@ class DrawUI:
 
         random_number = random.randint(1, 2)
 
-        map_background_list = [LoadingImages.MAP_BACKGROUND[1]["BACKGROUND"], LoadingImages.MAP_BACKGROUND[2]["BACKGROUND"]]
+        map_background_list = [LoadingImages.MAP_BACKGROUND[1]["BACKGROUND"],
+                               LoadingImages.MAP_BACKGROUND[2]["BACKGROUND"]]
 
         for x in range(2):
             x += 1
@@ -47,10 +50,13 @@ class DrawUI:
 
     @staticmethod
     def game_info(match_time, lap, stopwatch):
-        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.SMALL_FONT, "white", 1790, 20, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.SMALL_FONT, "cyan", 1790, 60, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.SMALL_FONT, "white", 1790, 20,
+                         LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.SMALL_FONT, "cyan", 1790, 60,
+                         LoadingImages.GAME_SCREEN)
 
-        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.SMALL_FONT, "cyan", 1777, 1040, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.SMALL_FONT, "cyan", 1777, 1040,
+                         LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def player_title():
@@ -58,10 +64,13 @@ class DrawUI:
 
     @staticmethod
     def enemy_game_info(match_time, lap, stopwatch):
-        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.SMALL_FONT, "white", 30, 20, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.SMALL_FONT, "cyan", 30, 60, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP TIME - {stopwatch}", LoadingImages.SMALL_FONT, "white", 30, 20,
+                         LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"RACE TIME - {round(match_time)}", LoadingImages.SMALL_FONT, "cyan", 30, 60,
+                         LoadingImages.GAME_SCREEN)
 
-        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.SMALL_FONT, "cyan", 73, 1040, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"LAP - {lap} / {Settings.max_laps}", LoadingImages.SMALL_FONT, "cyan", 73, 1040,
+                         LoadingImages.GAME_SCREEN)
 
         DrawUI.enemy_title()
 
@@ -71,23 +80,30 @@ class DrawUI:
 
     @staticmethod
     def game_show_fps(clock):
-        DrawUI.draw_text(f"FPS - {round(clock.get_fps())}", LoadingImages.SMALL_FONT, "cyan", 30, 20, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FPS - {round(clock.get_fps())}", LoadingImages.SMALL_FONT, "cyan", 30, 20,
+                         LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def player_time_table(fastest_time, slowest_time, match_time):
 
         LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[2]["TABLE"], (700, 200))
-        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250,
+                         LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350,
+                         LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450,
+                         LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def enemy_time_table(fastest_time, slowest_time, match_time):
 
         LoadingImages.GAME_SCREEN.blit(LoadingImages.TIME_TABLES[2]["TABLE"], (700, 200))
-        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350, LoadingImages.GAME_SCREEN)
-        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"FASTEST LAP TIME : {fastest_time}", LoadingImages.NORMAL_FONT, "green", 740, 250,
+                         LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"SLOWEST LAP TIME : {slowest_time}", LoadingImages.NORMAL_FONT, "red", 740, 350,
+                         LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"MATCH TIME : {round(match_time)}", LoadingImages.NORMAL_FONT, "white", 740, 450,
+                         LoadingImages.GAME_SCREEN)
 
     @staticmethod
     def speedometer(car, x, y):
@@ -131,15 +147,18 @@ class DrawUI:
 
         while loading:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[2]["BACKGROUND"], (0, 0))
-            DrawUI.draw_text("Restarting Game.", LoadingImages.NORMAL_FONT, "white", 780, 230, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Restarting Game.", LoadingImages.NORMAL_FONT, "white", 780, 230,
+                             LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            DrawUI.draw_text("Restarting Game..", LoadingImages.NORMAL_FONT, "white", 780, 230, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Restarting Game..", LoadingImages.NORMAL_FONT, "white", 780, 230,
+                             LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
 
-            DrawUI.draw_text("Restarting Game...", LoadingImages.NORMAL_FONT, "white", 780, 230, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Restarting Game...", LoadingImages.NORMAL_FONT, "white", 780, 230,
+                             LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(300)
             loading = False
@@ -157,7 +176,8 @@ class DrawUI:
             DrawUI.draw_text(title + " Game..", LoadingImages.NORMAL_FONT, "white", 780, 130, LoadingImages.GAME_SCREEN)
             DrawUI.loading_text(game_mode, map_title, map_image)
 
-            DrawUI.draw_text(title + " Game...", LoadingImages.NORMAL_FONT, "white", 780, 130, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(title + " Game...", LoadingImages.NORMAL_FONT, "white", 780, 130,
+                             LoadingImages.GAME_SCREEN)
             DrawUI.loading_text(game_mode, map_title, map_image)
 
             loading = False
@@ -217,7 +237,6 @@ class DrawUI:
         player_car.car_current_speed()
 
         DrawUI.nitro(player_car, 1690, 970)
-        # player_car.car_current_nitro()
 
     @staticmethod
     def enemy_ui(enemy_car, enemy_stopwatch):
@@ -227,7 +246,6 @@ class DrawUI:
         enemy_car.car_current_speed()
 
         DrawUI.nitro(enemy_car, 200, 970)
-        # player_car.car_current_nitro()
 
     @staticmethod
     def car_stopwatch(ticks):
@@ -273,24 +291,28 @@ class DrawUI:
             DrawUI.animation(stopwatch, car, LoadingImages.FORMULA[1]["CAR"], LoadingImages.FORMULA[1]["CAR-2"])
 
         if Settings.car_type == 2:
-            DrawUI.animation(stopwatch, car,  LoadingImages.FORMULA[3]["CAR"], LoadingImages.FORMULA[3]["CAR-2"])
+            DrawUI.animation(stopwatch, car, LoadingImages.FORMULA[3]["CAR"], LoadingImages.FORMULA[3]["CAR-2"])
 
         if Settings.car_type == 3:
-            DrawUI.animation(stopwatch, car,  LoadingImages.FORMULA[4]["CAR"], LoadingImages.FORMULA[4]["CAR-2"])
+            DrawUI.animation(stopwatch, car, LoadingImages.FORMULA[4]["CAR"], LoadingImages.FORMULA[4]["CAR-2"])
 
         if Settings.car_type == 4:
-            DrawUI.animation(stopwatch, car,  LoadingImages.FORMULA[5]["CAR"], LoadingImages.FORMULA[5]["CAR-2"])
+            DrawUI.animation(stopwatch, car, LoadingImages.FORMULA[5]["CAR"], LoadingImages.FORMULA[5]["CAR-2"])
 
     @staticmethod
     def enemy_animation(stopwatch, enemy):
         if Settings.enemy_car_type == 1:
-            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[1]["CAR"], LoadingImages.FORMULA[1]["CAR-2"])
+            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[1]["CAR"],
+                                    LoadingImages.FORMULA[1]["CAR-2"])
 
         if Settings.enemy_car_type == 2:
-            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[3]["CAR"], LoadingImages.FORMULA[3]["CAR-2"])
+            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[3]["CAR"],
+                                    LoadingImages.FORMULA[3]["CAR-2"])
 
         if Settings.enemy_car_type == 3:
-            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[4]["CAR"], LoadingImages.FORMULA[4]["CAR-2"])
+            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[4]["CAR"],
+                                    LoadingImages.FORMULA[4]["CAR-2"])
 
         if Settings.enemy_car_type == 4:
-            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[5]["CAR"], LoadingImages.FORMULA[5]["CAR-2"])
+            DrawUI.second_animation(stopwatch, enemy, LoadingImages.FORMULA[5]["CAR"],
+                                    LoadingImages.FORMULA[5]["CAR-2"])

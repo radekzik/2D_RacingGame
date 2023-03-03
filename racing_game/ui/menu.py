@@ -552,7 +552,6 @@ class Menu:
                              LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("AUDIO", LoadingImages.NORMAL_FONT, "cyan", 620, 300, LoadingImages.GAME_SCREEN)
-            # draw_text("CAMERA FOCUS", normal_font, "cyan", 620, 400, GAME_SCREEN)
             DrawUI.draw_text("VSYNC", LoadingImages.NORMAL_FONT, "cyan", 620, 400, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("UI", LoadingImages.NORMAL_FONT, "cyan", 620, 500, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("FPS", LoadingImages.NORMAL_FONT, "cyan", 620, 600, LoadingImages.GAME_SCREEN)

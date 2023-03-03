@@ -76,12 +76,6 @@ class Car:
 
     def backward_control(self):
 
-        # while self.car_speed <= self.min_speed:
-        # self.car_speed = -self.car_acceleration
-
-        # else:
-        # self.car_speed = self.min_speed
-
         self.car_speed = max(self.car_speed - self.car_acceleration, -6)
 
         self.movement()
@@ -123,10 +117,6 @@ class Car:
         self.max_speed -= 40
         self.car_speed -= 40
 
-        # pygame.time.wait(100)
-        # draw_text("YOU HIT A BARRIER!", normal_font, "orange", 800, 800, game_screen)
-        # pygame.display.update()
-
         self.movement()
 
     def car_collide(self):
@@ -134,8 +124,6 @@ class Car:
         self.max_speed = 0
         self.max_speed = self.max_speed - 0.1
         self.car_speed = self.car_speed - 0.1
-
-        # self.car_image = pink_lambo
 
         self.movement()
 

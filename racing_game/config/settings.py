@@ -4,7 +4,6 @@ from racing_game.storage.data_processing import DataProcessing
 
 
 class Settings:
-
     FINISH_LINES = {
         1: {'FINISH_LINE': (580, 840), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
         2: {'FINISH_LINE': (580, 788), 'FINISH_LINE_RANGES': [(650, 860), (680, 1080)]},
@@ -81,6 +80,6 @@ class Settings:
 
     win_file = DataProcessing.load_wins(FILE_PATHS[6]["WINS"])
 
-    #win_coins = int(win_file[len(win_file) - 1])
+    # win_coins = int(win_file[len(win_file) - 1])
     win_coins = 30
     print(win_coins)

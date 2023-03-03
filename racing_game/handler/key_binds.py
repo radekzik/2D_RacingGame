@@ -16,15 +16,9 @@ class KeyBinds:
         if pressed_key[pygame.K_w]:
             car.forward_control()
             DrawUI.car_animation(stopwatch, car)
-            # check_audio(racing_game.sounds.sounds.car_engine.play)
-            # check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.05)
 
         else:
             car.forward_slowdown()
-            # check_audio_set_volume(racing_game.sounds.sounds.car_engine.set_volume, 0.02)
-
-            # if stopwatch % 2 == 0:
-            # check_audio(racing_game.sounds.sounds.car_engine.stop)
 
         if pressed_key[pygame.K_s]:
             car.backward_control()
@@ -48,7 +42,6 @@ class KeyBinds:
 
         if pressed_key[pygame.K_r]:
             stop_sounds()
-            # game_methods.restarting_game()
             map_restart()
 
         if pressed_key[pygame.K_w]:

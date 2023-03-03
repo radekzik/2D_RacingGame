@@ -7,9 +7,6 @@ class Player(Car):
     x_position = 700
     y_position = 950
 
-    # x_position = GAME_SCREEN.get_width() / 2
-    # y_position = GAME_SCREEN.get_height() / 2
-
     car_image = LoadingImages.FORMULA[1]["CAR"]
     car_angle = 270
 

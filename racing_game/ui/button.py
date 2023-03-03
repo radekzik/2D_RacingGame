@@ -39,4 +39,3 @@ class Button:
     def button_hover_render(button_name, mouse_coordinates, game_screen):
         button_name.on_hover(mouse_coordinates)
         button_name.button_render(game_screen)
-
