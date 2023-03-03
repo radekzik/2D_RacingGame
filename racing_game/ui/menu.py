@@ -566,12 +566,6 @@ class Menu:
                                       button_text="OFF", font=LoadingImages.SMALL_FONT, font_color="white",
                                       font_hover_color="purple")
 
-            # camera_on_button = Button(button_image=on_off_button, x_y=(1220, 440),
-            # button_text="ON", font=small_font, font_color="white", font_hover_color="white")
-
-            # camera_off_button = Button(button_image=on_off_button, x_y=(1300, 440),
-            # button_text="OFF", font=small_font, font_color="white", font_hover_color="white")
-
             vsync_on_button = Button(button_image=LoadingImages.ON_OFF_BUTTONS[1]["BUTTON"], x_y=(1220, 440),
                                      button_text="ON", font=LoadingImages.SMALL_FONT, font_color="white",
                                      font_hover_color="cyan")
@@ -606,9 +600,6 @@ class Menu:
 
             audio_on_button.button_render(LoadingImages.GAME_SCREEN)
             audio_off_button.button_render(LoadingImages.GAME_SCREEN)
-
-            # camera_on_button.button_render(GAME_SCREEN)
-            # camera_off_button.button_render(GAME_SCREEN)
 
             vsync_on_button.button_render(LoadingImages.GAME_SCREEN)
             vsync_off_button.button_render(LoadingImages.GAME_SCREEN)
@@ -647,110 +638,41 @@ class Menu:
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
 
-                    if audio_on_button.on_click(mouse_coordinates):
-                        Settings.audio = 1
-                        DrawUI.draw_text("AUDIO ON!", LoadingImages.NORMAL_FONT, "green", 850, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
+                    settings_options = {
+                        audio_on_button: ("AUDIO ON!", 850, 210, 1),
+                        audio_off_button: ("AUDIO OFF!", 850, 210, 2),
+                        vsync_on_button: ("VSYNC ON!", 850, 210, 1),
+                        vsync_off_button: ("VSYNC OFF!", 850, 210, 0),
+                        show_ui_on_button: ("UI ON!", 900, 210, 1),
+                        show_ui_off_button: ("UI OFF!", 900, 210, 2),
+                        show_fps_on_button: ("FPS ON!", 890, 210, 1),
+                        show_fps_off_button: ("FPS OFF!", 890, 210, 2),
+                        show_xy_on_button: ("X-Y ON!", 890, 210, 1),
+                        show_xy_off_button: ("X-Y OFF!", 890, 210, 2),
+                    }
 
-                    if audio_off_button.on_click(mouse_coordinates):
-                        Settings.audio = 2
-                        DrawUI.draw_text("AUDIO OFF!", LoadingImages.NORMAL_FONT, "green", 850, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
+                    for button, (text, x, y, value) in settings_options.items():
 
-                    # if camera_on_button.on_click(mouse_coordinates):
-                    #  settings.camera_focus = 1
-                    #  draw_text("CAMERA FOCUS ON!", normal_font, "green", 730, 210, GAME_SCREEN)
-                    #  pygame.display.update()
-                    # pygame.time.wait(2000)
+                        if button.on_click(mouse_coordinates):
+                            if button in (audio_on_button, audio_off_button):
+                                Settings.audio = value
+                            elif button in (vsync_on_button, vsync_off_button):
+                                Settings.vsync = value
+                            elif button in (show_ui_on_button, show_ui_off_button):
+                                Settings.show_ui = value
+                            elif button in (show_fps_on_button, show_fps_off_button):
+                                Settings.show_fps = value
+                            elif button in (show_xy_on_button, show_xy_off_button):
+                                Settings.show_xy = value
 
-                    # if camera_off_button.on_click(mouse_coordinates):
-                    # settings.camera_focus = 2
-                    # draw_text("CAMERA FOCUS OFF!", normal_font, "green", 730, 210, GAME_SCREEN)
-                    # pygame.display.update()
-                    # pygame.time.wait(2000)
-
-                    if vsync_on_button.on_click(mouse_coordinates):
-                        Settings.vsync = 1
-                        DrawUI.draw_text("VSYNC ON!", LoadingImages.NORMAL_FONT, "green", 850, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    if vsync_off_button.on_click(mouse_coordinates):
-                        Settings.vsync = 0
-                        DrawUI.draw_text("VSYNC OFF!", LoadingImages.NORMAL_FONT, "green", 850, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    if show_ui_on_button.on_click(mouse_coordinates):
-                        Settings.show_ui = 1
-                        DrawUI.draw_text("UI ON!", LoadingImages.NORMAL_FONT, "green", 900, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    if show_ui_off_button.on_click(mouse_coordinates):
-                        Settings.show_ui = 2
-                        DrawUI.draw_text("UI OFF!", LoadingImages.NORMAL_FONT, "green", 900, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    if show_fps_on_button.on_click(mouse_coordinates):
-                        Settings.show_fps = 1
-                        DrawUI.draw_text("FPS ON!", LoadingImages.NORMAL_FONT, "green", 890, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    if show_fps_off_button.on_click(mouse_coordinates):
-                        Settings.show_fps = 2
-                        DrawUI.draw_text("FPS OFF!", LoadingImages.NORMAL_FONT, "green", 890, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    if show_xy_on_button.on_click(mouse_coordinates):
-                        Settings.show_xy = 1
-                        DrawUI.draw_text("X-Y ON!", LoadingImages.NORMAL_FONT, "green", 890, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    # Menu.change_settings(show_xy_on_button, mouse_coordinates, Settings.show_xy == 1, "X-Y ON!", 890)
-
-                    if show_xy_off_button.on_click(mouse_coordinates):
-                        Settings.show_xy = 2
-                        DrawUI.draw_text("X-Y OFF!", LoadingImages.NORMAL_FONT, "green", 890, 210,
-                                         LoadingImages.GAME_SCREEN)
-                        pygame.display.update()
-                        pygame.time.wait(1200)
-
-                    # Menu.change_settings(show_xy_off_button, mouse_coordinates, Settings.show_xy == 2, "X-Y OFF!", 890)
-
-                    # change_settings(show_xy_off_button, mouse_coordinates, settings.show_xy, 2, "X-Y OFF!")
+                            DrawUI.draw_text(text, LoadingImages.NORMAL_FONT, "green", x, y, LoadingImages.GAME_SCREEN)
+                            pygame.display.update()
+                            pygame.time.wait(1200)
 
                     if back_button.on_click(mouse_coordinates):
                         Menu.main_menu()
 
             pygame.display.update()
-
-    @staticmethod
-    def change_settings(button, mouse_coordinates, command, title, title_x):
-
-        if button.on_click(mouse_coordinates):
-            settings = command
-            DrawUI.draw_text(title, LoadingImages.NORMAL_FONT, "green", title_x, 210, LoadingImages.GAME_SCREEN)
-
-            pygame.display.update()
-            pygame.time.wait(1200)
-
-            return settings
 
     # MAIN MENU ------------------------------------------------------------------------------------------------------------
     @staticmethod
@@ -784,17 +706,9 @@ class Menu:
                                   font=LoadingImages.NORMAL_FONT,
                                   font_color="white", font_hover_color="cyan")
 
-            # binds_button = Button(button_image=button_transparent_image, x_y=(976, 630), button_text="BINDS",
-            # font=normal_font,
-            # font_color="white", font_hover_color="cyan")
-
             binds_button = Button(button_image=LoadingImages.BUTTONS[6]["BUTTON"], x_y=(60, 60), button_text="",
                                   font=LoadingImages.NORMAL_FONT,
                                   font_color="white", font_hover_color="cyan")
-
-            # settings_button = Button(button_image=settings_button_icon, x_y=(960, 550), button_text="SETTINGS",
-            # font=normal_font,
-            # font_color="white", font_hover_color="cyan")
 
             settings_button = Button(button_image=LoadingImages.BUTTONS[5]["BUTTON"], x_y=(1860, 60), button_text="",
                                      font=LoadingImages.NORMAL_FONT,
@@ -829,7 +743,6 @@ class Menu:
                     if car_selection_button.on_click(mouse_coordinates):
                         Menu.car_selection()
                     if stats_button.on_click(mouse_coordinates):
-                        # stats_first_map()
                         Menu.first_map_stats()
                     if binds_button.on_click(mouse_coordinates):
                         Menu.binds()
