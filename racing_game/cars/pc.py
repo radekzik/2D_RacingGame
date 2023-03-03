@@ -6,8 +6,6 @@ from racing_game.ui.loading_images import LoadingImages
 
 
 class PCPlayer(Car):
-    global difference_x, difference_y, angle, new_angle
-
     x_position = 700
     y_position = 900
     car_angle = 270
@@ -53,7 +51,6 @@ class PCPlayer(Car):
         self.movement()
 
     def pos_difference(self):
-        global difference_x, difference_y, angle, new_angle, route_y
         # pozice v listu
         route_x, route_y = self.pc_route[self.next_route_position]
 
@@ -63,7 +60,6 @@ class PCPlayer(Car):
         return difference_x, difference_y
 
     def new_angle_pos(self):
-        global difference_x, difference_y, angle, new_angle, route_y
 
         difference_x, difference_y = self.pos_difference()
 
@@ -74,10 +70,9 @@ class PCPlayer(Car):
         if self.pc_route[self.next_route_position][1] > self.y:
             angle = angle + self.PI
 
-        self.set_new_angle()
+        self.set_new_angle(angle)
 
-    def set_new_angle(self):
-        global new_angle
+    def set_new_angle(self, angle):
 
         # zjisteni noveho uhlu kam se ma auto natocit
         new_angle = self.car_angle - math.degrees(angle)
@@ -150,13 +145,13 @@ class PCPlayer(Car):
 
     def increase_speed(self):
 
-        if difference_x < 20 or difference_y < 20:
-            self.max_speed = 0.5
-            self.car_speed = 0.5
+        # if difference_x < 20 or difference_y < 20:
+        self.max_speed = 0.5
+        self.car_speed = 0.5
 
-        else:
-            self.max_speed = 3.3
-            self.car_speed = 3.3
+        # else:
+        self.max_speed = 3.3
+        self.car_speed = 3.3
 
     def border_collision(self):
         self.car_speed = 0
