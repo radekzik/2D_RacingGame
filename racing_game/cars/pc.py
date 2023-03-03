@@ -60,21 +60,19 @@ class PCPlayer(Car):
         # rozdil v aktualni pozici a dalsi pozici v listu
         difference_x, difference_y = (route_x - self.x, route_y - self.y)
 
+        return difference_x, difference_y
+
     def new_angle_pos(self):
         global difference_x, difference_y, angle, new_angle, route_y
 
-        self.pos_difference()
+        difference_x, difference_y = self.pos_difference()
 
         # inverzni tangens
         xy_division = difference_x / difference_y
         angle = math.atan(xy_division)
 
-        # print(angle)
-
-        if route_y > self.y:
+        if self.pc_route[self.next_route_position][1] > self.y:
             angle = angle + self.PI
-
-        # print(angle)
 
         self.set_new_angle()
 
@@ -86,34 +84,32 @@ class PCPlayer(Car):
 
         # kontrola - prechod ze 180 do -
         if new_angle >= self.HALF_DEGREES:
-            new_angle = new_angle - self.FULL_DEGREES
+            new_angle -= self.FULL_DEGREES
 
         # kontrola pricitani/odecitani uhlu
         if new_angle > self.NULL:
-            self.subtract_angle()
+            self.subtract_angle(new_angle)
 
         else:
-            self.add_angle()
+            self.add_angle(new_angle)
 
-    def add_angle(self):
-        global new_angle
+    def add_angle(self, angle):
 
         # if self.car_angle > new_angle:
         # self.car_angle = self.car_angle + self.max_movement_speed
         # else:
         # self.car_angle = new_angle
 
-        self.car_angle += min(self.max_movement_speed, abs(new_angle))
+        self.car_angle += min(self.max_movement_speed, abs(angle))
 
-    def subtract_angle(self):
-        global new_angle
+    def subtract_angle(self, angle):
 
         # if self.car_angle > new_angle:
         # self.car_angle = self.car_angle - self.max_movement_speed
         # else:
         # self.car_angle = new_angle
 
-        self.car_angle -= min(self.max_movement_speed, abs(new_angle))
+        self.car_angle -= min(self.max_movement_speed, abs(angle))
 
     def car_route(self):
 
