@@ -9,7 +9,7 @@ from racing_game.ui.loading_images import LoadingImages
 
 class MapLoop:
     @staticmethod
-    def loop(player, enemy, enemy_route, background, map_image, map_border, map_restart, map_respawn, enemy_respawn,
+    def loop(player, enemy, enemy_route, route_number, background, map_image, map_border, map_restart, map_respawn, enemy_respawn,
              finish_line, finish_line_xy, x_range1, x_range2, y_range1, y_range2,
              lap_times_file, match_times_file):
 
@@ -87,7 +87,7 @@ class MapLoop:
                     # DrawUI.check_show_fps(DrawUI.game_show_fps, clock)
 
                     enemy_car.start_drive()
-                    enemy_car.pc_route = enemy_route(enemy_car)
+                    enemy_car.pc_route = enemy_route(route_number)
 
                 if Settings.show_ui == 1:
                     DrawUI.ui(player_car, car_stopwatch)

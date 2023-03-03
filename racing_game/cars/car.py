@@ -150,30 +150,25 @@ class Car:
         car_rect = rect_angle.get_rect(topleft=(self.x, self.y), center=(self.x + 10.5, self.y + 28))
         return car_rect
 
+    def respawn_map(self, x, y, car_angle):
+        self.x = x
+        self.y = y
+        self.car_angle = car_angle
+
     def respawn_first_map(self):
-        self.x = 600
-        self.y = 950
-        self.car_angle = 270
+        self.respawn_map(600, 950, 270)
 
     def respawn_second_map(self):
-        self.x = 600
-        self.y = 900
-        self.car_angle = 270
+        self.respawn_map(600, 900, 270)
 
     def respawn_third_map(self):
-        self.x = 500
-        self.y = 950
-        self.car_angle = 270
+        self.respawn_map(500, 950, 270)
 
     def respawn_fourth_map(self):
-        self.x = 600
-        self.y = 900
-        self.car_angle = 270
+        self.respawn_map(600, 900, 270)
 
     def respawn_fifth_map(self):
-        self.x = 580
-        self.y = 950
-        self.car_angle = 270
+        self.respawn_map(580, 950, 270)
 
     def random_enemy_car(self):
         random_number = random.randint(1, 18)

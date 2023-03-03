@@ -19,40 +19,41 @@ class EnemyPlayer(Car):
         if self.car_speed < 0:
             DrawUI.draw_text(f"0", LoadingImages.NORMAL_FONT, "red", position_x, position_y, LoadingImages.GAME_SCREEN)
         if self.car_speed == 0:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "white", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "white", position_x, position_y,
+                             LoadingImages.GAME_SCREEN)
         if 0 < self.car_speed <= 1:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "green", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "green", position_x, position_y,
+                             LoadingImages.GAME_SCREEN)
         if 1 < self.car_speed <= 2:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "green", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "green", position_x, position_y,
+                             LoadingImages.GAME_SCREEN)
         if 2 < self.car_speed <= 3:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "orange", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "orange", position_x, position_y,
+                             LoadingImages.GAME_SCREEN)
         if 3 < self.car_speed <= 20:
-            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "red", position_x, position_y, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text(f"{round(self.car_speed)}", LoadingImages.NORMAL_FONT, "red", position_x, position_y,
+                             LoadingImages.GAME_SCREEN)
 
     def car_current_nitro(self):
-        DrawUI.draw_text(f"{round(self.car_nitro)}", LoadingImages.NORMAL_FONT, "cyan", 200, 740, LoadingImages.GAME_SCREEN)
+        DrawUI.draw_text(f"{round(self.car_nitro)}", LoadingImages.NORMAL_FONT, "cyan", 200, 740,
+                         LoadingImages.GAME_SCREEN)
+
+    def respawn_map(self, x, y, car_angle):
+        self.x = x
+        self.y = y
+        self.car_angle = car_angle
 
     def respawn_first_map(self):
-        self.x = 700
-        self.y = 950
-        self.car_angle = 270
+        self.respawn_map(700, 950, 270)
 
     def respawn_second_map(self):
-        self.x = 700
-        self.y = 900
-        self.car_angle = 270
+        self.respawn_map(700, 900, 270)
 
     def respawn_third_map(self):
-        self.x = 670
-        self.y = 880
-        self.car_angle = 270
+        self.respawn_map(670, 880, 270)
 
     def respawn_fourth_map(self):
-        self.x = 700
-        self.y = 900
-        self.car_angle = 270
+        self.respawn_map(700, 900, 270)
 
     def respawn_fifth_map(self):
-        self.x = 680
-        self.y = 950
-        self.car_angle = 270
+        self.respawn_map(680, 950, 270)
