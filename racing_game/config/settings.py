@@ -13,22 +13,22 @@ class Settings:
     }
 
     FILE_PATHS = {
-        1: {"LAP_TIMES": "../racing_game/storage/files/first_map_lap_times.txt",
-            "MATCH_TIMES": "../racing_game/storage/files/first_map_match_times.txt"},
+        1: {"LAP_TIMES": "racing_game/storage/files/first_map_lap_times.txt",
+            "MATCH_TIMES": "racing_game/storage/files/first_map_match_times.txt"},
 
-        2: {"LAP_TIMES": "../racing_game/storage/files/second_map_lap_times.txt",
-            "MATCH_TIMES": "../racing_game/storage/files/second_map_match_times.txt"},
+        2: {"LAP_TIMES": "racing_game/storage/files/second_map_lap_times.txt",
+            "MATCH_TIMES": "racing_game/storage/files/second_map_match_times.txt"},
 
-        3: {"LAP_TIMES": "../racing_game/storage/files/third_map_lap_times.txt",
-            "MATCH_TIMES": "../racing_game/storage/files/third_map_match_times.txt"},
+        3: {"LAP_TIMES": "racing_game/storage/files/third_map_lap_times.txt",
+            "MATCH_TIMES": "racing_game/storage/files/third_map_match_times.txt"},
 
-        4: {"LAP_TIMES": "../racing_game/storage/files/fourth_map_lap_times.txt",
-            "MATCH_TIMES": "../racing_game/storage/files/fourth_map_match_times.txt"},
+        4: {"LAP_TIMES": "racing_game/storage/files/fourth_map_lap_times.txt",
+            "MATCH_TIMES": "racing_game/storage/files/fourth_map_match_times.txt"},
 
-        5: {"LAP_TIMES": "../racing_game/storage/files/fifth_map_lap_times.txt",
-            "MATCH_TIMES": "../racing_game/storage/files/fifth_map_match_times.txt"},
+        5: {"LAP_TIMES": "racing_game/storage/files/fifth_map_lap_times.txt",
+            "MATCH_TIMES": "racing_game/storage/files/fifth_map_match_times.txt"},
 
-        6: {"WINS": "../racing_game/storage/files/wins.txt"},
+        6: {"WINS": "racing_game/storage/files/wins.txt"},
     }
 
     # check start racing_game
