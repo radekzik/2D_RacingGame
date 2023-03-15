@@ -78,6 +78,20 @@ class PCPlayer(Car):
 
         return difference_x, difference_y
 
+    def route_random(self):
+
+        random_x_y = (random.randint(25, 25), random.randint(25, 25))
+
+        self.new_pc_route = [sum(tup) for tup in zip(self.pc_route[self.next_route_position], random_x_y)]
+        self.pc_route[self.next_route_position] = self.new_pc_route
+
+        # print(self.enemy_car_route[self.next_position])
+
+    def get_route_length(self):
+        length = len(self.pc_route)
+
+        return length
+
     def new_angle_pos(self):
 
         difference_x, difference_y = self.pos_difference()
@@ -89,6 +103,19 @@ class PCPlayer(Car):
             angle = angle + self.PI
 
         self.set_new_angle(angle)
+
+    def start_drive(self):
+        route_exist = False
+
+        if self.next_route_position >= self.get_route_length():
+            route_exist = True
+
+            return route_exist
+
+        self.new_angle_pos()
+        self.car_route()
+        self.movement()
+        self.forward_control()
 
     def set_new_angle(self, angle):
 
@@ -102,6 +129,15 @@ class PCPlayer(Car):
 
         else:
             self.add_angle(new_angle)
+
+    def car_route(self):
+
+        self.route_random()
+
+        new_position = 1
+
+        if self.get_car_rect().collidepoint(self.new_pc_route):
+            self.next_route_position = self.next_route_position + new_position
 
     def add_angle(self, angle):
 
@@ -120,61 +156,6 @@ class PCPlayer(Car):
         # self.car_angle = new_angle
 
         self.car_angle -= min(self.max_movement_speed, abs(angle))
-
-    def car_route(self):
-
-        self.route_random()
-
-        new_position = 1
-
-        if self.get_car_rect().collidepoint(self.new_pc_route):
-            self.next_route_position = self.next_route_position + new_position
-
-    def route_random(self):
-
-        random_x_y = (random.randint(25, 25), random.randint(25, 25))
-
-        self.new_pc_route = [sum(tup) for tup in zip(self.pc_route[self.next_route_position], random_x_y)]
-        self.pc_route[self.next_route_position] = self.new_pc_route
-
-        # print(self.enemy_car_route[self.next_position])
-
-    def get_route_length(self):
-        length = len(self.pc_route)
-
-        return length
-
-    def start_drive(self):
-        route_exist = False
-
-        if self.next_route_position >= self.get_route_length():
-            route_exist = True
-
-            return route_exist
-
-        self.new_angle_pos()
-        self.car_route()
-        self.movement()
-        self.forward_control()
-
-    def increase_speed(self):
-
-        # if difference_x < 20 or difference_y < 20:
-        self.max_speed = 0.5
-        self.car_speed = 0.5
-
-        # else:
-        self.max_speed = 3.3
-        self.car_speed = 3.3
-
-    def border_collision(self):
-        self.car_speed = 0
-        self.max_speed = 0
-
-        self.max_speed -= 10
-        self.car_speed -= 5
-
-        self.movement()
 
     def respawn_map(self, x, y, angle):
         self.x = x

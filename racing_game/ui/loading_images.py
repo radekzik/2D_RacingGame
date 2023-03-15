@@ -178,7 +178,9 @@ class LoadingImages:
         4: {"BUTTON": res(pygame.image.load("images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
 
         5: {"BUTTON": res(pygame.image.load("images/ui/buttons/settings_button.png"), 0.1).convert_alpha()},
-        6: {"BUTTON": res(pygame.image.load("images/ui/buttons/binds_button.png"), 0.15).convert_alpha()}
+        6: {"BUTTON": res(pygame.image.load("images/ui/buttons/binds_button.png"), 0.15).convert_alpha()},
+
+        7: {"BUTTON": res(pygame.image.load("images/ui/buttons/button_win_lose.png"), 1.8).convert_alpha()},
 
     }
 
