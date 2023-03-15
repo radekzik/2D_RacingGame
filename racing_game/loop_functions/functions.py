@@ -233,7 +233,7 @@ class LoopFunctions:
 
             Settings.car_match_time = Settings.car_match_time + car_stopwatch
 
-            DrawUI.draw_text(f"LAP TIME - {car_stopwatch}", LoadingImages.NORMAL_FONT, "white", 800, 450,
+            DrawUI.draw_text(f"LAP TIME - {car_stopwatch}", LoadingImages.NORMAL_FONT, "white", 840, 450,
                              LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(200)
@@ -321,7 +321,7 @@ class LoopFunctions:
 
             Settings.enemy_match_time = Settings.enemy_match_time + enemy_stopwatch
 
-            DrawUI.draw_text(f"LAP TIME - {enemy_stopwatch}", LoadingImages.NORMAL_FONT, "white", 800, 450,
+            DrawUI.draw_text(f"LAP TIME - {enemy_stopwatch}", LoadingImages.NORMAL_FONT, "white", 840, 450,
                              LoadingImages.GAME_SCREEN)
             pygame.display.update()
             pygame.time.wait(200)
