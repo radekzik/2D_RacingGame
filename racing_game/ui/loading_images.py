@@ -24,12 +24,26 @@ def res_height(image, amount):
 
 
 class LoadingImages:
+    # SCREEN -----------------------------------------------------------------------------------------------------------
     WIDTH = 1920
     HEIGHT = 1080
     FLAGS = pygame.FULLSCREEN | pygame.DOUBLEBUF | pygame.HWSURFACE
     GAME_SCREEN = pygame.display.set_mode((WIDTH, HEIGHT), FLAGS, 16, vsync=Settings.vsync)
 
-    # MAPS -----------------------------------------------------------------------------------------------------------------
+    # ICONS ------------------------------------------------------------------------------------------------------------
+    trophy_icon = res(pygame.image.load("images/icons/trophy-icon.png"), 0.15).convert_alpha()
+    lock_icon = res(pygame.image.load("images/icons/lock-icon.png"), 0.2).convert_alpha()
+    correct_icon = res(pygame.image.load("images/icons/correct-icon.png"), 1).convert_alpha()
+    icon_formula = pygame.image.load("images/icons/streaming.png").convert_alpha()
+    pygame.display.set_icon(icon_formula)
+
+    # FONTS ------------------------------------------------------------------------------------------------------------
+    NORMAL_FONT = pygame.font.SysFont("impact", 60)
+    SMALL_FONT = pygame.font.SysFont("impact", 20)
+    BIG_FONT = pygame.font.SysFont("impact", 100)
+    MEDIUM_FONT = pygame.font.SysFont("impact", 35)
+
+    # MAPS -------------------------------------------------------------------------------------------------------------
 
     MAPS = {
         1: {"MAP": res(pygame.image.load("images/maps/first_map.png"), 0.75).convert_alpha(),
@@ -51,8 +65,8 @@ class LoadingImages:
     MAP_SELECTION = {
 
         1: {"MAP": res(pygame.image.load("images/ui/buttons/first_map_button.png"), 0.15).convert_alpha()},
-        2: {"MAP": res(pygame.image.load("images/ui/buttons/second_map_button.png"), 0.15).convert_alpha()},
-        3: {"MAP": res(pygame.image.load("images/ui/buttons/third_map_button.png"), 0.15).convert_alpha()},
+        2: {"MAP": res(pygame.image.load("images/maps/second_map.png"), 0.15).convert_alpha()},
+        3: {"MAP": res(pygame.image.load("images/maps/third_map.png"), 0.15).convert_alpha()},
         4: {"MAP": res(pygame.image.load("images/maps/fourth_map.png"), 0.15).convert_alpha()},
         5: {"MAP": res(pygame.image.load("images/maps/fifth_map.png"), 0.15).convert_alpha()}
 
@@ -61,14 +75,14 @@ class LoadingImages:
     MAP_LOADING = {
 
         1: {"MAP": res(pygame.image.load("images/ui/buttons/first_map_button.png"), 0.3).convert_alpha()},
-        2: {"MAP": res(pygame.image.load("images/ui/buttons/second_map_button.png"), 0.3).convert_alpha()},
-        3: {"MAP": res(pygame.image.load("images/ui/buttons/third_map_button.png"), 0.3).convert_alpha()},
+        2: {"MAP": res(pygame.image.load("images/maps/second_map.png"), 0.3).convert_alpha()},
+        3: {"MAP": res(pygame.image.load("images/maps/third_map.png"), 0.3).convert_alpha()},
         4: {"MAP": res(pygame.image.load("images/maps/fourth_map.png"), 0.3).convert_alpha()},
         5: {"MAP": res(pygame.image.load("images/maps/fifth_map.png"), 0.3).convert_alpha()}
 
     }
 
-    # CARS -----------------------------------------------------------------------------------------------------------------
+    # CARS -------------------------------------------------------------------------------------------------------------
 
     FORMULA = {
         1: {"CAR": res(pygame.image.load("images/cars/formula/formula_blue.png"), 1.1).convert_alpha(),
@@ -128,13 +142,13 @@ class LoadingImages:
 
     }
 
-    # BACKGROUNDS -----------------------------------------------------------------------------------------------------------------
+    # BACKGROUNDS ------------------------------------------------------------------------------------------------------
 
     MENU_BACKGROUND = {
 
-        1: {"BACKGROUND": res(pygame.image.load("images/backgrounds/futuristic_bg.png"), 0.5).convert_alpha()},
+        1: {"BACKGROUND": res(pygame.image.load("images/backgrounds/f_background.png"), 0.5).convert_alpha()},
 
-        2: {"BACKGROUND": res(pygame.image.load("images/backgrounds/futuristic_light_bg.png"), 0.5).convert_alpha()}
+        2: {"BACKGROUND": res(pygame.image.load("images/backgrounds/f_background_light.png"), 0.5).convert_alpha()}
 
     }
 
@@ -157,7 +171,7 @@ class LoadingImages:
 
     }
 
-    # FINISH LINES  -----------------------------------------------------------------------------------------------------------------
+    # FINISH LINES  ----------------------------------------------------------------------------------------------------
 
     FINISH_LINE = {
 
@@ -167,7 +181,7 @@ class LoadingImages:
 
     }
 
-    # BUTTONS ---------------------------------------------------------------------------------------------------------------
+    # BUTTONS ----------------------------------------------------------------------------------------------------------
 
     BUTTONS = {
 
@@ -175,12 +189,12 @@ class LoadingImages:
         2: {"BUTTON": res(pygame.image.load("images/ui/buttons/button_transparent.png"), 1.3).convert_alpha()},
 
         3: {"BUTTON": res(pygame.image.load("images/ui/buttons/button.png"), 1).convert_alpha()},
-        4: {"BUTTON": res(pygame.image.load("images/ui/buttons/button_win_lose.png"), 1.5).convert_alpha()},
+        4: {"BUTTON": res(pygame.image.load("images/ui/buttons/win_lose_banner.png"), 1.5).convert_alpha()},
 
         5: {"BUTTON": res(pygame.image.load("images/ui/buttons/settings_button.png"), 0.1).convert_alpha()},
         6: {"BUTTON": res(pygame.image.load("images/ui/buttons/binds_button.png"), 0.15).convert_alpha()},
 
-        7: {"BUTTON": res(pygame.image.load("images/ui/buttons/button_win_lose.png"), 1.8).convert_alpha()},
+        7: {"BUTTON": res(pygame.image.load("images/ui/buttons/win_lose_banner.png"), 1.8).convert_alpha()},
 
     }
 
@@ -197,6 +211,8 @@ class LoadingImages:
         2: {"BUTTON": res(pygame.image.load("images/ui/buttons/on_off_button.png"), 2).convert_alpha()}
 
     }
+
+    # OTHERS -----------------------------------------------------------------------------------------------------------
 
     TIME_TABLES = {
 
@@ -238,7 +254,7 @@ class LoadingImages:
 
     }
 
-    # CAR SELECTIONS -----------------------------------------------------------------------------------------------------------------
+    # CAR SELECTIONS ---------------------------------------------------------------------------------------------------
 
     CAR_SELECTION = {
 
@@ -305,16 +321,3 @@ class LoadingImages:
                        2).convert_alpha()},
 
     }
-
-    # ICON ----------------------------------------------------------------------------------------------------------------------
-    trophy_icon = res(pygame.image.load("images/icons/trophy-icon.png"), 0.15).convert_alpha()
-    lock_icon = res(pygame.image.load("images/icons/lock-icon.png"), 0.2).convert_alpha()
-    correct_icon = res(pygame.image.load("images/icons/correct-icon.png"), 1).convert_alpha()
-    icon_formula = pygame.image.load("images/icons/streaming.png").convert_alpha()
-    pygame.display.set_icon(icon_formula)
-
-    # FONTS -----------------------------------------------------------------------------------------------------------------
-    NORMAL_FONT = pygame.font.SysFont("impact", 60)
-    SMALL_FONT = pygame.font.SysFont("impact", 20)
-    BIG_FONT = pygame.font.SysFont("impact", 100)
-    MEDIUM_FONT = pygame.font.SysFont("impact", 35)

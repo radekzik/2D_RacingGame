@@ -11,16 +11,6 @@ class PCPlayer(Car):
     car_angle = 270
     car_image = LoadingImages.FORMULA[5]["CAR"]
 
-    car_width = car_image.get_width()
-    car_height = car_image.get_height()
-
-    FULL_DEGREES = 360
-    HALF_DEGREES = 180
-
-    PI = 3.14
-
-    NULL = 0
-
     def __init__(self, pc_route=None):
         super().__init__()
         self.new_pc_route = None
@@ -50,25 +40,6 @@ class PCPlayer(Car):
     @staticmethod
     def get_route(route_number):
         return PCPlayer().map_routes[route_number - 1]
-
-    def movement(self):
-
-        plane_angle = self.car_angle * (self.PI / self.HALF_DEGREES)
-
-        self.x += -self.car_speed * math.sin(plane_angle)
-        self.y += -self.car_speed * math.cos(plane_angle)
-
-    def forward_control(self):
-
-        # while self.car_speed <= self.max_speed:
-        # self.car_speed = self.car_speed + self.car_acceleration
-
-        # else:
-        # self.car_speed = self.max_speed
-
-        self.car_speed = min(self.car_speed + self.car_acceleration, self.max_speed)
-
-        self.movement()
 
     def pos_difference(self):
 
@@ -156,11 +127,6 @@ class PCPlayer(Car):
         # self.car_angle = new_angle
 
         self.car_angle -= min(self.max_movement_speed, abs(angle))
-
-    def respawn_map(self, x, y, angle):
-        self.x = x
-        self.y = y
-        self.car_angle = angle
 
     def respawn_first_map(self):
         self.respawn_map(700, 950, 270)

@@ -8,10 +8,13 @@ from racing_game.ui.loading_images import LoadingImages
 
 
 class Car:
+
     FULL_DEGREES = 360
     HALF_DEGREES = 180
 
     PI = 3.14
+
+    NULL = 0
 
     def __init__(self):
         self.car_image = self.car_image
@@ -25,6 +28,9 @@ class Car:
         self.max_movement_speed = 5
         self.car_angle = self.car_angle
         self.car_nitro = 0
+
+        self.car_width = self.car_image.get_width()
+        self.car_height = self.car_image.get_height()
 
     def rotate_left(self):
         self.car_angle += self.movement_speed
@@ -140,21 +146,6 @@ class Car:
         self.x = x
         self.y = y
         self.car_angle = car_angle
-
-    def respawn_first_map(self):
-        self.respawn_map(600, 950, 270)
-
-    def respawn_second_map(self):
-        self.respawn_map(600, 900, 270)
-
-    def respawn_third_map(self):
-        self.respawn_map(500, 950, 270)
-
-    def respawn_fourth_map(self):
-        self.respawn_map(600, 900, 270)
-
-    def respawn_fifth_map(self):
-        self.respawn_map(580, 950, 270)
 
     def random_enemy_car(self):
         random_number = random.randint(1, 18)

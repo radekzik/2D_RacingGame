@@ -27,7 +27,7 @@ class Collisions:
                         x_range1, x_range2, y_range1, y_range2, ):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
-            DrawUI.check_audio(Sounds.crash_sound.play)
+            DrawUI.check_audio(Sounds.crash.play)
 
         else:
             car.car_image = car.car_image
@@ -36,7 +36,7 @@ class Collisions:
         if car.border_collide(pygame.mask.from_surface(map_border)):
             car.out_of_track()
 
-            DrawUI.check_audio(Sounds.out_off_the_track_sound.play)
+            DrawUI.check_audio(Sounds.out_off_track.play)
 
         if x_range1 < enemy_car.x < x_range2:
             if y_range1 < enemy_car.y < y_range2:
@@ -87,21 +87,21 @@ class Collisions:
     def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
-            DrawUI.check_audio(Sounds.crash_sound.play)
+            DrawUI.check_audio(Sounds.crash.play)
 
         if enemy_rect.colliderect(car_rect):
             enemy_car.car_collide()
-            DrawUI.check_audio(Sounds.crash_sound.play)
+            DrawUI.check_audio(Sounds.crash.play)
 
         if car.border_collide(pygame.mask.from_surface(map_border)):
             car.out_of_track()
             DrawUI.check_audio(Sounds.car_engine.stop)
-            DrawUI.check_audio(Sounds.out_off_the_track_sound.play)
+            DrawUI.check_audio(Sounds.out_off_track.play)
 
         if enemy_car.border_collide(pygame.mask.from_surface(map_border)):
             enemy_car.out_of_track()
             DrawUI.check_audio(Sounds.car_engine.stop)
-            DrawUI.check_audio(Sounds.out_off_the_track_sound.play)
+            DrawUI.check_audio(Sounds.out_off_track.play)
 
 
 # LOOP METHODS----------------------------------------------------------------------------------------------------------
@@ -139,7 +139,7 @@ class LoopFunctions:
                     pygame.quit()
                 if event.type == pygame.KEYDOWN:
                     Settings.started = 1
-                    DrawUI.check_audio(Sounds.starting_sound.play)
+                    DrawUI.check_audio(Sounds.car_starting.play)
                     Settings.car_start_time = pygame.time.get_ticks()
                     Settings.enemy_start_time = pygame.time.get_ticks()
                     DrawUI.check_audio_set_volume(Sounds.car_engine.play, -1)
@@ -163,7 +163,7 @@ class LoopFunctions:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.SEMAPHORE[1]["SEMAPHORE"], (880, 500))
 
         if Settings.countdown == 4:
-            DrawUI.check_audio(Sounds.countdown_sound.play)
+            DrawUI.check_audio(Sounds.countdown.play)
 
         if Settings.countdown == 3:
             DrawUI.draw_text(f"{str(Settings.countdown)} - READY", LoadingImages.NORMAL_FONT, "red", 850, 570,
@@ -181,8 +181,8 @@ class LoopFunctions:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.SEMAPHORE[4]["SEMAPHORE"], (880, 500))
 
         if Settings.countdown == 0:
-            DrawUI.check_audio(Sounds.starting_sound.stop)
-            DrawUI.check_audio(Sounds.countdown_sound.stop)
+            DrawUI.check_audio(Sounds.car_starting.stop)
+            DrawUI.check_audio(Sounds.countdown.stop)
             car.max_speed = 3
 
             car.max_movement_speed = 5
@@ -242,8 +242,8 @@ class LoopFunctions:
             Settings.car_start_time = pygame.time.get_ticks()
 
         else:
-            DrawUI.check_audio(Sounds.countdown_sound.stop)
-            DrawUI.check_audio(Sounds.starting_sound.stop)
+            DrawUI.check_audio(Sounds.countdown.stop)
+            DrawUI.check_audio(Sounds.car_starting.stop)
             DrawUI.check_audio(Sounds.car_engine.stop)
             DrawUI.check_audio(Sounds.lose.play)
             DrawUI.draw_text(f"WRONG WAY!", LoadingImages.NORMAL_FONT, "red", 830, 570, LoadingImages.GAME_SCREEN)
@@ -330,8 +330,8 @@ class LoopFunctions:
             Settings.enemy_start_time = pygame.time.get_ticks()
 
         else:
-            DrawUI.check_audio(Sounds.countdown_sound.stop)
-            DrawUI.check_audio(Sounds.starting_sound.stop)
+            DrawUI.check_audio(Sounds.countdown.stop)
+            DrawUI.check_audio(Sounds.car_starting.stop)
             DrawUI.check_audio(Sounds.car_engine.stop)
             DrawUI.check_audio(Sounds.lose.play)
 

@@ -14,7 +14,7 @@ class Menu:
     QUIT_X = 977
     QUIT_Y = 980
 
-    # MAP SELECTION --------------------------------------------------------------------------------------------------------
+    # MAP SELECTION ----------------------------------------------------------------------------------------------------
     @staticmethod
     def map_selection(first_button, second_button, third_button, fourth_button, fifth_button):
         while 1:
@@ -230,7 +230,7 @@ class Menu:
         pygame.display.update()
         pygame.time.wait(700)
 
-    # CAR SELECTION --------------------------------------------------------------------------------------------------------
+    # CAR SELECTION ----------------------------------------------------------------------------------------------------
     @staticmethod
     def car_formula_selection():
         Menu.car_color_selection("FORMULA", 790, "BLUE", "ORANGE", "YELLOW", "GREEN",
@@ -478,7 +478,7 @@ class Menu:
 
             pygame.display.update()
 
-    # GAME BINDS -----------------------------------------------------------------------------------------------------------
+    # GAME BINDS -------------------------------------------------------------------------------------------------------
     @staticmethod
     def binds():
         while 1:
@@ -508,10 +508,12 @@ class Menu:
 
             DrawUI.draw_text("CAR ABILITIES", LoadingImages.NORMAL_FONT, "purple", 495, 480, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 632, 560, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("E", LoadingImages.MEDIUM_FONT, "white", 600, 560, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("O", LoadingImages.MEDIUM_FONT, "white", 660, 560, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Nitro", LoadingImages.MEDIUM_FONT, "cyan", 1220, 560, LoadingImages.GAME_SCREEN)
 
-            DrawUI.draw_text("Q", LoadingImages.MEDIUM_FONT, "white", 630, 610, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("Q", LoadingImages.MEDIUM_FONT, "white", 600, 610, LoadingImages.GAME_SCREEN)
+            DrawUI.draw_text("U", LoadingImages.MEDIUM_FONT, "white", 660, 610, LoadingImages.GAME_SCREEN)
             DrawUI.draw_text("Faster Movement", LoadingImages.MEDIUM_FONT, "cyan", 1220, 610, LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("IN-GAME", LoadingImages.NORMAL_FONT, "purple", 550, 660, LoadingImages.GAME_SCREEN)
@@ -541,7 +543,7 @@ class Menu:
 
             pygame.display.update()
 
-    # GAME SETTINGS --------------------------------------------------------------------------------------------------------
+    # GAME SETTINGS ----------------------------------------------------------------------------------------------------
     @staticmethod
     def game_settings():
         while 1:
@@ -673,7 +675,7 @@ class Menu:
 
             pygame.display.update()
 
-    # MAIN MENU ------------------------------------------------------------------------------------------------------------
+    # MAIN MENU --------------------------------------------------------------------------------------------------------
     @staticmethod
     def main_menu():
         pygame.display.set_caption("2D Racing Game - Menu")
@@ -752,7 +754,7 @@ class Menu:
 
             pygame.display.update()
 
-    # MAP STATS ------------------------------------------------------------------------------------------------------------
+    # MAP STATS --------------------------------------------------------------------------------------------------------
     @staticmethod
     def first_map_stats():
         Menu.map_stats("FIRST MAP STATS", Settings.FILE_PATHS[1]["LAP_TIMES"], Settings.FILE_PATHS[1]["MATCH_TIMES"],

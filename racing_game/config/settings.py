@@ -31,14 +31,11 @@ class Settings:
         6: {"WINS": "racing_game/storage/files/wins.txt"},
     }
 
-    # check start racing_game
+    # start check
     started = False
 
     # tick
     game_tick = 60
-
-    map_type = 0
-    mode_type = 0
 
     # car types
     car_type = 1
@@ -55,7 +52,7 @@ class Settings:
     enemy_match_time = 0
 
     # laps
-    max_laps = 3
+    max_laps = 3  # default
     car_lap = 0
     enemy_lap = 0
 
@@ -63,17 +60,11 @@ class Settings:
     car_time_list = []
     enemy_time_list = []
 
-    nitro = 0
-
-    # on - 1 / off - 2
+    # audio - on - 1 / off - 2 --- vsync - on - 1 / off - 0
     audio = 1
-    camera_focus = 2
     vsync = 1
 
-    fullscreen_flag = pygame.HWSURFACE | pygame.FULLSCREEN
-    window_flag = pygame.HWSURFACE
-
-    fullscreen = 1
+    # on - 1 / off - 2
     show_fps = 1
     show_ui = 1
     show_xy = 1
