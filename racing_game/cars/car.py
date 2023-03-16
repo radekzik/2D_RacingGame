@@ -126,8 +126,11 @@ class Car:
     def car_collide(self):
         self.car_speed = 0
         self.max_speed = 0
-        self.max_speed = self.max_speed - 0.1
-        self.car_speed = self.car_speed - 0.1
+        self.max_speed = self.max_speed - 0.2
+        self.car_speed = self.car_speed - 0.2
+
+        #self.car_speed -= 5
+        #self.max_speed -= 5
 
         self.movement()
 
