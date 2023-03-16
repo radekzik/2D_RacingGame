@@ -124,7 +124,7 @@ class MapLoop:
                                                enemy_car.get_car_rect(),
                                                map_border, enemy_stopwatch, Settings.car_time_list,
                                                Settings.enemy_time_list, map_restart, map_respawn, enemy_respawn,
-                                               x_range1, x_range2, y_range1, y_range2)
+                                               x_range1, x_range2, y_range1, y_range2, car_stopwatch)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:
@@ -150,7 +150,7 @@ class MapLoop:
                     KeyBinds.enemy_key_binds(enemy_car, player_car.get_car_rect(), enemy_car.get_car_rect(), map_border)
 
                     Collisions.collision_vs_player(player_car, enemy_car, player_car.get_car_rect(),
-                                                   enemy_car.get_car_rect(), map_border)
+                                                   enemy_car.get_car_rect(), map_border, car_stopwatch)
 
                     if x_range1 < player_car.x < x_range2:
                         if y_range1 < player_car.y < y_range2:

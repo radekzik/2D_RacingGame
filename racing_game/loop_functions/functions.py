@@ -1,3 +1,5 @@
+import pygame as pygame
+
 from racing_game.sounds.sounds import Sounds
 from racing_game.storage.data_processing import DataProcessing
 from racing_game.ui.draw_ui import *
@@ -24,9 +26,12 @@ class Collisions:
     @staticmethod
     def collision_vs_pc(car, enemy_car, car_rect, enemy_rect, map_border, enemy_stopwatch,
                         car_time_list, enemy_time_list, restart_map, player_respawn, enemy_respawn,
-                        x_range1, x_range2, y_range1, y_range2, ):
+                        x_range1, x_range2, y_range1, y_range2, stopwatch):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
+
+            enemy_car.collision(stopwatch)
+
             DrawUI.check_audio(Sounds.crash.play)
 
         else:
@@ -84,13 +89,15 @@ class Collisions:
                 restart_map()
 
     @staticmethod
-    def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border):
+    def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, stopwatch):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
+            enemy_car.collision(stopwatch)
             DrawUI.check_audio(Sounds.crash.play)
 
         if enemy_rect.colliderect(car_rect):
             enemy_car.car_collide()
+            enemy_car.collision(stopwatch)
             DrawUI.check_audio(Sounds.crash.play)
 
         if car.border_collide(pygame.mask.from_surface(map_border)):

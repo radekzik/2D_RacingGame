@@ -37,6 +37,16 @@ class PCPlayer(Car):
              (631, 148), (140, 231), (109, 667), (221, 859), (887, 887)]
         ]
 
+    def collision(self, stopwatch):
+        #self.car_speed = 0.1
+
+        self.car_speed = 0
+        self.max_speed = 0
+
+        if stopwatch % 2 == 0 or stopwatch % 3 == 0:
+            self.car_speed = 5
+            self.max_speed = 10
+
     @staticmethod
     def get_route(route_number):
         return PCPlayer().map_routes[route_number - 1]
