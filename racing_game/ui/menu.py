@@ -757,27 +757,27 @@ class Menu:
     # MAP STATS --------------------------------------------------------------------------------------------------------
     @staticmethod
     def first_map_stats():
-        Menu.map_stats("FIRST MAP STATS", Settings.FILE_PATHS[1]["LAP_TIMES"], Settings.FILE_PATHS[1]["MATCH_TIMES"],
+        Menu.map_stats("I. MAP", Settings.FILE_PATHS[1]["LAP_TIMES"], Settings.FILE_PATHS[1]["MATCH_TIMES"],
                        2, 1, 2, Menu.second_map_stats)
 
     @staticmethod
     def second_map_stats():
-        Menu.map_stats("SECOND MAP STATS", Settings.FILE_PATHS[2]["LAP_TIMES"], Settings.FILE_PATHS[2]["MATCH_TIMES"],
+        Menu.map_stats("II. MAP", Settings.FILE_PATHS[2]["LAP_TIMES"], Settings.FILE_PATHS[2]["MATCH_TIMES"],
                        1, 1, Menu.first_map_stats, Menu.third_map_stats)
 
     @staticmethod
     def third_map_stats():
-        Menu.map_stats("THIRD MAP STATS", Settings.FILE_PATHS[3]["LAP_TIMES"], Settings.FILE_PATHS[3]["MATCH_TIMES"],
+        Menu.map_stats("III. MAP", Settings.FILE_PATHS[3]["LAP_TIMES"], Settings.FILE_PATHS[3]["MATCH_TIMES"],
                        1, 1, Menu.second_map_stats, Menu.fourth_map_stats)
 
     @staticmethod
     def fourth_map_stats():
-        Menu.map_stats("FOURTH MAP STATS", Settings.FILE_PATHS[4]["LAP_TIMES"], Settings.FILE_PATHS[4]["MATCH_TIMES"],
+        Menu.map_stats("IV. MAP", Settings.FILE_PATHS[4]["LAP_TIMES"], Settings.FILE_PATHS[4]["MATCH_TIMES"],
                        1, 1, Menu.third_map_stats, Menu.fifth_map_stats)
 
     @staticmethod
     def fifth_map_stats():
-        Menu.map_stats("FIFTH MAP STATS", Settings.FILE_PATHS[5]["LAP_TIMES"], Settings.FILE_PATHS[5]["MATCH_TIMES"],
+        Menu.map_stats("V. MAP", Settings.FILE_PATHS[5]["LAP_TIMES"], Settings.FILE_PATHS[5]["MATCH_TIMES"],
                        1, 2, Menu.fourth_map_stats, 2)
 
     @staticmethod
@@ -813,7 +813,7 @@ class Menu:
             LoadingImages.GAME_SCREEN.blit(LoadingImages.MENU_BACKGROUND[1]["BACKGROUND"], (0, 0))
             mouse_coordinates = pygame.mouse.get_pos()
 
-            DrawUI.draw_text(title, LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 630, Menu.TITLE_Y,
+            DrawUI.draw_text(title, LoadingImages.BIG_FONT, Menu.TITLE_COLOR, 840, Menu.TITLE_Y,
                              LoadingImages.GAME_SCREEN)
 
             DrawUI.draw_text("FASTEST LAP TIMES", LoadingImages.MEDIUM_FONT, "purple", 580, 330,
