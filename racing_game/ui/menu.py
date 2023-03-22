@@ -64,16 +64,12 @@ class Menu:
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
-            first_map_button.button_render(LoadingImages.GAME_SCREEN)
-            second_map_button.button_render(LoadingImages.GAME_SCREEN)
-            third_map_button.button_render(LoadingImages.GAME_SCREEN)
-            fourth_map_button.button_render(LoadingImages.GAME_SCREEN)
-            fifth_map_button.button_render(LoadingImages.GAME_SCREEN)
-            settings_button.button_render(LoadingImages.GAME_SCREEN)
+            buttons = [first_map_button, second_map_button, third_map_button, fourth_map_button,
+                       fifth_map_button, settings_button, back_button]
 
-            back_button.button_render(LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            for button in buttons:
+                button.button_render(LoadingImages.GAME_SCREEN)
+                Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             if not Settings.win_coins >= 5:
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (915, 400))
@@ -172,22 +168,12 @@ class Menu:
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
-            lap_button2.button_render(LoadingImages.GAME_SCREEN)
-            lap_button3.button_render(LoadingImages.GAME_SCREEN)
-            lap_button4.button_render(LoadingImages.GAME_SCREEN)
-            lap_button5.button_render(LoadingImages.GAME_SCREEN)
-            lap_button6.button_render(LoadingImages.GAME_SCREEN)
-            lap_button7.button_render(LoadingImages.GAME_SCREEN)
+            buttons = [lap_button2, lap_button3, lap_button4, lap_button5, lap_button6,
+                       lap_button7, back_button]
 
-            back_button.button_render(LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(lap_button2, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(lap_button3, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(lap_button4, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(lap_button5, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(lap_button6, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(lap_button7, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            for button in buttons:
+                button.button_render(LoadingImages.GAME_SCREEN)
+                Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -314,14 +300,12 @@ class Menu:
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
-            first_button.button_render(LoadingImages.GAME_SCREEN)
-            second_button.button_render(LoadingImages.GAME_SCREEN)
-            third_button.button_render(LoadingImages.GAME_SCREEN)
-            fourth_button.button_render(LoadingImages.GAME_SCREEN)
+            buttons = [first_button, second_button, third_button,
+                       fourth_button, back_button]
 
-            back_button.button_render(LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            for button in buttons:
+                button.button_render(LoadingImages.GAME_SCREEN)
+                Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             if not Settings.win_coins >= 5:
                 LoadingImages.GAME_SCREEN.blit(LoadingImages.lock_icon, (700, 380))
@@ -447,13 +431,12 @@ class Menu:
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
-            formula_button.button_render(LoadingImages.GAME_SCREEN)
-            lambo_button.button_render(LoadingImages.GAME_SCREEN)
-            spoiler_car_button.button_render(LoadingImages.GAME_SCREEN)
-            cabrio_button.button_render(LoadingImages.GAME_SCREEN)
-            back_button.button_render(LoadingImages.GAME_SCREEN)
+            buttons = [formula_button, lambo_button, spoiler_car_button,
+                       cabrio_button, back_button]
 
-            Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            for button in buttons:
+                button.button_render(LoadingImages.GAME_SCREEN)
+                Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -599,39 +582,13 @@ class Menu:
                                  button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                                  font_hover_color="red")
 
-            audio_on_button.button_render(LoadingImages.GAME_SCREEN)
-            audio_off_button.button_render(LoadingImages.GAME_SCREEN)
+            buttons = [audio_on_button, audio_off_button, vsync_on_button, vsync_off_button, show_ui_on_button,
+                       show_ui_off_button, show_fps_on_button, show_fps_off_button, show_xy_on_button,
+                       show_xy_off_button, back_button]
 
-            vsync_on_button.button_render(LoadingImages.GAME_SCREEN)
-            vsync_off_button.button_render(LoadingImages.GAME_SCREEN)
-
-            show_ui_on_button.button_render(LoadingImages.GAME_SCREEN)
-            show_ui_off_button.button_render(LoadingImages.GAME_SCREEN)
-
-            show_fps_on_button.button_render(LoadingImages.GAME_SCREEN)
-            show_fps_off_button.button_render(LoadingImages.GAME_SCREEN)
-
-            show_xy_on_button.button_render(LoadingImages.GAME_SCREEN)
-            show_xy_off_button.button_render(LoadingImages.GAME_SCREEN)
-
-            back_button.button_render(LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(audio_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(audio_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(vsync_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(vsync_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(show_ui_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(show_ui_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(show_fps_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(show_fps_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(show_xy_on_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(show_xy_off_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-            Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            for button in buttons:
+                button.button_render(LoadingImages.GAME_SCREEN)
+                Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -720,19 +677,12 @@ class Menu:
                                  font=LoadingImages.NORMAL_FONT,
                                  font_color="orange", font_hover_color="red")
 
-            play_button.button_render(LoadingImages.GAME_SCREEN)
-            car_selection_button.button_render(LoadingImages.GAME_SCREEN)
-            stats_button.button_render(LoadingImages.GAME_SCREEN)
-            binds_button.button_render(LoadingImages.GAME_SCREEN)
-            settings_button.button_render(LoadingImages.GAME_SCREEN)
-            quit_button.button_render(LoadingImages.GAME_SCREEN)
+            buttons = [play_button, car_selection_button, stats_button,
+                       binds_button, settings_button, quit_button]
 
-            Button.button_hover_render(play_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(car_selection_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(stats_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(binds_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(settings_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
-            Button.button_hover_render(quit_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+            for button in buttons:
+                button.button_render(LoadingImages.GAME_SCREEN)
+                Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -918,17 +868,11 @@ def mode_selection():
                              button_text="BACK", font=LoadingImages.NORMAL_FONT, font_color="orange",
                              font_hover_color="red")
 
-        solo.button_render(LoadingImages.GAME_SCREEN)
+        buttons = [solo, against_pc, one_vs_one, back_button]
 
-        against_pc.button_render(LoadingImages.GAME_SCREEN)
-        one_vs_one.button_render(LoadingImages.GAME_SCREEN)
-        back_button.button_render(LoadingImages.GAME_SCREEN)
-
-        Button.button_hover_render(solo, mouse_coordinates, LoadingImages.GAME_SCREEN)
-
-        Button.button_hover_render(against_pc, mouse_coordinates, LoadingImages.GAME_SCREEN)
-        Button.button_hover_render(one_vs_one, mouse_coordinates, LoadingImages.GAME_SCREEN)
-        Button.button_hover_render(back_button, mouse_coordinates, LoadingImages.GAME_SCREEN)
+        for button in buttons:
+            button.button_render(LoadingImages.GAME_SCREEN)
+            Button.button_hover_render(button, mouse_coordinates, LoadingImages.GAME_SCREEN)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
