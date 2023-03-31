@@ -34,7 +34,7 @@ class Settings:
     started = False
 
     # tick
-    game_tick = 60
+    game_tick = 240
 
     # car types
     car_type = 1
