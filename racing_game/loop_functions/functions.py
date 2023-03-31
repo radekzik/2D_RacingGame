@@ -92,12 +92,12 @@ class Collisions:
     def collision_vs_player(car, enemy_car, car_rect, enemy_rect, map_border, stopwatch):
         if car_rect.colliderect(enemy_rect):
             car.car_collide()
-            enemy_car.collision(stopwatch)
+            enemy_car.car_collide()
             DrawUI.check_audio(Sounds.crash.play)
 
         if enemy_rect.colliderect(car_rect):
             enemy_car.car_collide()
-            enemy_car.collision(stopwatch)
+            enemy_car.car_collide()
             DrawUI.check_audio(Sounds.crash.play)
 
         if car.border_collide(pygame.mask.from_surface(map_border)):

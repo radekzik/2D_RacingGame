@@ -134,6 +134,16 @@ class Car:
 
         self.movement()
 
+    def collision(self, stopwatch):
+        #self.car_speed = 0.1
+
+        self.car_speed = 0
+        self.max_speed = 0
+
+        if stopwatch % 2 == 0 or stopwatch % 3 == 0:
+            self.car_speed = 5
+            self.max_speed = 10
+
     def border_collide(self, map_border):
         car = pygame.mask.from_surface(self.car_image)
         out_of_track_detection = map_border.overlap(car, (self.x, self.y))
